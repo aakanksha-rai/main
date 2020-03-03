@@ -3,30 +3,23 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team W17-4</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a></li>
-<li><a href="#Features">3. Features</a>
+<li><a href="#quick-start">2. Quick Start</a>
 <ul class="sectlevel2">
-<li><a href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></li>
-<li><a href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></li>
-<li><a href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></li>
-<li><a href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></li>
-<li><a href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></li>
-<li><a href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></li>
-<li><a href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></li>
-<li><a href="#saving-the-data">3.9. Saving the data</a></li>
-<li><a href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></li>
+<li><a href="#dashboard">2.1. Dashboard</a></li>
+<li><a href="#student-view">2.2. Student View</a></li>
+<li><a href="#session-view">2.3. Session View</a></li>
+<li><a href="#tss-view">2.4. TSS View</a></li>
+<li><a href="#automatic-backups">2.5. Automatic Backups</a></li>
 </ul>
 </li>
-<li><a href="#faq">4. FAQ</a></li>
-<li><a href="#command-summary">5. Command Summary</a></li>
+<li><a href="#Usage">3. Usage</a></li>
 </ul>
 </div>
 </div>
@@ -34,7 +27,7 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>AddressBook Level 3 (AB3) is for those who <strong>prefer to use a desktop app for managing contacts</strong>. More importantly, AB3 is <strong>optimized for those who prefer to work with a Command Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps. Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started. Enjoy!</p>
+<p>TATracker (TAT) is a productivity tool made for NUS Computing Teaching Assistants (TAs) who want to be able to track and manage all of their claimable hours in NUS. Interested? Jump to Section 2 “Quick Start” to get started!</p>
 </div>
 </div>
 </div>
@@ -47,10 +40,10 @@
 <p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
-<p>Download the latest <code>addressbook.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
+<p>Download the latest <code>tatracker.jar</code> <a href="https://github.com/se-edu/addressbook-level3/releases">here</a>.</p>
 </li>
 <li>
-<p>Copy the file to the folder you want to use as the home folder for your Address Book.</p>
+<p>Copy the file to the folder you want to use as the home folder for your TA tracker.</p>
 </li>
 <li>
 <p>Double-click the file to start the app. The GUI should appear in a few seconds.</p>
@@ -65,33 +58,57 @@
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Some example commands you can try:</p>
-<div class="ulist">
-<ul>
-<li>
-<p><strong><code>list</code></strong> : lists all contacts</p>
-</li>
-<li>
-<p><strong><code>add</code></strong><code>n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code> : adds a contact named <code>John Doe</code> to the Address Book.</p>
-</li>
-<li>
-<p><strong><code>delete</code></strong><code>3</code> : deletes the 3rd contact shown in the current list</p>
-</li>
-<li>
-<p><strong><code>exit</code></strong> : exits the app</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Refer to <a href="#Features">Section 3, &#8220;Features&#8221;</a> for details of each command.</p>
+<p>Refer to <a href="#Features">[Features]</a> for details of each command.</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p>A brief overview of the layout of the TATracker.</p>
+</div>
+<div id="Features" class="paragraph">
+<p>==Features</p>
+</div>
+<div class="sect2">
+<h3 id="dashboard"><a class="link" href="#dashboard">2.1. Dashboard</a></h3>
+<div class="paragraph">
+<p>Home page.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="student-view"><a class="link" href="#student-view">2.2. Student View</a></h3>
+<div class="paragraph">
+<p>This view will show you the list of all your students. It will show you information such
+as student name, matriculation number, attendance, ratings you give the student
+(such as for participation), any notes you have on the student and contact details
+(email and telegram id).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="session-view"><a class="link" href="#session-view">2.3. Session View</a></h3>
+<div class="paragraph">
+<p>This view will contain the upcoming tasks and statistics.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tss-view"><a class="link" href="#tss-view">2.4. TSS View</a></h3>
+<div class="paragraph">
+<p>This will show you all your claimable hours up till now in the same format as that
+used in the TSS claim files.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="automatic-backups"><a class="link" href="#automatic-backups">2.5. Automatic Backups</a></h3>
+<div class="paragraph">
+<p>TATracker data is automatically saved in the hard disk as backup files after any
+command that changes the data. These automatic backups will preserve all data
+and settings within the program at the time of use. These backups will also be
+automatically loaded into the program when it is opened.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Features"><a class="link" href="#Features">3. Features</a></h2>
+<h2 id="Usage"><a class="link" href="#Usage">3. Usage</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -114,77 +131,116 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 </ul>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="viewing-help-code-help-code"><a class="link" href="#viewing-help-code-help-code">3.1. Viewing help : <code>help</code></a></h3>
 <div class="paragraph">
-<p>Format: <code>help</code></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-person-code-add-code"><a class="link" href="#adding-a-person-code-add-code">3.2. Adding a person: <code>add</code></a></h3>
-<div class="paragraph">
-<p>Adds a person to the address book<br>
-Format: <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code></p>
-</div>
-<div class="admonitionblock tip">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-tip" title="Tip"></i>
-</td>
-<td class="content">
-A person can have any number of tags (including 0)
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
+<p><strong>Common Parameters</strong></p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01</code></p>
+<p>PAGE_NAME - one of the following pages:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>home - Dashboard: the default view you first see when you open the GUI</p>
 </li>
 <li>
-<p><code>add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal</code></p>
+<p>session - Sessions: list of sessions according to date</p>
+</li>
+<li>
+<p>students - Students: list of students you are teaching</p>
+</li>
+<li>
+<p>tss - TSS Form: list of claimable sessions (only sessions that have been marked as done</p>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<p>CATEGORY_UID - a category unique id</p>
+</li>
+<li>
+<p>MATRIC_NUMBER - the matriculation number of a student</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Must start with an ‘A’</p>
+</li>
+<li>
+<p>Must end with an letter</p>
+</li>
+<li>
+<p>Must have x numbers in between the start and end letter</p>
+</li>
+</ul>
 </div>
-<div class="sect2">
-<h3 id="listing-all-persons-code-list-code"><a class="link" href="#listing-all-persons-code-list-code">3.3. Listing all persons : <code>list</code></a></h3>
+</li>
+<li>
+<p>MOD_CODE - replace with the unique code for the module</p>
+</li>
+<li>
+<p>CLASS_CODE - replace with the unique code for the tutorial/class</p>
+</li>
+<li>
+<p>SESSION_UID - the unique numeric identifier of a session</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Must be a positive integer (eg. 1, 2, 3, &#8230;&#8203;)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>SESSION_TYPE - replace with one of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>consult - Consultations</p>
+</li>
+<li>
+<p>tutorial - Tutorials</p>
+</li>
+<li>
+<p>grading - Grading and assessments</p>
+</li>
+<li>
+<p>prep - Class preparation</p>
+</li>
+<li>
+<p>todo - other tasks and notes</p>
+</li>
+<li>
+<p>lab - Lab</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>START, END - a time parameter, in the following format: HH:mm</p>
+</li>
+<li>
+<p>DATE - a date parameter, in the following format: dd-MM-yyyy</p>
+</li>
+</ul>
+</div>
 <div class="paragraph">
-<p>Shows a list of all persons in the address book.<br>
-Format: <code>list</code></p>
+<p>=== Student Management</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-person-code-edit-code"><a class="link" href="#editing-a-person-code-edit-code">3.4. Editing a person : <code>edit</code></a></h3>
 <div class="paragraph">
-<p>Edits an existing person in the address book.<br>
-Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;&#8203;</code></p>
+<p>==== Enrolling a student in a class : <code>enroll</code></p>
+</div>
+<div class="paragraph">
+<p>Enrolls a student in a class in the program.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: `enroll MATRIC_NUMBER CLASS_CODE MOD_CODE'</p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Edits the person at the specified <code>INDEX</code>. The index refers to the index number shown in the displayed person list. The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
-</li>
-<li>
-<p>At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p>Existing values will be updated to the input values.</p>
-</li>
-<li>
-<p>When editing tags, the existing tags of the person will be removed i.e adding of tags is not cumulative.</p>
-</li>
-<li>
-<p>You can remove all the person&#8217;s tags by typing <code>t/</code> without specifying any tags after it.</p>
+<p>Enrolls the person with the given matriculation number in the class given by the class code of the module given by the module code.</p>
 </li>
 </ul>
 </div>
@@ -196,44 +252,26 @@ Format: <code>edit INDEX [n/NAME] [p/PHONE] [e/EMAIL] [a/ADDRESS] [t/TAG]&#8230;
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 p/91234567 e/johndoe@example.com</code><br>
-Edits the phone number and email address of the 1st person to be <code>91234567</code> and <code>johndoe@example.com</code> respectively.</p>
-</li>
-<li>
-<p><code>edit 2 n/Betsy Crower t/</code><br>
-Edits the name of the 2nd person to be <code>Betsy Crower</code> and clears all existing tags.</p>
+<p><code>enroll A01234567J G06 CS2101</code><br>
+Enrolls the student with the matriculation number A01234567J in tutorial G06 of module CS2101.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="locating-persons-by-name-code-find-code"><a class="link" href="#locating-persons-by-name-code-find-code">3.5. Locating persons by name: <code>find</code></a></h3>
 <div class="paragraph">
-<p>Finds persons whose names contain any of the given keywords.<br>
-Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
+<p>==== Removing a student from a class : <code>kick</code></p>
+</div>
+<div class="paragraph">
+<p>Removes a student from a class in the program.<br>
+Format: <code>kick MATRIC_NUMBER CLASS_CODE MOD_CODE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>The search is case insensitive. e.g <code>hans</code> will match <code>Hans</code></p>
-</li>
-<li>
-<p>The order of the keywords does not matter. e.g. <code>Hans Bo</code> will match <code>Bo Hans</code></p>
-</li>
-<li>
-<p>Only the name is searched.</p>
-</li>
-<li>
-<p>Only full words will be matched e.g. <code>Han</code> will not match <code>Hans</code></p>
-</li>
-<li>
-<p>Persons matching at least one keyword will be returned (i.e. <code>OR</code> search). e.g. <code>Hans Bo</code> will return <code>Hans Gruber</code>, <code>Bo Yang</code></p>
+<p>Removes the person with the given matriculation number from the class given by the class code of the module given by the module code.</p>
 </li>
 </ul>
-</div>
-</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -241,38 +279,100 @@ Format: <code>find KEYWORD [MORE_KEYWORDS]</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>find John</code><br>
-Returns <code>john</code> and <code>John Doe</code></p>
-</li>
-<li>
-<p><code>find Betsy Tim John</code><br>
-Returns any person having names <code>Betsy</code>, <code>Tim</code>, or <code>John</code></p>
+<p><code>kick A01234567J G06 CS2101</code><br>
+Removes the student with the matriculation number A01234567J from tutorial G06 of module CS2101.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-person-code-delete-code"><a class="link" href="#deleting-a-person-code-delete-code">3.6. Deleting a person : <code>delete</code></a></h3>
 <div class="paragraph">
-<p>Deletes the specified person from the address book.<br>
-Format: <code>delete INDEX</code></p>
+<p>=== Session Management</p>
+</div>
+<div class="paragraph">
+<p>==== Labelling a session as completed : <code>done</code></p>
+</div>
+<div class="paragraph">
+<p>Labels a session as done. If the session is claimable, it will appear as
+a new claim in the TSS view.+
+Format: `done SESSION_UID'</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Marks the session with the given unique session identifier as done.</p>
+</li>
+</ul>
 </div>
 <div class="sidebarblock">
 <div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>Deletes the person at the specified <code>INDEX</code>.</p>
-</li>
-<li>
-<p>The index refers to the index number shown in the displayed person list.</p>
-</li>
-<li>
-<p>The index <strong>must be a positive integer</strong> 1, 2, 3, &#8230;&#8203;</p>
+<p><code>done 25</code><br>
+Marks the session with the unique session id of 25 as done.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>==== Labeling a session as a makeup : <code>makeup</code></p>
 </div>
+<div class="paragraph">
+<p>Labels a session as a makeup session. If the session is claimable, it will appear
+ as a new claim in the TSS view.+
+Format: <code>makeup SESSION_UID</code></p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Marks the session with the given unique session identifier as a makeup.</p>
+</li>
+</ul>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>makeup 25</code><br>
+Marks the session with the unique session id of 25 as a makeup.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>=== Settings</p>
+</div>
+<div class="paragraph">
+<p>==== Adjusting the settings : <code>set</code></p>
+</div>
+<div class="paragraph">
+<p>Adjusts the chosen settings.<br>
+Format: <code>set SETTING</code></p>
+</div>
+<div class="paragraph">
+<p>Here are the things that you can set:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>rate: * Adjusts the hourly rate.<br>
+Sets the hourly rate for the total income and claim computation.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Format: <code>set rate AMOUNT</code>
+* AMOUNT is the amount you want to change the hourly rate to.
+* To specify in exact dollars, you can write it as just the number (example: 20).
+* To specify in exact dollars and cents, write it as a decimal up to 2 decimal places (example: 20.05).</p>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -280,59 +380,39 @@ Format: <code>delete INDEX</code></p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>list</code><br>
-<code>delete 2</code><br>
-Deletes the 2nd person in the address book.</p>
-</li>
-<li>
-<p><code>find Betsy</code><br>
-<code>delete 1</code><br>
-Deletes the 1st person in the results of the <code>find</code> command.</p>
+<p><code>set rate 25</code><br>
+Sets the current hourly rate to 25$.</p>
 </li>
 </ul>
 </div>
-</div>
-<div class="sect2">
-<h3 id="clearing-all-entries-code-clear-code"><a class="link" href="#clearing-all-entries-code-clear-code">3.7. Clearing all entries : <code>clear</code></a></h3>
 <div class="paragraph">
-<p>Clears all entries from the address book.<br>
-Format: <code>clear</code></p>
+<p><strong>default:</strong> Adjusts the default layout<br>
+Change the default view shown when the GUI is first opened.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program-code-exit-code"><a class="link" href="#exiting-the-program-code-exit-code">3.8. Exiting the program : <code>exit</code></a></h3>
 <div class="paragraph">
-<p>Exits the program.<br>
-Format: <code>exit</code></p>
+<p>Format: <code>set default PAGE_NAME</code></p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="saving-the-data"><a class="link" href="#saving-the-data">3.9. Saving the data</a></h3>
 <div class="paragraph">
-<p>Address book data are saved in the hard disk automatically after any command that changes the data.<br>
-There is no need to save manually.</p>
+<p>Examples:</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>set default sessions</code><br>
+Sets the default view to be the list of sessions every time you open the GUI.</p>
+</li>
+</ul>
 </div>
-<div class="sect2">
-<h3 id="encrypting-data-files-code-coming-in-v2-0-code"><a class="link" href="#encrypting-data-files-code-coming-in-v2-0-code">3.10. Encrypting data files <code>[coming in v2.0]</code></a></h3>
 <div class="paragraph">
-<p><em>{explain how the user can enable/disable data encryption}</em></p>
+<p>== FAQ</p>
 </div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="faq"><a class="link" href="#faq">4. FAQ</a></h2>
-<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
+<div class="paragraph">
+<p>== Command Summary</p>
 </div>
-</div>
-<div class="sect1">
-<h2 id="command-summary"><a class="link" href="#command-summary">5. Command Summary</a></h2>
-<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
@@ -363,4 +443,8 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-02 14:53:47 UTC</div></div></div></body></html>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-03 14:50:17 UTC</div></div></div></body></html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - Developer Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
 <p>By: <code>Team SE-EDU</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
@@ -33,7 +33,18 @@
 <li><a href="#dev-ops">6. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
-<li><a href="#use-cases">Appendix C: Use Cases</a></li>
+<li><a href="#use-cases">Appendix C: Use Cases</a>
+<ul class="sectlevel2">
+<li><a href="#use-case-add-session">Use case: Add session</a></li>
+<li><a href="#use-case-edit-session">Use case: Edit session</a></li>
+<li><a href="#use-case-delete-session">Use case: Delete session</a></li>
+<li><a href="#use-case-mark-a-session-as-done">Use case: Mark a session as done</a></li>
+<li><a href="#use-case-enroll-student-into-class">Use case: Enroll student into class</a></li>
+<li><a href="#use-case-kick-student-from-class">Use case: Kick student from class</a></li>
+<li><a href="#use-case-filter-information-for-a-specific-module">Use case: Filter information for a specific module</a></li>
+<li><a href="#use-case-find-sessions-matching-a-keyword">Use case: Find sessions matching a keyword</a></li>
+</ul>
+</li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#product-survey">Appendix F: Product Survey</a></li>
@@ -139,7 +150,7 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines it&#8217;s API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -956,7 +967,7 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <h2 id="use-cases"><a class="link" href="#use-cases">Appendix C: Use Cases</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(For all use cases below, the <strong>System</strong> is the <code>AddressBook</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
+<p>(For all use cases below, the <strong>System</strong> is the <code>TA-Tracker</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
 <h3 id="use-case-viewing-a-page" class="discrete">Use case: Viewing a page</h3>
 <div class="paragraph">
@@ -965,10 +976,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view a different page</p>
+<p>User requests to view a different page.</p>
 </li>
 <li>
-<p>AddressBook layout changes to show the new page</p>
+<p>TA-Tracker layout changes to show the new page.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -981,11 +992,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>1.  The requested page is invalid.</p>
+<p>1a.  The requested page is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>a.  AddressBook shows an error message.</p>
+<p>1a1.  TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1002,10 +1013,10 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the help menu</p>
+<p>User requests to view the help menu.</p>
 </li>
 <li>
-<p>AddressBook shows the list of commands</p>
+<p>TA-Tracker shows the list of commands.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1019,13 +1030,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to change the default view to a specified page</p>
+<p>User requests to change the default view to a specified page.</p>
 </li>
 <li>
-<p>AddressBook changes the default view</p>
+<p>TA-Tracker changes the default view.</p>
 </li>
 <li>
-<p>AddressBook shows the default view</p>
+<p>TA-Tracker shows the default view.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1038,11 +1049,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>1. The given index is invalid.</p>
+<p>1a. The given page is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. AddressBook shows an error message.</p>
+<p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1059,13 +1070,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to change the hourly pay rate to a specified amount</p>
+<p>User requests to change the hourly pay rate to a specified amount.</p>
 </li>
 <li>
-<p>AddressBook changes the pay rate</p>
+<p>TA-Tracker changes the pay rate.</p>
 </li>
 <li>
-<p>AddressBook shows an edited TSS claims page the total pay adjusted to reflect the new pay rate</p>
+<p>TA-Tracker shows an edited TSS claims page the total pay adjusted to reflect the new pay rate.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1078,11 +1089,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1. The given rate is invalid.</p>
+<p>1a. The given rate is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1 AddressBook shows an error message.</p>
+<p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1099,13 +1110,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a student</p>
+<p>User requests to add a student.</p>
 </li>
 <li>
-<p>AddressBook adds new student</p>
+<p>TA-Tracker adds new student.</p>
 </li>
 <li>
-<p>AddressBook layout changes to show the student list page</p>
+<p>TA-Tracker layout changes to show the student list page.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1118,11 +1129,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>1. The input required (eg. Matric Number) to add a student is invalid.</p>
+<p>1a. The input required (eg. Matric Number) to add a student is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. AddressBook shows an error message.</p>
+<p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1139,13 +1150,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a new module</p>
+<p>User requests to add a new module.</p>
 </li>
 <li>
-<p>AddressBook adds a new module</p>
+<p>TA-Tracker adds a new module.</p>
 </li>
 <li>
-<p>AddressBook layout changes to show the session list page</p>
+<p>TA-Tracker layout changes to show the session list page.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1158,11 +1169,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist">
 <ul>
 <li>
-<p>1. The given module code is invalid.</p>
+<p>1a. The given module code is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. AddressBook shows an error message.</p>
+<p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1179,13 +1190,13 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a new tutorial</p>
+<p>User requests to add a new tutorial.</p>
 </li>
 <li>
-<p>AddressBook shows adds a new tutorial linked to the specified module</p>
+<p>TA-Tracker shows adds a new tutorial linked to the specified module.</p>
 </li>
 <li>
-<p>AddressBook layout changes to show the session list page</p>
+<p>TA-Tracker layout changes to show the session list page.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1198,11 +1209,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1. The given module code is invalid.</p>
+<p>1a. The given module code is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. AddressBook shows an error message.</p>
+<p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1215,11 +1226,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2. The given class code is invalid.</p>
+<p>1a. The given class code is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows an error message.</p>
+<p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -1236,16 +1247,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to list students</p>
+<p>User requests to list students.</p>
 </li>
 <li>
-<p>AddressBook shows a list of students</p>
+<p>TA-Tracker shows a list of students.</p>
 </li>
 <li>
-<p>User requests to edit a specific student in the list</p>
+<p>User requests to edit a specific student in the list.</p>
 </li>
 <li>
-<p>AddressBook edits the student according to the specified parameters</p>
+<p>TA-Tracker edits the student according to the specified parameters.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1258,17 +1269,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1. The list is empty.</p>
+<p>2a. The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>2. The given matric number is invalid.</p>
+<p>3a. The given matric number is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -1277,11 +1288,11 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </div>
 </li>
 <li>
-<p>3. The given new input for the parameter(s) are invalid.</p>
+<p>3a. The given new input for the parameter(s) are invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a. AddressBook shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -1298,16 +1309,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to show students page</p>
+<p>User requests to show students page.</p>
 </li>
 <li>
-<p>AddressBook shows a list of students categorised by tutorial</p>
+<p>TA-Tracker shows a list of students categorised by tutorial.</p>
 </li>
 <li>
-<p>User requests to delete a specific student in the list</p>
+<p>User requests to delete a specific student in the list.</p>
 </li>
 <li>
-<p>AddressBook deletes the student</p>
+<p>TA-Tracker deletes the student.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1320,17 +1331,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1. The list is empty.</p>
+<p>2a. The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>2. The given matric number is invalid.</p>
+<p>3a. The given matric number is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -1347,16 +1358,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to show sessions page</p>
+<p>User requests to show sessions page.</p>
 </li>
 <li>
-<p>AddressBook shows a list of sessions categorised by modules</p>
+<p>TA-Tracker shows a list of sessions categorised by modules.</p>
 </li>
 <li>
-<p>User requests to delete a specific module in the list</p>
+<p>User requests to delete a specific module in the list.</p>
 </li>
 <li>
-<p>AddressBook deletes the module and all of the sessions and tutorials in it</p>
+<p>TA-Tracker deletes the module and all of the sessions and tutorials in it.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1369,17 +1380,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1. The list is empty.</p>
+<p>2a. The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>2. The given module code is invalid.</p>
+<p>3a. The given module code is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -1396,16 +1407,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to show students page</p>
+<p>User requests to show students page.</p>
 </li>
 <li>
-<p>AddressBook shows a list of students categorised by tutorial</p>
+<p>TA-Tracker shows a list of students categorised by tutorial.</p>
 </li>
 <li>
-<p>User requests to delete a specific tutorial in the list</p>
+<p>User requests to delete a specific tutorial in the list.</p>
 </li>
 <li>
-<p>AddressBook deletes the tutorial and all of the students in it</p>
+<p>TA-Tracker deletes the tutorial and all of the students in it.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -1418,17 +1429,17 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1. The list is empty.</p>
+<p>2a. The list is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 <li>
-<p>2. The given class code is invalid.</p>
+<p>3a. The given class code is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. AddressBook shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -1438,6 +1449,485 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 </li>
 </ul>
 </div>
+<div class="sect2">
+<h3 id="use-case-add-session"><a class="link" href="#use-case-add-session">Use case: Add session</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to add a session.</p>
+</li>
+<li>
+<p>TA-Tracker creates the new session.</p>
+</li>
+<li>
+<p>TA-Tracker adds the new session into the corresponding session group.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Schedule View in order to display the new session.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>1a. The user requests to add a recurring session.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>1a1. TA-Tracker creates a new session, and labels it as recurring.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a. The module does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2b. The session group does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-edit-session"><a class="link" href="#use-case-edit-session">Use case: Edit session</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the Schedule View.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Schedule View.</p>
+</li>
+<li>
+<p>User requests to edit a specific session in the view.</p>
+</li>
+<li>
+<p>TA-Tracker edits the session.</p>
+</li>
+<li>
+<p>TA-Tracker replaces the session in the current view with the new version.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The Schedule View is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given session UID is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-delete-session"><a class="link" href="#use-case-delete-session">Use case: Delete session</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the Schedule View.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Schedule View.</p>
+</li>
+<li>
+<p>User requests to delete a specific session in the view.</p>
+</li>
+<li>
+<p>TA-Tracker deletes the session.</p>
+</li>
+<li>
+<p>TA-Tracker removes the session from the current view.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The Schedule View is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given session UID is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-mark-a-session-as-done"><a class="link" href="#use-case-mark-a-session-as-done">Use case: Mark a session as done</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the Schedule View.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Schedule View.</p>
+</li>
+<li>
+<p>User requests to mark a specific session in the view as done.</p>
+</li>
+<li>
+<p>TA-Tracker marks the session as done.</p>
+</li>
+<li>
+<p>TA-Tracker shows a tick next to the session in the current view.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The Schedule View is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given session UID is invalid.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-enroll-student-into-class"><a class="link" href="#use-case-enroll-student-into-class">Use case: Enroll student into class</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to enroll a student in a session group.</p>
+</li>
+<li>
+<p>TA-Tracker registers the student in the session group.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Student View.</p>
+</li>
+<li>
+<p>TA-Tracker shows the student in the student list for the session group.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a. The student does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2b. The module does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2c. The session group does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-kick-student-from-class"><a class="link" href="#use-case-kick-student-from-class">Use case: Kick student from class</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to withdraw a student from a session group.</p>
+</li>
+<li>
+<p>TA-Tracker removes the student from the session group.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Student View.</p>
+</li>
+<li>
+<p>TA-Tracker shows that the student is removed from the student list for the session group.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a. The student does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2b. The module does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2c. The session group does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-filter-information-for-a-specific-module"><a class="link" href="#use-case-filter-information-for-a-specific-module">Use case: Filter information for a specific module</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to filter information for a specific module.</p>
+</li>
+<li>
+<p>TA-Tracker hides unrelated information from the current view.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>1a. The module does not exist.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>1a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-find-sessions-matching-a-keyword"><a class="link" href="#use-case-find-sessions-matching-a-keyword">Use case: Find sessions matching a keyword</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to find sessions related to a specific keyword.</p>
+</li>
+<li>
+<p>TA-Tracker retrieves a list of sessions containing the keyword in any of their fields.</p>
+</li>
+<li>
+<p>TA-Tracker shows the list of sessions.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a. The search did find any matches.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a1. TA-Tracker shows an empty list.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
 <h3 id="use-case-exit-the-app" class="discrete">Use case: Exit the app</h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -1445,15 +1935,16 @@ If the <code>currentStatePointer</code> is at index <code>addressBookStateList.s
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to exit the app</p>
+<p>User requests to exit the app.</p>
 </li>
 <li>
-<p>App window closes</p>
+<p>App window closes.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ol>
+</div>
 </div>
 </div>
 </div>
@@ -1751,4 +2242,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-06 07:56:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-09 12:59:13 UTC</div></div></div></body></html>

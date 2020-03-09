@@ -1,38 +1,77 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>AddressBook Level 3 - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>TA-Tracker - User Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">AddressBook-Level3</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/se-edu/addressbook-level3"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>AddressBook Level 3 - User Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>TA-Tracker - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team W17-4</code>      Since: <code>Jun 2016</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team W17-4</code>      Since: <code>Jan 2010</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
 <li><a href="#introduction">1. Introduction</a></li>
-<li><a href="#quick-start">2. Quick Start</a>
+<li><a href="#quick-start">2. Quick Start</a></li>
+<li><a href="#Layout">3. Layout</a>
 <ul class="sectlevel2">
-<li><a href="#dashboard">2.1. Dashboard</a></li>
-<li><a href="#student-view">2.2. Student View</a></li>
-<li><a href="#session-view">2.3. Session View</a></li>
-<li><a href="#tss-view">2.4. TSS View</a></li>
-<li><a href="#automatic-backups">2.5. Automatic Backups</a></li>
+<li><a href="#dashboard">3.1. Dashboard</a></li>
+<li><a href="#student-view">3.2. Student View</a></li>
+<li><a href="#session-view">3.3. Session View</a></li>
+<li><a href="#tss-view">3.4. TSS View</a></li>
+<li><a href="#automatic-backups">3.5. Automatic Backups</a></li>
 </ul>
 </li>
-<li><a href="#Usage">3. Usage</a></li>
+<li><a href="#Usage">4. Usage</a>
+<ul class="sectlevel2">
+<li><a href="#navigation">4.1. Navigation</a>
+<ul class="sectlevel3">
+<li><a href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.1.2. Exiting the program : <code>exit</code></a></li>
+</ul>
+</li>
+<li><a href="#data-management">4.2. Data Management</a>
+<ul class="sectlevel3">
+<li><a href="#adding-data-code-add-code">4.2.1. Adding data: <code>add</code></a></li>
+<li><a href="#deleting-data-code-delete-code">4.2.2. Deleting data: <code>delete</code></a></li>
+<li><a href="#editing-existing-data-code-edit-code">4.2.3. Editing existing data: <code>edit</code></a></li>
+<li><a href="#editing-an-existing-session-code-edit-c-session-code">4.2.4. Editing an existing session: <code>edit c/session</code></a></li>
+</ul>
+</li>
+<li><a href="#student-management">4.3. Student Management</a>
+<ul class="sectlevel3">
+<li><a href="#enrolling-a-student-in-a-class-code-enroll-code">4.3.1. Enrolling a student in a class : <code>enroll</code></a></li>
+<li><a href="#removing-a-student-from-a-class-code-kick-code">4.3.2. Removing a student from a class : <code>kick</code></a></li>
+</ul>
+</li>
+<li><a href="#session-management">4.4. Session Management</a>
+<ul class="sectlevel3">
+<li><a href="#labelling-a-session-as-completed-code-done-code">4.4.1. Labelling a session as completed : <code>done</code></a></li>
+<li><a href="#labelling-a-session-as-a-makeup-code-makeup-code">4.4.2. Labelling a session as a makeup : <code>makeup</code></a></li>
+</ul>
+</li>
+<li><a href="#settings">4.5. Settings</a>
+<ul class="sectlevel3">
+<li><a href="#adjusting-the-settings-code-set-code">4.5.1. Adjusting the settings : <code>set</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#faq">5. FAQ</a></li>
+<li><a href="#command-summary">6. Command Summary</a></li>
 </ul>
 </div>
 </div>
 <div class="sect1">
-<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
+<h2 id="introduction"><a class="anchor" href="#introduction"></a><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TATracker (TAT) is a productivity tool made for NUS Computing Teaching Assistants (TAs) who want to be able to track and manage all of their claimable hours in NUS. Interested? Jump to Section 2 “Quick Start” to get started!</p>
+<p>TA-Tracker is a productivity tool made for NUS Computing Teaching Assistants (TAs)
+who want to be able to track and manage all of their claimable hours in NUS.
+Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="quick-start"><a class="link" href="#quick-start">2. Quick Start</a></h2>
+<h2 id="quick-start"><a class="anchor" href="#quick-start"></a><a class="link" href="#quick-start">2. Quick Start</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -58,57 +97,52 @@
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
-<p>Refer to <a href="#Features">[Features]</a> for details of each command.</p>
+<p>Refer to <a href="#Usage">Section 4, &#8220;Usage&#8221;</a> for details of each command.</p>
 </li>
 </ol>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Layout"><a class="anchor" href="#Layout"></a><a class="link" href="#Layout">3. Layout</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p>A brief overview of the layout of the TATracker.</p>
 </div>
-<div id="Features" class="paragraph">
-<p>==Features</p>
-</div>
 <div class="sect2">
-<h3 id="dashboard"><a class="link" href="#dashboard">2.1. Dashboard</a></h3>
+<h3 id="dashboard"><a class="anchor" href="#dashboard"></a><a class="link" href="#dashboard">3.1. Dashboard</a></h3>
 <div class="paragraph">
 <p>Home page.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="student-view"><a class="link" href="#student-view">2.2. Student View</a></h3>
+<h3 id="student-view"><a class="anchor" href="#student-view"></a><a class="link" href="#student-view">3.2. Student View</a></h3>
 <div class="paragraph">
-<p>This view will show you the list of all your students. It will show you information such
-as student name, matriculation number, attendance, ratings you give the student
-(such as for participation), any notes you have on the student and contact details
-(email and telegram id).</p>
+<p>This view will show you the list of all your students. It will show you information such as student name, matriculation number, attendance, ratings you give the student(such as for participation), any notes you have on the student and contact details (email and telegram id).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="session-view"><a class="link" href="#session-view">2.3. Session View</a></h3>
+<h3 id="session-view"><a class="anchor" href="#session-view"></a><a class="link" href="#session-view">3.3. Session View</a></h3>
 <div class="paragraph">
 <p>This view will contain the upcoming tasks and statistics.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tss-view"><a class="link" href="#tss-view">2.4. TSS View</a></h3>
+<h3 id="tss-view"><a class="anchor" href="#tss-view"></a><a class="link" href="#tss-view">3.4. TSS View</a></h3>
 <div class="paragraph">
-<p>This will show you all your claimable hours up till now in the same format as that
-used in the TSS claim files.</p>
+<p>This will show you all your claimable hours up till now in the same format as that used in the TSS claim files.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="automatic-backups"><a class="link" href="#automatic-backups">2.5. Automatic Backups</a></h3>
+<h3 id="automatic-backups"><a class="anchor" href="#automatic-backups"></a><a class="link" href="#automatic-backups">3.5. Automatic Backups</a></h3>
 <div class="paragraph">
-<p>TATracker data is automatically saved in the hard disk as backup files after any
-command that changes the data. These automatic backups will preserve all data
-and settings within the program at the time of use. These backups will also be
-automatically loaded into the program when it is opened.</p>
+<p>TATracker data is automatically saved in the hard disk as backup files after any command that changes the data. These automatic backups will preserve all data and settings within the program at the time of use. These backups will also be automatically loaded into the program when it is opened.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="Usage"><a class="link" href="#Usage">3. Usage</a></h2>
+<h2 id="Usage"><a class="anchor" href="#Usage"></a><a class="link" href="#Usage">4. Usage</a></h2>
 <div class="sectionbody">
 <div class="exampleblock">
 <div class="content">
@@ -137,7 +171,7 @@ automatically loaded into the program when it is opened.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>PAGE_NAME - one of the following pages:</p>
+<p><code>PAGE_NAME</code> - one of the following pages:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -156,10 +190,10 @@ automatically loaded into the program when it is opened.</p>
 </div>
 </li>
 <li>
-<p>CATEGORY_UID - a category unique id</p>
+<p><code>CATEGORY_UID</code> - a category unique id</p>
 </li>
 <li>
-<p>MATRIC_NUMBER - the matriculation number of a student</p>
+<p><code>MATRIC_NUMBER</code> - the matriculation number of a student</p>
 <div class="ulist">
 <ul>
 <li>
@@ -175,13 +209,13 @@ automatically loaded into the program when it is opened.</p>
 </div>
 </li>
 <li>
-<p>MOD_CODE - replace with the unique code for the module</p>
+<p><code>MOD_CODE</code> - replace with the unique code for the module</p>
 </li>
 <li>
-<p>CLASS_CODE - replace with the unique code for the tutorial/class</p>
+<p><code>CLASS_CODE</code> - replace with the unique code for the tutorial/class</p>
 </li>
 <li>
-<p>SESSION_UID - the unique numeric identifier of a session</p>
+<p><code>SESSION_UID</code> - the unique numeric identifier of a session</p>
 <div class="ulist">
 <ul>
 <li>
@@ -191,7 +225,7 @@ automatically loaded into the program when it is opened.</p>
 </div>
 </li>
 <li>
-<p>SESSION_TYPE - replace with one of the following:</p>
+<p><code>SESSION_TYPE</code> - replace with one of the following:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -216,31 +250,686 @@ automatically loaded into the program when it is opened.</p>
 </div>
 </li>
 <li>
-<p>START, END - a time parameter, in the following format: HH:mm</p>
+<p><code>START</code>, <code>END</code> - a time parameter, in the following format: HH:mm</p>
 </li>
 <li>
-<p>DATE - a date parameter, in the following format: dd-MM-yyyy</p>
+<p><code>DATE</code> - a date parameter, in the following format: dd-MM-yyyy</p>
+</li>
+<li>
+<p><code>&#8594;</code> - indicates that the command has more parameters than specified. These missing parameters will stated in a later section of the guide.</p>
+</li>
+<li>
+<p><code>./</code> - indicates the presence of a tag that will be specified in a later section of the guide.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="navigation"><a class="anchor" href="#navigation"></a><a class="link" href="#navigation">4.1. Navigation</a></h3>
+<div class="sect3">
+<h4 id="viewing-help-code-help-code"><a class="anchor" href="#viewing-help-code-help-code"></a><a class="link" href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
-<p>=== Student Management</p>
+<p>Format: <code>help</code></p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="anchor" href="#exiting-the-program-code-exit-code"></a><a class="link" href="#exiting-the-program-code-exit-code">4.1.2. Exiting the program : <code>exit</code></a></h4>
+<div class="paragraph">
+<p>Exits the program.<br>
+Format: <code>exit</code></p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="data-management"><a class="anchor" href="#data-management"></a><a class="link" href="#data-management">4.2. Data Management</a></h3>
+<div class="sect3">
+<h4 id="adding-data-code-add-code"><a class="anchor" href="#adding-data-code-add-code"></a><a class="link" href="#adding-data-code-add-code">4.2.1. Adding data: <code>add</code></a></h4>
+<div class="paragraph">
+<p>Adds different categories of data into the program.</p>
 </div>
 <div class="paragraph">
-<p>==== Enrolling a student in a class : <code>enroll</code></p>
+<p>Format: <code>add c/CATEGORY ./CATEGORY_UID &#8594;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="big">List of categories:</span></p>
 </div>
 <div class="paragraph">
-<p>Enrolls a student in a class in the program.<br></p>
+<p><a href="#AddStudent">1. Adding a student: <code>add c/student</code></a><br>
+<a href="#AddModule">2. Adding a module: <code>add c/module</code></a><br>
+<a href="#AddSessionType">3. Adding a type of session: <code>add c/SESSION_TYPE</code></a><br>
+<a href="#AddSession">4. Adding a session: <code>add c/session</code></a></p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">4.2.1.1. Adding a student: <code>add c/student</code></a></h5>
+<div class="paragraph">
+<p>Adds a new student into the program.
+The <code>CATEGORY_UID</code> for this command is the student’s matriculation number.</p>
 </div>
 <div class="paragraph">
-<p>Format: `enroll MATRIC_NUMBER CLASS_CODE MOD_CODE'</p>
+<p>Format: <code>add c/student m/MATRIC_NUMBER [n/NAME] [e/EMAIL] [r/RATING] [t/TAG]&#8230;&#8203;</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>MATRIC_NUMBER</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NAME</code>
+</td>
+<td class="hdlist2">
+<p>the name of the student</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>EMAIL</code>
+</td>
+<td class="hdlist2">
+<p>the email address of the student</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>RATING</code>
+</td>
+<td class="hdlist2">
+<p>a number between 1 (poor) to 5 (excellent)</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>TAG</code>
+</td>
+<td class="hdlist2">
+<p>a remark(s) for this student</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/student m/A0123456J n/Alice</code></p>
+<div class="paragraph">
+<p>Adds the student with the matriculation number A0123456J
+and the name Alice.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="AddModule"><a class="anchor" href="#AddModule"></a><a class="link" href="#AddModule">4.2.1.2. Adding a module: <code>add c/module</code></a></h5>
+<div class="paragraph">
+<p>Adds a new module group into the program.
+The <code>CATEGORY_UID</code> for this command is the module code.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add c/module m/MOD_CODE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>MOD_CODE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/module m/CS2103T</code></p>
+<div class="paragraph">
+<p>Adds the CS2103T module group.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="AddSessionType"><a class="anchor" href="#AddSessionType"></a><a class="link" href="#AddSessionType">4.2.1.3. Adding a type of session: <code>add c/SESSION_TYPE</code></a></h5>
+<div class="paragraph">
+<p>Adds a new type of session for an existing module group in the program.
+The <code>CATEGORY_UID</code> for this command is the SESSION_TYPE code.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add c/SESSION_TYPE t/SESSION_TYPE m/MOD_CODE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>SESSION_TYPE</code> <code>TUT_CODE</code> <code>MOD_CODE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/tutorial t/W17 m/CS2103T</code></p>
+<div class="paragraph">
+<p>Adds a tutorial with the tutorial code W17,
+and links it to the CS2103T module group.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="AddSession"><a class="anchor" href="#AddSession"></a><a class="link" href="#AddSession">4.2.1.4. Adding a session: <code>add c/session</code></a></h5>
+<div class="paragraph">
+<p>Adds a session into the program for a specific module.
+There is no need to provide the <code>CATEGORY_UID</code>,
+as a unique session id (<code>SESSION_UID</code>) will be automatically generated for it.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>add c/session s/START e/END d/DATE [-r] m/MOD_CODE [t/SESSION_TYPE] [n/NOTES]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>START</code> <code>END</code> <code>DATE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>[-r]</code>
+</td>
+<td class="hdlist2">
+<p>makes the session recur at the same time every week</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MOD_CODE</code> <code>SESSION_TYPE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NOTES</code>
+</td>
+<td class="hdlist2">
+<p>notes for this session (eg: weekly tutorials or prep sessions)</p>
+</td>
+</tr>
+</table>
+</div>
+<div class="openblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The session will automatically be given a <code>SESSION_UID</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>add c/session s/14:00 e/16:00 d/19-02-2020 m/CS2103T t/consult n/with Alice and Bob</code></p>
+<div class="paragraph">
+<p>Adds a consultation session on 19 Feb 2020,
+from 2pm to 4pm,
+with Alice and Bob.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-data-code-delete-code"><a class="anchor" href="#deleting-data-code-delete-code"></a><a class="link" href="#deleting-data-code-delete-code">4.2.2. Deleting data: <code>delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes different categories of data from the program.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete c/CATEGORY ./CATEGORY_UID &#8594;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><span class="big">List of categories:</span></p>
+</div>
+<div class="paragraph">
+<p><a href="#DeleteStudent">1. Deleting a student: <code>delete c/student</code></a><br>
+<a href="#DeleteModule">2. Deleting a module: <code>delete c/module</code></a><br>
+<a href="#DeleteTutorial">3. Deleting a tutorial: <code>delete c/tutorial</code></a><br>
+<a href="#DeleteSession">4. Deleting a session: <code>delete c/session</code></a></p>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">4.2.2.1. Deleting a student: <code>delete c/student</code></a></h5>
+<div class="paragraph">
+<p>Deletes a student from the program.
+The <code>CATEGORY_UID</code> for this command is the student’s matriculation number.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete c/student m/MATRIC_NUMBER</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>MATRIC_NUMBER</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete c/student m/A0123456J</code></p>
+<div class="paragraph">
+<p>Deletes the student with the matriculation number A0123456J from the program.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="DeleteModule"><a class="anchor" href="#DeleteModule"></a><a class="link" href="#DeleteModule">4.2.2.2. Deleting a module: <code>delete c/module</code></a></h5>
+<div class="paragraph">
+<p>Deletes a module group from the program, and all the tutorials and sessions that are linked to it.
+The <code>CATEGORY_UID</code> for this command is the module code.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete c/module m/MOD_CODE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>MOD_CODE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete c/module m/CS2101</code></p>
+<div class="paragraph">
+<p>Deletes the module group CS2101, and all of the tutorials or sessions that are linked to it.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="DeleteTutorial"><a class="anchor" href="#DeleteTutorial"></a><a class="link" href="#DeleteTutorial">4.2.2.3. Deleting a tutorial: <code>delete c/tutorial</code></a></h5>
+<div class="paragraph">
+<p>Deletes a tutorial from the program.
+The <code>CATEGORY_UID</code> for this command is the tutorial code.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete c/tutorial t/TUT_CODE m/MOD_CODE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Enrolls the person with the given matriculation number in the class given by the class code of the module given by the module code.</p>
+<p><code>TUT_CODE</code>, <code>MOD_CODE</code> - see Common Parameters</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>delete c/tutorial t/G06 m/CS2101</code>
+Deletes the CS2101 tutorial with the code G06 from the program.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="DeleteSession"><a class="anchor" href="#DeleteSession"></a><a class="link" href="#DeleteSession">4.2.2.4. Deleting a session: <code>delete c/session</code></a></h5>
+<div class="paragraph">
+<p>Deletes a session from the program.
+The <code>CATEGORY_UID</code> used in this case is the session’s unique id.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>delete c/session i/SESSION_UID</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>SESSION_UID</code> - see Common Parameters</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>delete c/session i/10
+Deletes the session with the identifier of 10</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-existing-data-code-edit-code"><a class="anchor" href="#editing-existing-data-code-edit-code"></a><a class="link" href="#editing-existing-data-code-edit-code">4.2.3. Editing existing data: <code>edit</code></a></h4>
+<div class="paragraph">
+<p>edit - Editing existing data</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit c/CATEGORY …/CATEGORY_UID&#8230;&#8203;</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>List of categories:</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Editing an existing student: <code>edit c/student</code></p>
+</li>
+<li>
+<p>Editing an existing session: <code>edit c/session</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="editing-an-existing-student-code-edit-c-student-code"><a class="anchor" href="#editing-an-existing-student-code-edit-c-student-code"></a><a class="link" href="#editing-an-existing-student-code-edit-c-student-code">4.2.3.1. Editing an existing student: <code>edit c/student</code></a></h5>
+<div class="paragraph">
+<p>Edits the student with the specified matriculation number.
+The CATEGORY_UID used in this case is the student’s matriculation number.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit c/student m/MATRIC_NUMBER [n/NAME] [e/EMAIL] [r/RATING] [t/TAG]…​</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>MATRIC_NUMBER</code> - see Common Parameters</p>
+</li>
+<li>
+<p>At least one of the optional fields must be provided.</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>NAME</code> - the name of the student</p>
+</li>
+<li>
+<p><code>EMAIL</code> - the email address of the student</p>
+</li>
+<li>
+<p><code>RATING</code> - a number between 1 (poor) to 5 (excellent)</p>
+</li>
+<li>
+<p><code>TAG</code> - other notes about this student</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Existing fields will be updated to the input values.</p>
+</li>
+<li>
+<p>All existing <code>TAG(s)</code> on a student will be removed,
+then replaced with the new tags,
+i.e adding of tags is not cumulative.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+You can remove all the person’s tags by typing t/ without specifying any tags after it.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit A0123456J p/91234567 e/johndoe@example.com</code>
+Edits student <code>A0123456J</code> to have <code>91234567</code> as their phone number,
+and <code>johndoe@example.com</code> as their email address.</p>
+</li>
+<li>
+<p><code>edit A9876543K n/Betsy Crower t/</code>
+Edits student <code>A9876543K</code> to have <code>Betsy Crower</code> as their name.
+In addition, all existing tags will be removed.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="editing-an-existing-session-code-edit-c-session-code"><a class="anchor" href="#editing-an-existing-session-code-edit-c-session-code"></a><a class="link" href="#editing-an-existing-session-code-edit-c-session-code">4.2.4. Editing an existing session: <code>edit c/session</code></a></h4>
+<div class="paragraph">
+<p>Edits an existing session with the specified session unique id.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>edit c/session i/SESSION_UID [s/START] [e/END] [d/DATE] [-r] [m/MOD_CODE] [t/SESSION_TYPE] [n/NOTES]</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>SESSION_UID</code> - see Common Parameters
+At least one of the optional fields must be provided.</p>
+</li>
+<li>
+<p><code>START</code>, <code>END</code>, <code>DATE</code>, <code>MOD_CODE</code>, <code>SESSION_TYPE</code> - see Common Parameters</p>
+</li>
+<li>
+<p><code>[-r]</code> - Make the session recur at the same time every week</p>
+</li>
+<li>
+<p><code>NOTES</code> - notes for this session (eg: weekly tutorials or prep sessions)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>edit c/session i/7 d/20-02-2020</code>
+Edits the date of a session with uid 7 to 20 Feb 2020.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="student-management"><a class="anchor" href="#student-management"></a><a class="link" href="#student-management">4.3. Student Management</a></h3>
+<div class="sect3">
+<h4 id="enrolling-a-student-in-a-class-code-enroll-code"><a class="anchor" href="#enrolling-a-student-in-a-class-code-enroll-code"></a><a class="link" href="#enrolling-a-student-in-a-class-code-enroll-code">4.3.1. Enrolling a student in a class : <code>enroll</code></a></h4>
+<div class="paragraph">
+<p>Enrolls a student in a class in the program.<br></p>
+</div>
+<div class="paragraph">
+<p>Format: <code>enroll MATRIC_NUMBER CLASS_CODE MOD_CODE</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Enrolls the student with the given matriculation number in the specified class.</p>
+</li>
+<li>
+<p>The class should belong to the module with the given MOD_CODE.</p>
+</li>
+<li>
+<p>The class should already exist in the TA-Tracker with the given CLASS_CODE.</p>
 </li>
 </ul>
 </div>
@@ -257,21 +946,31 @@ Enrolls the student with the matriculation number A01234567J in tutorial G06 of 
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="removing-a-student-from-a-class-code-kick-code"><a class="anchor" href="#removing-a-student-from-a-class-code-kick-code"></a><a class="link" href="#removing-a-student-from-a-class-code-kick-code">4.3.2. Removing a student from a class : <code>kick</code></a></h4>
 <div class="paragraph">
-<p>==== Removing a student from a class : <code>kick</code></p>
+<p>Removes a student from a class in the program.</p>
 </div>
 <div class="paragraph">
-<p>Removes a student from a class in the program.<br>
-Format: <code>kick MATRIC_NUMBER CLASS_CODE MOD_CODE</code></p>
+<p>Format: <code>kick MATRIC_NUMBER CLASS_CODE MOD_CODE</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>Removes the person with the given matriculation number from the class given by the class code of the module given by the module code.</p>
+<p>Removes the student with the given matriculation number from the specified class.</p>
+</li>
+<li>
+<p>The class should belong to the module with the given MOD_CODE.</p>
+</li>
+<li>
+<p>The class should already exist in the TA-Tracker with the given CLASS_CODE.</p>
 </li>
 </ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -284,19 +983,21 @@ Removes the student with the matriculation number A01234567J from tutorial G06 o
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="session-management"><a class="anchor" href="#session-management"></a><a class="link" href="#session-management">4.4. Session Management</a></h3>
+<div class="sect3">
+<h4 id="labelling-a-session-as-completed-code-done-code"><a class="anchor" href="#labelling-a-session-as-completed-code-done-code"></a><a class="link" href="#labelling-a-session-as-completed-code-done-code">4.4.1. Labelling a session as completed : <code>done</code></a></h4>
 <div class="paragraph">
-<p>=== Session Management</p>
+<p>Labels a session as done.
+If the session is claimable, it will appear as a new claim in the TSS view.</p>
 </div>
 <div class="paragraph">
-<p>==== Labelling a session as completed : <code>done</code></p>
+<p>Format: <code>done SESSION_UID</code></p>
 </div>
-<div class="paragraph">
-<p>Labels a session as done. If the session is claimable, it will appear as
-a new claim in the TSS view.+
-Format: `done SESSION_UID'</p>
-</div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -304,10 +1005,10 @@ Format: `done SESSION_UID'</p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
-<p>Example:</p>
+<p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -317,16 +1018,18 @@ Marks the session with the unique session id of 25 as done.</p>
 </li>
 </ul>
 </div>
+</div>
+<div class="sect3">
+<h4 id="labelling-a-session-as-a-makeup-code-makeup-code"><a class="anchor" href="#labelling-a-session-as-a-makeup-code-makeup-code"></a><a class="link" href="#labelling-a-session-as-a-makeup-code-makeup-code">4.4.2. Labelling a session as a makeup : <code>makeup</code></a></h4>
 <div class="paragraph">
-<p>==== Labeling a session as a makeup : <code>makeup</code></p>
+<p>Labels a session as a makeup session.
+If the session is claimable, it will appear as a new claim in the TSS view.</p>
 </div>
 <div class="paragraph">
-<p>Labels a session as a makeup session. If the session is claimable, it will appear
- as a new claim in the TSS view.+
-Format: <code>makeup SESSION_UID</code></p>
+<p>Format: <code>makeup SESSION_UID</code></p>
 </div>
-</div>
-</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -334,8 +1037,8 @@ Format: <code>makeup SESSION_UID</code></p>
 </li>
 </ul>
 </div>
-<div class="sidebarblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -347,32 +1050,44 @@ Marks the session with the unique session id of 25 as a makeup.</p>
 </li>
 </ul>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="settings"><a class="anchor" href="#settings"></a><a class="link" href="#settings">4.5. Settings</a></h3>
+<div class="sect3">
+<h4 id="adjusting-the-settings-code-set-code"><a class="anchor" href="#adjusting-the-settings-code-set-code"></a><a class="link" href="#adjusting-the-settings-code-set-code">4.5.1. Adjusting the settings : <code>set</code></a></h4>
 <div class="paragraph">
-<p>=== Settings</p>
+<p>Adjusts the chosen settings.</p>
 </div>
 <div class="paragraph">
-<p>==== Adjusting the settings : <code>set</code></p>
-</div>
-<div class="paragraph">
-<p>Adjusts the chosen settings.<br>
-Format: <code>set SETTING</code></p>
+<p>Format: <code>set SETTING</code></p>
 </div>
 <div class="paragraph">
 <p>Here are the things that you can set:</p>
 </div>
+<div class="paragraph">
+<p><strong>rate:</strong> Adjusts the hourly rate.<br>
+Sets the hourly rate for the total income and claim computation.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>set rate AMOUNT</code></p>
+</div>
+<div class="sidebarblock">
+<div class="content">
 <div class="ulist">
 <ul>
 <li>
-<p>rate: * Adjusts the hourly rate.<br>
-Sets the hourly rate for the total income and claim computation.</p>
+<p>AMOUNT is the amount you want to change the hourly rate to.</p>
+</li>
+<li>
+<p>To specify in exact dollars, you can write it as just the number (example: 20).</p>
+</li>
+<li>
+<p>To specify in exact dollars and cents, write it as a decimal up to 2 decimal places (example: 20.05).</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>Format: <code>set rate AMOUNT</code>
-* AMOUNT is the amount you want to change the hourly rate to.
-* To specify in exact dollars, you can write it as just the number (example: 20).
-* To specify in exact dollars and cents, write it as a decimal up to 2 decimal places (example: 20.05).</p>
+</div>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -403,20 +1118,26 @@ Sets the default view to be the list of sessions every time you open the GUI.</p
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p>== FAQ</p>
 </div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="anchor" href="#faq"></a><a class="link" href="#faq">5. FAQ</a></h2>
+<div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
 <strong>A</strong>: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous Address Book folder.</p>
 </div>
-<div class="paragraph">
-<p>== Command Summary</p>
 </div>
+</div>
+<div class="sect1">
+<h2 id="command-summary"><a class="anchor" href="#command-summary"></a><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<div class="sectionbody">
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
+<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]&#8230;&#8203;</code><br>
 e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
 </li>
 <li>
@@ -443,8 +1164,4 @@ e.g. <code>find James Jake</code></p>
 </ul>
 </div>
 </div>
-</div>
-</div>
-</div>
-</div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-06 07:56:32 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-09 12:59:13 UTC</div></div></div></body></html>

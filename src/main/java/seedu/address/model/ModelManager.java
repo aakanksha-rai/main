@@ -127,6 +127,12 @@ public class ModelManager implements Model {
         addressBook.addModule(module);
     }
 
+    @Override
+    public Module getModule(String code) {
+        requireNonNull(code);
+        return addressBook.getModule(code);
+    }
+
     //=========== Filtered Student List Accessors =============================================================
 
     /**

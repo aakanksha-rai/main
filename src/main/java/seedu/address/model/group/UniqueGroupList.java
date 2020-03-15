@@ -42,6 +42,22 @@ public class UniqueGroupList implements Iterable<Group> {
     }
 
     /**
+     * Gets module with given group code.
+     * Returns null if no such group exists.
+     */
+    public Group getGroup(String code) {
+        Group group = null;
+        for (int i = 0; i < this.size(); ++i) {
+            group = this.get(i);
+            if (group.getIdentifier().equals(code)) {
+                break;
+            }
+            group = null;
+        }
+        return group;
+    }
+
+    /**
      * Adds a group to the list.
      * The group must not already exist in the list.
      */

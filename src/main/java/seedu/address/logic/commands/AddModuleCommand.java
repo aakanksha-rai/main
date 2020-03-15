@@ -23,12 +23,12 @@ public class AddModuleCommand extends Command {
             + PREFIX_MODULE + "CS3243 ";
 
     public static final String MESSAGE_SUCCESS = "New Module added: %s";
-    public static final String MESSAGE_DUPLICATE_SESSION = "This module already exists in the TATracker";
+    public static final String MESSAGE_DUPLICATE_MODULE = "This module already exists in the TATracker";
 
     private final Module toAdd;
 
     /**
-     * Creates an AddCommand to add the specified {@code Session}
+     * Creates an AddCommand to add the specified {@code Module}
      */
     public AddModuleCommand(Module module) {
         requireNonNull(module);
@@ -40,7 +40,7 @@ public class AddModuleCommand extends Command {
         requireNonNull(model);
 
         if (model.hasModule(toAdd)) {
-            throw new CommandException(MESSAGE_DUPLICATE_SESSION);
+            throw new CommandException(MESSAGE_DUPLICATE_MODULE);
         }
 
         model.addModule(toAdd);

@@ -93,6 +93,10 @@ public class AddressBook implements ReadOnlyAddressBook {
         modules.add(module);
     }
 
+    public Module getModule(String code) {
+        return modules.getModule(code);
+    }
+
     /**
      * Replaces the given student {@code target} in the list with {@code editedStudent}.
      * {@code target} must exist in the address book.

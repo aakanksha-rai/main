@@ -57,6 +57,7 @@ public class Group {
             if (student.getMatric().equals(matric)) {
                 break;
             }
+            student = null;
         }
         return student;
     }

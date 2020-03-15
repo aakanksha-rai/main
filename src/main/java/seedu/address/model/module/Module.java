@@ -26,12 +26,15 @@ public class Module {
         groups = new UniqueGroupList();
     }
 
-    //TODO: the following methods
     /**
      * Adds a group to groups.
      */
     public void addGroup(Group group) {
         groups.add(group);
+    }
+
+    public boolean hasGroup(Group group) {
+        return groups.contains(group);
     }
 
     /**

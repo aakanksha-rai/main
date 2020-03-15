@@ -110,4 +110,9 @@ public interface Model {
      */
     void addModule(Module module);
 
+    /**
+     * Returns the module with the given module code.
+     */
+    Module getModule(String code);
+
 }

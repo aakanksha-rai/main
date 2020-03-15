@@ -168,6 +168,11 @@ public class AddCommandTest {
         public void addModule(Module module) {
 
         }
+
+        @Override
+        public Module getModule(String code) {
+            return null;
+        }
     }
 
     /**

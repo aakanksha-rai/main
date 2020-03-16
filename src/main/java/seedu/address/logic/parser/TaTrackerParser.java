@@ -52,8 +52,7 @@ public class TaTrackerParser {
             throw new ParseException(String.format(UNIMPLEMENTED_CODE_FORMAT, "Module commands"));
 
         case CommandWords.GROUP:
-            // return new GroupCommandParser().parseCommand(arguments);
-            throw new ParseException(String.format(UNIMPLEMENTED_CODE_FORMAT, "Group commands"));
+            return new GroupCommandParser().parseCommand(arguments);
 
         case CommandWords.SESSION:
             // return new SessionCommandParser().parseCommand(arguments);

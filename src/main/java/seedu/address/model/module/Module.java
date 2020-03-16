@@ -53,6 +53,13 @@ public class Module {
     }
 
     /**
+     * Deletes the group that is equal to the given group.
+     */
+    public void deleteGroup(Group group) {
+        groups.remove(group);
+    }
+
+    /**
      * Returns the group list.
      */
     public ObservableList<Group> getGroupList() {
@@ -100,8 +107,9 @@ public class Module {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" with Module Code ")
-                .append(getIdentifier());
+                .append(" (")
+                .append(getIdentifier())
+                .append(")");
         return builder.toString();
     }
 }

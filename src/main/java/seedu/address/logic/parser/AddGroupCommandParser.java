@@ -31,13 +31,13 @@ public class AddGroupCommandParser implements Parser<AddGroupCommand> {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddGroupCommand.MESSAGE_USAGE));
         }
 
-        String groupName = ParserUtil.parseGroupCode(argMultimap.getValue(PREFIX_GROUP).get());
+        String groupCode = ParserUtil.parseGroupCode(argMultimap.getValue(PREFIX_GROUP).get());
         String moduleCode = ParserUtil.parseModuleCode(argMultimap.getValue(PREFIX_MODULE).get());
+        GroupType groupType = ParserUtil.parseGroupType(argMultimap.getValue(PREFIX_TYPE).get());
 
+        Group group = new Group(groupCode, groupType);
 
-        Module module = new Module(moduleCode, name);
-
-        return new AddModuleCommand(module);
+        return new AddGroupCommand(group, moduleCode);
     }
 
     /**

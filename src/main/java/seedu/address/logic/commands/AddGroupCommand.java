@@ -59,6 +59,7 @@ public class AddGroupCommand extends Command {
 
         module.addGroup(toAdd);
         return new CommandResult(String.format(MESSAGE_SUCCESS, toAdd));
+
     }
 
     @Override

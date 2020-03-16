@@ -14,6 +14,7 @@ import seedu.address.model.person.Matric;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Phone;
 import seedu.address.model.tag.Tag;
+import seedu.address.model.group.Group.GroupType;
 
 /**
  * Contains utility methods used for parsing strings in the various *Parser classes.
@@ -120,5 +121,37 @@ public class ParserUtil {
             tagSet.add(parseTag(tagName));
         }
         return tagSet;
+    }
+
+    /**
+     * Parses and returns the module code.
+     */
+    public static String parseModuleCode(String code) {
+        requireNonNull(code);
+        String trimmedCode = code.trim();
+        return trimmedCode;
+    }
+
+    /**
+     * Parses and returns the group code.
+     */
+    public static String parseGroupCode(String code) {
+        requireNonNull(code);
+        String trimmedCode = code.trim();
+        return trimmedCode;
+    }
+
+    /**
+     * Parses and returns the group type.
+     */
+    public static GroupType parseGroupType(String type) {
+        requireNonNull(type);
+        String trimmedType = type.trim();
+        switch(trimmedType.toLowerCase()) {
+        case "lab":
+            return GroupType.LAB;
+        default:
+            return GroupType.TUTORIAL;
+        }
     }
 }

@@ -16,12 +16,13 @@ import seedu.address.model.module.Module;
 public class AddGroupCommand extends Command {
 
     public static final String COMMAND_WORD = "group";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a group to the TATracker. "
+    public static final String ADD_MODEL = "add";
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " " + ADD_MODEL + ": Adds a group to the TATracker. "
             + "Parameters: "
             + PREFIX_GROUP + "GROUP CODE "
             + PREFIX_MODULE + "MODULE CODE "
             + PREFIX_TYPE + "GROUP TYPE "
-            + "Example: " + COMMAND_WORD + " "
+            + "Example: " + COMMAND_WORD + " " + ADD_MODEL + " "
             + PREFIX_GROUP + "G06 "
             + PREFIX_MODULE + "CS2100 "
             + PREFIX_TYPE + "lab ";

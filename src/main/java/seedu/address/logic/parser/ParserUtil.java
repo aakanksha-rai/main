@@ -123,22 +123,10 @@ public class ParserUtil {
         return tagSet;
     }
 
-    /**
-     * Parses and returns the module code.
-     */
-    public static String parseModuleCode(String code) {
-        requireNonNull(code);
-        String trimmedCode = code.trim();
-        return trimmedCode;
-    }
-
-    /**
-     * Parses and returns the group code.
-     */
-    public static String parseGroupCode(String code) {
-        requireNonNull(code);
-        String trimmedCode = code.trim();
-        return trimmedCode;
+    public static String parseValue(String value) {
+        requireNonNull(value);
+        String trimmedValue = value.trim();
+        return trimmedValue;
     }
 
     /**

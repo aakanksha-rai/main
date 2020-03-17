@@ -1,6 +1,8 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.CommandWords.ADD_MODEL;
+import static seedu.address.logic.commands.CommandWords.GROUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_GROUP;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_MODULE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TYPE;
@@ -15,9 +17,8 @@ import seedu.address.model.module.Module;
  */
 public class AddGroupCommand extends Command {
 
-    public static final String COMMAND_WORD = "group";
-    public static final String ADD_MODEL = "add";
-    public static final String MESSAGE_USAGE = COMMAND_WORD + " " + ADD_MODEL + ": Adds a group to the TATracker. "
+    public static final String COMMAND_WORD = GROUP;
+    public static final String MESSAGE_USAGE = COMMAND_WORD + " " + ADD_MODEL + ": Adds a group to the TA-Tracker. "
             + "Parameters: "
             + PREFIX_GROUP + "GROUP CODE "
             + PREFIX_MODULE + "MODULE CODE "
@@ -35,7 +36,7 @@ public class AddGroupCommand extends Command {
     private final String moduleCode;
 
     /**
-     * Creates an AddCommand to add the specified {@code Group}
+     * Creates an AddCommand to add the specified {@code Module}
      */
     public AddGroupCommand(Group group, String code) {
         requireNonNull(group, code);

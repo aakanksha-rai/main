@@ -42,7 +42,16 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    private StackPane studentListPanelPlaceholder;
+
+    @FXML
+    private StackPane moduleListPanelPlaceholder;
+
+    @FXML
+    private StackPane groupListPanelPlaceholder;
+
+    @FXML
+    private StackPane sessionListPanelPlaceholder;
 
     @FXML
     private StackPane resultDisplayPlaceholder;
@@ -108,7 +117,10 @@ public class MainWindow extends UiPart<Stage> {
      */
     void fillInnerParts() {
         personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        studentListPanelPlaceholder.getChildren().add(new PersonListPanel(logic.getFilteredPersonList()).getRoot());
+        moduleListPanelPlaceholder.getChildren().add(new PersonListPanel(logic.getFilteredPersonList()).getRoot());
+        groupListPanelPlaceholder.getChildren().add(new PersonListPanel(logic.getFilteredPersonList()).getRoot());
+        sessionListPanelPlaceholder.getChildren().add(new PersonListPanel(logic.getFilteredPersonList()).getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());

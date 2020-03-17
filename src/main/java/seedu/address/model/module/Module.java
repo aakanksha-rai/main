@@ -48,6 +48,7 @@ public class Module {
             if (group.getIdentifier().equals(identifier)) {
                 break;
             }
+            group = null;
         }
         return group;
     }
@@ -71,6 +72,23 @@ public class Module {
      */
     public String getName() {
         return name;
+    }
+
+    /**
+     * Returns a string that shows the value inside the groups list.
+     */
+    public String groupsString() {
+        StringBuilder str = new StringBuilder();
+        str.append("[");
+        boolean first = true;
+        for (int i = 0; i < groups.size(); ++i) {
+            if (first) {
+                str.append(" " + groups.get(i));
+            } else {
+                str.append((", " + groups.get(i)));
+            }
+        }
+        return str.toString();
     }
 
     /**
@@ -100,8 +118,10 @@ public class Module {
     public String toString() {
         final StringBuilder builder = new StringBuilder();
         builder.append(getName())
-                .append(" with Module Code ")
-                .append(getIdentifier());
+                .append(" (")
+                .append(getIdentifier())
+                .append(") ")
+                .append(groupsString());
         return builder.toString();
     }
 }

@@ -10,10 +10,10 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.group.Group.GroupType;
-import seedu.address.model.person.Email;
-import seedu.address.model.person.Matric;
-import seedu.address.model.person.Name;
-import seedu.address.model.person.Phone;
+import seedu.address.model.student.Email;
+import seedu.address.model.student.Matric;
+import seedu.address.model.student.Name;
+import seedu.address.model.student.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -123,6 +123,9 @@ public class ParserUtil {
         return tagSet;
     }
 
+    /**
+     * Parses and returns the given value.
+     */
     public static String parseValue(String value) {
         requireNonNull(value);
         String trimmedValue = value.trim();

@@ -70,9 +70,9 @@ public class UniqueModuleList implements Iterable<Module> {
     }
 
     /**
-     * Replaces the group {@code target} in the list with {@code editedModule}.
+     * Replaces the module {@code target} in the list with {@code editedModule}.
      * {@code target} must exist in the list.
-     * The group identity of {@code editedModule} must not be the same as another existing module in the list.
+     * The module identity of {@code editedModule} must not be the same as another existing module in the list.
      */
     public void setModule(Module target, Module editedModule) {
         requireAllNonNull(target, editedModule);

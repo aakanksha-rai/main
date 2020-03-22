@@ -2,6 +2,7 @@ package tatracker.model.student;
 
 import static tatracker.commons.util.CollectionUtil.requireAllNonNull;
 
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -22,7 +23,7 @@ public class Student {
     private final Matric matric;
 
     // Data fields
-    private final Set<Tag> tags = new HashSet<>();
+    private final Set<Tag> tags;
 
     /**
      * Every field must be present and not null.
@@ -33,7 +34,22 @@ public class Student {
         this.phone = phone;
         this.email = email;
         this.matric = matric;
+
+        this.tags = new HashSet<>();
         this.tags.addAll(tags);
+    }
+
+    /**
+     * Completes the details of a {@code Student} using the builder pattern.
+     */
+    private Student(StudentBuilder sb) {
+        this.name = sb.name;
+        this.phone = sb.phone;
+        this.email = sb.email;
+        this.matric = sb.matric;
+
+        this.tags = new HashSet<>();
+        this.tags.addAll(sb.tags);
     }
 
     public Name getName() {
@@ -118,4 +134,61 @@ public class Student {
         return builder.toString();
     }
 
+    /**
+     * A utility class to help build a {@code Student} with optional fields.
+     */
+    public static class StudentBuilder {
+
+        // Identity fields
+        private Name name;
+        private Phone phone;
+        private Email email;
+        private Matric matric;
+
+        // Data fields
+        private Set<Tag> tags;
+
+        /**
+         * All fields must be present and not null.
+         */
+        public StudentBuilder(Name name, Phone phone, Email email, Matric matric) {
+            requireAllNonNull(name, phone, email, matric);
+            this.name = name;
+            this.phone = phone;
+            this.email = email;
+            this.matric = matric;
+            this.tags = new HashSet<>();
+        }
+
+        /**
+         * Initializes the StudentBuilder with the data of {@code studentToCopy}.
+         */
+        public StudentBuilder(Student studentToCopy) {
+            this.name = studentToCopy.getName();
+            this.phone = studentToCopy.getPhone();
+            this.email = studentToCopy.getEmail();
+            this.matric = studentToCopy.getMatric();
+            this.tags = new HashSet<>(studentToCopy.getTags());
+        }
+
+        /**
+         * Adds a list of {@code Tags} for the {@code Student} that is being built.
+         */
+        public StudentBuilder withTags(Tag ... tags) {
+            this.tags.addAll(Arrays.asList(tags));
+            return this;
+        }
+
+        /**
+         * Adds a set of {@code Tags} for the {@code Student} that is being built.
+         */
+        public StudentBuilder withTags(Set<Tag> tags) {
+            this.tags.addAll(tags);
+            return this;
+        }
+
+        public Student build() {
+            return new Student(this);
+        }
+    }
 }

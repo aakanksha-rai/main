@@ -13,6 +13,7 @@ import tatracker.commons.core.index.Index;
 import tatracker.commons.util.StringUtil;
 import tatracker.logic.parser.exceptions.ParseException;
 import tatracker.model.group.Group.GroupType;
+import tatracker.model.rating.Rating;
 import tatracker.model.session.SessionType;
 import tatracker.model.student.Email;
 import tatracker.model.student.Matric;
@@ -205,5 +206,25 @@ public class ParserUtil {
         default:
             return GroupType.TUTORIAL;
         }
+    }
+
+    /**
+     * Parses a {@code String rating} into a {@code Rating}
+     */
+    public static Rating parseRating(String rating) throws ParseException {
+        requireNonNull(rating);
+        String trimmedRating = rating.trim();
+
+        if (!StringUtil.isNonZeroUnsignedInteger(trimmedRating)) {
+            throw new ParseException(Rating.MESSAGE_CONSTRAINTS);
+        }
+
+        int parsedRating = Integer.parseUnsignedInt(trimmedRating);
+
+        if (!Rating.isValidRating(parsedRating)) {
+            throw new ParseException(Rating.MESSAGE_CONSTRAINTS);
+        }
+
+        return new Rating(parsedRating);
     }
 }

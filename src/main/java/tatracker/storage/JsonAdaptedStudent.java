@@ -15,6 +15,7 @@ import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
 import tatracker.model.student.Student;
+import tatracker.model.student.Student.StudentBuilder;
 import tatracker.model.tag.Tag;
 
 /**
@@ -65,11 +66,6 @@ class JsonAdaptedStudent {
      * @throws IllegalValueException if there were any data constraints violated in the adapted student.
      */
     public Student toModelType() throws IllegalValueException {
-        final List<Tag> studentTags = new ArrayList<>();
-        for (JsonAdaptedTag tag : tagged) {
-            studentTags.add(tag.toModelType());
-        }
-
         if (name == null) {
             throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Name.class.getSimpleName()));
         }
@@ -102,8 +98,14 @@ class JsonAdaptedStudent {
         }
         final Matric modelMatric = new Matric(matric);
 
-        final Set<Tag> modelTags = new HashSet<>(studentTags);
-        return new Student(modelName, modelPhone, modelEmail, modelMatric, modelTags);
+        final Set<Tag> modelTags = new HashSet<>();
+        for (JsonAdaptedTag tag : tagged) {
+            modelTags.add(tag.toModelType());
+        }
+
+        return new StudentBuilder(modelName, modelPhone, modelEmail, modelMatric)
+                .withTags(modelTags)
+                .build();
     }
 
 }

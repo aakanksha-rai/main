@@ -22,6 +22,7 @@ import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
 import tatracker.model.student.Student;
+import tatracker.model.student.Student.StudentBuilder;
 import tatracker.model.tag.Tag;
 
 /**
@@ -49,7 +50,9 @@ public class AddStudentCommandParser implements Parser<AddStudentCommand> {
         Matric matric = ParserUtil.parseMatric(argMultimap.getValue(PREFIX_MATRIC).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
-        Student student = new Student(name, phone, email, matric, tagList);
+        Student student = new StudentBuilder(name, phone, email, matric)
+                .withTags(tagList)
+                .build();
 
         return new AddStudentCommand(student);
     }

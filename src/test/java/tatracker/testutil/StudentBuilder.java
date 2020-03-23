@@ -90,8 +90,13 @@ public class StudentBuilder {
         return this;
     }
 
+    /**
+     * Builds the {@code Student} with the fields specified in the current {@code StudentBuilder}.
+     */
     public Student build() {
-        return new Student(name, phone, email, matric, tags);
+        return new Student.StudentBuilder(name, phone, email, matric)
+                .withTags(tags)
+                .build();
     }
 
 }

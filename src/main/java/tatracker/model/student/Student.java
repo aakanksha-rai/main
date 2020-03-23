@@ -26,20 +26,6 @@ public class Student {
     private final Set<Tag> tags;
 
     /**
-     * Every field must be present and not null.
-     */
-    public Student(Name name, Phone phone, Email email, Matric matric, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, matric, tags);
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-        this.matric = matric;
-
-        this.tags = new HashSet<>();
-        this.tags.addAll(tags);
-    }
-
-    /**
      * Completes the details of a {@code Student} using the builder pattern.
      */
     private Student(StudentBuilder sb) {
@@ -149,7 +135,7 @@ public class Student {
         private Set<Tag> tags;
 
         /**
-         * All fields must be present and not null.
+         * All constructor fields must be present and not null.
          */
         public StudentBuilder(Name name, Phone phone, Email email, Matric matric) {
             requireAllNonNull(name, phone, email, matric);

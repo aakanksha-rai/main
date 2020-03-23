@@ -98,15 +98,15 @@ public class EditStudentCommand extends Command {
     private static Student createEditedStudent(Student studentToEdit, EditStudentDescriptor editStudentDescriptor) {
         assert studentToEdit != null;
 
-        Name updatedName = editStudentDescriptor.getName().orElse(studentToEdit.getName());
-        Phone updatedPhone = editStudentDescriptor.getPhone().orElse(studentToEdit.getPhone());
-        Email updatedEmail = editStudentDescriptor.getEmail().orElse(studentToEdit.getEmail());
-        Matric updatedMatric = editStudentDescriptor.getMatric().orElse(studentToEdit.getMatric());
-        Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
+        StudentBuilder studentBuilder = new StudentBuilder(studentToEdit);
 
-        return new StudentBuilder(updatedName, updatedPhone, updatedEmail, updatedMatric)
-                .setTags(updatedTags)
-                .build();
+        editStudentDescriptor.getName().map(studentBuilder::setName);
+        editStudentDescriptor.getPhone().map(studentBuilder::setPhone);
+        editStudentDescriptor.getEmail().map(studentBuilder::setEmail);
+        editStudentDescriptor.getMatric().map(studentBuilder::setMatric);
+        editStudentDescriptor.getTags().map(studentBuilder::setTags);
+
+        return studentBuilder.build();
     }
 
     @Override

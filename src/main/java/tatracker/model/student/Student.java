@@ -6,6 +6,7 @@ import static tatracker.commons.util.CollectionUtil.requireAllNonNull;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
+import java.util.Optional;
 import java.util.Set;
 
 import tatracker.model.rating.Rating;
@@ -24,6 +25,7 @@ public class Student {
     private final Matric matric;
 
     // Data fields
+    private final Rating rating;
     private final Set<Tag> tags;
 
     /**
@@ -34,6 +36,8 @@ public class Student {
         this.phone = sb.phone;
         this.email = sb.email;
         this.matric = sb.matric;
+
+        this.rating = sb.rating;
 
         this.tags = new HashSet<>();
         this.tags.addAll(sb.tags);
@@ -53,6 +57,10 @@ public class Student {
 
     public Matric getMatric() {
         return matric;
+    }
+
+    public Optional<Rating> getRating() {
+        return Optional.ofNullable(rating);
     }
 
     /**
@@ -97,27 +105,36 @@ public class Student {
                 && otherStudent.getPhone().equals(getPhone())
                 && otherStudent.getEmail().equals(getEmail())
                 && otherStudent.getMatric().equals(getMatric())
+                && otherStudent.getRating().equals(getRating())
                 && otherStudent.getTags().equals(getTags());
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, matric, tags);
+        return Objects.hash(name, phone, email, matric, tags); // Optional fields are not hashed
     }
 
     @Override
     public String toString() {
         final StringBuilder builder = new StringBuilder();
+        // Append identity fields
         builder.append(getName())
                 .append(" Phone: ")
                 .append(getPhone())
                 .append(" Email: ")
                 .append(getEmail())
                 .append(" Matric: ")
-                .append(getMatric())
-                .append(" Tags: ");
+                .append(getMatric());
+
+        // Append optional fields
+        builder.append(" Rating: ")
+                .append(getRating().map(Rating::toString).orElse("NONE"));
+
+        // Append Tags
+        builder.append(" Tags: ");
         getTags().forEach(builder::append);
+
         return builder.toString();
     }
 
@@ -145,6 +162,7 @@ public class Student {
             this.phone = phone;
             this.email = email;
             this.matric = matric;
+            this.rating = null;
             this.tags = new HashSet<>();
         }
 
@@ -156,6 +174,7 @@ public class Student {
             this.phone = studentToCopy.getPhone();
             this.email = studentToCopy.getEmail();
             this.matric = studentToCopy.getMatric();
+            this.rating = studentToCopy.getRating().orElse(null);
             this.tags = new HashSet<>(studentToCopy.getTags());
         }
 

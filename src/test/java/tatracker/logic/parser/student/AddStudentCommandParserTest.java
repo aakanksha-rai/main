@@ -38,14 +38,14 @@ import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
 import tatracker.model.student.Student;
 import tatracker.model.tag.Tag;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 
 public class AddStudentCommandParserTest {
     private AddStudentCommandParser parser = new AddStudentCommandParser();
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Student expectedStudent = new StudentBuilder(BOB)
+        Student expectedStudent = new StudentStringBuilder(BOB)
                 .withTags(VALID_TAG_FRIEND).build();
 
         // whitespace only preamble
@@ -84,23 +84,20 @@ public class AddStudentCommandParserTest {
                 new AddStudentCommand(expectedStudent));
 
         // multiple tags - all accepted
-        Student expectedStudentMultipleTags = new StudentBuilder(BOB)
-                .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
-                .build();
-        assertParseSuccess(parser, NAME_DESC_BOB
-                + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + MATRIC_DESC_BOB
-                + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
+        Student expectedStudentMultipleTags = new StudentStringBuilder(BOB)
+                .withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND).build();
+        assertParseSuccess(parser,
+                NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + MATRIC_DESC_BOB
+                        + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 new AddStudentCommand(expectedStudentMultipleTags));
     }
 
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Student expectedStudent = new StudentBuilder(AMY).withTags().build();
-        assertParseSuccess(parser, NAME_DESC_AMY
-                        + PHONE_DESC_AMY + EMAIL_DESC_AMY
-                        + MATRIC_DESC_AMY,
+        Student expectedStudent = new StudentStringBuilder(AMY).withTags().build();
+        assertParseSuccess(parser,
+                NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + MATRIC_DESC_AMY,
                 new AddStudentCommand(expectedStudent));
     }
 

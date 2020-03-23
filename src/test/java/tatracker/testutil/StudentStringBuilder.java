@@ -95,7 +95,7 @@ public class StudentStringBuilder {
      */
     public Student build() {
         return new Student.StudentBuilder(name, phone, email, matric)
-                .withTags(tags)
+                .setTags(tags)
                 .build();
     }
 

@@ -104,7 +104,7 @@ class JsonAdaptedStudent {
         }
 
         return new StudentBuilder(modelName, modelPhone, modelEmail, modelMatric)
-                .withTags(modelTags)
+                .setTags(modelTags)
                 .build();
     }
 

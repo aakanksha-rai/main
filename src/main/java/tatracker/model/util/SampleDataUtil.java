@@ -27,49 +27,49 @@ public class SampleDataUtil {
                         new Phone("87438807"),
                         new Email("alexyeoh@example.com"),
                         new Matric("A0187945J"))
-                        .withTags(getTagSet("friends"))
+                        .setTags(getTagSet("friends"))
                         .build(),
 
                 new StudentBuilder(new Name("Bernice Yu"),
                         new Phone("99272758"),
                         new Email("berniceyu@example.com"),
                         new Matric("A0181137L"))
-                        .withTags(getTagSet("colleagues", "friends"))
+                        .setTags(getTagSet("colleagues", "friends"))
                         .build(),
 
                 new StudentBuilder(new Name("Charlotte Oliveiro"),
                         new Phone("93210283"),
                         new Email("charlotte@example.com"),
                         new Matric("A0187565N"))
-                        .withTags(getTagSet("neighbours"))
+                        .setTags(getTagSet("neighbours"))
                         .build(),
 
                 new StudentBuilder(new Name("David Li"),
                         new Phone("91031282"),
                         new Email("lidavid@example.com"),
                         new Matric("A0186153P"))
-                        .withTags(getTagSet("family"))
+                        .setTags(getTagSet("family"))
                         .build(),
 
                 new StudentBuilder(new Name("Irfan Ibrahim"),
                         new Phone("92492021"),
                         new Email("irfan@example.com"),
                         new Matric("A0180474R"))
-                        .withTags(getTagSet("classmates"))
+                        .setTags(getTagSet("classmates"))
                         .build(),
 
                 new StudentBuilder(new Name("Roy Balakrishnan"),
                         new Phone("92624417"),
                         new Email("royb@example.com"),
                         new Matric("A0187613T"))
-                        .withTags(getTagSet("colleagues"))
+                        .setTags(getTagSet("colleagues"))
                         .build(),
 
                 new StudentBuilder(new Name("Jeffry Lum"),
                         new Phone("65162727"),
                         new Email("Jeffry@u.nus.edu"),
                         new Matric("A0195558H"))
-                        .withTags(getTagSet("tutors"))
+                        .setTags(getTagSet("tutors"))
                         .build()
         );
     }

@@ -1,8 +1,8 @@
 package tatracker.model.student;
 
+import static java.util.Objects.requireNonNull;
 import static tatracker.commons.util.CollectionUtil.requireAllNonNull;
 
-import java.util.Arrays;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -158,18 +158,47 @@ public class Student {
         }
 
         /**
-         * Adds a list of {@code Tags} for the {@code Student} that is being built.
+         * Replaces the {@code Name} of the {@code Student} that is being built.
          */
-        public StudentBuilder withTags(Tag ... tags) {
-            this.tags.addAll(Arrays.asList(tags));
+        public StudentBuilder setName(Name name) {
+            requireNonNull(name);
+            this.name = name;
             return this;
         }
 
         /**
-         * Adds a set of {@code Tags} for the {@code Student} that is being built.
+         * Replaces the {@code Phone} of the {@code Student} that is being built.
          */
-        public StudentBuilder withTags(Set<Tag> tags) {
-            this.tags.addAll(tags);
+        public StudentBuilder setPhone(Phone phone) {
+            requireNonNull(phone);
+            this.phone = phone;
+            return this;
+        }
+
+        /**
+         * Replaces the {@code Email} of the {@code Student} that is being built.
+         */
+        public StudentBuilder setEmail(Email email) {
+            requireNonNull(email);
+            this.email = email;
+            return this;
+        }
+
+        /**
+         * Replaces the {@code Matric} of the {@code Student} that is being built.
+         */
+        public StudentBuilder setMatric(Matric matric) {
+            requireNonNull(matric);
+            this.matric = matric;
+            return this;
+        }
+
+        /**
+         * Replaces the set of {@code tags} for the {@code Student} that is being built.
+         */
+        public StudentBuilder setTags(Set<Tag> tags) {
+            requireAllNonNull(tags);
+            this.tags = tags;
             return this;
         }
 

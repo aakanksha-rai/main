@@ -105,7 +105,7 @@ public class EditStudentCommand extends Command {
         Set<Tag> updatedTags = editStudentDescriptor.getTags().orElse(studentToEdit.getTags());
 
         return new StudentBuilder(updatedName, updatedPhone, updatedEmail, updatedMatric)
-                .withTags(updatedTags)
+                .setTags(updatedTags)
                 .build();
     }
 

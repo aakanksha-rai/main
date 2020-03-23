@@ -16,7 +16,7 @@ import org.junit.jupiter.api.Test;
 
 import tatracker.model.student.exceptions.DuplicateStudentException;
 import tatracker.model.student.exceptions.StudentNotFoundException;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 
 public class UniqueStudentListTest {
 
@@ -41,7 +41,7 @@ public class UniqueStudentListTest {
     @Test
     public void contains_studentWithSameIdentityFieldsInList_returnsTrue() {
         uniqueStudentList.add(ALICE);
-        Student editedAlice = new StudentBuilder(ALICE)
+        Student editedAlice = new StudentStringBuilder(ALICE)
                 .withTags(VALID_TAG_HUSBAND).build();
         assertTrue(uniqueStudentList.contains(editedAlice));
     }
@@ -88,7 +88,7 @@ public class UniqueStudentListTest {
     @Test
     public void setStudent_editedStudentHasSameIdentity_success() {
         uniqueStudentList.add(ALICE);
-        Student editedAlice = new StudentBuilder(ALICE)
+        Student editedAlice = new StudentStringBuilder(ALICE)
                 .withTags(VALID_TAG_HUSBAND).build();
         uniqueStudentList.setStudent(ALICE, editedAlice);
         UniqueStudentList expectedUniqueStudentList = new UniqueStudentList();

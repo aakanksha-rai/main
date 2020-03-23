@@ -17,11 +17,13 @@ import org.junit.jupiter.api.Test;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+
+import tatracker.logic.commands.CommandTestUtil;
 import tatracker.model.module.Module;
 import tatracker.model.session.Session;
 import tatracker.model.student.Student;
 import tatracker.model.student.exceptions.DuplicateStudentException;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 
 public class TaTrackerTest {
 
@@ -47,7 +49,7 @@ public class TaTrackerTest {
     @Test
     public void resetData_withDuplicateStudents_throwsDuplicateStudentException() {
         // Two students with the same identity fields
-        Student editedAlice = new StudentBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        Student editedAlice = new StudentStringBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         List<Student> newStudents = Arrays.asList(ALICE, editedAlice);
         TaTrackerStub newData = new TaTrackerStub(newStudents);
 
@@ -73,7 +75,7 @@ public class TaTrackerTest {
     @Test
     public void hasStudent_studentWithSameIdentityFieldsInTaTracker_returnsTrue() {
         taTracker.addStudent(ALICE);
-        Student editedAlice = new StudentBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        Student editedAlice = new StudentStringBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertTrue(taTracker.hasStudent(editedAlice));
     }
 

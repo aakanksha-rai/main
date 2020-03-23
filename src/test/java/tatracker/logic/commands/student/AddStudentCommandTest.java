@@ -14,6 +14,7 @@ import java.util.function.Predicate;
 import org.junit.jupiter.api.Test;
 
 import javafx.collections.ObservableList;
+
 import tatracker.commons.core.GuiSettings;
 import tatracker.logic.commands.CommandResult;
 import tatracker.logic.commands.exceptions.CommandException;
@@ -24,7 +25,7 @@ import tatracker.model.TaTracker;
 import tatracker.model.module.Module;
 import tatracker.model.session.Session;
 import tatracker.model.student.Student;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 
 public class AddStudentCommandTest {
 
@@ -36,7 +37,7 @@ public class AddStudentCommandTest {
     @Test
     public void execute_studentAcceptedByModel_addSuccessful() throws Exception {
         ModelStubAcceptingStudentAdded modelStub = new ModelStubAcceptingStudentAdded();
-        Student validStudent = new StudentBuilder().build();
+        Student validStudent = new StudentStringBuilder().build();
 
         CommandResult commandResult = new AddStudentCommand(validStudent).execute(modelStub);
 
@@ -46,7 +47,7 @@ public class AddStudentCommandTest {
 
     @Test
     public void execute_duplicateStudent_throwsCommandException() {
-        Student validStudent = new StudentBuilder().build();
+        Student validStudent = new StudentStringBuilder().build();
         AddStudentCommand addStudentCommand = new AddStudentCommand(validStudent);
         ModelStub modelStub = new ModelStubWithStudent(validStudent);
 
@@ -56,8 +57,8 @@ public class AddStudentCommandTest {
 
     @Test
     public void equals() {
-        Student alice = new StudentBuilder().withName("Alice").build();
-        Student bob = new StudentBuilder().withName("Bob").build();
+        Student alice = new StudentStringBuilder().withName("Alice").build();
+        Student bob = new StudentStringBuilder().withName("Bob").build();
         AddStudentCommand addAliceCommand = new AddStudentCommand(alice);
         AddStudentCommand addBobCommand = new AddStudentCommand(bob);
 

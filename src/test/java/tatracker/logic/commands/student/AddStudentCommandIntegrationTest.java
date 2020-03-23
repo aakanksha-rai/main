@@ -2,7 +2,6 @@ package tatracker.logic.commands.student;
 
 import static tatracker.logic.commands.CommandTestUtil.assertCommandFailure;
 import static tatracker.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static tatracker.testutil.TypicalStudents.getTypicalTaTracker;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -11,7 +10,8 @@ import tatracker.model.Model;
 import tatracker.model.ModelManager;
 import tatracker.model.UserPrefs;
 import tatracker.model.student.Student;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
+import tatracker.testutil.TypicalStudents;
 
 /**
  * Contains integration tests (interaction with the Model) for {@code AddStudentCommand}.
@@ -22,12 +22,12 @@ public class AddStudentCommandIntegrationTest {
 
     @BeforeEach
     public void setUp() {
-        model = new ModelManager(getTypicalTaTracker(), new UserPrefs());
+        model = new ModelManager(TypicalStudents.getTypicalTaTracker(), new UserPrefs());
     }
 
     @Test
     public void execute_newStudent_success() {
-        Student validStudent = new StudentBuilder().build();
+        Student validStudent = new StudentStringBuilder().build();
 
         Model expectedModel = new ModelManager(model.getTaTracker(), new UserPrefs());
         expectedModel.addStudent(validStudent);

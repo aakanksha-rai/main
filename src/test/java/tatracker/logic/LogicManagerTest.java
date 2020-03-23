@@ -30,7 +30,7 @@ import tatracker.model.student.Student;
 import tatracker.storage.JsonTaTrackerStorage;
 import tatracker.storage.JsonUserPrefsStorage;
 import tatracker.storage.StorageManager;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 
 public class LogicManagerTest {
     private static final IOException DUMMY_IO_EXCEPTION = new IOException("dummy exception");
@@ -81,7 +81,7 @@ public class LogicManagerTest {
         // Execute add command
         String addCommand = AddStudentCommand.COMMAND_WORD + NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY
                 + MATRIC_DESC_AMY;
-        Student expectedStudent = new StudentBuilder(AMY).withTags().build();
+        Student expectedStudent = new StudentStringBuilder(AMY).withTags().build();
         ModelManager expectedModel = new ModelManager();
         expectedModel.addStudent(expectedStudent);
         String expectedMessage = LogicManager.FILE_OPS_ERROR_MESSAGE + DUMMY_IO_EXCEPTION;

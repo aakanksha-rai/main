@@ -26,7 +26,7 @@ import tatracker.model.TaTracker;
 import tatracker.model.UserPrefs;
 import tatracker.model.student.Student;
 import tatracker.testutil.EditStudentDescriptorBuilder;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 
 /**
  * Contains integration tests (interaction with the Model, UndoCommand and RedoCommand)
@@ -38,7 +38,7 @@ public class EditStudentCommandTest {
 
     @Test
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
-        Student editedStudent = new StudentBuilder().build();
+        Student editedStudent = new StudentStringBuilder().build();
         EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(editedStudent).build();
         EditStudentCommand editStudentCommand = new EditStudentCommand(INDEX_FIRST_STUDENT, descriptor);
 
@@ -55,7 +55,7 @@ public class EditStudentCommandTest {
         Index indexLastStudent = Index.fromOneBased(model.getFilteredStudentList().size());
         Student lastStudent = model.getFilteredStudentList().get(indexLastStudent.getZeroBased());
 
-        StudentBuilder studentInList = new StudentBuilder(lastStudent);
+        StudentStringBuilder studentInList = new StudentStringBuilder(lastStudent);
         Student editedStudent = studentInList.withName(VALID_NAME_BOB).withPhone(VALID_PHONE_BOB)
                 .withTags(VALID_TAG_HUSBAND).build();
 
@@ -89,7 +89,7 @@ public class EditStudentCommandTest {
         showStudentAtIndex(model, INDEX_FIRST_STUDENT);
 
         Student studentInFilteredList = model.getFilteredStudentList().get(INDEX_FIRST_STUDENT.getZeroBased());
-        Student editedStudent = new StudentBuilder(studentInFilteredList).withName(VALID_NAME_BOB).build();
+        Student editedStudent = new StudentStringBuilder(studentInFilteredList).withName(VALID_NAME_BOB).build();
         EditStudentCommand editStudentCommand = new EditStudentCommand(INDEX_FIRST_STUDENT,
                 new EditStudentDescriptorBuilder().withName(VALID_NAME_BOB).build());
 

@@ -15,7 +15,7 @@ import tatracker.model.tag.Tag;
 /**
  * A utility class to help with building Student objects.
  */
-public class StudentBuilder {
+public class StudentStringBuilder {
 
     public static final String DEFAULT_NAME = "Alice Pauline";
     public static final String DEFAULT_PHONE = "85355255";
@@ -28,7 +28,7 @@ public class StudentBuilder {
     private Matric matric;
     private Set<Tag> tags;
 
-    public StudentBuilder() {
+    public StudentStringBuilder() {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
@@ -37,9 +37,9 @@ public class StudentBuilder {
     }
 
     /**
-     * Initializes the StudentBuilder with the data of {@code studentToCopy}.
+     * Initializes the StudentStringBuilder with the data of {@code studentToCopy}.
      */
-    public StudentBuilder(Student studentToCopy) {
+    public StudentStringBuilder(Student studentToCopy) {
         name = studentToCopy.getName();
         phone = studentToCopy.getPhone();
         email = studentToCopy.getEmail();
@@ -50,7 +50,7 @@ public class StudentBuilder {
     /**
      * Sets the {@code Name} of the {@code Student} that we are building.
      */
-    public StudentBuilder withName(String name) {
+    public StudentStringBuilder withName(String name) {
         this.name = new Name(name);
         return this;
     }
@@ -58,7 +58,7 @@ public class StudentBuilder {
     /**
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Student} that we are building.
      */
-    public StudentBuilder withTags(String ... tags) {
+    public StudentStringBuilder withTags(String ... tags) {
         this.tags = Arrays.stream(tags)
                 .map(Tag::new)
                 .collect(Collectors.toCollection(HashSet::new));
@@ -69,7 +69,7 @@ public class StudentBuilder {
     /**
      * Sets the {@code Phone} of the {@code Student} that we are building.
      */
-    public StudentBuilder withPhone(String phone) {
+    public StudentStringBuilder withPhone(String phone) {
         this.phone = new Phone(phone);
         return this;
     }
@@ -77,7 +77,7 @@ public class StudentBuilder {
     /**
      * Sets the {@code Email} of the {@code Student} that we are building.
      */
-    public StudentBuilder withEmail(String email) {
+    public StudentStringBuilder withEmail(String email) {
         this.email = new Email(email);
         return this;
     }
@@ -85,13 +85,13 @@ public class StudentBuilder {
     /**
      * Sets the {@code Matric} of the {@code Student} that we are building.
      */
-    public StudentBuilder withMatric(String matric) {
+    public StudentStringBuilder withMatric(String matric) {
         this.matric = new Matric(matric);
         return this;
     }
 
     /**
-     * Builds the {@code Student} with the fields specified in the current {@code StudentBuilder}.
+     * Builds the {@code Student} with the fields specified in the current {@code StudentStringBuilder}.
      */
     public Student build() {
         return new Student.StudentBuilder(name, phone, email, matric)

@@ -23,54 +23,65 @@ import tatracker.model.student.Student;
  */
 public class TypicalStudents {
 
-    public static final Student ALICE = new StudentBuilder().withName("Alice Pauline")
+    public static final Student ALICE = new StudentStringBuilder()
+            .withName("Alice Pauline")
             .withEmail("alice@example.com")
             .withMatric("A0193235J")
-            .withPhone("94351253").withTags("friends").build();
-    public static final Student BENSON = new StudentBuilder().withName("Benson Meier")
-            .withEmail("johnd@example.com").withPhone("98765432")
+            .withPhone("94351253")
+            .withTags("friends").build();
+    public static final Student BENSON = new StudentStringBuilder()
+            .withName("Benson Meier")
+            .withEmail("johnd@example.com")
+            .withPhone("98765432")
             .withMatric("A0188621K")
             .withTags("owesMoney", "friends").build();
-    public static final Student CARL = new StudentBuilder().withName("Carl Kurz")
+    public static final Student CARL = new StudentStringBuilder()
+            .withName("Carl Kurz")
             .withPhone("95352563")
             .withEmail("heinz@example.com")
             .withMatric("A0190706L").build();
-    public static final Student DANIEL = new StudentBuilder().withName("Daniel Meier")
+    public static final Student DANIEL = new StudentStringBuilder()
+            .withName("Daniel Meier")
             .withPhone("87652533")
             .withEmail("cornelia@example.com")
             .withMatric("A0192154M")
             .withTags("friends").build();
-    public static final Student ELLE = new StudentBuilder().withName("Elle Meyer")
+    public static final Student ELLE = new StudentStringBuilder()
+            .withName("Elle Meyer")
             .withPhone("9482224")
             .withEmail("werner@example.com")
             .withMatric("A0190546N").build();
-    public static final Student FIONA = new StudentBuilder().withName("Fiona Kunz")
+    public static final Student FIONA = new StudentStringBuilder()
+            .withName("Fiona Kunz")
             .withPhone("9482427")
             .withEmail("lydia@example.com")
             .withMatric("A0196074P").build();
-    public static final Student GEORGE = new StudentBuilder().withName("George Best")
+    public static final Student GEORGE = new StudentStringBuilder()
+            .withName("George Best")
             .withPhone("9482442")
             .withEmail("anna@example.com")
             .withMatric("A0190289Q").build();
 
     // Manually added
-    public static final Student HOON = new StudentBuilder().withName("Hoon Meier")
+    public static final Student HOON = new StudentStringBuilder()
+            .withName("Hoon Meier")
             .withPhone("8482424")
             .withEmail("stefan@example.com")
             .withMatric("A0191183R").build();
-    public static final Student IDA = new StudentBuilder().withName("Ida Mueller")
+    public static final Student IDA = new StudentStringBuilder()
+            .withName("Ida Mueller")
             .withPhone("8482131")
             .withEmail("hans@example.com")
             .withMatric("A0188967T").build();
 
     // Manually added - Student's details found in {@code CommandTestUtil}
-    public static final Student AMY = new StudentBuilder()
+    public static final Student AMY = new StudentStringBuilder()
             .withName(VALID_NAME_AMY)
             .withPhone(VALID_PHONE_AMY)
             .withEmail(VALID_EMAIL_AMY)
             .withMatric(VALID_MATRIC_AMY)
             .withTags(VALID_TAG_FRIEND).build();
-    public static final Student BOB = new StudentBuilder()
+    public static final Student BOB = new StudentStringBuilder()
             .withName(VALID_NAME_BOB)
             .withPhone(VALID_PHONE_BOB)
             .withEmail(VALID_EMAIL_BOB)

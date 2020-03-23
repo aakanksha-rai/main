@@ -26,7 +26,7 @@ import tatracker.logic.parser.exceptions.ParseException;
 import tatracker.model.student.NameContainsKeywordsPredicate;
 import tatracker.model.student.Student;
 import tatracker.testutil.EditStudentDescriptorBuilder;
-import tatracker.testutil.StudentBuilder;
+import tatracker.testutil.StudentStringBuilder;
 import tatracker.testutil.StudentUtil;
 
 public class TaTrackerParserTest {
@@ -35,7 +35,7 @@ public class TaTrackerParserTest {
 
     @Test
     public void parseCommand_add() throws Exception {
-        Student student = new StudentBuilder().build();
+        Student student = new StudentStringBuilder().build();
         AddStudentCommand command = (AddStudentCommand) parser.parseCommand(StudentUtil.getAddCommand(student));
         assertEquals(new AddStudentCommand(student), command);
     }
@@ -55,7 +55,7 @@ public class TaTrackerParserTest {
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Student student = new StudentBuilder().build();
+        Student student = new StudentStringBuilder().build();
         EditStudentDescriptor descriptor = new EditStudentDescriptorBuilder(student).build();
         EditStudentCommand command = (EditStudentCommand) parser.parseCommand(EditStudentCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_STUDENT.getOneBased() + " " + StudentUtil.getEditStudentDescriptorDetails(descriptor));

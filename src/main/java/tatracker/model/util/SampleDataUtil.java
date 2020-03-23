@@ -1,6 +1,7 @@
 package tatracker.model.util;
 
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -52,12 +53,12 @@ public class SampleDataUtil {
     }
 
     /**
-     * Returns a tag set containing the list of strings given.
+     * Converts a list of tag names into a set of {@code Tags}.
      */
-    public static Set<Tag> getTagSet(String... strings) {
+    private static Set<Tag> getTagSet(String ... strings) {
         return Arrays.stream(strings)
                 .map(Tag::new)
-                .collect(Collectors.toSet());
+                .collect(Collectors.toCollection(HashSet::new));
     }
 
 }

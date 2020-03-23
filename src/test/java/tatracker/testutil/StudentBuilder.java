@@ -1,7 +1,9 @@
 package tatracker.testutil;
 
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 
 import tatracker.model.student.Email;
 import tatracker.model.student.Matric;
@@ -9,7 +11,6 @@ import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
 import tatracker.model.student.Student;
 import tatracker.model.tag.Tag;
-import tatracker.model.util.SampleDataUtil;
 
 /**
  * A utility class to help with building Student objects.
@@ -58,7 +59,9 @@ public class StudentBuilder {
      * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Student} that we are building.
      */
     public StudentBuilder withTags(String ... tags) {
-        this.tags = SampleDataUtil.getTagSet(tags);
+        this.tags = Arrays.stream(tags)
+                .map(Tag::new)
+                .collect(Collectors.toCollection(HashSet::new));
         return this;
     }
 

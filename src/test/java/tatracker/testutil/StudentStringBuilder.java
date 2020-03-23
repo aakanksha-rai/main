@@ -2,7 +2,6 @@ package tatracker.testutil;
 
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 import tatracker.model.student.Email;
@@ -10,6 +9,7 @@ import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
 import tatracker.model.student.Student;
+import tatracker.model.student.Student.StudentBuilder;
 import tatracker.model.tag.Tag;
 
 /**
@@ -22,55 +22,36 @@ public class StudentStringBuilder {
     public static final String DEFAULT_EMAIL = "alice@gmail.com";
     public static final String DEFAULT_MATRIC = "A0123456B";
 
-    private Name name;
-    private Phone phone;
-    private Email email;
-    private Matric matric;
-    private Set<Tag> tags;
+    private StudentBuilder studentBuilder;
 
     public StudentStringBuilder() {
-        name = new Name(DEFAULT_NAME);
-        phone = new Phone(DEFAULT_PHONE);
-        email = new Email(DEFAULT_EMAIL);
-        matric = new Matric(DEFAULT_MATRIC);
-        tags = new HashSet<>();
+        this.studentBuilder = new StudentBuilder(
+                new Name(DEFAULT_NAME),
+                new Phone(DEFAULT_PHONE),
+                new Email(DEFAULT_EMAIL),
+                new Matric(DEFAULT_MATRIC));
     }
 
     /**
      * Initializes the StudentStringBuilder with the data of {@code studentToCopy}.
      */
     public StudentStringBuilder(Student studentToCopy) {
-        name = studentToCopy.getName();
-        phone = studentToCopy.getPhone();
-        email = studentToCopy.getEmail();
-        matric = studentToCopy.getMatric();
-        tags = new HashSet<>(studentToCopy.getTags());
+        this.studentBuilder = new StudentBuilder(studentToCopy);
     }
 
     /**
      * Sets the {@code Name} of the {@code Student} that we are building.
      */
     public StudentStringBuilder withName(String name) {
-        this.name = new Name(name);
+        this.studentBuilder.setName(new Name(name));
         return this;
     }
-
-    /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Student} that we are building.
-     */
-    public StudentStringBuilder withTags(String ... tags) {
-        this.tags = Arrays.stream(tags)
-                .map(Tag::new)
-                .collect(Collectors.toCollection(HashSet::new));
-        return this;
-    }
-
 
     /**
      * Sets the {@code Phone} of the {@code Student} that we are building.
      */
     public StudentStringBuilder withPhone(String phone) {
-        this.phone = new Phone(phone);
+        this.studentBuilder.setPhone(new Phone(phone));
         return this;
     }
 
@@ -78,7 +59,7 @@ public class StudentStringBuilder {
      * Sets the {@code Email} of the {@code Student} that we are building.
      */
     public StudentStringBuilder withEmail(String email) {
-        this.email = new Email(email);
+        this.studentBuilder.setEmail(new Email(email));
         return this;
     }
 
@@ -86,7 +67,17 @@ public class StudentStringBuilder {
      * Sets the {@code Matric} of the {@code Student} that we are building.
      */
     public StudentStringBuilder withMatric(String matric) {
-        this.matric = new Matric(matric);
+        this.studentBuilder.setMatric(new Matric(matric));
+        return this;
+    }
+
+    /**
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code Student} that we are building.
+     */
+    public StudentStringBuilder withTags(String ... tags) {
+        this.studentBuilder.setTags(Arrays.stream(tags)
+                .map(Tag::new)
+                .collect(Collectors.toCollection(HashSet::new)));
         return this;
     }
 
@@ -94,9 +85,7 @@ public class StudentStringBuilder {
      * Builds the {@code Student} with the fields specified in the current {@code StudentStringBuilder}.
      */
     public Student build() {
-        return new Student.StudentBuilder(name, phone, email, matric)
-                .setTags(tags)
-                .build();
+        return studentBuilder.build();
     }
 
 }

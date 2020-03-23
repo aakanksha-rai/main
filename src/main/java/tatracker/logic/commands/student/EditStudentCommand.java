@@ -5,6 +5,7 @@ import static tatracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static tatracker.logic.parser.CliSyntax.PREFIX_MATRIC;
 import static tatracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static tatracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static tatracker.logic.parser.CliSyntax.PREFIX_RATING;
 import static tatracker.logic.parser.CliSyntax.PREFIX_TAG;
 import static tatracker.model.Model.PREDICATE_SHOW_ALL_STUDENTS;
 
@@ -42,11 +43,12 @@ public class EditStudentCommand extends Command {
             + "by the index number used in the displayed student list. "
             + "Existing values will be overwritten by the input values.\n"
             + "Parameters: INDEX (must be a positive integer) "
-            + "[" + PREFIX_NAME + "NAME] "
-            + "[" + PREFIX_PHONE + "PHONE] "
-            + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_MATRIC + "MATRIC] "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + String.format("[%s%s] ", PREFIX_NAME, "NAME")
+            + String.format("[%s%s] ", PREFIX_PHONE, "PHONE")
+            + String.format("[%s%s] ", PREFIX_EMAIL, "EMAIL")
+            + String.format("[%s%s] ", PREFIX_MATRIC, "MATRIC")
+            + String.format("[%s%s] ", PREFIX_RATING, "RATING")
+            + String.format("[%s%s]...\n", PREFIX_TAG, "TAG")
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com "
@@ -105,6 +107,7 @@ public class EditStudentCommand extends Command {
         editStudentDescriptor.getPhone().map(studentBuilder::setPhone);
         editStudentDescriptor.getEmail().map(studentBuilder::setEmail);
         editStudentDescriptor.getMatric().map(studentBuilder::setMatric);
+        editStudentDescriptor.getRating().map(studentBuilder::setRating);
         editStudentDescriptor.getTags().map(studentBuilder::setTags);
 
         return studentBuilder.build();

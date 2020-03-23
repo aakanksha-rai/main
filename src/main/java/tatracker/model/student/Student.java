@@ -8,6 +8,7 @@ import java.util.HashSet;
 import java.util.Objects;
 import java.util.Set;
 
+import tatracker.model.rating.Rating;
 import tatracker.model.tag.Tag;
 
 /**
@@ -132,6 +133,7 @@ public class Student {
         private Matric matric;
 
         // Data fields
+        private Rating rating;
         private Set<Tag> tags;
 
         /**
@@ -190,6 +192,15 @@ public class Student {
         public StudentBuilder setMatric(Matric matric) {
             requireNonNull(matric);
             this.matric = matric;
+            return this;
+        }
+
+        /**
+         * Replaces the {@code Rating} of the {@code Student} that is being built.
+         */
+        public StudentBuilder setRating(Rating rating) {
+            requireNonNull(rating);
+            this.rating = rating;
             return this;
         }
 

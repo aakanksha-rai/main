@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.stream.Collectors;
 
+import tatracker.model.rating.Rating;
 import tatracker.model.student.Email;
 import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
@@ -68,6 +69,14 @@ public class StudentStringBuilder {
      */
     public StudentStringBuilder withMatric(String matric) {
         this.studentBuilder.setMatric(new Matric(matric));
+        return this;
+    }
+
+    /**
+     * Sets the {@code Rating} of the {@code Student} that we are building.
+     */
+    public StudentStringBuilder withRating(int rating) {
+        this.studentBuilder.setRating(new Rating(rating));
         return this;
     }
 

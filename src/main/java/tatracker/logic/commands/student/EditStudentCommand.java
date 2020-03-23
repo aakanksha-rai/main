@@ -22,6 +22,7 @@ import tatracker.logic.commands.CommandResult;
 import tatracker.logic.commands.CommandWords;
 import tatracker.logic.commands.exceptions.CommandException;
 import tatracker.model.Model;
+import tatracker.model.rating.Rating;
 import tatracker.model.student.Email;
 import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
@@ -136,6 +137,7 @@ public class EditStudentCommand extends Command {
         private Phone phone;
         private Email email;
         private Matric matric;
+        private Rating rating;
         private Set<Tag> tags;
 
         public EditStudentDescriptor() {}
@@ -149,6 +151,7 @@ public class EditStudentCommand extends Command {
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
             setMatric(toCopy.matric);
+            setRating(toCopy.rating);
             setTags(toCopy.tags);
         }
 
@@ -156,7 +159,7 @@ public class EditStudentCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, matric, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, matric, rating, tags);
         }
 
         public void setName(Name name) {
@@ -189,6 +192,14 @@ public class EditStudentCommand extends Command {
 
         public Optional<Matric> getMatric() {
             return Optional.ofNullable(matric);
+        }
+
+        public void setRating(Rating rating) {
+            this.rating = rating;
+        }
+
+        public Optional<Rating> getRating() {
+            return Optional.ofNullable(rating);
         }
 
         /**
@@ -227,6 +238,7 @@ public class EditStudentCommand extends Command {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getMatric().equals(e.getMatric())
+                    && getRating().equals(e.getRating())
                     && getTags().equals(e.getTags());
         }
     }

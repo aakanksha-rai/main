@@ -1,4 +1,4 @@
-package tatracker.model.rating;
+package tatracker.model.student;
 
 import static tatracker.commons.util.AppUtil.checkArgument;
 

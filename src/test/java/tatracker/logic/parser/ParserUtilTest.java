@@ -14,11 +14,11 @@ import java.util.Set;
 import org.junit.jupiter.api.Test;
 
 import tatracker.logic.parser.exceptions.ParseException;
-import tatracker.model.rating.Rating;
 import tatracker.model.student.Email;
 import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
+import tatracker.model.student.Rating;
 import tatracker.model.tag.Tag;
 
 public class ParserUtilTest {

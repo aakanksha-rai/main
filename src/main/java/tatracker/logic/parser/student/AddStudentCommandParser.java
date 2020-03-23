@@ -5,6 +5,7 @@ import static tatracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static tatracker.logic.parser.CliSyntax.PREFIX_MATRIC;
 import static tatracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static tatracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static tatracker.logic.parser.CliSyntax.PREFIX_RATING;
 import static tatracker.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -17,11 +18,11 @@ import tatracker.logic.parser.Parser;
 import tatracker.logic.parser.ParserUtil;
 import tatracker.logic.parser.Prefix;
 import tatracker.logic.parser.exceptions.ParseException;
+import tatracker.model.rating.Rating;
 import tatracker.model.student.Email;
 import tatracker.model.student.Matric;
 import tatracker.model.student.Name;
 import tatracker.model.student.Phone;
-import tatracker.model.student.Student;
 import tatracker.model.student.Student.StudentBuilder;
 import tatracker.model.tag.Tag;
 
@@ -37,24 +38,33 @@ public class AddStudentCommandParser implements Parser<AddStudentCommand> {
      */
     public AddStudentCommand parse(String args) throws ParseException {
         ArgumentMultimap argMultimap =
-                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_MATRIC, PREFIX_TAG);
+                ArgumentTokenizer.tokenize(args, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_MATRIC,
+                        PREFIX_RATING, PREFIX_TAG);
 
         if (!arePrefixesPresent(argMultimap, PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_MATRIC)
                 || !argMultimap.getPreamble().isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, AddStudentCommand.MESSAGE_USAGE));
         }
 
+        // Identity fields
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
         Matric matric = ParserUtil.parseMatric(argMultimap.getValue(PREFIX_MATRIC).get());
+
+        StudentBuilder studentBuilder = new StudentBuilder(name, phone, email, matric);
+
+        // Optional fields
+        if (argMultimap.getValue(PREFIX_RATING).isPresent()) {
+            Rating rating = ParserUtil.parseRating(argMultimap.getValue(PREFIX_RATING).get());
+            studentBuilder.setRating(rating);
+        }
+
+        // Tags are returned as a list. Even if there are no tags, there will be an empty list to parse.
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
+        studentBuilder.setTags(tagList);
 
-        Student student = new StudentBuilder(name, phone, email, matric)
-                .setTags(tagList)
-                .build();
-
-        return new AddStudentCommand(student);
+        return new AddStudentCommand(studentBuilder.build());
     }
 
     /**

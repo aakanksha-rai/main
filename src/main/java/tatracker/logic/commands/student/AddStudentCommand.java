@@ -5,6 +5,7 @@ import static tatracker.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static tatracker.logic.parser.CliSyntax.PREFIX_MATRIC;
 import static tatracker.logic.parser.CliSyntax.PREFIX_NAME;
 import static tatracker.logic.parser.CliSyntax.PREFIX_PHONE;
+import static tatracker.logic.parser.CliSyntax.PREFIX_RATING;
 import static tatracker.logic.parser.CliSyntax.PREFIX_TAG;
 
 import tatracker.logic.commands.Command;
@@ -27,12 +28,14 @@ public class AddStudentCommand extends Command {
             + PREFIX_PHONE + "PHONE "
             + PREFIX_EMAIL + "EMAIL "
             + PREFIX_MATRIC + "MATRIC "
-            + "[" + PREFIX_TAG + "TAG]...\n"
+            + String.format("[%s%s] ", PREFIX_RATING, "RATING")
+            + String.format("[%s%s]...\n", PREFIX_TAG, "TAG")
             + "Example: " + COMMAND_WORD + " "
             + PREFIX_NAME + "John Doe "
             + PREFIX_PHONE + "98765432 "
             + PREFIX_EMAIL + "johnd@example.com "
             + PREFIX_MATRIC + "A0181234G "
+            + PREFIX_RATING + "3 "
             + PREFIX_TAG + "friends "
             + PREFIX_TAG + "owesMoney";
 

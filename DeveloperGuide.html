@@ -29,6 +29,7 @@
 <li><a href="#proposed-syntax-highlighting-feature">3.5. [Proposed] Syntax Highlighting feature</a></li>
 <li><a href="#logging">3.6. Logging</a></li>
 <li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
+<li><a href="#Implementation-Find">3.8. Find Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -1295,6 +1296,77 @@ by colouring the font of valid command words as the user is typing.</p>
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Find"><a class="link" href="#Implementation-Find">3.8. Find Command</a></h3>
+<div class="paragraph">
+<p>Find Command should be used under the current view. Find Command returns specified search that contains any of the given keywords.
+The search functionality is crucial to the user&#8217;s experience with TaTracker.</p>
+</div>
+<div class="paragraph">
+<p>This section will describe in detail the implementation of the find command.</p>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarises what happens when a user executes the find command :</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindCommandActivityDiagram.png" alt="FindCommandActivityDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 1 Activity Diagram for the Execution of Find Command</p>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">3.8.1. Implementation</a></h4>
+<div class="paragraph">
+<p>Find Feature consists of three main parts:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>validate and parse user input</p>
+</li>
+<li>
+<p>create a filtering predicate from user&#8217;s specified keywords</p>
+</li>
+<li>
+<p>update the filtered list with the filtering predicate</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The find feature is facilitated by the following classes:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindCommandParser</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It validates and parses user input to an instance of FindCommand.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>FindKeywordDescriptor</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It stores keywords specified by the user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Figure 2 Class Diagram of Find Feature</p>
+</div>
 </div>
 </div>
 </div>
@@ -2935,4 +3007,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 16:12:06 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 16:50:27 UTC</div></div></div></body></html>

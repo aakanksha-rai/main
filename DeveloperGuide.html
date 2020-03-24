@@ -26,8 +26,9 @@
 <li><a href="#module-view">3.2. Module View</a></li>
 <li><a href="#student-view">3.3. Student View</a></li>
 <li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
+<li><a href="#proposed-syntax-highlighting-feature">3.5. [Proposed] Syntax Highlighting feature</a></li>
+<li><a href="#logging">3.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.7. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -223,6 +224,21 @@ The following class plays an important role at the architecture level:</p>
 <p><code>Logic</code> uses the <code>TaTrackerParser</code> class to parse the user command.</p>
 </li>
 <li>
+<p><code>TaTrackerParser</code> uses specialized command parsers to parse the user command.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p><code>StudentCommandParser</code>, <code>ModuleCommandParser</code>, <code>GroupCommandParser</code>, and <code>SessionCommandParser</code>
+parse commands that interact with the models that they are named after.</p>
+</li>
+<li>
+<p>Other parsers, such as <code>HelpCommandParser</code> and <code>FilterCommandParser</code> parse commands that
+interact with the TA-Tracker user interface.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
 <p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
 </li>
 <li>
@@ -324,6 +340,35 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>TaTracker</co
 </li>
 <li>
 <p>can save the TA-Tracker data in json format and read it back.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>TA-Tracker</code> saves the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>a list of <code>Module</code> objects representing the modules that the user is assisting.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>each <code>Module</code> contains a list of <code>Session</code>, representing the sessions that
+the user has completed for that module.</p>
+</li>
+<li>
+<p>each <code>Module</code> contains a list of <code>Group</code>, representing the groups that the user is
+in charge of, such as a tutorial or lab.</p>
+</li>
+<li>
+<p>each <code>Group</code> contains a list of <code>Student</code>, representing the students enrolled in
+the respective groups.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>a separate list of <code>Session</code> objects representing the sessions that the user has scheduled in the future.</p>
 </li>
 </ul>
 </div>
@@ -1112,14 +1157,111 @@ a command exception is thrown saying that no such group exists.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
+<h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">3.5. [Proposed] Syntax Highlighting feature</a></h3>
+<div class="sect3">
+<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.5.1. Proposed Implementation</a></h4>
+<div class="paragraph">
+<p>The syntax highlighting feature extends the CLI input box in the <code>MainWindow</code> of TA-Tracker
+by colouring the font of valid command words as the user is typing.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SyntaxHighlighting.png" alt="SyntaxHighlighting">
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.5.2. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-how-to-syntax-highlighting-executes-in-real-time"><a class="link" href="#aspect-how-to-syntax-highlighting-executes-in-real-time">Aspect: How to syntax highlighting executes in real-time</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Updates the syntax highlighting for each character that the user inputs.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Will have improved performance as the program can idle.</p>
+</li>
+<li>
+<p>Cons: May be difficult to handle the deletion of characters in the CLI box.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Constantly update the syntax highlighting (in an infinite loop) when the user input is not blank.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Simplest implementation.</p>
+</li>
+<li>
+<p>Cons: May cause performance issues, especially if there are other features that update constantly.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 3:</strong> Subscribe to a centralized update loop in a modified TA-Tracker.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Works seamlessly with other real-time features.</p>
+</li>
+<li>
+<p>Cons: May cause performance issues, especially if there are other features that update constantly.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect4">
+<h5 id="aspect-data-structure-to-support-the-undo-redo-commands-2"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands-2">Aspect: Data structure to support the undo/redo commands</a></h5>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of TA-Tracker states.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
+</li>
+<li>
+<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedTaTracker</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
+</li>
+<li>
+<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">3.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1150,7 +1292,7 @@ a command exception is thrown saying that no such group exists.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2793,4 +2935,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 16:01:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 16:12:06 UTC</div></div></div></body></html>

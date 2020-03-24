@@ -24,9 +24,10 @@
 <ul class="sectlevel2">
 <li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
 <li><a href="#module-view">3.2. Module View</a></li>
-<li><a href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></li>
-<li><a href="#logging">3.4. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.5. Configuration</a></li>
+<li><a href="#student-view">3.3. Student View</a></li>
+<li><a href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></li>
+<li><a href="#logging">3.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">3.6. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">4. Documentation</a></li>
@@ -834,20 +835,291 @@ a command exception is thrown saying that no such group exists.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.3. [Proposed] Data Encryption</a></h3>
+<h3 id="student-view"><a class="link" href="#student-view">3.3. Student View</a></h3>
+<div class="paragraph">
+<p>Student view is the term used to characterise the different functionalities
+related to the students that the user is affiliated with.</p>
+</div>
+<div class="sect3">
+<h4 id="model-framework-2"><a class="link" href="#model-framework-2">3.3.1. Model Framework</a></h4>
+<div class="paragraph">
+<p>The following class diagram shows how different classes are related in the
+functioning of the module view.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StudentModelClassDiagram.png" alt="StudentModelClassDiagram">
+</div>
+<div class="title">Figure 16. Student View - Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The TaTracker model class contains a UniqueStudentList which helps it keep track
+of the different students the user is associated with. Each student has a name,
+matric and a default rating of 3/5 which can be edited by the user later. Each
+student also has a Phone and an Email, which is represented as an empty string
+if the user does not include the optional values.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-student-add-and-delete-commands"><a class="link" href="#implementation-of-the-student-add-and-delete-commands">3.3.2. Implementation of the Student Add and Delete Commands</a></h4>
+<div class="paragraph">
+<p>The following sequence diagram shows the sequence of commands that take place
+between the logic and model components of the TA-Tracker when the user enters the
+command 'student add n/John Doe p/98765432 e/johnd@example.com m/A0181234G'.</p>
+</div>
+<div class="paragraph">
+<p>Note: This diagram assumes that there is no student with the matric number 'A0181234G'
+pre-existing in the TA-Tracker.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddStudentSequenceDiagram.png" alt="AddStudentSequenceDiagram">
+</div>
+<div class="title">Figure 17. Student Add - Sequence Diagram</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>LogicManager uses the TATrackerParser to first parse the user command.</p>
+</li>
+<li>
+<p>The TATrackerParser sees that the command is of type student and passes the
+command to the StudentCommandParser.</p>
+</li>
+<li>
+<p>The ModuleCommandParser sees that the command is of type add and passes the
+arguments to the AddModuleCommandParser.</p>
+</li>
+<li>
+<p>The AddModuleCommandParser creates a Module with the given module code and
+name.</p>
+</li>
+<li>
+<p>The AddModuleCommandParser then creates an AddModuleCommand object and passes
+it the created module. The parser then returns the AddModuleCommand</p>
+</li>
+<li>
+<p>LogicManager calls AddModuleCommad&#8217;s execute method. The AddModuleCommand object
+checks whether a module with the given module code already exists in TA-Tracker.
+If it does, a command exception is thrown saying that a module with the given module
+code already exists in the TA-Tracker.</p>
+</li>
+<li>
+<p>If no such module exists, the module is added to the TA-Tracker.</p>
+</li>
+<li>
+<p>The SortGroupCommand returns a CommandResult with a success message.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The command used to delete a module has been implemented in a similar way. Tha main
+difference is that the DeleteModuleCommand checks whether an object with the given
+module code exists in the TA-Tracker. If no such module exists, a command exception
+is thrown saying that a module with the given module code doesn&#8217;t exist. If it does
+exist, first all the sessions linked to that module are removed.
+Then the module is removed from the TA-Tracker.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-group-add-and-delete-commands-2"><a class="link" href="#implementation-of-the-group-add-and-delete-commands-2">3.3.3. Implementation of the Group Add and Delete Commands</a></h4>
+<div class="paragraph">
+<p>The following activity diagram shows the steps taken by the AddGroupCommand object
+when the execute method is called.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddGroupActivityDiagram.png" alt="AddGroupActivityDiagram">
+</div>
+<div class="title">Figure 18. Group Add - Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>It should be noted that these are the steps followed assuming that no exception is
+thrown. Before getting the module from TA-Tracker&#8217;s model, the DeleteGroupCommand object
+checks whether such a module even exists. If it doesn&#8217;t exists, it throws a command
+exception saying that no such module exists. Before adding a group to the module, the
+object even checks whether the module already has a group with the given group code.
+If it exists, a command exception is thrown saying that there is already a group
+with the given group code.</p>
+</div>
+<div class="paragraph">
+<p>The interactions between the logic and model components when adding a group are similar
+to the interactions when deleting a group as shown below.</p>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram shows the interactions between the logic and model
+components when the user inputs the command 'group delete m/CS2103 g/G03'.</p>
+</div>
+<div class="paragraph">
+<p>Note: This diagram is under the case where a group with the group code G03 does exist
+in the module with module code CS2103 inside the TA-Tracker.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
+</div>
+<div class="title">Figure 19. Group Delete - Sequence Diagram</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>LogicManager uses the TATrackerParser to first parse the user command.</p>
+</li>
+<li>
+<p>The TATrackerParser sees that the command is of type group and passes the
+command to the GroupCommandParser.</p>
+</li>
+<li>
+<p>The GroupCommandParser sees that the command is of type delete and passes the
+arguments to the DeleteGroupCommandParser.</p>
+</li>
+<li>
+<p>The DeleteGroupCommandParser creates a Module with the given module code and
+a group with the given group code.</p>
+</li>
+<li>
+<p>The DeleteGroupCommandParser then creates a DeleteGroupCommand object and passes
+it the created module and group. The parser then returns the DeleteGroupCommand</p>
+</li>
+<li>
+<p>LogicManager calls DeleteGroupCommand&#8217;s execute method. The DeleteGroupCommand object
+checks whether a module with the given module code already exists in TA-Tracker.
+If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
+code doesn&#8217;t exist in the TA-Tracker.</p>
+</li>
+<li>
+<p>If the module exists, the DeleteGroupCommand object retrieves the module from the
+model and checks whether the module has a group with the given group code. If it doesn&#8217;t,
+a command exception is thrown saying that no such group exists. If the group does
+exist, it is removed from the module.</p>
+</li>
+<li>
+<p>The SortGroupCommand returns a CommandResult with a success message.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-sort-command-2"><a class="link" href="#implementation-of-the-sort-command-2">3.3.4. Implementation of the Sort Command</a></h4>
+<div class="paragraph">
+<p>The sort command allows the user to sort the students in the module view either alphabetically
+or by rating.</p>
+</div>
+<div class="paragraph">
+<p>The sort command can be used in three ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>sort g/GROUP_CODE m/MODULE_CODE t/TYPE : When a user enters the command in this
+manner, they are sorting all the students of the given group in the given module
+by type TYPE (which can be either alphabetical or by rating).</p>
+</li>
+<li>
+<p>sort g/MODULE_CODE t/TYPE : When a user enters a command in this manner, they
+are sorting all the students of all the groups in the given module by type TYPE
+(which can be either alphabetical or by rating).</p>
+</li>
+<li>
+<p>sort t/TYPE : When a user enters a command in this manner, they are sorting all
+students of all groups of all the modules in the TA-Tracker by the type TYPE (which
+can be either alphabetical or by rating).</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Since these sort commands function differently but use the same parser, the following
+class structure is used.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram">
+</div>
+<div class="title">Figure 20. Sort Commands - Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>Since the different commands use the same parser, the SortCommandParser needs to check
+which prefixes have been passed and return the appropriate command accordingly.
+The following activity diagram shows the steps the SortCommandParser takes once
+its parse command is called (assuming that no exception is thrown).</p>
+</div>
+<div class="paragraph">
+<p>If the user enters a sort command with no valid prefix, a command exception is thrown
+thats explains the usage of the sort command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram">
+</div>
+<div class="title">Figure 21. SortCommandParser - Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>The following sequence diagram illustrates the interactions between the logic and
+model components when the user enters the command 'sort m/CS2103 g/G03 t/alpha'.</p>
+</div>
+<div class="paragraph">
+<p>Note: To allow the user to type quickly, for type both 'alpha' and 'alphabetically'
+sort the students lexicographically.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortGroupSequenceDiagram.png" alt="SortGroupSequenceDiagram">
+</div>
+<div class="title">Figure 22. Sort - Sequence Diagram</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>LogicManager uses the TATrackerParser to first parse the user command.</p>
+</li>
+<li>
+<p>The TATrackerParser sees that the command is of type sort and passes the
+command to the SortCommandParser.</p>
+</li>
+<li>
+<p>The SortCommandParser performs the steps shown in the previous activity diagram
+and creates and returns a SortGroupCommand.</p>
+</li>
+<li>
+<p>LogicManager calls SortGroupCommand&#8217;s execute method.</p>
+</li>
+<li>
+<p>The SortGroupCommand creates a Module with the given module code and a group with
+the given group code. The SortGroupCommand object checks whether a module with the
+given module code already exists in TA-Tracker.
+If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
+code doesn&#8217;t exist in the TA-Tracker.</p>
+</li>
+<li>
+<p>If the module exists, the SortGroupCommand object retrieves the module from the
+model and checks whether the module has a group with the given group code. If it doesn&#8217;t,
+a command exception is thrown saying that no such group exists.</p>
+</li>
+<li>
+<p>If the group does exist, it is sorted according to the type of sort specified.</p>
+</li>
+<li>
+<p>The SortGroupCommand returns a CommandResult with a success message.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.4. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">3.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.5, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -878,7 +1150,7 @@ a command exception is thrown saying that no such group exists.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.5. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -2521,4 +2793,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 14:44:54 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-24 16:01:46 UTC</div></div></div></body></html>

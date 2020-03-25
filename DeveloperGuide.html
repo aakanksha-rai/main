@@ -1063,98 +1063,173 @@ of the session from EndDateTime and then rounding up the value to a whole.</p>
 </div>
 <div class="sect2">
 <h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">3.6. [Proposed] Syntax Highlighting feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation-2"><a class="link" href="#proposed-implementation-2">3.6.1. Proposed Implementation</a></h4>
 <div class="paragraph">
-<p>The syntax highlighting feature extends the CLI input box in the <code>MainWindow</code> of TA-Tracker
-by colouring the font of valid command words as the user is typing.</p>
+<p>The syntax highlighting feature extends the <code>CommandBox</code> in the <code>MainWindow</code> of TA-Tracker
+by colouring the font of valid command words as the user is typing. Currently, when a user
+inputs an invalid command, the <code>CommandBox</code> highlights the entire command in red. This feature
+will improve on this existing feature by changing the highlighting to be in real-time,
+and on a per word basis.</p>
+</div>
+<div class="sect3">
+<h4 id="proposed-implementation-of-the-syntax-highlighting-feature"><a class="link" href="#proposed-implementation-of-the-syntax-highlighting-feature">3.6.1. Proposed Implementation of the Syntax Highlighting feature</a></h4>
+<div class="paragraph">
+<p>When the user inputs a command in the <code>CommandBox</code>, the <code>CommandBox</code> will be highlight the following:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All valid command words. If a command word has more than one word,
+then the syntax highlighting will only appear when all of these words are in the <code>CommandBox</code>.</p>
+</li>
+<li>
+<p>All valid prefixes for each current command.</p>
+</li>
+<li>
+<p>The values of each valid prefix, if they are valid.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In order to keep track of all commands and parameters, the <code>CommandDictionary</code>
+will store these information in a <code>Set</code>. To support the storage of all commands,
+each command should have a class variable named <code>COMMAND_WORD</code>.</p>
+</div>
+<div class="paragraph">
+<p>A <code>CommandBox</code> has a <code>TextField</code> that the user inputs to.
+To detect whether the user has changed their command input,
+the CommandBox registers an event listener that is triggered whenever
+the value within the <code>TextField</code> has changed.</p>
+</div>
+<div class="paragraph">
+<p>In the following diagrams, the <code>CommandBox</code> behaves as an input buffer that that listens to keyboard inputs.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SyntaxHighlighting.png" alt="SyntaxHighlighting">
 </div>
+<div class="title">Figure 21. Syntax Highlighting - Full Activity Diagram</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>CommandBox</code> listens to events that change the value in its <code>TextField</code> component.</p>
+</li>
+<li>
+<p>User inputs a character<br>
+(in other words, the user changes the value stored in the <code>TextField</code> of the <code>CommandBox</code>).</p>
+</li>
+<li>
+<p>CommandBox reads the new <code>user input</code> (value) in the <code>TextField</code>.</p>
+</li>
+<li>
+<p>If the <code>user input</code> has a command word that exists in the <code>CommandDictionary</code>
+(i.e. a valid command word), highlight it.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>While the <code>user input</code> has prefixes that exists in the <code>CommandDictionary</code>,
+(i.e. any valid prefixes), highlight them.</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>For each prefix, if it has a valid value in the <code>user input</code>,
+(i.e. the prefix value is valid), highlight it.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>When the user inputs the <code>ENTER</code> key, the user input is executed and the syntax highlighting is removed.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.6.2. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-how-to-syntax-highlighting-executes-in-real-time"><a class="link" href="#aspect-how-to-syntax-highlighting-executes-in-real-time">Aspect: How to syntax highlighting executes in real-time</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Updates the syntax highlighting for each character that the user inputs.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will have improved performance as the program can idle.</p>
-</li>
-<li>
-<p>Cons: May be difficult to handle the deletion of characters in the CLI box.</p>
-</li>
-</ul>
+<h5 id="aspect-1-how-to-execute-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-how-to-execute-syntax-highlighting-in-real-time">Aspect #1: How to execute syntax highlighting in real-time</a></h5>
+<div class="paragraph">
+<p>When the user is typing their command, the <code>CommandBox</code> will need to highlight all valid command words, prefixes, and parameters.</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Constantly update the syntax highlighting (in an infinite loop) when the user input is not blank.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Simplest implementation.</p>
-</li>
-<li>
-<p>Cons: May cause performance issues, especially if there are other features that update constantly.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 3:</strong> Subscribe to a centralized update loop in a modified TA-Tracker.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Works seamlessly with other real-time features.</p>
-</li>
-<li>
-<p>Cons: May cause performance issues, especially if there are other features that update constantly.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 32.6732%;">
+<col style="width: 32.6732%;">
+<col style="width: 34.6536%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Solution</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1 (current choice)</strong><br>
+Register an event listener in <code>CommandBox</code> that triggers when the command text in it changes.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will have improved performance as the program can idle.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires careful implementation of JavaFX events and event listeners.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong><br>
+Constantly update the syntax highlighting (in an infinite loop) when the user input is not blank.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Simplest implementation, for example using a constantly running update loop.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">May have performance issues, since the update loop will be running even when the <code>CommandBox</code> is inactive.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 3</strong><br>
+Subscribe to a application-wide update loop in a modified TA-Tracker.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Allows integration of other real-time features, such as application notifications.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Requires major refactoring in TA-Tracker for the large-scale update loop.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands-2"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands-2">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of TA-Tracker states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedTaTracker</code>.</p>
-</li>
-</ul>
+<h5 id="aspect-2-range-of-syntax-highlighting"><a class="link" href="#aspect-2-range-of-syntax-highlighting">Aspect #2: Range of syntax highlighting</a></h5>
+<div class="paragraph">
+<p>Which inputs should the syntax highlighting be limited to. There are three types of inputs:
+invalid, valid and unknown inputs.</p>
 </div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 32.6732%;">
+<col style="width: 32.6732%;">
+<col style="width: 34.6536%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Solution</th>
+<th class="tableblock halign-left valign-top">Pros</th>
+<th class="tableblock halign-left valign-top">Cons</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1 (current choice)</strong><br>
+Highlight valid inputs in green</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User only need to know that their input is correct.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Valid inputs may be obscured due to the choice of colour.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong><br>
+Highlight invalid inputs in red</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">User will know that they need to correct their invalid inputs.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Feature already exists when submitting an invalid full command.</p>
+<p class="tableblock">The scope of invalid inputs is too broad.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 3</strong><br>
+All inputs</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">All inputs verified in the <code>CommandBox</code>.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Too many colours may confuse the user.</p></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 </div>
@@ -2911,4 +2986,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 08:39:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-25 08:56:41 UTC</div></div></div></body></html>

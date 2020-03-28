@@ -13,11 +13,9 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#Layout">3. Layout</a>
 <ul class="sectlevel2">
-<li><a href="#dashboard">3.1. Dashboard</a></li>
-<li><a href="#student-view">3.2. Student View</a></li>
-<li><a href="#session-view">3.3. Session View</a></li>
-<li><a href="#tss-view">3.4. TSS View</a></li>
-<li><a href="#automatic-backups">3.5. Automatic Backups</a></li>
+<li><a href="#student-view">3.1. Student View</a></li>
+<li><a href="#session-view">3.2. Session View</a></li>
+<li><a href="#claims-view">3.3. Claims View</a></li>
 </ul>
 </li>
 <li><a href="#Usage">4. Usage</a>
@@ -25,38 +23,50 @@
 <li><a href="#navigation">4.1. Navigation</a>
 <ul class="sectlevel3">
 <li><a href="#viewing-help-code-help-code">4.1.1. Viewing help : <code>help</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">4.1.2. Exiting the program : <code>exit</code></a></li>
+<li><a href="#changing-tabs-code-goto-code">4.1.2. Changing tabs : <code>goto</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">4.1.3. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
-<li><a href="#data-management">4.2. Data Management</a>
+<li><a href="#student-view-2">4.2. Student View</a>
 <ul class="sectlevel3">
-<li><a href="#adding-data-code-add-code">4.2.1. Adding data: <code>add</code></a></li>
-<li><a href="#deleting-data-code-delete-code">4.2.2. Deleting data: <code>delete</code></a></li>
-<li><a href="#editing-existing-data-code-edit-code">4.2.3. Editing existing data: <code>edit</code></a></li>
-<li><a href="#editing-an-existing-session-code-edit-c-session-code">4.2.4. Editing an existing session: <code>edit c/session</code></a></li>
+<li><a href="#AddModule">4.2.1. Adding a Module <code>module add</code></a></li>
+<li><a href="#DeleteModule">4.2.2. Deleting a Module <code>module delete</code></a></li>
+<li><a href="#AddGroup">4.2.3. Adding a Group <code>group add</code></a></li>
+<li><a href="#DeleteGroup">4.2.4. Deleting a Group <code>group delete</code></a></li>
+<li><a href="#EditGroup">4.2.5. Editing a Group <code>group edit</code></a></li>
+<li><a href="#AddStudent">4.2.6. Adding a Student <code>student add</code></a></li>
+<li><a href="#DeleteStudent">4.2.7. Deleting a Student <code>student delete</code></a></li>
+<li><a href="#EditStudent">4.2.8. Editing a Student <code>student edit</code></a></li>
+<li><a href="#Sort">4.2.9. Sort <code>sort</code></a></li>
+<li><a href="#FilterStudent">4.2.10. Filter <code>filter</code></a></li>
 </ul>
 </li>
-<li><a href="#student-management">4.3. Student Management</a>
+<li><a href="#session-view-2">4.3. Session View</a>
 <ul class="sectlevel3">
-<li><a href="#enrolling-a-student-in-a-class-code-enroll-code">4.3.1. Enrolling a student in a class : <code>enroll</code></a></li>
-<li><a href="#removing-a-student-from-a-class-code-kick-code">4.3.2. Removing a student from a class : <code>kick</code></a></li>
+<li><a href="#AddSession">4.3.1. Adding a Session <code>session add</code></a></li>
+<li><a href="#deleting-a-session-code-session-delete-code">4.3.2. Deleting a Session <code>session delete</code></a></li>
+<li><a href="#editing-a-session-code-session-edit-code">4.3.3. Editing a Session <code>session edit</code></a></li>
+<li><a href="#marking-a-session-as-done-code-session-done-code">4.3.4. Marking a Session as Done <code>session done</code></a></li>
+<li><a href="#filter-code-filter-code">4.3.5. Filter <code>filter</code></a></li>
 </ul>
 </li>
-<li><a href="#session-management">4.4. Session Management</a>
+<li><a href="#claims-view-2">4.4. Claims View</a>
 <ul class="sectlevel3">
-<li><a href="#labelling-a-session-as-completed-code-done-code">4.4.1. Labelling a session as completed : <code>done</code></a></li>
-<li><a href="#labelling-a-session-as-a-makeup-code-makeup-code">4.4.2. Labelling a session as a makeup : <code>makeup</code></a></li>
-</ul>
-</li>
-<li><a href="#settings">4.5. Settings</a>
-<ul class="sectlevel3">
-<li><a href="#adjusting-the-settings-code-set-code">4.5.1. Adjusting the settings : <code>set</code></a></li>
+<li><a href="#filter-code-filter-code-2">4.4.1. Filter <code>filter</code></a></li>
+<li><a href="#changing-the-hourly-rate-code-set-code">4.4.2. Changing the hourly rate <code>set</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#faq">5. FAQ</a></li>
-<li><a href="#command-summary">6. Command Summary</a></li>
+<li><a href="#glossary">5. GLOSSARY</a></li>
+<li><a href="#faq">6. FAQ</a></li>
+<li><a href="#command-summary">7. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#student-view-3">7.1. Student View</a></li>
+<li><a href="#session-view-3">7.2. Session View</a></li>
+<li><a href="#claims-view-3">7.3. Claims View</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -64,9 +74,23 @@
 <h2 id="introduction"><a class="anchor" href="#introduction"></a><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>Are you a Teaching Assistant at School of Computing who is tired of having to keep
+track of all your claimable hours in some unappealing excel spreadsheet just so you
+can fill up the TSS Claims form accurately at the end of the semester? Do you want
+a place where you can keep track of everything related to your teaching duties, including
+keeping a track of your strongest and weakest students? If so, TA-Tracker is the tool
+for you!</p>
+</div>
+<div class="paragraph">
 <p>TA-Tracker is a productivity tool made for NUS Computing Teaching Assistants (TAs)
-who want to be able to track and manage all of their claimable hours in NUS.
-Interested? Jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
+who want to be able to track and manage their students and all of their claimable
+hours in NUS in one place.</p>
+</div>
+<div class="paragraph">
+<p>TA-Tracker is tailored towards TAs who <strong>prefer to use a desktop application to
+manage their teaching duties</strong> and is well suited for those who <strong>prefer to work with a Command
+Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface
+(GUI).If you&#8217;re interested, jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
 </div>
 </div>
 </div>
@@ -101,42 +125,69 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </li>
 </ol>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+TA-Tracker data is saved periodically.
+</td>
+</tr>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
 <h2 id="Layout"><a class="anchor" href="#Layout"></a><a class="link" href="#Layout">3. Layout</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>A brief overview of the layout of the TATracker.</p>
+<p>This is a brief overview of the layout of the TA-Tracker. The TA-Tracker is divided
+into three different views - the Student View, the Session View and the Claims View.</p>
 </div>
 <div class="sect2">
-<h3 id="dashboard"><a class="anchor" href="#dashboard"></a><a class="link" href="#dashboard">3.1. Dashboard</a></h3>
+<h3 id="student-view"><a class="anchor" href="#student-view"></a><a class="link" href="#student-view">3.1. Student View</a></h3>
 <div class="paragraph">
-<p>Home page.</p>
+<p>Under tha students tab, the Student View is used to show you the students that you&#8217;re teaching. The students
+have been grouped according to module and group. The Student view has been divided into
+three sections.</p>
+</div>
+<div class="paragraph">
+<p>The first section shows a list of all the modules that you are a teaching
+assistant for.</p>
+</div>
+<div class="paragraph">
+<p>The second section shows a list of all groups in a module of your choice.
+If you haven&#8217;t chosen anything, by default you will be shown the groups of the module
+in the first index in the list of modules.</p>
+</div>
+<div class="paragraph">
+<p>The third section shows a list of all students in the group of your choice. If you
+haven&#8217;t chosen anything, by default you will be shown the students of the group in the
+first index in the list of groups.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the student view is to allow a TA to keep track of their students. It will
+show you information such as student name, matriculation number, ratings you have given
+the student and contact details such as email and telegram id.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="student-view"><a class="anchor" href="#student-view"></a><a class="link" href="#student-view">3.2. Student View</a></h3>
+<h3 id="session-view"><a class="anchor" href="#session-view"></a><a class="link" href="#session-view">3.2. Session View</a></h3>
 <div class="paragraph">
-<p>This view will show you the list of all your students. It will show you information such as student name, matriculation number, attendance, ratings you give the student(such as for participation), any notes you have on the student and contact details (email and telegram id).</p>
+<p>Under the sessions tab, the Session View contains the upcoming tasks that you have.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="session-view"><a class="anchor" href="#session-view"></a><a class="link" href="#session-view">3.3. Session View</a></h3>
+<h3 id="claims-view"><a class="anchor" href="#claims-view"></a><a class="link" href="#claims-view">3.3. Claims View</a></h3>
 <div class="paragraph">
-<p>This view will contain the upcoming tasks and statistics.</p>
+<p>Under the claims tab, the Claim View contains the list of all the claimable hours you
+have completed so far.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="tss-view"><a class="anchor" href="#tss-view"></a><a class="link" href="#tss-view">3.4. TSS View</a></h3>
 <div class="paragraph">
-<p>This will show you all your claimable hours up till now in the same format as that used in the TSS claim files.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="automatic-backups"><a class="anchor" href="#automatic-backups"></a><a class="link" href="#automatic-backups">3.5. Automatic Backups</a></h3>
-<div class="paragraph">
-<p>TATracker data is automatically saved in the hard disk as backup files after any command that changes the data. These automatic backups will preserve all data and settings within the program at the time of use. These backups will also be automatically loaded into the program when it is opened.</p>
+<p>The purpose of this view is to allow a TA to keep track of all their claims so that
+they can easily enter it into the TSS claims form at the end of the semester.</p>
 </div>
 </div>
 </div>
@@ -175,22 +226,19 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <div class="ulist">
 <ul>
 <li>
-<p>home - Dashboard: the default view you first see when you open the GUI</p>
-</li>
-<li>
-<p>session - Sessions: list of sessions according to date</p>
+<p>sessions - Sessions: list of sessions according to date</p>
 </li>
 <li>
 <p>students - Students: list of students you are teaching</p>
 </li>
 <li>
-<p>tss - TSS Form: list of claimable sessions (only sessions that have been marked as done</p>
+<p>claims - Claims Form: list of claimable sessions (only sessions that have been marked as done will be included here)</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>CATEGORY_UID</code> - a category unique id</p>
+<p><code>INDEX</code> - The position of an item in a list</p>
 </li>
 <li>
 <p><code>MATRIC_NUMBER</code> - the matriculation number of a student</p>
@@ -203,29 +251,41 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <p>Must end with an letter</p>
 </li>
 <li>
-<p>Must have x numbers in between the start and end letter</p>
+<p>Must have 7 numbers in between the start and end letters</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>MOD_CODE</code> - replace with the unique code for the module</p>
+<p><code>MOD_CODE</code> - the unique code for the module</p>
 </li>
 <li>
-<p><code>CLASS_CODE</code> - replace with the unique code for the tutorial/class</p>
+<p><code>NAME</code> - based on the command, could mean student name or module name</p>
 </li>
 <li>
-<p><code>SESSION_UID</code> - the unique numeric identifier of a session</p>
+<p><code>GROUP_CODE</code> - the unique code for the group</p>
+</li>
+<li>
+<p><code>GROUP_TYPE</code> - Could be one of the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Must be a positive integer (eg. 1, 2, 3, &#8230;&#8203;)</p>
+<p>tutorial</p>
+</li>
+<li>
+<p>lab</p>
+</li>
+<li>
+<p>recitations</p>
+</li>
+<li>
+<p>other</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>SESSION_TYPE</code> - replace with one of the following:</p>
+<p><code>SESSION_TYPE</code> - Could be one of the following:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -274,7 +334,13 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-exit-code"><a class="anchor" href="#exiting-the-program-code-exit-code"></a><a class="link" href="#exiting-the-program-code-exit-code">4.1.2. Exiting the program : <code>exit</code></a></h4>
+<h4 id="changing-tabs-code-goto-code"><a class="anchor" href="#changing-tabs-code-goto-code"></a><a class="link" href="#changing-tabs-code-goto-code">4.1.2. Changing tabs : <code>goto</code></a></h4>
+<div class="paragraph">
+<p>TODO - NOT IMPLEMENTED YET</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="exiting-the-program-code-exit-code"><a class="anchor" href="#exiting-the-program-code-exit-code"></a><a class="link" href="#exiting-the-program-code-exit-code">4.1.3. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
 <p>Exits the program.<br>
 Format: <code>exit</code></p>
@@ -282,36 +348,284 @@ Format: <code>exit</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="data-management"><a class="anchor" href="#data-management"></a><a class="link" href="#data-management">4.2. Data Management</a></h3>
+<h3 id="student-view-2"><a class="anchor" href="#student-view-2"></a><a class="link" href="#student-view-2">4.2. Student View</a></h3>
 <div class="sect3">
-<h4 id="adding-data-code-add-code"><a class="anchor" href="#adding-data-code-add-code"></a><a class="link" href="#adding-data-code-add-code">4.2.1. Adding data: <code>add</code></a></h4>
+<h4 id="AddModule"><a class="anchor" href="#AddModule"></a><a class="link" href="#AddModule">4.2.1. Adding a Module <code>module add</code></a></h4>
 <div class="paragraph">
-<p>Adds different categories of data into the program.</p>
+<p>Adds a new module to the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add c/CATEGORY ./CATEGORY_UID &#8594;</code></p>
+<p>When a new module is created, the Student View will show the groups
+and students of the new module (which will initially be empty).</p>
 </div>
-<div class="sidebarblock">
+<div class="paragraph">
+<p>Format: <code>module add m/MOD_CODE n/NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>No module with the given module code should exist in the TA-Tracker before adding
+a new module.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
 <div class="content">
 <div class="paragraph">
-<p><span class="big">List of categories:</span></p>
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>module add m/CS2103 n/Software Engineering</code></p>
+<div class="paragraph">
+<p>Adds a module with the module code CS2103 and name 'Software Engineering'
+to the TA-Tracker.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteModule"><a class="anchor" href="#DeleteModule"></a><a class="link" href="#DeleteModule">4.2.2. Deleting a Module <code>module delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes a module from the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p><a href="#AddStudent">1. Adding a student: <code>add c/student</code></a><br>
-<a href="#AddModule">2. Adding a module: <code>add c/module</code></a><br>
-<a href="#AddSessionType">3. Adding a type of session: <code>add c/SESSION_TYPE</code></a><br>
-<a href="#AddSession">4. Adding a session: <code>add c/session</code></a></p>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">4.2.1.1. Adding a student: <code>add c/student</code></a></h5>
-<div class="paragraph">
-<p>Adds a new student into the program.
-The <code>CATEGORY_UID</code> for this command is the student’s matriculation number.</p>
+<p>When a module is deleted, the student view will go back to its default
+setting and show the details for the first module and first group in the
+TA-Tracker. If there is no module and no group, it will show empty lists.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add c/student m/MATRIC_NUMBER [n/NAME] [e/EMAIL] [r/RATING] [t/TAG]&#8230;&#8203;</code></p>
+<p>When a module is deleted, all groups, students and sessions associated with
+the module will also be deleted.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>module delete m/MOD_CODE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A module with the given module code must exist in the TA-Tracker before
+you delete it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>module delete m/CS2103</code></p>
+<div class="paragraph">
+<p>Deletes the module with the module code CS2103 from the TA-Tracker.
+Adds a module with the module code CS2103 and name 'Software Engineering'</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddGroup"><a class="anchor" href="#AddGroup"></a><a class="link" href="#AddGroup">4.2.3. Adding a Group <code>group add</code></a></h4>
+<div class="paragraph">
+<p>Adds a new group to the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>When a new group is created, the Student View will show the groups of the module
+this group belongs to and students of the new group (which will initially be an empty list).</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>A module with the given module code must exist in the TA-Tracker before
+you add a group to it.</p>
+</li>
+<li>
+<p>No group with the given group code should exist inside the module.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group add g/G03 m/CS2103 t/tutorial</code></p>
+<div class="paragraph">
+<p>Adds a group with the group code G03 which is a tutorial inside the module that
+has module code CS2103.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="DeleteGroup"><a class="anchor" href="#DeleteGroup"></a><a class="link" href="#DeleteGroup">4.2.4. Deleting a Group <code>group delete</code></a></h4>
+<div class="paragraph">
+<p>Deletes a group from the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>When a group is deleted, the Student View will show the details of the first group
+in the given module. If there is no group in the module, it will show the empty lists.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>group delete g/GROUP_CODE m/MOD_CODE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>A module with the given module code must exist in the TA-Tracker before
+you add a group to it.</p>
+</li>
+<li>
+<p>A group with the given group code must exist inside the module.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group delete g/G03 m/CS2103</code></p>
+<div class="paragraph">
+<p>Deletes the group with the group code G03 from the module that
+has module code CS2103.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="EditGroup"><a class="anchor" href="#EditGroup"></a><a class="link" href="#EditGroup">4.2.5. Editing a Group <code>group edit</code></a></h4>
+<div class="paragraph">
+<p>TODO: FIX AFTER COMMAND HAS BEEN IMPLEMENTED</p>
+</div>
+<div class="paragraph">
+<p>Edits a group in the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>This command can change the group code and group type of the group. It will keep
+the students inside the group intact.</p>
+</div>
+<div class="paragraph">
+<p>When a group is edited, the Student View will show the groups of the module
+this group belongs to and students of the edited group.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>A module with the given module code must exist in the TA-Tracker before
+you add a group to it.</p>
+</li>
+<li>
+<p>No group with the given group code should exist inside the module.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group add g/G03 m/CS2103 t/tutorial</code></p>
+<div class="paragraph">
+<p>Adds a group with the group code G03 which is a tutorial inside the module that
+has module code CS2103.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">4.2.6. Adding a Student <code>student add</code></a></h4>
+<div class="paragraph">
+<p>TODO: WRITE HOW THIS WORKS PROPERLY</p>
+</div>
+<div class="paragraph">
+<p>Adds a new student to the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>When a new student is added, the Student View will show the groups and students
+of the module the new student belongs to.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>student add m/MATRIC_NUMBER [n/NAME] [e/EMAIL] [r/RATING] [t/TAG]&#8230;&#8203;</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -322,14 +636,6 @@ The <code>CATEGORY_UID</code> for this command is the student’s matriculation 
 <td class="content">
 <div class="hdlist">
 <table>
-<tr>
-<td class="hdlist1">
-<code>MATRIC_NUMBER</code>
-</td>
-<td class="hdlist2">
-<p>see Common Parameters</p>
-</td>
-</tr>
 <tr>
 <td class="hdlist1">
 <code>NAME</code>
@@ -362,6 +668,23 @@ The <code>CATEGORY_UID</code> for this command is the student’s matriculation 
 <p>a remark(s) for this student</p>
 </td>
 </tr>
+<tr>
+<td class="hdlist1">
+<code>MOD_CODE</code>
+</td>
+<td class="hdlist2">
+<p>A module with the given module code must exist in the TA-Tracker before
+you add a group to it.</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>GROUP_CODE</code>
+</td>
+<td class="hdlist2">
+<p>A group with the given group code should exist inside the module.</p>
+</td>
+</tr>
 </table>
 </div>
 </td>
@@ -376,10 +699,10 @@ The <code>CATEGORY_UID</code> for this command is the student’s matriculation 
 <div class="ulist">
 <ul>
 <li>
-<p><code>add c/student m/A0123456J n/Alice</code></p>
+<p><code>student add id/A0123456J n/Alice m/CS2103 g/G03</code></p>
 <div class="paragraph">
 <p>Adds the student with the matriculation number A0123456J
-and the name Alice.</p>
+and the name Alice inside group G03 of module CS2103.</p>
 </div>
 </li>
 </ul>
@@ -387,14 +710,21 @@ and the name Alice.</p>
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="AddModule"><a class="anchor" href="#AddModule"></a><a class="link" href="#AddModule">4.2.1.2. Adding a module: <code>add c/module</code></a></h5>
+<div class="sect3">
+<h4 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">4.2.7. Deleting a Student <code>student delete</code></a></h4>
 <div class="paragraph">
-<p>Adds a new module group into the program.
-The <code>CATEGORY_UID</code> for this command is the module code.</p>
+<p>TODO: WRITE HOW THIS WORKS PROPERLY</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>add c/module m/MOD_CODE</code></p>
+<p>Deletes a student from the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>When a student is deleted, the Student View will show the groups of the module the
+student was removed from and the students of the group the student was removed from.
+If there is no student inside the group, an empty list will be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>student delete id/MATRIC_NUMBER g/GROUP_CODE m/MOD_CODE</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -410,218 +740,24 @@ The <code>CATEGORY_UID</code> for this command is the module code.</p>
 <code>MOD_CODE</code>
 </td>
 <td class="hdlist2">
-<p>see Common Parameters</p>
-</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add c/module m/CS2103T</code></p>
-<div class="paragraph">
-<p>Adds the CS2103T module group.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="AddSessionType"><a class="anchor" href="#AddSessionType"></a><a class="link" href="#AddSessionType">4.2.1.3. Adding a type of session: <code>add c/SESSION_TYPE</code></a></h5>
-<div class="paragraph">
-<p>Adds a new type of session for an existing module group in the program.
-The <code>CATEGORY_UID</code> for this command is the SESSION_TYPE code.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>add c/SESSION_TYPE t/SESSION_TYPE m/MOD_CODE</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-<code>SESSION_TYPE</code> <code>TUT_CODE</code> <code>MOD_CODE</code>
-</td>
-<td class="hdlist2">
-<p>see Common Parameters</p>
-</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add c/tutorial t/W17 m/CS2103T</code></p>
-<div class="paragraph">
-<p>Adds a tutorial with the tutorial code W17,
-and links it to the CS2103T module group.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="AddSession"><a class="anchor" href="#AddSession"></a><a class="link" href="#AddSession">4.2.1.4. Adding a session: <code>add c/session</code></a></h5>
-<div class="paragraph">
-<p>Adds a session into the program for a specific module.
-There is no need to provide the <code>CATEGORY_UID</code>,
-as a unique session id (<code>SESSION_UID</code>) will be automatically generated for it.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>add c/session s/START e/END d/DATE [-r] m/MOD_CODE [t/SESSION_TYPE] [n/NOTES]</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-<code>START</code> <code>END</code> <code>DATE</code>
-</td>
-<td class="hdlist2">
-<p>see Common Parameters</p>
+<p>A module with the given module code must exist in the TA-Tracker before
+you add a group to it.</p>
 </td>
 </tr>
 <tr>
 <td class="hdlist1">
-<code>[-r]</code>
+<code>GROUP_CODE</code>
 </td>
 <td class="hdlist2">
-<p>makes the session recur at the same time every week</p>
+<p>A group with the given group code should exist inside the module.</p>
 </td>
 </tr>
-<tr>
-<td class="hdlist1">
-<code>MOD_CODE</code> <code>SESSION_TYPE</code>
-</td>
-<td class="hdlist2">
-<p>see Common Parameters</p>
-</td>
-</tr>
-<tr>
-<td class="hdlist1">
-<code>NOTES</code>
-</td>
-<td class="hdlist2">
-<p>notes for this session (eg: weekly tutorials or prep sessions)</p>
-</td>
-</tr>
-</table>
-</div>
-<div class="openblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>The session will automatically be given a <code>SESSION_UID</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>add c/session s/14:00 e/16:00 d/19-02-2020 m/CS2103T t/consult n/with Alice and Bob</code></p>
-<div class="paragraph">
-<p>Adds a consultation session on 19 Feb 2020,
-from 2pm to 4pm,
-with Alice and Bob.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="deleting-data-code-delete-code"><a class="anchor" href="#deleting-data-code-delete-code"></a><a class="link" href="#deleting-data-code-delete-code">4.2.2. Deleting data: <code>delete</code></a></h4>
-<div class="paragraph">
-<p>Deletes different categories of data from the program.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete c/CATEGORY ./CATEGORY_UID &#8594;</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="paragraph">
-<p><span class="big">List of categories:</span></p>
-</div>
-<div class="paragraph">
-<p><a href="#DeleteStudent">1. Deleting a student: <code>delete c/student</code></a><br>
-<a href="#DeleteModule">2. Deleting a module: <code>delete c/module</code></a><br>
-<a href="#DeleteTutorial">3. Deleting a tutorial: <code>delete c/tutorial</code></a><br>
-<a href="#DeleteSession">4. Deleting a session: <code>delete c/session</code></a></p>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">4.2.2.1. Deleting a student: <code>delete c/student</code></a></h5>
-<div class="paragraph">
-<p>Deletes a student from the program.
-The <code>CATEGORY_UID</code> for this command is the student’s matriculation number.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete c/student m/MATRIC_NUMBER</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="hdlist">
-<table>
 <tr>
 <td class="hdlist1">
 <code>MATRIC_NUMBER</code>
 </td>
 <td class="hdlist2">
-<p>see Common Parameters</p>
+<p>A student with the given matric number must exist inside the group.</p>
 </td>
 </tr>
 </table>
@@ -638,164 +774,35 @@ The <code>CATEGORY_UID</code> for this command is the student’s matriculation 
 <div class="ulist">
 <ul>
 <li>
-<p><code>delete c/student m/A0123456J</code></p>
+<p><code>delete c/student m/A0123456J g/G03 m/CS2103</code></p>
 <div class="paragraph">
-<p>Deletes the student with the matriculation number A0123456J from the program.</p>
+<p>Deletes the student with the matriculation number A0123456J from the group G03 inside
+the module CS2103.</p>
 </div>
 </li>
 </ul>
 </div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="DeleteModule"><a class="anchor" href="#DeleteModule"></a><a class="link" href="#DeleteModule">4.2.2.2. Deleting a module: <code>delete c/module</code></a></h5>
-<div class="paragraph">
-<p>Deletes a module group from the program, and all the tutorials and sessions that are linked to it.
-The <code>CATEGORY_UID</code> for this command is the module code.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete c/module m/MOD_CODE</code></p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="hdlist">
-<table>
-<tr>
-<td class="hdlist1">
-<code>MOD_CODE</code>
-</td>
-<td class="hdlist2">
-<p>see Common Parameters</p>
-</td>
-</tr>
-</table>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete c/module m/CS2101</code></p>
-<div class="paragraph">
-<p>Deletes the module group CS2101, and all of the tutorials or sessions that are linked to it.</p>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="DeleteTutorial"><a class="anchor" href="#DeleteTutorial"></a><a class="link" href="#DeleteTutorial">4.2.2.3. Deleting a tutorial: <code>delete c/tutorial</code></a></h5>
-<div class="paragraph">
-<p>Deletes a tutorial from the program.
-The <code>CATEGORY_UID</code> for this command is the tutorial code.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete c/tutorial t/TUT_CODE m/MOD_CODE</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>TUT_CODE</code>, <code>MOD_CODE</code> - see Common Parameters</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>delete c/tutorial t/G06 m/CS2101</code>
-Deletes the CS2101 tutorial with the code G06 from the program.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="DeleteSession"><a class="anchor" href="#DeleteSession"></a><a class="link" href="#DeleteSession">4.2.2.4. Deleting a session: <code>delete c/session</code></a></h5>
-<div class="paragraph">
-<p>Deletes a session from the program.
-The <code>CATEGORY_UID</code> used in this case is the session’s unique id.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>delete c/session i/SESSION_UID</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>SESSION_UID</code> - see Common Parameters</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>delete c/session i/10
-Deletes the session with the identifier of 10</p>
-</li>
-</ul>
 </div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-existing-data-code-edit-code"><a class="anchor" href="#editing-existing-data-code-edit-code"></a><a class="link" href="#editing-existing-data-code-edit-code">4.2.3. Editing existing data: <code>edit</code></a></h4>
+<h4 id="EditStudent"><a class="anchor" href="#EditStudent"></a><a class="link" href="#EditStudent">4.2.8. Editing a Student <code>student edit</code></a></h4>
 <div class="paragraph">
-<p>edit - Editing existing data</p>
+<p>TODO: WRITE HOW THIS WORKS PROPERLY</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit c/CATEGORY …/CATEGORY_UID&#8230;&#8203;</code></p>
+<p>Edits a student in the TA-Tracker.</p>
 </div>
-<div class="sidebarblock">
-<div class="content">
 <div class="paragraph">
-<p><strong>List of categories:</strong></p>
+<p>When a student is edited, the Student View will show the groups of the module the
+edited student is from and the students of the group the edited student exists in.</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Editing an existing student: <code>edit c/student</code></p>
-</li>
-<li>
-<p>Editing an existing session: <code>edit c/session</code></p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="editing-an-existing-student-code-edit-c-student-code"><a class="anchor" href="#editing-an-existing-student-code-edit-c-student-code"></a><a class="link" href="#editing-an-existing-student-code-edit-c-student-code">4.2.3.1. Editing an existing student: <code>edit c/student</code></a></h5>
 <div class="paragraph">
 <p>Edits the student with the specified matriculation number.
 The CATEGORY_UID used in this case is the student’s matriculation number.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>edit c/student m/MATRIC_NUMBER [n/NAME] [e/EMAIL] [r/RATING] [t/TAG]…​</code></p>
+<p>Format: <code>student edit m/MATRIC_NUMBER [n/NAME] [e/EMAIL] [r/RATING] [t/TAG]…​</code></p>
 </div>
 <div class="sidebarblock">
 <div class="content">
@@ -865,148 +872,147 @@ In addition, all existing tags will be removed.</p>
 </ul>
 </div>
 </div>
+<div class="sect3">
+<h4 id="Sort"><a class="anchor" href="#Sort"></a><a class="link" href="#Sort">4.2.9. Sort <code>sort</code></a></h4>
+<div class="paragraph">
+<p>TODO: ADD DETAILS ONCE IMPLEMENTED</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="editing-an-existing-session-code-edit-c-session-code"><a class="anchor" href="#editing-an-existing-session-code-edit-c-session-code"></a><a class="link" href="#editing-an-existing-session-code-edit-c-session-code">4.2.4. Editing an existing session: <code>edit c/session</code></a></h4>
+<h4 id="FilterStudent"><a class="anchor" href="#FilterStudent"></a><a class="link" href="#FilterStudent">4.2.10. Filter <code>filter</code></a></h4>
 <div class="paragraph">
-<p>Edits an existing session with the specified session unique id.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>edit c/session i/SESSION_UID [s/START] [e/END] [d/DATE] [-r] [m/MOD_CODE] [t/SESSION_TYPE] [n/NOTES]</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><code>SESSION_UID</code> - see Common Parameters
-At least one of the optional fields must be provided.</p>
-</li>
-<li>
-<p><code>START</code>, <code>END</code>, <code>DATE</code>, <code>MOD_CODE</code>, <code>SESSION_TYPE</code> - see Common Parameters</p>
-</li>
-<li>
-<p><code>[-r]</code> - Make the session recur at the same time every week</p>
-</li>
-<li>
-<p><code>NOTES</code> - notes for this session (eg: weekly tutorials or prep sessions)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>edit c/session i/7 d/20-02-2020</code>
-Edits the date of a session with uid 7 to 20 Feb 2020.</p>
-</li>
-</ul>
+<p>TODO: ADD DETAILS ONCE IMPLEMENTED</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="student-management"><a class="anchor" href="#student-management"></a><a class="link" href="#student-management">4.3. Student Management</a></h3>
+<h3 id="session-view-2"><a class="anchor" href="#session-view-2"></a><a class="link" href="#session-view-2">4.3. Session View</a></h3>
 <div class="sect3">
-<h4 id="enrolling-a-student-in-a-class-code-enroll-code"><a class="anchor" href="#enrolling-a-student-in-a-class-code-enroll-code"></a><a class="link" href="#enrolling-a-student-in-a-class-code-enroll-code">4.3.1. Enrolling a student in a class : <code>enroll</code></a></h4>
+<h4 id="AddSession"><a class="anchor" href="#AddSession"></a><a class="link" href="#AddSession">4.3.1. Adding a Session <code>session add</code></a></h4>
 <div class="paragraph">
-<p>Enrolls a student in a class in the program.<br></p>
+<p>TODO - UPDATE</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>enroll MATRIC_NUMBER CLASS_CODE MOD_CODE</code></p>
+<p>Adds a new type of session for an existing module group in the program.
+The <code>CATEGORY_UID</code> for this command is the SESSION_TYPE code.</p>
 </div>
-<div class="sidebarblock">
+<div class="paragraph">
+<p>Format: <code>add c/session s/START e/END d/DATE [-r] m/MOD_CODE [t/SESSION_TYPE] [n/NOTES]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="hdlist">
+<table>
+<tr>
+<td class="hdlist1">
+<code>START</code> <code>END</code> <code>DATE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>[-r]</code>
+</td>
+<td class="hdlist2">
+<p>makes the session recur at the same time every week</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>MOD_CODE</code> <code>SESSION_TYPE</code>
+</td>
+<td class="hdlist2">
+<p>see Common Parameters</p>
+</td>
+</tr>
+<tr>
+<td class="hdlist1">
+<code>NOTES</code>
+</td>
+<td class="hdlist2">
+<p>notes for this session (eg: weekly tutorials or prep sessions)</p>
+</td>
+</tr>
+</table>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Enrolls the student with the given matriculation number in the specified class.</p>
-</li>
-<li>
-<p>The class should belong to the module with the given MOD_CODE.</p>
-</li>
-<li>
-<p>The class should already exist in the TA-Tracker with the given CLASS_CODE.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>enroll A01234567J G06 CS2101</code><br>
-Enrolls the student with the matriculation number A01234567J in tutorial G06 of module CS2101.</p>
+<p><code>add c/session s/14:00 e/16:00 d/19-02-2020 m/CS2103T t/consult n/with Alice and Bob</code></p>
+<div class="paragraph">
+<p>Adds a consultation session on 19 Feb 2020,
+from 2pm to 4pm,
+with Alice and Bob.</p>
+</div>
 </li>
 </ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="removing-a-student-from-a-class-code-kick-code"><a class="anchor" href="#removing-a-student-from-a-class-code-kick-code"></a><a class="link" href="#removing-a-student-from-a-class-code-kick-code">4.3.2. Removing a student from a class : <code>kick</code></a></h4>
+<h4 id="deleting-a-session-code-session-delete-code"><a class="anchor" href="#deleting-a-session-code-session-delete-code"></a><a class="link" href="#deleting-a-session-code-session-delete-code">4.3.2. Deleting a Session <code>session delete</code></a></h4>
 <div class="paragraph">
-<p>Removes a student from a class in the program.</p>
+<p>TODO - UPDATE</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>kick MATRIC_NUMBER CLASS_CODE MOD_CODE</code></p>
+<p>Deletes a session from the TA-Tracker.</p>
 </div>
-<div class="sidebarblock">
+<div class="paragraph">
+<p>Format: <code>session delete i/SESSION_UID</code></p>
+</div>
+<div class="exampleblock">
 <div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Removes the student with the given matriculation number from the specified class.</p>
-</li>
-<li>
-<p>The class should belong to the module with the given MOD_CODE.</p>
-</li>
-<li>
-<p>The class should already exist in the TA-Tracker with the given CLASS_CODE.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
 <div class="paragraph">
 <p>Examples:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>kick A01234567J G06 CS2101</code><br>
-Removes the student with the matriculation number A01234567J from tutorial G06 of module CS2101.</p>
+<p>delete c/session i/10
+Deletes the session with the identifier of 10</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
-<div class="sect2">
-<h3 id="session-management"><a class="anchor" href="#session-management"></a><a class="link" href="#session-management">4.4. Session Management</a></h3>
+</div>
 <div class="sect3">
-<h4 id="labelling-a-session-as-completed-code-done-code"><a class="anchor" href="#labelling-a-session-as-completed-code-done-code"></a><a class="link" href="#labelling-a-session-as-completed-code-done-code">4.4.1. Labelling a session as completed : <code>done</code></a></h4>
+<h4 id="editing-a-session-code-session-edit-code"><a class="anchor" href="#editing-a-session-code-session-edit-code"></a><a class="link" href="#editing-a-session-code-session-edit-code">4.3.3. Editing a Session <code>session edit</code></a></h4>
+<div class="paragraph">
+<p>TODO - ADD DETAILS</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-a-session-as-done-code-session-done-code"><a class="anchor" href="#marking-a-session-as-done-code-session-done-code"></a><a class="link" href="#marking-a-session-as-done-code-session-done-code">4.3.4. Marking a Session as Done <code>session done</code></a></h4>
 <div class="paragraph">
 <p>Labels a session as done.
 If the session is claimable, it will appear as a new claim in the TSS view.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>done SESSION_UID</code></p>
+<p>Format: <code>session done INDEX</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
+<div class="paragraph">
 <p>Marks the session with the given unique session identifier as done.</p>
-</li>
-</ul>
 </div>
-</div>
-</div>
+<div class="exampleblock">
+<div class="content">
 <div class="paragraph">
 <p>Examples:</p>
 </div>
@@ -1019,61 +1025,41 @@ Marks the session with the unique session id of 25 as done.</p>
 </ul>
 </div>
 </div>
+</div>
+</div>
 <div class="sect3">
-<h4 id="labelling-a-session-as-a-makeup-code-makeup-code"><a class="anchor" href="#labelling-a-session-as-a-makeup-code-makeup-code"></a><a class="link" href="#labelling-a-session-as-a-makeup-code-makeup-code">4.4.2. Labelling a session as a makeup : <code>makeup</code></a></h4>
+<h4 id="filter-code-filter-code"><a class="anchor" href="#filter-code-filter-code"></a><a class="link" href="#filter-code-filter-code">4.3.5. Filter <code>filter</code></a></h4>
 <div class="paragraph">
-<p>Labels a session as a makeup session.
-If the session is claimable, it will appear as a new claim in the TSS view.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>makeup SESSION_UID</code></p>
-</div>
-<div class="sidebarblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p>Marks the session with the given unique session identifier as a makeup.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>makeup 25</code><br>
-Marks the session with the unique session id of 25 as a makeup.</p>
-</li>
-</ul>
+<p>TODO: ADD DETAILS ONCE IMPLEMENTED</p>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="settings"><a class="anchor" href="#settings"></a><a class="link" href="#settings">4.5. Settings</a></h3>
+<h3 id="claims-view-2"><a class="anchor" href="#claims-view-2"></a><a class="link" href="#claims-view-2">4.4. Claims View</a></h3>
 <div class="sect3">
-<h4 id="adjusting-the-settings-code-set-code"><a class="anchor" href="#adjusting-the-settings-code-set-code"></a><a class="link" href="#adjusting-the-settings-code-set-code">4.5.1. Adjusting the settings : <code>set</code></a></h4>
+<h4 id="filter-code-filter-code-2"><a class="anchor" href="#filter-code-filter-code-2"></a><a class="link" href="#filter-code-filter-code-2">4.4.1. Filter <code>filter</code></a></h4>
 <div class="paragraph">
-<p>Adjusts the chosen settings.</p>
+<p>TODO: ADD DETAILS ONCE IMPLEMENTED</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="changing-the-hourly-rate-code-set-code"><a class="anchor" href="#changing-the-hourly-rate-code-set-code"></a><a class="link" href="#changing-the-hourly-rate-code-set-code">4.4.2. Changing the hourly rate <code>set</code></a></h4>
+<div class="paragraph">
+<p>TODO: EDIT ONCE IMPLEMENTED</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>set SETTING</code></p>
-</div>
-<div class="paragraph">
-<p>Here are the things that you can set:</p>
-</div>
-<div class="paragraph">
-<p><strong>rate:</strong> Adjusts the hourly rate.<br>
-Sets the hourly rate for the total income and claim computation.</p>
+<p>Sets the hourly rate for the total income and claim computation.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>set rate AMOUNT</code></p>
 </div>
-<div class="sidebarblock">
-<div class="content">
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
 <div class="ulist">
 <ul>
 <li>
@@ -1087,7 +1073,9 @@ Sets the hourly rate for the total income and claim computation.</p>
 </li>
 </ul>
 </div>
-</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Examples:</p>
@@ -1100,30 +1088,18 @@ Sets the current hourly rate to 25$.</p>
 </li>
 </ul>
 </div>
-<div class="paragraph">
-<p><strong>default:</strong> Adjusts the default layout<br>
-Change the default view shown when the GUI is first opened.</p>
-</div>
-<div class="paragraph">
-<p>Format: <code>set default PAGE_NAME</code></p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>set default sessions</code><br>
-Sets the default view to be the list of sessions every time you open the GUI.</p>
-</li>
-</ul>
-</div>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="anchor" href="#faq"></a><a class="link" href="#faq">5. FAQ</a></h2>
+<h2 id="glossary"><a class="anchor" href="#glossary"></a><a class="link" href="#glossary">5. GLOSSARY</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="faq"><a class="anchor" href="#faq"></a><a class="link" href="#faq">6. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How do I transfer my data to another Computer?<br>
@@ -1132,36 +1108,82 @@ Sets the default view to be the list of sessions every time you open the GUI.</p
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="anchor" href="#command-summary"></a><a class="link" href="#command-summary">6. Command Summary</a></h2>
+<h2 id="command-summary"><a class="anchor" href="#command-summary"></a><a class="link" href="#command-summary">7. Command Summary</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>TODO: UPDATE ONCE ALL COMMANDS HAVE BEEN WRITTEN ABOUT</p>
+</div>
+<div class="sect2">
+<h3 id="student-view-3"><a class="anchor" href="#student-view-3"></a><a class="link" href="#student-view-3">7.1. Student View</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add</strong> : <code>add n/NAME p/PHONE_NUMBER e/EMAIL m/MATRIC [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague</code></p>
+<p><strong>Add Module</strong> <code>module add m/MOD_CODE</code></p>
 </li>
 <li>
-<p><strong>Clear</strong> : <code>clear</code></p>
+<p><strong>Delete Module</strong> <code>module delete m/MOD_CODE</code></p>
 </li>
 <li>
-<p><strong>Delete</strong> : <code>delete INDEX</code><br>
-e.g. <code>delete 3</code></p>
+<p><strong>Add Group</strong> <code>group add g/GROUP_CODE m/MOD_CODE</code></p>
 </li>
 <li>
-<p><strong>Edit</strong> : <code>edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [m/MATRIC] [t/TAG]&#8230;&#8203;</code><br>
-e.g. <code>edit 2 n/James Lee e/jameslee@example.com</code></p>
+<p><strong>Edit Group</strong></p>
 </li>
 <li>
-<p><strong>Find</strong> : <code>find KEYWORD [MORE_KEYWORDS]</code><br>
-e.g. <code>find James Jake</code></p>
+<p><strong>Delete Group</strong> <code>group delete g/GROUP_CODE m/MOD_CODE</code></p>
 </li>
 <li>
-<p><strong>List</strong> : <code>list</code></p>
+<p><strong>Add Student</strong></p>
 </li>
 <li>
-<p><strong>Help</strong> : <code>help</code></p>
+<p><strong>Delete Student</strong></p>
+</li>
+<li>
+<p><strong>Edit Student</strong></p>
+</li>
+<li>
+<p><strong>Sort</strong></p>
+</li>
+<li>
+<p><strong>Filter</strong></p>
 </li>
 </ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-28 08:17:39 UTC</div></div></div></body></html>
+<div class="sect2">
+<h3 id="session-view-3"><a class="anchor" href="#session-view-3"></a><a class="link" href="#session-view-3">7.2. Session View</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Add Session</strong></p>
+</li>
+<li>
+<p><strong>Delete Session</strong></p>
+</li>
+<li>
+<p><strong>Edit Session</strong></p>
+</li>
+<li>
+<p><strong>Mark as Done</strong></p>
+</li>
+<li>
+<p><strong>Filter</strong></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="claims-view-3"><a class="anchor" href="#claims-view-3"></a><a class="link" href="#claims-view-3">7.3. Claims View</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Set Rate</strong></p>
+</li>
+<li>
+<p><strong>Filter</strong></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-28 10:16:33 UTC</div></div></div></body></html>

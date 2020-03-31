@@ -31,14 +31,17 @@
 <ul class="sectlevel3">
 <li><a href="#AddModule">4.2.1. Adding a Module <code>module add</code></a></li>
 <li><a href="#DeleteModule">4.2.2. Deleting a Module <code>module delete</code></a></li>
-<li><a href="#AddGroup">4.2.3. Adding a Group <code>group add</code></a></li>
-<li><a href="#DeleteGroup">4.2.4. Deleting a Group <code>group delete</code></a></li>
-<li><a href="#EditGroup">4.2.5. Editing a Group <code>group edit</code></a></li>
-<li><a href="#AddStudent">4.2.6. Adding a Student <code>student add</code></a></li>
-<li><a href="#DeleteStudent">4.2.7. Deleting a Student <code>student delete</code></a></li>
-<li><a href="#EditStudent">4.2.8. Editing a Student <code>student edit</code></a></li>
-<li><a href="#Sort">4.2.9. Sort <code>sort</code></a></li>
-<li><a href="#FilterStudent">4.2.10. Filter <code>filter</code></a></li>
+<li><a href="#EditModule">4.2.3. Editing a Module <code>module edit</code></a></li>
+<li><a href="#AddGroup">4.2.4. Adding a Group <code>group add</code></a></li>
+<li><a href="#DeleteGroup">4.2.5. Deleting a Group <code>group delete</code></a></li>
+<li><a href="#EditGroup">4.2.6. Editing a Group <code>group edit</code></a></li>
+<li><a href="#AddStudent">4.2.7. Adding a Student <code>student add</code></a></li>
+<li><a href="#DeleteStudent">4.2.8. Deleting a Student <code>student delete</code></a></li>
+<li><a href="#EditStudent">4.2.9. Editing a Student <code>student edit</code></a></li>
+<li><a href="#Sort">4.2.10. Sorting a Group <code>sort group</code></a></li>
+<li><a href="#sorting-a-module-code-sort-module-code">4.2.11. Sorting a Module <code>sort module</code></a></li>
+<li><a href="#sorting-everything-code-sort-all-code">4.2.12. Sorting Everything <code>sort all</code></a></li>
+<li><a href="#FilterStudent">4.2.13. Filter <code>filter</code></a></li>
 </ul>
 </li>
 <li><a href="#session-view-2">4.3. Session View</a>
@@ -144,7 +147,8 @@ e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> wil
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-TA-Tracker data is saved periodically so you don’t have to worry about saving your data manually.
+TA-Tracker data is saved periodically so you don&#8217;t have to worry about saving
+your data manually.
 </td>
 </tr>
 </table>
@@ -162,7 +166,7 @@ into three different views - the Student View, the Session View and the Claims V
 <h3 id="student-view"><a class="anchor" href="#student-view"></a><a class="link" href="#student-view">3.1. Student View</a></h3>
 <div class="paragraph">
 <p>Under the students tab, the Student View is used to show you the students that you&#8217;re teaching. The students
-have been grouped according to module and group. The Student view has been divided into
+have been grouped according to module and group. The Student View has been divided into
 three sections.</p>
 </div>
 <div class="paragraph">
@@ -180,7 +184,7 @@ haven&#8217;t chosen anything, by default you will be shown the students of the 
 first index in the list of groups.</p>
 </div>
 <div class="paragraph">
-<p>The purpose of the student view is to allow a TA to keep track of their students. It will
+<p>The purpose of the student view is to allow you to keep track of your students. It will
 show you information such as student name, matriculation number, ratings you have given
 the student and contact details such as email and telegram id.</p>
 </div>
@@ -188,7 +192,8 @@ the student and contact details such as email and telegram id.</p>
 <div class="sect2">
 <h3 id="session-view"><a class="anchor" href="#session-view"></a><a class="link" href="#session-view">3.2. Session View</a></h3>
 <div class="paragraph">
-<p>Under the sessions tab, the Session View contains the upcoming tasks/ undone sessions that you have.</p>
+<p>Under the sessions tab, the Session View contains a list of the upcoming sessions
+that you haven&#8217;t done yet.</p>
 </div>
 <div class="paragraph">
 <p>The sessions will be automatically sorted by their date.</p>
@@ -197,15 +202,13 @@ the student and contact details such as email and telegram id.</p>
 <div class="sect2">
 <h3 id="claims-view"><a class="anchor" href="#claims-view"></a><a class="link" href="#claims-view">3.3. Claims View</a></h3>
 <div class="paragraph">
-<p>Under the claims tab, the Claim View contains the list of all the claimable hours you
+<p>Under the claims tab, the Claim View contains a list of all the claimable duties you
 have completed so far.</p>
 </div>
 <div class="paragraph">
-<p>It tracks all the sessions you have completed.</p>
-</div>
-<div class="paragraph">
-<p>The purpose of this view is to allow a TA to keep track of all their claims so that
-they can easily enter it into the TSS claims form at the end of the semester.</p>
+<p>The purpose of this view is to allow a you to keep track of all your claims so
+you can easily enter it into the TSS claims form at the end of the semester.
+It tracks all the sessions you have completed.</p>
 </div>
 </div>
 </div>
@@ -274,32 +277,32 @@ they can easily enter it into the TSS claims form at the end of the semester.</p
 <div class="ulist">
 <ul>
 <li>
-<p>sessions - Sessions: list of sessions according to date</p>
+<p>sessions - the Session View</p>
 </li>
 <li>
-<p>students - Students: list of students you are teaching</p>
+<p>students - the Student View</p>
 </li>
 <li>
-<p>claims - Claims Form: list of claimable sessions (only sessions that have been marked as done will be included here)</p>
+<p>claims - the Claims View</p>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<p><code>INDEX</code> - The position of an item in a list</p>
+<p><code>INDEX</code> - the position of an item in a list</p>
 </li>
 <li>
 <p><code>MATRIC_NUMBER</code> - the matriculation number of a student</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Must start with an ‘A’</p>
+<p>it must start with an ‘A’</p>
 </li>
 <li>
-<p>Must end with an letter</p>
+<p>it must end with a letter</p>
 </li>
 <li>
-<p>Must have 7 numbers in between the start and end letters</p>
+<p>it must have 7 numbers in between the start and end letters</p>
 </li>
 </ul>
 </div>
@@ -308,13 +311,16 @@ they can easily enter it into the TSS claims form at the end of the semester.</p
 <p><code>MOD_CODE</code> - the unique code for the module</p>
 </li>
 <li>
-<p><code>NAME</code> - based on the command, could mean student name or module name</p>
+<p><code>NAME</code> - based on the command, this could mean student name or module name</p>
 </li>
 <li>
 <p><code>GROUP_CODE</code> - the unique code for the group</p>
 </li>
 <li>
-<p><code>GROUP_TYPE</code> - Could be one of the following:</p>
+<p><code>NEW_GROUP_CODE</code> - the new group code</p>
+</li>
+<li>
+<p><code>GROUP_TYPE</code> - could be one of the following:</p>
 <div class="ulist">
 <ul>
 <li>
@@ -333,26 +339,48 @@ they can easily enter it into the TSS claims form at the end of the semester.</p
 </div>
 </li>
 <li>
+<p><code>NEW_GROUP_TYPE</code> - the new group type you want to change it to</p>
+</li>
+<li>
+<p><code>SORT_TYPE</code> - could be one of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>alphabetically</p>
+</li>
+<li>
+<p>by rating (ascending order)</p>
+</li>
+<li>
+<p>by rating (descending order)</p>
+</li>
+<li>
+<p>by matric number (ascending order)</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
 <p><code>SESSION_TYPE</code> - Could be one of the following:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>consult - Consultations</p>
+<p>consult - consultations</p>
 </li>
 <li>
-<p>tutorial - Tutorials</p>
+<p>tutorial - tutorials</p>
 </li>
 <li>
-<p>grading - Grading and assessments</p>
+<p>grading - grading assessments</p>
 </li>
 <li>
-<p>prep - Class preparation</p>
+<p>prep - class preparation</p>
 </li>
 <li>
 <p>todo - other tasks and notes</p>
 </li>
 <li>
-<p>lab - Lab
+<p>lab - lab
 *<code>NOTES</code> - Extra description, note taking</p>
 </li>
 </ul>
@@ -406,7 +434,7 @@ Format: <code>exit</code></p>
 </div>
 <div class="paragraph">
 <p>When a new module is created, the Student View will show the groups
-and students of the new module (which will initially be empty).</p>
+and students of the new module (which will initially be empty lists).</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>module add m/MOD_CODE n/NAME</code></p>
@@ -419,7 +447,7 @@ and students of the new module (which will initially be empty).</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>No module with the given module code should exist in the TA-Tracker before adding
+<p>No module with the given module code should exist in the TA-Tracker before you add
 a new module.</p>
 </div>
 </td>
@@ -451,7 +479,7 @@ to the TA-Tracker.</p>
 <p>Deletes a module from the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>When a module is deleted, the student view will go back to its default
+<p>When a module is deleted, the Student View will go back to its default
 setting and show the details for the first module and first group in the
 TA-Tracker. If there is no module and no group, it will show empty lists.</p>
 </div>
@@ -487,8 +515,7 @@ you delete it.</p>
 <li>
 <p><code>module delete m/CS2103</code></p>
 <div class="paragraph">
-<p>Deletes the module with the module code CS2103 from the TA-Tracker.
-Adds a module with the module code CS2103 and name 'Software Engineering'</p>
+<p>Deletes the module with the module code CS2103 from the TA-Tracker.</p>
 </div>
 </li>
 </ul>
@@ -497,13 +524,62 @@ Adds a module with the module code CS2103 and name 'Software Engineering'</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="AddGroup"><a class="anchor" href="#AddGroup"></a><a class="link" href="#AddGroup">4.2.3. Adding a Group <code>group add</code></a></h4>
+<h4 id="EditModule"><a class="anchor" href="#EditModule"></a><a class="link" href="#EditModule">4.2.3. Editing a Module <code>module edit</code></a></h4>
+<div class="paragraph">
+<p>Edits a module in the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>When a module is edited, the Student View will show the groups of the module and
+the students of the first group of the module. If the module doesn&#8217;t have any groups
+or students, empty lists will be shown instead.</p>
+</div>
+<div class="paragraph">
+<p>Editing a module can only be used to change the name of the module. Module code can&#8217;t
+be changed. Editing a module doesn&#8217;t affect the students and groups inside the module.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>module edit m/MOD_CODE n/NEW NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>A module with the given module code must exist in the TA-Tracker before you edit it.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>module edit m/CS2103 n/Software Engineering</code></p>
+<div class="paragraph">
+<p>Changes the name of the module with module code CS2103 to 'Software Engineering'.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="AddGroup"><a class="anchor" href="#AddGroup"></a><a class="link" href="#AddGroup">4.2.4. Adding a Group <code>group add</code></a></h4>
 <div class="paragraph">
 <p>Adds a new group to the TA-Tracker.</p>
 </div>
 <div class="paragraph">
 <p>When a new group is created, the Student View will show the groups of the module
-this group belongs to and students of the new group (which will initially be an empty list).</p>
+this new group belongs to and students of the new group (which will initially be an empty list).</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
@@ -550,13 +626,17 @@ has module code CS2103.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="DeleteGroup"><a class="anchor" href="#DeleteGroup"></a><a class="link" href="#DeleteGroup">4.2.4. Deleting a Group <code>group delete</code></a></h4>
+<h4 id="DeleteGroup"><a class="anchor" href="#DeleteGroup"></a><a class="link" href="#DeleteGroup">4.2.5. Deleting a Group <code>group delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes a group from the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>When a group is deleted, the Student View will show the details of the first group
-in the given module. If there is no group in the module, it will show the empty lists.</p>
+<p>When a group is deleted, the Student View will go back to its default
+setting and show the details for the first module and first group in the
+TA-Tracker. If there is no group in the module, it will show the empty lists.</p>
+</div>
+<div class="paragraph">
+<p>When a group is deleted from the TA-Tracker, all students in the group are also deleted.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>group delete g/GROUP_CODE m/MOD_CODE</code></p>
@@ -572,10 +652,10 @@ in the given module. If there is no group in the module, it will show the empty 
 <ul class="horizontal">
 <li>
 <p>A module with the given module code must exist in the TA-Tracker before
-you add a group to it.</p>
+you delete a group from it.</p>
 </li>
 <li>
-<p>A group with the given group code must exist inside the module.</p>
+<p>A group with the given group code must exist inside the module before you can delete it.</p>
 </li>
 </ul>
 </div>
@@ -603,23 +683,20 @@ has module code CS2103.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="EditGroup"><a class="anchor" href="#EditGroup"></a><a class="link" href="#EditGroup">4.2.5. Editing a Group <code>group edit</code></a></h4>
-<div class="paragraph">
-<p>TODO: FIX AFTER COMMAND HAS BEEN IMPLEMENTED</p>
-</div>
+<h4 id="EditGroup"><a class="anchor" href="#EditGroup"></a><a class="link" href="#EditGroup">4.2.6. Editing a Group <code>group edit</code></a></h4>
 <div class="paragraph">
 <p>Edits a group in the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>This command can change the group code and group type of the group. It will keep
-the students inside the group intact.</p>
+<p>This command can be used to change the group code and the group type of the group.
+The students inside the group will remain intact.</p>
 </div>
 <div class="paragraph">
 <p>When a group is edited, the Student View will show the groups of the module
-this group belongs to and students of the edited group.</p>
+the edited group belongs to and students of the edited group.</p>
 </div>
 <div class="paragraph">
-<p>Format: <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
+<p>Format: <code>group edit g/GROUP_CODE m/MOD_CODE [ng/NEW_GROUP_CODE] [nt/NEW_GROUP_TYPE]</code></p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -632,10 +709,14 @@ this group belongs to and students of the edited group.</p>
 <ul class="horizontal">
 <li>
 <p>A module with the given module code must exist in the TA-Tracker before
-you add a group to it.</p>
+you attempt to edit a group inside it.</p>
 </li>
 <li>
-<p>No group with the given group code should exist inside the module.</p>
+<p>A group with the given group code should exist inside the module before editing it.</p>
+</li>
+<li>
+<p>If you are changing the group code, the module shouldn&#8217;t contain a group with the
+new group code.</p>
 </li>
 </ul>
 </div>
@@ -651,10 +732,10 @@ you add a group to it.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>group add g/G03 m/CS2103 t/tutorial</code></p>
+<p><code>group edit g/G03 m/CS2103 nt/tutorial</code></p>
 <div class="paragraph">
-<p>Adds a group with the group code G03 which is a tutorial inside the module that
-has module code CS2103.</p>
+<p>Changes the group type of the group with group code G03, inside the module with
+module code CS2103, to be a tutorial.</p>
 </div>
 </li>
 </ul>
@@ -663,7 +744,7 @@ has module code CS2103.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">4.2.6. Adding a Student <code>student add</code></a></h4>
+<h4 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">4.2.7. Adding a Student <code>student add</code></a></h4>
 <div class="paragraph">
 <p>Adds a new student to the TA-Tracker.</p>
 </div>
@@ -719,7 +800,7 @@ inside group <code>G03</code> of the module <code>CS2103</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">4.2.7. Deleting a Student <code>student delete</code></a></h4>
+<h4 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">4.2.8. Deleting a Student <code>student delete</code></a></h4>
 <div class="paragraph">
 <p>Deletes a student from the TA-Tracker.</p>
 </div>
@@ -775,7 +856,7 @@ the module <code>CS2103</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="EditStudent"><a class="anchor" href="#EditStudent"></a><a class="link" href="#EditStudent">4.2.8. Editing a Student <code>student edit</code></a></h4>
+<h4 id="EditStudent"><a class="anchor" href="#EditStudent"></a><a class="link" href="#EditStudent">4.2.9. Editing a Student <code>student edit</code></a></h4>
 <div class="paragraph">
 <p>Edits a student in the TA-Tracker.</p>
 </div>
@@ -881,13 +962,246 @@ edited in the student list of the provided module group.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="Sort"><a class="anchor" href="#Sort"></a><a class="link" href="#Sort">4.2.9. Sort <code>sort</code></a></h4>
+<h4 id="Sort"><a class="anchor" href="#Sort"></a><a class="link" href="#Sort">4.2.10. Sorting a Group <code>sort group</code></a></h4>
 <div class="paragraph">
-<p>TODO: ADD DETAILS ONCE IMPLEMENTED</p>
+<p>Sorts the students inside the group you want to sort according to the way you indicate
+you want it to be sorted.</p>
+</div>
+<div class="paragraph">
+<p>The students can be sorted alphabetically, by rating in ascending order, by rating
+in descending order and by matriculation number in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>When a group is sorted, Student View shows the groups of the module the sorted group
+belongs to and the students of the group that has been sorted.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort group g/GROUP_CODE m/MOD_CODE t/SORT_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>A module with the given module code must exist in the TA-Tracker before
+you sort a group inside it.</p>
+</li>
+<li>
+<p>A group with the given group code must exist inside the module before you can
+sort it.</p>
+</li>
+<li>
+<p>To sort alphabetically you can use the following to indicate sort type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alphabetically</code></p>
+</li>
+<li>
+<p><code>alphabetical</code></p>
+</li>
+<li>
+<p><code>alpha</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To sort by matriculation number, sort type must be <code>matric</code>.</p>
+</li>
+<li>
+<p>To sort by rating in ascending order, sort type must be <code>rating asc</code>.</p>
+</li>
+<li>
+<p>To sort by rating in descending order, sort type must be <code>rating desc</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort group g/G03 m/CS2103 t/alpha</code></p>
+<div class="paragraph">
+<p>Sorts the student inside G03 of module CS2103 alphabetically.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="FilterStudent"><a class="anchor" href="#FilterStudent"></a><a class="link" href="#FilterStudent">4.2.10. Filter <code>filter</code></a></h4>
+<h4 id="sorting-a-module-code-sort-module-code"><a class="anchor" href="#sorting-a-module-code-sort-module-code"></a><a class="link" href="#sorting-a-module-code-sort-module-code">4.2.11. Sorting a Module <code>sort module</code></a></h4>
+<div class="paragraph">
+<p>Sorts the students inside all the groups of the module you want to sort according
+to the way you indicate you want it to be sorted.</p>
+</div>
+<div class="paragraph">
+<p>The students can be sorted alphabetically, by rating in ascending order, by rating
+in descending order and by matriculation number in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>When a module is sorted, Student View shows the groups of the module you sorted and
+the students of the first group in the module. If there are no groups in the module,
+it will show an empty list.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort module m/MOD_CODE t/SORT_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>A module with the given module code must exist in the TA-Tracker before
+you sort it.</p>
+</li>
+<li>
+<p>To sort alphabetically you can use the following to indicate sort type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alphabetically</code></p>
+</li>
+<li>
+<p><code>alphabetical</code></p>
+</li>
+<li>
+<p><code>alpha</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To sort by matriculation number, sort type must be <code>matric</code>.</p>
+</li>
+<li>
+<p>To sort by rating in ascending order, sort type must be <code>rating asc</code>.</p>
+</li>
+<li>
+<p>To sort by rating in descending order, sort type must be <code>rating desc</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort module m/CS2103 t/alpha</code></p>
+<div class="paragraph">
+<p>Sorts all groups inside the module CS2103 alphabetically.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="sorting-everything-code-sort-all-code"><a class="anchor" href="#sorting-everything-code-sort-all-code"></a><a class="link" href="#sorting-everything-code-sort-all-code">4.2.12. Sorting Everything <code>sort all</code></a></h4>
+<div class="paragraph">
+<p>Sorts the students inside all the groups all modules according to the way you indicate
+you want everything to be sorted.</p>
+</div>
+<div class="paragraph">
+<p>The students can be sorted alphabetically, by rating in ascending order, by rating
+in descending order and by matriculation number in ascending order.</p>
+</div>
+<div class="paragraph">
+<p>When all modules are sorted, Student View shows the groups of the first module in the module list
+and the students of the first group in the module being shown. If there are no modules
+or groups, empty lists will be shown.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort all t/SORT_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>To sort alphabetically you can use the following to indicate sort type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alphabetically</code></p>
+</li>
+<li>
+<p><code>alphabetical</code></p>
+</li>
+<li>
+<p><code>alpha</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To sort by matriculation number, sort type must be <code>matric</code>.</p>
+</li>
+<li>
+<p>To sort by rating in ascending order, sort type must be <code>rating asc</code>.</p>
+</li>
+<li>
+<p>To sort by rating in descending order, sort type must be <code>rating desc</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort all t/alpha</code></p>
+<div class="paragraph">
+<p>Sorts all groups inside all modules alphabetically.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="FilterStudent"><a class="anchor" href="#FilterStudent"></a><a class="link" href="#FilterStudent">4.2.13. Filter <code>filter</code></a></h4>
 <div class="paragraph">
 <p>Filter student helps you find the students in a particular group
 and module.</p>
@@ -1384,4 +1698,4 @@ Sets the current hourly rate to 25$.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 06:29:29 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-03-31 08:49:03 UTC</div></div></div></body></html>

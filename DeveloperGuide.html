@@ -9,33 +9,32 @@
 <div id="toc" class="toc">
 <div id="toctitle"></div>
 <ul class="sectlevel1">
-<li><a href="#setting-up">1. Setting up</a></li>
-<li><a href="#design">2. Design</a>
+<li><a href="#introduction">1. Introduction</a></li>
+<li><a href="#setting-up">2. Setting up</a></li>
+<li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
-<li><a href="#Design-Architecture">2.1. Architecture</a></li>
-<li><a href="#Design-Ui">2.2. UI component</a></li>
-<li><a href="#Design-Logic">2.3. Logic component</a></li>
-<li><a href="#Design-Model">2.4. Model component</a></li>
-<li><a href="#Design-Storage">2.5. Storage component</a></li>
-<li><a href="#Design-Commons">2.6. Common classes</a></li>
+<li><a href="#Design-Architecture">3.1. Architecture</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a></li>
+<li><a href="#Design-Logic">3.3. Logic component</a></li>
+<li><a href="#Design-Model">3.4. Model component</a></li>
+<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
-<li><a href="#implementation">3. Implementation</a>
+<li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></li>
-<li><a href="#module-view">3.2. Module View</a></li>
-<li><a href="#student-view">3.3. Student View</a></li>
-<li><a href="#tss-view">3.4. TSS View</a></li>
-<li><a href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-syntax-highlighting-feature">3.6. [Proposed] Syntax Highlighting feature</a></li>
-<li><a href="#logging">3.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">3.8. Configuration</a></li>
-<li><a href="#Implementation-Find">3.9. Filter Command</a></li>
+<li><a href="#StudentView">4.1. Student View</a></li>
+<li><a href="#tss-view">4.2. TSS View</a></li>
+<li><a href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-syntax-highlighting-feature">4.4. [Proposed] Syntax Highlighting feature</a></li>
+<li><a href="#logging">4.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
+<li><a href="#Implementation-Find">4.7. Filter Command</a></li>
 </ul>
 </li>
-<li><a href="#documentation">4. Documentation</a></li>
-<li><a href="#testing">5. Testing</a></li>
-<li><a href="#dev-ops">6. Dev Ops</a></li>
+<li><a href="#documentation">5. Documentation</a></li>
+<li><a href="#testing">6. Testing</a></li>
+<li><a href="#dev-ops">7. Dev Ops</a></li>
 <li><a href="#product-scope">Appendix A: Product Scope</a></li>
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
@@ -64,18 +63,94 @@
 </div>
 </div>
 <div class="sect1">
-<h2 id="setting-up"><a class="link" href="#setting-up">1. Setting up</a></h2>
+<h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Refer to the guide <a href="SettingUp.html">here</a>.</p>
+<p>TA-Tracker is a productivity tool made for NUS Computing Teaching Assistants (TAs)
+who want to be able to track and manage their students and claimable
+hours in one place.</p>
+</div>
+<div class="paragraph">
+<p>Teaching Assistants at SoC have to keep a track of:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>students</p>
+</li>
+<li>
+<p>students' participation marks</p>
+</li>
+<li>
+<p>notes they have for certain students that they can later use for recommendations.</p>
+</li>
+<li>
+<p>claimable hours so that they can fill up the TSS Claims form at the end of each semester.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Rather than managing this through several excel
+spreadsheets and notes, TA-Tracker allows TAs to track everything in a single, convenient-to-use
+platform.</p>
+</div>
+<div class="paragraph">
+<p>In particular, TA-Tracker is a <strong>Command Line Interface (CLI)</strong> application packaged
+with a <strong>Graphical User Interface (GUI)</strong>. This means that users are expected to interact
+with the TA-Tracker mainly through the command line, but each command executed will
+evoke a visual response in the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>Any help on the development of the TA-Tracker would be greatly appreciated, and there
+are a couple of ways that you can do so:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>contribute to TA-Tracker&#8217;s code base by expanding its features</p>
+<div class="ulist">
+<ul>
+<li>
+<p>such as adding an option to enter assignment grades</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>help us improve test coverage</p>
+</li>
+<li>
+<p>propose and implement improvements on current features</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>This guide aims to kick-start your journey as a contributor to the TA-Tracker by getting
+you up to speed with how TA-Tracker&#8217;s codebase and inner workings function. It also
+hopes to serve as a useful reference to current contributors in times of confusion or
+when faced with difficulties.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="design"><a class="link" href="#design">2. Design</a></h2>
+<h2 id="setting-up"><a class="link" href="#setting-up">2. Setting up</a></h2>
 <div class="sectionbody">
+<div class="paragraph">
+<p>You can refer to the guide <a href="SettingUp.html">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="design"><a class="link" href="#design">3. Design</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TA-Tracker has been designed with <code>Object-Oriented Programming</code>
+principles in mind. This section serves to give a description of the
+major components in the architecture of TA-Tracker. Subsequent sections
+provide more information on the inner workings of individual components.</p>
+</div>
 <div class="sect2">
-<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">2.1. Architecture</a></h3>
+<h3 id="Design-Architecture"><a class="link" href="#Design-Architecture">3.1. Architecture</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureDiagram.png" alt="ArchitectureDiagram">
@@ -83,7 +158,8 @@
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App. Given below is a quick overview of each component.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -165,20 +241,21 @@ The following class plays an important role at the architecture level:</p>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
-<p>The <em>Sequence Diagram</em> below shows how the components interact with each other for the scenario where the user issues the command <code>delete 1</code>.</p>
+<p>The <em>Sequence Diagram</em> below shows how the components interact with each other
+for the scenario where the user issues the command <code>session delete 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ArchitectureSequenceDiagram.png" alt="ArchitectureSequenceDiagram">
 </div>
-<div class="title">Figure 3. Component interactions for <code>delete 1</code> command</div>
+<div class="title">Figure 3. Component interactions for <code>session delete 1</code> command</div>
 </div>
 <div class="paragraph">
 <p>The sections below give more details of each component.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Ui"><a class="link" href="#Design-Ui">2.2. UI component</a></h3>
+<h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -209,7 +286,7 @@ The following class plays an important role at the architecture level:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Logic"><a class="link" href="#Design-Logic">2.3. Logic component</a></h3>
+<h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
@@ -234,8 +311,8 @@ The following class plays an important role at the architecture level:</p>
 parse commands that interact with the models that they are named after.</p>
 </li>
 <li>
-<p>Other parsers, such as <code>HelpCommandParser</code> and <code>FilterCommandParser</code> parse commands that
-interact with the TA-Tracker user interface.</p>
+<p>Other parsers, such as <code>HelpCommandParser</code>, <code>SortCommandParser</code> and <code>FilterCommandParser</code>
+parse commands that interact with the TA-Tracker user interface.</p>
 </li>
 </ol>
 </div>
@@ -255,13 +332,13 @@ interact with the TA-Tracker user interface.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("delete 1")</code> API call.</p>
+<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("group add m/CS2103 g/G03 t/lab")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DeleteSequenceDiagram.png" alt="DeleteSequenceDiagram">
+<img src="images/AddGroupSequenceDiagram.png" alt="AddGroupSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>delete 1</code> Command</div>
+<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>group add m/CS2103 g/G03 t/lab</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -270,14 +347,25 @@ interact with the TA-Tracker user interface.</p>
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-The lifeline for <code>DeleteCommandParser</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>The lifeline for <code>GroupCommandParser</code> and <code>AddGroupCommandParser</code> should end at the
+destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+</li>
+<li>
+<p>Since the purpose of this diagram is to show the interactions within the <code>Logic</code> component,
+irrelevant interactions with the <code>Model</code> component have been omitted.</p>
+</li>
+</ul>
+</div>
 </td>
 </tr>
 </table>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Model"><a class="link" href="#Design-Model">2.4. Model component</a></h3>
+<h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -313,7 +401,10 @@ The lifeline for <code>DeleteCommandParser</code> should end at the destroy mark
 <i class="fa icon-note" title="Note"></i>
 </td>
 <td class="content">
-As a more OOP model, we can store a <code>Tag</code> list in <code>TaTracker</code>, which <code>Student</code> can reference. This would allow <code>TaTracker</code> to only require one <code>Tag</code> object per unique <code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of how such a model may look like is given below.<br>
+As a more <code>OOP</code> model, we can store a <code>Tag</code> list in <code>TaTracker</code>, which <code>Student</code> can
+reference. This would allow <code>TaTracker</code> to only require one <code>Tag</code> object per unique
+<code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of what
+such a model may look like is given below.<br>
 <br>
 <span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
 </td>
@@ -322,7 +413,7 @@ As a more OOP model, we can store a <code>Tag</code> list in <code>TaTracker</co
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Storage"><a class="link" href="#Design-Storage">2.5. Storage component</a></h3>
+<h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
@@ -376,7 +467,7 @@ the respective groups.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Design-Commons"><a class="link" href="#Design-Commons">2.6. Common classes</a></h3>
+<h3 id="Design-Commons"><a class="link" href="#Design-Commons">3.6. Common classes</a></h3>
 <div class="paragraph">
 <p>Classes used by multiple components are in the <code>tatracker.commons</code> package.</p>
 </div>
@@ -384,236 +475,25 @@ the respective groups.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="implementation"><a class="link" href="#implementation">3. Implementation</a></h2>
+<h2 id="implementation"><a class="link" href="#implementation">4. Implementation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="proposed-undo-redo-feature"><a class="link" href="#proposed-undo-redo-feature">3.1. [Proposed] Undo/Redo feature</a></h3>
-<div class="sect3">
-<h4 id="proposed-implementation"><a class="link" href="#proposed-implementation">3.1.1. Proposed Implementation</a></h4>
+<h3 id="StudentView"><a class="link" href="#StudentView">4.1. Student View</a></h3>
 <div class="paragraph">
-<p>The undo/redo mechanism is facilitated by <code>VersionedTaTracker</code>.
-It extends <code>TaTracker</code> with an undo/redo history, stored internally as an <code>taTrackerStateList</code> and <code>currentStatePointer</code>.
-Additionally, it implements the following operations:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>VersionedTaTracker#commit()</code>&#8201;&#8212;&#8201;Saves the current TA-Tracker state in its history.</p>
-</li>
-<li>
-<p><code>VersionedTaTracker#undo()</code>&#8201;&#8212;&#8201;Restores the previous TA-Tracker state from its history.</p>
-</li>
-<li>
-<p><code>VersionedTaTracker#redo()</code>&#8201;&#8212;&#8201;Restores a previously undone TA-Tracker state from its history.</p>
-</li>
-</ul>
+<p><strong>Student view</strong> is the term used to characterise the different functionalities
+related to the students.</p>
 </div>
 <div class="paragraph">
-<p>These operations are exposed in the <code>Model</code> interface as <code>Model#commitTaTracker()</code>, <code>Model#undoTaTracker()</code> and <code>Model#redoTaTracker()</code> respectively.</p>
-</div>
-<div class="paragraph">
-<p>Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.</p>
-</div>
-<div class="paragraph">
-<p>Step 1. The user launches the application for the first time. The <code>VersionedTaTracker</code> will be initialized with the initial TA-Tracker state, and the <code>currentStatePointer</code> pointing to that single TA-Tracker state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState0.png" alt="UndoRedoState0">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 2. The user executes <code>delete 5</code> command to delete the 5th student in the TA-Tracker. The <code>delete</code> command calls <code>Model#commitTaTracker()</code>, causing the modified state of the TA-Tracker after the <code>delete 5</code> command executes to be saved in the <code>taTrackerStateList</code>, and the <code>currentStatePointer</code> is shifted to the newly inserted TA-Tracker state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState1.png" alt="UndoRedoState1">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 3. The user executes <code>add n/David &#8230;&#8203;</code> to add a new student. The <code>add</code> command also calls <code>Model#commitTaTracker()</code>, causing another modified TA-Tracker state to be saved into the <code>taTrackerStateList</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState2.png" alt="UndoRedoState2">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If a command fails its execution, it will not call <code>Model#commitTaTracker()</code>, so the TA-Tracker state will not be saved into the <code>taTrackerStateList</code>.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 4. The user now decides that adding the student was a mistake, and decides to undo that action by executing the <code>undo</code> command. The <code>undo</code> command will call <code>Model#undoTaTracker()</code>, which will shift the <code>currentStatePointer</code> once to the left, pointing it to the previous TA-Tracker state, and restores the TA-Tracker to that state.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState3.png" alt="UndoRedoState3">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index 0, pointing to the initial TA-Tracker state, then there are no previous TA-Tracker states to restore. The <code>undo</code> command uses <code>Model#canUndoTaTracker()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the undo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The following sequence diagram shows how the undo operation works:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoSequenceDiagram.png" alt="UndoSequenceDiagram">
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-The lifeline for <code>UndoCommand</code> should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>The <code>redo</code> command does the opposite&#8201;&#8212;&#8201;it calls <code>Model#redoTaTracker()</code>, which shifts the <code>currentStatePointer</code> once to the right, pointing to the previously undone state, and restores the TA-Tracker to that state.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-If the <code>currentStatePointer</code> is at index <code>taTrackerStateList.size() - 1</code>, pointing to the latest TA-Tracker state, then there are no undone TA-Tracker states to restore. The <code>redo</code> command uses <code>Model#canRedoTaTracker()</code> to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>Step 5. The user then decides to execute the command <code>list</code>. Commands that do not modify the TA-Tracker, such as <code>list</code>, will usually not call <code>Model#commitTaTracker()</code>, <code>Model#undoTaTracker()</code> or <code>Model#redoTaTracker()</code>. Thus, the <code>taTrackerStateList</code> remains unchanged.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState4.png" alt="UndoRedoState4">
-</div>
-</div>
-<div class="paragraph">
-<p>Step 6. The user executes <code>clear</code>, which calls <code>Model#commitTaTracker()</code>. Since the <code>currentStatePointer</code> is not pointing at the end of the <code>taTrackerStateList</code>, all TA-Tracker states after the <code>currentStatePointer</code> will be purged. We designed it this way because it no longer makes sense to redo the <code>add n/David &#8230;&#8203;</code> command. This is the behavior that most modern desktop applications follow.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/UndoRedoState5.png" alt="UndoRedoState5">
-</div>
-</div>
-<div class="paragraph">
-<p>The following activity diagram summarizes what happens when a user executes a new command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/CommitActivityDiagram.png" alt="CommitActivityDiagram">
-</div>
-</div>
+<p>Students are a part of <strong>groups</strong> and groups are a part of <strong>modules</strong>.</p>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">3.1.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-how-undo-redo-executes"><a class="link" href="#aspect-how-undo-redo-executes">Aspect: How undo &amp; redo executes</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Saves the entire TA-Tracker.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy to implement.</p>
-</li>
-<li>
-<p>Cons: May have performance issues in terms of memory usage.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Individual command knows how to undo/redo by itself.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Will use less memory (e.g. for <code>delete</code>, just save the student being deleted).</p>
-</li>
-<li>
-<p>Cons: We must ensure that the implementation of each individual command are correct.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect4">
-<h5 id="aspect-data-structure-to-support-the-undo-redo-commands"><a class="link" href="#aspect-data-structure-to-support-the-undo-redo-commands">Aspect: Data structure to support the undo/redo commands</a></h5>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Alternative 1 (current choice):</strong> Use a list to store the history of TA-Tracker states.</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: Easy for new Computer Science student undergraduates to understand, who are likely to be the new incoming developers of our project.</p>
-</li>
-<li>
-<p>Cons: Logic is duplicated twice. For example, when a new command is executed, we must remember to update both <code>HistoryManager</code> and <code>VersionedTaTracker</code>.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p><strong>Alternative 2:</strong> Use <code>HistoryManager</code> for undo/redo</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Pros: We do not need to maintain a separate list, and just reuse what is already in the codebase.</p>
-</li>
-<li>
-<p>Cons: Requires dealing with commands that have already been undone: We must remember to skip these commands. Violates Single Responsibility Principle and Separation of Concerns as <code>HistoryManager</code> now needs to do two different things.</p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="module-view"><a class="link" href="#module-view">3.2. Module View</a></h3>
-<div class="paragraph">
-<p>Module view is the term used to characterise the different functionalities
-related to the modules and groups that the user is affiliated with.</p>
-</div>
-<div class="sect3">
-<h4 id="model-framework"><a class="link" href="#model-framework">3.2.1. Model Framework</a></h4>
+<h4 id="model-framework"><a class="link" href="#model-framework">4.1.1. Model Framework</a></h4>
 <div class="paragraph">
 <p>The following class diagram shows how different classes are related in the
-functioning of the module view.</p>
+functioning of the <code>Student View</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -622,29 +502,62 @@ functioning of the module view.</p>
 <div class="title">Figure 9. Module View - Class Diagram</div>
 </div>
 <div class="paragraph">
-<p>The TaTracker model class contains a UniqueModuleList which helps it keep track
-of the different modules the user is associated with. Each module contains a
-UniqueGroupList and a UniqueSessionList.</p>
+<p>The <code>TaTracker</code> class contains a <code>UniqueModuleList</code> which helps it keep track
+of the different <strong>modules</strong> the user is associated with. Each <code>Module</code> contains a
+<code>UniqueGroupList</code> and a <code>UniqueSessionList</code>.</p>
 </div>
 <div class="paragraph">
-<p>The UniqueGroupList contains a list of all the groups of a module that the user
-is affiliated with. Each group contains a UniqueStudentsList that contains the
-students in that group.</p>
+<p>The <code>UniqueGroupList</code> contains a list of all the <strong>groups</strong> of a module that the user
+is affiliated with. Each <code>Group</code> contains a <code>UniqueStudentsList</code> that contains the
+<strong>students</strong> in that group.</p>
 </div>
 <div class="paragraph">
-<p>The UniqueSessionList contains a list of all the done sessions associated with the module.
-This list is used in the TSS view.</p>
+<p>The <code>UniqueSessionList</code> contains a list of all the <strong>sessions that have already been
+done</strong> associated with the module. This list is used in the TSS view.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Alternative Implementation</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An alternative implementation would be to have a single <code>UniqueModuleList</code> to store
+all modules, a <code>List</code> to store all groups and a <code>List</code> to store all students.</p>
+</li>
+<li>
+<p>We would then have to filter by module code and/or group code to show the appropriate
+groups and students.</p>
+</li>
+<li>
+<p>This would require students to keep track of which group and which module they&#8217;re
+a part of. Similarly, groups would have to keep a track of the students it contains.
+This would create a cyclic dependency (which could be solved using an association class).</p>
+</li>
+<li>
+<p>The <code>List</code> of groups could contain multiple groups with the same group code as group code
+is only unique within a module. Group codes can be shared across modules.</p>
+</li>
+<li>
+<p>While this implementation would make it easier to generate a report at the end of
+the semester (explained towards the end of the guide), it would require more commands
+and complicate the model. That is why we decided to stick to our current implementation.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-module-add-and-delete-commands"><a class="link" href="#implementation-of-the-module-add-and-delete-commands">3.2.2. Implementation of the Module Add and Delete Commands</a></h4>
+<h4 id="implementation-of-the-module-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-module-add-delete-and-edit-commands">4.1.2. Implementation of the Module Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
 <p>The following sequence diagram shows the sequence of commands that take place
-between the logic and model components of the TA-Tracker when the user enters the
-command 'module add m/CS2103 n/Software Engineering'.</p>
+between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker when the user enters the
+command <code>module add m/CS2103 n/Software Engineering</code>.</p>
 </div>
 <div class="paragraph">
-<p>Note: This diagram assumes that there is no module with the module code 'CS2103'
+<p>Note: This diagram assumes that there is no module with the module code <code>CS2103</code>
 pre-existing in the TA-Tracker.</p>
 </div>
 <div class="imageblock">
@@ -653,29 +566,48 @@ pre-existing in the TA-Tracker.</p>
 </div>
 <div class="title">Figure 10. Module Add - Sequence Diagram</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The lifeline for <code>ModuleCommandParser</code> and <code>AddModuleCommandParser</code> should end at the
+destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>LogicManager uses the TATrackerParser to first parse the user command.</p>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The TATrackerParser sees that the command is of type module and passes the
-command to the ModuleCommandParser.</p>
+<p>The <code>TaTrackerParser</code> sees that the command is of type <strong>module</strong> and passes the
+command to the <code>ModuleCommandParser</code>.</p>
 </li>
 <li>
-<p>The ModuleCommandParser sees that the command is of type add and passes the
-arguments to the AddModuleCommandParser.</p>
+<p>The <code>ModuleCommandParser</code> sees that the command is of type <strong>add</strong> and passes the
+arguments to the <code>AddModuleCommandParser</code>.</p>
 </li>
 <li>
-<p>The AddModuleCommandParser creates a Module with the given module code and
+<p>The <code>AddModuleCommandParser</code> creates a <code>Module</code> with the given module code and
 name.</p>
 </li>
 <li>
-<p>The AddModuleCommandParser then creates an AddModuleCommand object and passes
-it the created module. The parser then returns the AddModuleCommand</p>
+<p>The <code>AddModuleCommandParser</code> then creates an <code>AddModuleCommand</code> object and passes
+it the created module. The parser then returns the <code>AddModuleCommand</code> object.</p>
 </li>
 <li>
-<p>LogicManager calls AddModuleCommad&#8217;s execute method. The AddModuleCommand object
+<p>LogicManager calls <code>AddModuleCommand</code> 's execute method. The <code>AddModuleCommand</code> object
 checks whether a module with the given module code already exists in TA-Tracker.
 If it does, a command exception is thrown saying that a module with the given module
 code already exists in the TA-Tracker.</p>
@@ -684,47 +616,73 @@ code already exists in the TA-Tracker.</p>
 <p>If no such module exists, the module is added to the TA-Tracker.</p>
 </li>
 <li>
-<p>The SortGroupCommand returns a CommandResult with a success message.</p>
+<p>The <code>AddModuleCommand</code> returns a <code>CommandResult</code> with a success message.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
-<p>The command used to delete a module has been implemented in a similar way. Tha main
-difference is that the DeleteModuleCommand checks whether an object with the given
+<p>The command used to delete a module has been implemented in a similar way. The main
+difference is that the <code>DeleteModuleCommand</code> checks whether an object with the given
 module code exists in the TA-Tracker. If no such module exists, a command exception
 is thrown saying that a module with the given module code doesn&#8217;t exist. If it does
-exist, first all the sessions linked to that module are removed.
+exist, <strong>first all the sessions linked to that module are removed</strong>.
 Then the module is removed from the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>The <code>module edit</code> command has been implemented in a similar manner.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-group-add-and-delete-commands"><a class="link" href="#implementation-of-the-group-add-and-delete-commands">3.2.3. Implementation of the Group Add and Delete Commands</a></h4>
+<h4 id="implementation-of-the-group-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-group-add-delete-and-edit-commands">4.1.3. Implementation of the Group Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
-<p>The following activity diagram shows the steps taken by the AddGroupCommand object
-when the execute method is called.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/AddGroupActivityDiagram.png" alt="AddGroupActivityDiagram">
-</div>
-<div class="title">Figure 11. Group Add - Activity Diagram</div>
+<p>A group is added to the TA-Tracker in a similar manner to to how a module is added to
+the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>It should be noted that these are the steps followed assuming that no exception is
-thrown. Before getting the module from TA-Tracker&#8217;s model, the DeleteGroupCommand object
-checks whether such a module even exists. If it doesn&#8217;t exists, it throws a command
-exception saying that no such module exists. Before adding a group to the module, the
-object even checks whether the module already has a group with the given group code.
-If it exists, a command exception is thrown saying that there is already a group
-with the given group code.</p>
+<p>The following steps are taken once the execute command of an AddGroupCommand object
+is called:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it exists, the module is retrieved.</p>
+</li>
+<li>
+<p>If it doesn&#8217;t exist, an exception is thrown explaining that the module doesn&#8217;t
+exist.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The <code>AddGroupCommand</code> object checks whether a <strong>group</strong> with the same group code as
+the new group exists in the module retrieved beforehand.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it doesn&#8217;t exist, the group is added to the module and a <code>CommandResult</code> object
+with the success message is returned.</p>
+</li>
+<li>
+<p>If it does exist, an exception is thrown explaining that you can&#8217;t have two groups
+with the same group code in a module.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
 </div>
 <div class="paragraph">
-<p>The interactions between the logic and model components when adding a group are similar
+<p>The interactions between the <code>Logic</code> and <code>Model</code> components when adding a group are similar
 to the interactions when deleting a group as shown below.</p>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram shows the interactions between the logic and model
-components when the user inputs the command 'group delete m/CS2103 g/G03'.</p>
+components when the user inputs the command <code>group delete m/CS2103 g/G03</code>.</p>
 </div>
 <div class="paragraph">
 <p>Note: This diagram is under the case where a group with the group code G03 does exist
@@ -734,52 +692,83 @@ in the module with module code CS2103 inside the TA-Tracker.</p>
 <div class="content">
 <img src="images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
 </div>
-<div class="title">Figure 12. Group Delete - Sequence Diagram</div>
+<div class="title">Figure 11. Group Delete - Sequence Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The lifeline for <code>GroupCommandParser</code> and <code>DeleteGroupCommandParser</code> should end at the
+destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+</li>
+<li>
+<p>The module object named <code>m</code> and the group object named <code>g</code> are created as default
+module and group objects because the DeleteGroupCommand object&#8217;s constructor takes
+in objects of type <code>Group</code> and <code>Module</code>.</p>
+</li>
+<li>
+<p>These objects are used to retrieve the actual module (the module object named <code>M</code>)
+and the delete the desired group from it.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>LogicManager uses the TATrackerParser to first parse the user command.</p>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The TATrackerParser sees that the command is of type group and passes the
-command to the GroupCommandParser.</p>
+<p>The <code>TaTrackerParser</code> sees that the command is of type <strong>group</strong> and passes the
+command to the <code>GroupCommandParser</code>.</p>
 </li>
 <li>
-<p>The GroupCommandParser sees that the command is of type delete and passes the
-arguments to the DeleteGroupCommandParser.</p>
+<p>The <code>GroupCommandParser</code> sees that the command is of type <strong>delete</strong> and passes the
+arguments to the <code>DeleteGroupCommandParser</code>.</p>
 </li>
 <li>
-<p>The DeleteGroupCommandParser creates a Module with the given module code and
-a group with the given group code.</p>
+<p>The <code>DeleteGroupCommandParser</code> creates a <code>Module</code> with the given module code and
+a <code>Group</code> with the given group code.</p>
 </li>
 <li>
-<p>The DeleteGroupCommandParser then creates a DeleteGroupCommand object and passes
-it the created module and group. The parser then returns the DeleteGroupCommand</p>
+<p>The <code>DeleteGroupCommandParser</code> then creates a <code>DeleteGroupCommand</code> object and passes
+it the created module and group. The parser then returns the <code>DeleteGroupCommand</code> object.</p>
 </li>
 <li>
-<p>LogicManager calls DeleteGroupCommand&#8217;s execute method. The DeleteGroupCommand object
-checks whether a module with the given module code already exists in TA-Tracker.
+<p><code>LogicManager</code> calls <code>DeleteGroupCommand</code> 's execute method. The <code>DeleteGroupCommand</code> object
+checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker.
 If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
 code doesn&#8217;t exist in the TA-Tracker.</p>
 </li>
 <li>
-<p>If the module exists, the DeleteGroupCommand object retrieves the module from the
-model and checks whether the module has a group with the given group code. If it doesn&#8217;t,
+<p>If the module exists, the <code>DeleteGroupCommand</code> object retrieves the module from the
+model and checks whether the module has a <strong>group</strong> with the given group code. If it doesn&#8217;t,
 a command exception is thrown saying that no such group exists. If the group does
 exist, it is removed from the module.</p>
 </li>
 <li>
-<p>The SortGroupCommand returns a CommandResult with a success message.</p>
+<p>The <code>DeleteGroupCommand</code> returns a <code>CommandResult</code> with a success message.</p>
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The <code>group edit</code> command has been implemented in a similar manner.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-sort-command"><a class="link" href="#implementation-of-the-sort-command">3.2.4. Implementation of the Sort Command</a></h4>
+<h4 id="implementation-of-the-sort-command"><a class="link" href="#implementation-of-the-sort-command">4.1.4. Implementation of the Sort Command</a></h4>
 <div class="paragraph">
-<p>The sort command allows the user to sort the students in the module view either alphabetically
-or by rating.</p>
+<p>The sort command allows the user to sort the students in the module view either <strong>alphabetically</strong>,
+by <strong>rating (in ascending or descending order)</strong> or by <strong>matriculation number</strong>.</p>
 </div>
 <div class="paragraph">
 <p>The sort command can be used in three ways:</p>
@@ -787,21 +776,55 @@ or by rating.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>sort g/GROUP_CODE m/MODULE_CODE t/TYPE : When a user enters the command in this
+<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code> : When a user enters the command in this
 manner, they are sorting all the students of the given group in the given module
-by type TYPE (which can be either alphabetical or by rating).</p>
+by type TYPE.</p>
 </li>
 <li>
-<p>sort g/MODULE_CODE t/TYPE : When a user enters a command in this manner, they
+<p><code>sort module g/MODULE_CODE t/TYPE</code> : When a user enters a command in this manner, they
 are sorting all the students of all the groups in the given module by type TYPE
 (which can be either alphabetical or by rating).</p>
 </li>
 <li>
-<p>sort t/TYPE : When a user enters a command in this manner, they are sorting all
+<p><code>sort all t/TYPE</code> : When a user enters a command in this manner, they are sorting all
 students of all groups of all the modules in the TA-Tracker by the type TYPE (which
 can be either alphabetical or by rating).</p>
 </li>
 </ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>TYPE</code> here could mean any of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alpha</code>, <code>alphabetical</code> or <code>alphabetically</code> to sort alphabteically.</p>
+</li>
+<li>
+<p><code>rating asc</code> to sort by rating in ascending order.</p>
+</li>
+<li>
+<p><code>rating desc</code> to sort by rating in descending order.</p>
+</li>
+<li>
+<p><code>matric</code> to sort by matriculation number.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>Since these sort commands function differently but use the same parser, the following
@@ -811,104 +834,111 @@ class structure is used.</p>
 <div class="content">
 <img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram">
 </div>
-<div class="title">Figure 13. Sort Commands - Class Diagram</div>
+<div class="title">Figure 12. Sort Commands - Class Diagram</div>
 </div>
 <div class="paragraph">
-<p>Since the different commands use the same parser, the SortCommandParser needs to check
+<p>Since the different commands use the same parser, the <code>SortCommandParser</code> needs to check
 which prefixes have been passed and return the appropriate command accordingly.
 The following activity diagram shows the steps the SortCommandParser takes once
 its parse command is called (assuming that no exception is thrown).</p>
-</div>
-<div class="paragraph">
-<p>If the user enters a sort command with no valid prefix, a command exception is thrown
-thats explains the usage of the sort command.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram">
 </div>
-<div class="title">Figure 14. SortCommandParser - Activity Diagram</div>
+<div class="title">Figure 13. SortCommandParser - Activity Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Typically, the alternative paths would emerge from a single diamond but due to
+a limitation in PlantUML&#8217;s beta version of showing activity diagrams, we were
+unable to show it that way.</p>
+</li>
+<li>
+<p>The final else clause would throw an error explaining that the command format is
+invalid. But due to a limitation in PlantUML&#8217;s beta version of showing activity diagrams,
+we were unable to indicate exceptions thrown in the proper way and decided to mention
+it here instead.</p>
+</li>
+<li>
+<p>Command word here refers to <code>all</code>, <code>module</code> or <code>group</code>.</p>
+</li>
+<li>
+<p>If the user enters the <code>sort</code> command with a command word but doesn&#8217;t include the
+appropriate parameters with the correct prefixes, a command exception is thrown.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
 <p>The following sequence diagram illustrates the interactions between the logic and
-model components when the user enters the command 'sort m/CS2103 g/G03 t/alpha'.</p>
-</div>
-<div class="paragraph">
-<p>Note: To allow the user to type quickly, for type both 'alpha' and 'alphabetically'
-sort the students lexicographically.</p>
+model components when the user enters the command <code>sort all t/matric</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortGroupSequenceDiagram.png" alt="SortGroupSequenceDiagram">
+<img src="images/SortAllSequenceDiagram.png" alt="SortAllSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sort - Sequence Diagram</div>
+<div class="title">Figure 14. Sort - Sequence Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The lifeline for <code>SortCommandParser`</code> should end at the
+destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>LogicManager uses the TATrackerParser to first parse the user command.</p>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The TATrackerParser sees that the command is of type sort and passes the
-command to the SortCommandParser.</p>
+<p>The <code>TaTrackerParser</code> sees that the command is of type <code>sort</code> and passes the
+command to the <code>SortCommandParser</code>.</p>
 </li>
 <li>
 <p>The SortCommandParser performs the steps shown in the previous activity diagram
-and creates and returns a SortGroupCommand.</p>
+and determines that the sort command word is <code>all</code> and creates and returns a
+<code>SortCommand</code>.</p>
 </li>
 <li>
-<p>LogicManager calls SortGroupCommand&#8217;s execute method.</p>
+<p><code>LogicManager</code> calls <code>SortCommand</code> 's execute method.</p>
 </li>
 <li>
-<p>The SortGroupCommand creates a Module with the given module code and a group with
-the given group code. The SortGroupCommand object checks whether a module with the
-given module code already exists in TA-Tracker.
-If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
-code doesn&#8217;t exist in the TA-Tracker.</p>
+<p><code>SortCommand</code> checks the type of sorting that is indicated. Since the sort type
+is <code>matric</code> , it calls <code>model</code> 's <code>sortModulesByMatricNumber()</code> command.</p>
 </li>
 <li>
-<p>If the module exists, the SortGroupCommand object retrieves the module from the
-model and checks whether the module has a group with the given group code. If it doesn&#8217;t,
-a command exception is thrown saying that no such group exists.</p>
-</li>
-<li>
-<p>If the group does exist, it is sorted according to the type of sort specified.</p>
-</li>
-<li>
-<p>The SortGroupCommand returns a CommandResult with a success message.</p>
+<p>The <code>SortCommand</code> returns a <code>CommandResult</code> with a success message.</p>
 </li>
 </ol>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="student-view"><a class="link" href="#student-view">3.3. Student View</a></h3>
-<div class="paragraph">
-<p>Student view is the term used to characterise the different functionalities
-related to the students that the user is affiliated with.</p>
-</div>
 <div class="sect3">
-<h4 id="model-framework-2"><a class="link" href="#model-framework-2">3.3.1. Model Framework</a></h4>
-<div class="paragraph">
-<p>The following class diagram shows how different classes are related in the
-functioning of the student view.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/StudentModelClassDiagram.png" alt="StudentModelClassDiagram">
-</div>
-<div class="title">Figure 16. Student View - Class Diagram</div>
-</div>
-<div class="paragraph">
-<p>The TaTracker model class contains a UniqueStudentList which helps it keep track
-of the different students the user is associated with. Each student has a name,
-matric and a default rating of 3/5 which can be edited by the user later. Each
-student also has a Phone and an Email, which is represented as an empty string
-if the user does not include the optional values.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="implementation-of-the-student-add-and-delete-commands"><a class="link" href="#implementation-of-the-student-add-and-delete-commands">3.3.2. Implementation of the Student Add and Delete Commands</a></h4>
+<h4 id="implementation-of-the-student-add-and-delete-commands"><a class="link" href="#implementation-of-the-student-add-and-delete-commands">4.1.5. Implementation of the Student Add and Delete Commands</a></h4>
 <div class="paragraph">
 <p>The following sequence diagram shows the sequence of commands that take place
 between the logic and model components of the TA-Tracker when the user enters the
@@ -922,7 +952,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/AddStudentSequenceDiagram.png" alt="AddStudentSequenceDiagram">
 </div>
-<div class="title">Figure 17. Student Add - Sequence Diagram</div>
+<div class="title">Figure 15. Student Add - Sequence Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -970,7 +1000,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/DeleteStudentSequenceDiagram.png" alt="DeleteStudentSequenceDiagram">
 </div>
-<div class="title">Figure 18. Student Delete - Sequence Diagram</div>
+<div class="title">Figure 16. Student Delete - Sequence Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1007,13 +1037,13 @@ model and removes the student.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tss-view"><a class="link" href="#tss-view">3.4. TSS View</a></h3>
+<h3 id="tss-view"><a class="link" href="#tss-view">4.2. TSS View</a></h3>
 <div class="paragraph">
 <p>TSS view is the term used to characterise the different functionalities
 related to the done sessions that the user is affiliated with.</p>
 </div>
 <div class="sect3">
-<h4 id="model-framework-3"><a class="link" href="#model-framework-3">3.4.1. Model Framework</a></h4>
+<h4 id="model-framework-2"><a class="link" href="#model-framework-2">4.2.1. Model Framework</a></h4>
 <div class="paragraph">
 <p>The following class diagram shows how different classes are related in the
 functioning of the TSS view.</p>
@@ -1022,7 +1052,7 @@ functioning of the TSS view.</p>
 <div class="content">
 <img src="images/TssModelClassDiagram.png" alt="TssModelClassDiagram">
 </div>
-<div class="title">Figure 19. TSS View - Class Diagram</div>
+<div class="title">Figure 17. TSS View - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The TaTracker model class contains a TSS which helps it keep track of the total
@@ -1034,7 +1064,7 @@ the total earnings of the user.</p>
 <div class="content">
 <img src="images/TssActivityDiagram.png" alt="TssActivityDiagram">
 </div>
-<div class="title">Figure 20. TSS View - Activity Diagram</div>
+<div class="title">Figure 18. TSS View - Activity Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1056,13 +1086,13 @@ of the session from EndDateTime and then rounding up the value to a whole.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">3.5. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">3.6. [Proposed] Syntax Highlighting feature</a></h3>
+<h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">4.4. [Proposed] Syntax Highlighting feature</a></h3>
 <div class="paragraph">
 <p>The syntax highlighting feature extends the <code>CommandBox</code> in the <code>MainWindow</code> of TA-Tracker
 by colouring the font of valid command words as the user is typing. Currently, when a user
@@ -1071,7 +1101,7 @@ will improve on this existing feature by changing the highlighting to be in real
 and on a per word basis.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation-of-the-syntax-highlighting-feature"><a class="link" href="#proposed-implementation-of-the-syntax-highlighting-feature">3.6.1. Proposed Implementation of the Syntax Highlighting feature</a></h4>
+<h4 id="proposed-implementation-of-the-syntax-highlighting-feature"><a class="link" href="#proposed-implementation-of-the-syntax-highlighting-feature">4.4.1. Proposed Implementation of the Syntax Highlighting feature</a></h4>
 <div class="paragraph">
 <p>When the user inputs a command in the <code>CommandBox</code>, the <code>CommandBox</code> will be highlight the following:</p>
 </div>
@@ -1107,7 +1137,7 @@ the value within the <code>TextField</code> has changed.</p>
 <div class="content">
 <img src="images/SyntaxHighlighting.png" alt="SyntaxHighlighting">
 </div>
-<div class="title">Figure 21. Syntax Highlighting - Full Activity Diagram</div>
+<div class="title">Figure 19. Syntax Highlighting - Full Activity Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1148,7 +1178,7 @@ the value within the <code>TextField</code> has changed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">3.6.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.4.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-1-how-to-execute-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-how-to-execute-syntax-highlighting-in-real-time">Aspect #1: How to execute syntax highlighting in real-time</a></h5>
 <div class="paragraph">
@@ -1234,14 +1264,14 @@ All inputs</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">3.7. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 3.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1272,13 +1302,13 @@ All inputs</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">3.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Find"><a class="link" href="#Implementation-Find">3.9. Filter Command</a></h3>
+<h3 id="Implementation-Find"><a class="link" href="#Implementation-Find">4.7. Filter Command</a></h3>
 <div class="paragraph">
 <p>Find Command should be used under the current view. Find Command returns specified search that contains any of the given keywords.
 The search functionality is crucial to the user&#8217;s experience with TaTracker.</p>
@@ -1298,7 +1328,7 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <p>Figure 1 Activity Diagram for the Execution of Find Command</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">3.9.1. Implementation</a></h4>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.7.1. Implementation</a></h4>
 <div class="paragraph">
 <p>Find Feature consists of three main parts:</p>
 </div>
@@ -1351,7 +1381,7 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </div>
 </div>
 <div class="sect1">
-<h2 id="documentation"><a class="link" href="#documentation">4. Documentation</a></h2>
+<h2 id="documentation"><a class="link" href="#documentation">5. Documentation</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Documentation.html">here</a>.</p>
@@ -1359,7 +1389,7 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </div>
 </div>
 <div class="sect1">
-<h2 id="testing"><a class="link" href="#testing">5. Testing</a></h2>
+<h2 id="testing"><a class="link" href="#testing">6. Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="Testing.html">here</a>.</p>
@@ -1367,7 +1397,7 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </div>
 </div>
 <div class="sect1">
-<h2 id="dev-ops"><a class="link" href="#dev-ops">6. Dev Ops</a></h2>
+<h2 id="dev-ops"><a class="link" href="#dev-ops">7. Dev Ops</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Refer to the guide <a href="DevOps.html">here</a>.</p>
@@ -1452,22 +1482,10 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">know what I have that week in a glance</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">give students ratings</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep a track of student participation in class</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete tasks and events</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove cancelled tasks and events from my session tracker</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get a message when a new task clashes with an old one</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes in my schedule</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">set my hourly rate</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get the value of my estimated pay according to the latest rate of the semester</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1476,40 +1494,10 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can get details relating to students whenever necessary</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be able to get tasks on a particular date</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">filter by a module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see events relating to a particular module clearly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">state that a task is recurring</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent the need to put a recurring task in my schedule each week</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">see all my claimable hours in the TSS format</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">type my claims easily at the end of the semester</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">set my hourly rate</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get the value of my estimated pay according to the latest rate of the semester</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get information on how many hours I&#8217;ve worked so far</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how much work I&#8217;ve done</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1524,12 +1512,6 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">store my students' email ids</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve their email ids when I need to contact them</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add multiple modules</p></td>
@@ -1540,18 +1522,6 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add a tutorial/lab group</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the different tutorial and lab groups I conduct</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a tutorial group</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a tutorial group I am no longer the TA of</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a module I am no longer the TA of</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1570,18 +1540,6 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mark a session as done</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">automatically get filled in my TSS claim section.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">give students ratings</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep a track of student participation in class</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete tasks and events</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove cancelled tasks and events from my session tracker</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1590,34 +1548,10 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of claimable hours spent in consultations</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get a message when a new task clashes with an old one</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes in my schedule</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">store and retrieve details of my students</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">I can get details relating to students whenever necessary</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">be able to get tasks on a particular date</p></td>
-<td class="tableblock halign-left valign-top"></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">filter by a module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see events relating to a particular module clearly</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">state that a task is recurring</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent the need to put a recurring task in my schedule each week</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1632,12 +1566,6 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">get the value of my estimated pay according to the latest rate of the semester</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get information on how many hours I&#8217;ve worked so far</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how much work I&#8217;ve done</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">user</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">change between the different pages</p></td>
@@ -1650,12 +1578,6 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">store my students' email ids</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve their email ids when I need to contact them</p></td>
-</tr>
-<tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add multiple modules</p></td>
@@ -1666,18 +1588,6 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">add a tutorial/lab group</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of the different tutorial and lab groups I conduct</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a tutorial group</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a tutorial group I am no longer the TA of</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">delete a module</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a module I am no longer the TA of</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -1696,6 +1606,126 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">mark a session as done</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">automatically get filled in my TSS claim section.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get information on how many hours I&#8217;ve worked so far</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how much work I&#8217;ve done</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">give students ratings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep a track of student participation in class</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete tasks and events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove cancelled tasks and events from my session tracker</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to get tasks on a particular date</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter by a module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see events relating to a particular module clearly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">store my students' email ids</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve their email ids when I need to contact them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a tutorial group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a tutorial group I am no longer the TA of</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a module I am no longer the TA of</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">give students ratings</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep a track of student participation in class</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete tasks and events</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove cancelled tasks and events from my session tracker</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to get tasks on a particular date</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">filter by a module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see events relating to a particular module clearly</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get information on how many hours I&#8217;ve worked so far</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how much work I&#8217;ve done</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">store my students' email ids</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">retrieve their email ids when I need to contact them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a tutorial group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a tutorial group I am no longer the TA of</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">delete a module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove tasks relating to a module I am no longer the TA of</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get a message when a new task clashes with an old one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes in my schedule</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">state that a task is recurring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent the need to put a recurring task in my schedule each week</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">get a message when a new task clashes with an old one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes in my schedule</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">state that a task is recurring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent the need to put a recurring task in my schedule each week</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
@@ -2986,4 +3016,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 06:52:03 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 06:55:39 UTC</div></div></div></body></html>

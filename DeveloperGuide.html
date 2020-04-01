@@ -145,7 +145,8 @@ when faced with difficulties.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>TA-Tracker has been designed with <code>Object-Oriented Programming</code>
-principles in mind. This section serves to give a description of the
+principles in mind. We also attempted to use <code>Defensive Programming</code> wherever
+possible. This section serves to give a description of the
 major components in the architecture of TA-Tracker. Subsequent sections
 provide more information on the inner workings of individual components.</p>
 </div>
@@ -483,8 +484,7 @@ the respective groups.</p>
 <div class="sect2">
 <h3 id="StudentView"><a class="link" href="#StudentView">4.1. Student View</a></h3>
 <div class="paragraph">
-<p><strong>Student view</strong> is the term used to characterise the different functionalities
-related to the students.</p>
+<p><strong>Student View</strong> is used to display all modules, groups and students in the TA-Tracker.</p>
 </div>
 <div class="paragraph">
 <p>Students are a part of <strong>groups</strong> and groups are a part of <strong>modules</strong>.</p>
@@ -542,7 +542,8 @@ is only unique within a module. Group codes can be shared across modules.</p>
 <li>
 <p>While this implementation would make it easier to generate a report at the end of
 the semester (explained towards the end of the guide), it would require more commands
-and complicate the model. That is why we decided to stick to our current implementation.</p>
+and the creation of association classes which would unnecessarily complicate the model.
+That is why we decided to stick to our current implementation.</p>
 </li>
 </ul>
 </div>
@@ -625,8 +626,8 @@ code already exists in the TA-Tracker.</p>
 difference is that the <code>DeleteModuleCommand</code> checks whether an object with the given
 module code exists in the TA-Tracker. If no such module exists, a command exception
 is thrown saying that a module with the given module code doesn&#8217;t exist. If it does
-exist, <strong>first all the sessions linked to that module are removed</strong>.
-Then the module is removed from the TA-Tracker.</p>
+exist, <strong>first all the sessions linked to that module are removed</strong> , then the module
+is removed from the TA-Tracker.</p>
 </div>
 <div class="paragraph">
 <p>The <code>module edit</code> command has been implemented in a similar manner.</p>
@@ -708,13 +709,9 @@ in the module with module code CS2103 inside the TA-Tracker.</p>
 destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
 </li>
 <li>
-<p>The module object named <code>m</code> and the group object named <code>g</code> are created as default
-module and group objects because the DeleteGroupCommand object&#8217;s constructor takes
-in objects of type <code>Group</code> and <code>Module</code>.</p>
-</li>
-<li>
-<p>These objects are used to retrieve the actual module (the module object named <code>M</code>)
-and the delete the desired group from it.</p>
+<p>The main difference between the <code>Module</code> and <code>Group</code> commands is that the <code>Group</code>
+commands require extra checks to check whether a group with the given group code
+exists inside the module with the given module code.</p>
 </li>
 </ul>
 </div>
@@ -736,12 +733,8 @@ command to the <code>GroupCommandParser</code>.</p>
 arguments to the <code>DeleteGroupCommandParser</code>.</p>
 </li>
 <li>
-<p>The <code>DeleteGroupCommandParser</code> creates a <code>Module</code> with the given module code and
-a <code>Group</code> with the given group code.</p>
-</li>
-<li>
 <p>The <code>DeleteGroupCommandParser</code> then creates a <code>DeleteGroupCommand</code> object and passes
-it the created module and group. The parser then returns the <code>DeleteGroupCommand</code> object.</p>
+it the module code, group code and group type. The parser then returns the <code>DeleteGroupCommand</code> object.</p>
 </li>
 <li>
 <p><code>LogicManager</code> calls <code>DeleteGroupCommand</code> 's execute method. The <code>DeleteGroupCommand</code> object
@@ -750,8 +743,8 @@ If it doesn&#8217;t, a command exception is thrown saying that a module with the
 code doesn&#8217;t exist in the TA-Tracker.</p>
 </li>
 <li>
-<p>If the module exists, the <code>DeleteGroupCommand</code> object retrieves the module from the
-model and checks whether the module has a <strong>group</strong> with the given group code. If it doesn&#8217;t,
+<p>If the module exists, the <code>DeleteGroupCommand</code> then checks whether a group with the
+given group code exists within that module. If it doesn&#8217;t,
 a command exception is thrown saying that no such group exists. If the group does
 exist, it is removed from the module.</p>
 </li>
@@ -806,7 +799,7 @@ can be either alphabetical or by rating).</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>alpha</code>, <code>alphabetical</code> or <code>alphabetically</code> to sort alphabteically.</p>
+<p><code>alpha</code>, <code>alphabetical</code> or <code>alphabetically</code> to sort alphabetically.</p>
 </li>
 <li>
 <p><code>rating asc</code> to sort by rating in ascending order.</p>
@@ -901,8 +894,14 @@ model components when the user enters the command <code>sort all t/matric</code>
 <div class="ulist">
 <ul>
 <li>
-<p>The lifeline for <code>SortCommandParser`</code> should end at the
+<p>The lifeline for <code>SortCommandParser</code> should end at the
 destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+</li>
+<li>
+<p>The <code>SortCommandParser</code>, which creates <code>Sort</code> commands, is different from the other
+command parsers. While the other commands have another level of parsing (such as the
+<code>ModuleCommandParser</code> for <code>Module</code> commands), the SortCommandParser
+creates all the different Sort commands within itself.</p>
 </li>
 </ul>
 </div>
@@ -953,6 +952,25 @@ pre-existing in the TA-Tracker.</p>
 <img src="images/AddStudentSequenceDiagram.png" alt="AddStudentSequenceDiagram">
 </div>
 <div class="title">Figure 15. Student Add - Sequence Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The lifeline for <code>StudentCommandParser</code> and <code>AddStudentCommandParser</code> should end at the
+destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3016,4 +3034,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 06:55:39 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-01 18:15:27 UTC</div></div></div></body></html>

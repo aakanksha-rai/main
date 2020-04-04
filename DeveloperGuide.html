@@ -24,12 +24,13 @@
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
 <li><a href="#StudentView">4.1. Student View</a></li>
-<li><a href="#tss-view">4.2. TSS View</a></li>
-<li><a href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-syntax-highlighting-feature">4.4. [Proposed] Syntax Highlighting feature</a></li>
-<li><a href="#logging">4.5. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
-<li><a href="#Implementation-Find">4.7. Filter Command</a></li>
+<li><a href="#SessionView">4.2. Session View</a></li>
+<li><a href="#tss-view">4.3. TSS View</a></li>
+<li><a href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></li>
+<li><a href="#proposed-syntax-highlighting-feature">4.5. [Proposed] Syntax Highlighting feature</a></li>
+<li><a href="#logging">4.6. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
+<li><a href="#Implementation-Navigation">4.8. Filter Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -40,13 +41,15 @@
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
 <li><a href="#use-case-add-session">Use case: Add session</a></li>
-<li><a href="#use-case-edit-session">Use case: Edit session</a></li>
 <li><a href="#use-case-delete-session">Use case: Delete session</a></li>
+<li><a href="#use-case-edit-session">Use case: Edit session</a></li>
+<li><a href="#use-case-delete-session-2">Use case: Delete session</a></li>
 <li><a href="#use-case-mark-a-session-as-done">Use case: Mark a session as done</a></li>
 <li><a href="#use-case-enroll-student-into-class">Use case: Enroll student into class</a></li>
 <li><a href="#use-case-kick-student-from-class">Use case: Kick student from class</a></li>
-<li><a href="#use-case-filter-information-for-a-specific-module">Use case: Filter information for a specific module</a></li>
-<li><a href="#use-case-find-sessions-matching-a-keyword">Use case: Find sessions matching a keyword</a></li>
+<li><a href="#use-case-filter-students-under-student-view">Use case: Filter students under Student View</a></li>
+<li><a href="#use-case-filter-sessions-under-session-view">Use case: Filter sessions under Session View</a></li>
+<li><a href="#use-case-filter-claims-under-claims-view">Use case: Filter claims under Claims View</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -1071,13 +1074,83 @@ model and removes the student.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="tss-view"><a class="link" href="#tss-view">4.2. TSS View</a></h3>
+<h3 id="SessionView"><a class="link" href="#SessionView">4.2. Session View</a></h3>
+<div class="paragraph">
+<p>Session View is the term used to characterise the different functionalities related to
+sessions that the user is affiliated with.</p>
+</div>
+<div class="sect3">
+<h4 id="model-framework-2"><a class="link" href="#model-framework-2">4.2.1. Model Framework</a></h4>
+<div class="paragraph">
+<p>The following class diagrams hows how different classes are related in the functioning
+of the Session View.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SessionModelClassDiagram.png" alt="SessionModelClassDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>The TaTracker model class contains a <code>UniqueSessionList</code> which helps keep track of
+all the <strong>upcoming sessions</strong> of the user.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-session-done-command"><a class="link" href="#implementation-of-the-session-done-command">4.2.2. Implementation of the Session Done Command</a></h4>
+<div class="paragraph">
+<p>The following sequence diagram shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
+<code>session done 1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DoneSessionSequenceDiagram.png" alt="DoneSessionSequenceDiagram">
+</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a type <strong>sessions</strong> and passes the command
+to the <code>SessionCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>SessionCommandParser</code> sees that the command is a type of <strong>done</strong> and passes the
+arguments to the <code>DoneSessionCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>DoneSessionCommandParser</code> creates a <code>DoneSessionCommand</code> with the given index.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>DoneSessionCommand#execute()</code> method. The <code>DoneSessionCommand</code>
+checks whether the current session called by the user has a recurring period.
+If it does, a new session with the updated date will be added to <code>Model#UniqueSessionList()</code>.</p>
+</li>
+<li>
+<p>The current session will be removed from <code>Model#UniqueSessionList</code>.</p>
+</li>
+<li>
+<p>The updated filtered session list will be displayed to the user.</p>
+</li>
+</ol>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/DoneSessionActivityDiagram.png" alt="DoneSessionActivityDiagram">
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="tss-view"><a class="link" href="#tss-view">4.3. TSS View</a></h3>
 <div class="paragraph">
 <p>TSS view is the term used to characterise the different functionalities
 related to the done sessions that the user is affiliated with.</p>
 </div>
 <div class="sect3">
-<h4 id="model-framework-2"><a class="link" href="#model-framework-2">4.2.1. Model Framework</a></h4>
+<h4 id="model-framework-3"><a class="link" href="#model-framework-3">4.3.1. Model Framework</a></h4>
 <div class="paragraph">
 <p>The following class diagram shows how different classes are related in the
 functioning of the TSS view.</p>
@@ -1120,13 +1193,13 @@ of the session from EndDateTime and then rounding up the value to a whole.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.3. [Proposed] Data Encryption</a></h3>
+<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></h3>
 <div class="paragraph">
 <p><em>{Explain here how the data encryption feature will be implemented}</em></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">4.4. [Proposed] Syntax Highlighting feature</a></h3>
+<h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">4.5. [Proposed] Syntax Highlighting feature</a></h3>
 <div class="paragraph">
 <p>The syntax highlighting feature extends the <code>CommandBox</code> in the <code>MainWindow</code> of TA-Tracker
 by colouring the font of valid command words as the user is typing. Currently, when a user
@@ -1135,7 +1208,7 @@ will improve on this existing feature by changing the highlighting to be in real
 and on a per word basis.</p>
 </div>
 <div class="sect3">
-<h4 id="proposed-implementation-of-the-syntax-highlighting-feature"><a class="link" href="#proposed-implementation-of-the-syntax-highlighting-feature">4.4.1. Proposed Implementation of the Syntax Highlighting feature</a></h4>
+<h4 id="proposed-implementation-of-the-syntax-highlighting-feature"><a class="link" href="#proposed-implementation-of-the-syntax-highlighting-feature">4.5.1. Proposed Implementation of the Syntax Highlighting feature</a></h4>
 <div class="paragraph">
 <p>When the user inputs a command in the <code>CommandBox</code>, the <code>CommandBox</code> will be highlight the following:</p>
 </div>
@@ -1212,7 +1285,7 @@ the value within the <code>TextField</code> has changed.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.4.2. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="link" href="#design-considerations">4.5.2. Design Considerations</a></h4>
 <div class="sect4">
 <h5 id="aspect-1-how-to-execute-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-how-to-execute-syntax-highlighting-in-real-time">Aspect #1: How to execute syntax highlighting in real-time</a></h5>
 <div class="paragraph">
@@ -1298,14 +1371,14 @@ All inputs</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1336,35 +1409,64 @@ All inputs</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Find"><a class="link" href="#Implementation-Find">4.7. Filter Command</a></h3>
+<h3 id="Implementation-Navigation"><a class="link" href="#Implementation-Navigation">4.8. Filter Command</a></h3>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">4.8.1. Description</a></h4>
 <div class="paragraph">
-<p>Find Command should be used under the current view. Find Command returns specified search that contains any of the given keywords.
-The search functionality is crucial to the user&#8217;s experience with TaTracker.</p>
+<p>Different view has its own designated filter command.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Student View, <code>Student filter</code> command is provided.</p>
+</li>
+<li>
+<p>Session View, <code>Session filter</code> command is provided.</p>
+</li>
+<li>
+<p>Claims View, <code>Claims filter</code> command is provided.</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 <div class="paragraph">
-<p>This section will describe in detail the implementation of the find command.</p>
+<p>The different filter commands are used so that searching
+for relevant information under the specific view will be easier.</p>
 </div>
 <div class="paragraph">
-<p>The activity diagram below summarises what happens when a user executes the find command :</p>
+<p>The Filter Command returns specified search that contains any of the given keywords.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.8.2. Implementation</a></h4>
+<div class="paragraph">
+<p>This section will describe in detail the implementation of the filter command.</p>
+</div>
+<div class="paragraph">
+<p>The activity diagram below summarises what happens when a user executes the filter command :</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/FindCommandActivityDiagram.png" alt="FindCommandActivityDiagram">
+<img src="images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram">
 </div>
 </div>
 <div class="paragraph">
-<p>Figure 1 Activity Diagram for the Execution of Find Command</p>
+<p>Figure 1 Activity Diagram for the Execution of Filter Command</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.7.1. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.3. Implementation</a></h4>
 <div class="paragraph">
-<p>Find Feature consists of three main parts:</p>
+<p>Filter Feature consists of three main parts:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1380,27 +1482,83 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </ol>
 </div>
 <div class="paragraph">
-<p>The find feature is facilitated by the following classes:</p>
+<p><strong>Filter under Student View</strong></p>
+</div>
+<div class="paragraph">
+<p>Students are filtered based on the module code and/or
+group code given by the user.</p>
+</div>
+<div class="paragraph">
+<p>Module code is a compulsory parameter for user.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
+</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario where the user enters a command to filter students.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 1:</strong> The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
+<code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 2:</strong> The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
+to the <code>StudentCommandParser</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 3:</strong> The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
+arguments to the <code>FilterStudentViewCommandParser</code>.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 4:</strong> The <code>FilterStudentViewCommandParser</code> creates a <code>FilterStudentViewCommand</code> object
+with the relevant keywords.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 5:</strong> <code>LogicManager</code> calls <code>FilterStudentViewCommand</code> 's execute method.
+The <code>FilterStudentViewCommand</code> object checks whether any of the keywords given by the user
+matches the existing module and/or group.
+If it does, the <code>FilterStudentViewCommand</code> returns a <code>CommandResult</code>
+with a success message.</p>
+</div>
+<div class="paragraph">
+<p><strong>Step 6:</strong> If all of the given inputs does not match any existing modules and/or group,
+a command exception is thrown saying that no such students exists.</p>
+</div>
+<div class="paragraph">
+<p><strong>Filter under Session View</strong></p>
+</div>
+<div class="paragraph">
+<p>Sessions can be filtered with these parameters:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>FindCommandParser</code></p>
+<p><code>d/DATE</code></p>
 </li>
-</ul>
-</div>
-<div class="paragraph">
-<p>It validates and parses user input to an instance of FindCommand.</p>
-</div>
-<div class="ulist">
-<ul>
 <li>
-<p><code>FindKeywordDescriptor</code></p>
+<p><code>m/MODULE CODE</code></p>
+</li>
+<li>
+<p><code>t/SESSION_TYPE</code></p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>It stores keywords specified by the user.</p>
+<p>These parameters can be used alone or together.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter sessions has been implemented in a similar way. The main
+difference is that the <code>FilterSessionCommandParser</code> creates a <code>SessionPredicate</code> object.
+The <code>SessionPredicate</code> objects updates the filtered session list by keywords in Model.
+The filtered list will then be displayed.</p>
+</div>
+<div class="paragraph">
+<p>When one or more parameters are used by the user, if one of the keywords used appears
+in a session, it will be filtered.
+If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
+will be shown.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1408,7 +1566,18 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </div>
 </div>
 <div class="paragraph">
-<p>Figure 2 Class Diagram of Find Feature</p>
+<p><strong>Filter under Claims View</strong></p>
+</div>
+<div class="paragraph">
+<p>Under Claims View, sessions that done by the user will be here.</p>
+</div>
+<div class="paragraph">
+<p>User are only allowed to filter claims with module code.
+When the user calls <code>claims filter m/MODULE_CODE</code>, done sessions that contains the module code
+will be filtered.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter claims are implemented the same way as <code>SessionFilterCommand</code>.</p>
 </div>
 </div>
 </div>
@@ -2271,10 +2440,10 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <p>TA-Tracker creates the new session.</p>
 </li>
 <li>
-<p>TA-Tracker adds the new session into the corresponding session group.</p>
+<p>TA-Tracker adds the new session into the session list.</p>
 </li>
 <li>
-<p>TA-Tracker switches to the Schedule View in order to display the new session.</p>
+<p>TA-Tracker switches to the Session View in order to display the new session.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2301,33 +2470,47 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </li>
 </ol>
 </div>
+</div>
+<div class="sect2">
+<h3 id="use-case-delete-session"><a class="link" href="#use-case-delete-session">Use case: Delete session</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the Session View.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the Schedule View.</p>
+</li>
+<li>
+<p>User requests to delete a specific session in the list.</p>
+</li>
+<li>
+<p>TA-Tracker deletes the session.</p>
+</li>
+<li>
+<p>TA-Tracker displays the new session list.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
 <div class="olist none">
 <ol class="none">
 <li>
-<p>2a. The module does not exist.</p>
+<p>2a. The index is invalid</p>
 <div class="olist none">
 <ol class="none">
 <li>
 <p>2a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2b. The session group does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2b1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ol>
@@ -2344,10 +2527,10 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the Schedule View.</p>
+<p>User requests to view the Session View.</p>
 </li>
 <li>
-<p>TA-Tracker switches to the Schedule View.</p>
+<p>TA-Tracker switches to the Session View.</p>
 </li>
 <li>
 <p>User requests to edit a specific session in the view.</p>
@@ -2369,39 +2552,43 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Schedule View is empty.</p>
+<p>2a. The Session View is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>3a. The given session UID is invalid.</p>
-<div class="ulist">
-<ul>
+<p>3a. The index is invalid.</p>
+<div class="olist none">
+<ol class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
-</ul>
+</ol>
 </div>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-delete-session"><a class="link" href="#use-case-delete-session">Use case: Delete session</a></h3>
+<h3 id="use-case-delete-session-2"><a class="link" href="#use-case-delete-session-2">Use case: Delete session</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the Schedule View.</p>
+<p>User requests to view the Session View.</p>
 </li>
 <li>
-<p>TA-Tracker switches to the Schedule View.</p>
+<p>TA-Tracker switches to the Session View.</p>
 </li>
 <li>
 <p>User requests to delete a specific session in the view.</p>
@@ -2423,22 +2610,26 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Schedule View is empty.</p>
+<p>2a. The Session View is empty.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>3a. The given session UID is invalid.</p>
-<div class="ulist">
-<ul>
+<p>3a. The index is invalid.</p>
+<div class="olist none">
+<ol class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
-</ul>
+</ol>
 </div>
 </li>
 </ul>
@@ -2452,10 +2643,10 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the Schedule View.</p>
+<p>User requests to view the Session View.</p>
 </li>
 <li>
-<p>TA-Tracker switches to the Schedule View.</p>
+<p>TA-Tracker switches to the Session View.</p>
 </li>
 <li>
 <p>User requests to mark a specific session in the view as done.</p>
@@ -2464,7 +2655,7 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <p>TA-Tracker marks the session as done.</p>
 </li>
 <li>
-<p>TA-Tracker shows a tick next to the session in the current view.</p>
+<p>TA-Tracker moves the done session to Claims View.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2482,17 +2673,21 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <p>Use case ends.</p>
 </div>
 </li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>3a. The given session UID is invalid.</p>
-<div class="ulist">
-<ul>
+<p>3a. The index is invalid.</p>
+<div class="olist none">
+<ol class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
-</ul>
+</ol>
 </div>
 </li>
 </ul>
@@ -2657,36 +2852,39 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-information-for-a-specific-module"><a class="link" href="#use-case-filter-information-for-a-specific-module">Use case: Filter information for a specific module</a></h3>
+<h3 id="use-case-filter-students-under-student-view"><a class="link" href="#use-case-filter-students-under-student-view">Use case: Filter students under Student View</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to filter information for a specific module.</p>
+<p>User requests to view the Student View.</p>
 </li>
 <li>
-<p>TA-Tracker hides unrelated information from the current view.</p>
+<p>Ta-Tracker switches to the Student View.</p>
+</li>
+<li>
+<p>User requests to filter students from a specific module and/or group.</p>
+</li>
+<li>
+<p>TA-Tracker shows the filtered students.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
 <div class="olist none">
 <ol class="none">
 <li>
-<p>1a. The module does not exist.</p>
+<p>3a. The module and/or group does not exist.</p>
 <div class="olist none">
 <ol class="none">
 <li>
 <p>1a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
 </div>
 </li>
 </ol>
@@ -2696,14 +2894,20 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-find-sessions-matching-a-keyword"><a class="link" href="#use-case-find-sessions-matching-a-keyword">Use case: Find sessions matching a keyword</a></h3>
+<h3 id="use-case-filter-sessions-under-session-view"><a class="link" href="#use-case-filter-sessions-under-session-view">Use case: Filter sessions under Session View</a></h3>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to find sessions related to a specific keyword.</p>
+<p>User requests to view the Session View.</p>
+</li>
+<li>
+<p>Ta-Tracker switches to Session View.</p>
+</li>
+<li>
+<p>User requests to filter sessions specific to date/module code/session type.</p>
 </li>
 <li>
 <p>TA-Tracker retrieves a list of sessions containing the keyword in any of their fields.</p>
@@ -2722,13 +2926,61 @@ The search functionality is crucial to the user&#8217;s experience with TaTracke
 <div class="olist none">
 <ol class="none">
 <li>
-<p>2a. The search did find any matches.</p>
+<p>3a. The search did find any matches.</p>
 <div class="olist none">
 <ol class="none">
 <li>
-<p>2a1. TA-Tracker shows an empty list.</p>
+<p>3a1. TA-Tracker shows an error.</p>
 <div class="paragraph">
-<p>Use case resumes at step 2.</p>
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="use-case-filter-claims-under-claims-view"><a class="link" href="#use-case-filter-claims-under-claims-view">Use case: Filter claims under Claims View</a></h3>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to view the Claims View.</p>
+</li>
+<li>
+<p>Ta-Tracker switches to Claims View.</p>
+</li>
+<li>
+<p>User requests to filter sessions specific to module code.</p>
+</li>
+<li>
+<p>TA-Tracker retrieves a list of sessions containing the keyword.</p>
+</li>
+<li>
+<p>TA-Tracker shows the list of sessions.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>3a. The search did find any matches.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>3a1. TA-Tracker shows an error.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
 </div>
 </li>
 </ol>
@@ -3050,4 +3302,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 08:51:15 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 09:41:16 UTC</div></div></div></body></html>

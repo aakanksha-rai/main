@@ -267,7 +267,23 @@ for the scenario where the user issues the command <code>session delete 1</code>
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>, <code>StudentListPanel</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the abstract <code>UiPart</code> class.</p>
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>,
+<code>StudentTab</code>, <code>StatusBarFooter</code> etc. All these, including the <code>MainWindow</code>, inherit from the
+abstract <code>UiPart</code> class.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StudentTabClassDiagram.png" alt="StudentTabClassDiagram">
+</div>
+<div class="title">Figure 5. Structure of the Student Tab Component</div>
+</div>
+<div class="paragraph">
+<p>The UI contains 3 tabs: the StudentTab, the SessionTab and the ClaimsTab. Each of these tabs
+consist of one or more List Panels (e.g. StudentListPanel) and its respective Card (e.g. Student Card).
+In each ListPanel, the the Graphics component of each of the cells is defined by the respective Card.</p>
+</div>
+<div class="paragraph">
+<p>The other 2 Tabs follow the same structure as the Class diagram above.</p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -292,7 +308,7 @@ for the scenario where the user issues the command <code>session delete 1</code>
 <div class="content">
 <img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
 </div>
-<div class="title">Figure 5. Structure of the Logic Component</div>
+<div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> :
@@ -339,7 +355,7 @@ parse commands that interact with the TA-Tracker user interface.</p>
 <div class="content">
 <img src="images/AddGroupSequenceDiagram.png" alt="AddGroupSequenceDiagram">
 </div>
-<div class="title">Figure 6. Interactions Inside the Logic Component for the <code>group add m/CS2103 g/G03 t/lab</code> Command</div>
+<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>group add m/CS2103 g/G03 t/lab</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -371,7 +387,7 @@ irrelevant interactions with the <code>Model</code> component have been omitted.
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 7. Structure of the Model Component</div>
+<div class="title">Figure 8. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/Model.java"><code>Model.java</code></a></p>
@@ -419,7 +435,7 @@ such a model may look like is given below.<br>
 <div class="content">
 <img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Storage Component</div>
+<div class="title">Figure 9. Structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -499,7 +515,7 @@ functioning of the <code>Student View</code>.</p>
 <div class="content">
 <img src="images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram">
 </div>
-<div class="title">Figure 9. Module View - Class Diagram</div>
+<div class="title">Figure 10. Module View - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>TaTracker</code> class contains a <code>UniqueModuleList</code> which helps it keep track
@@ -565,7 +581,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/AddModuleSequenceDiagram.png" alt="AddModuleSequenceDiagram">
 </div>
-<div class="title">Figure 10. Module Add - Sequence Diagram</div>
+<div class="title">Figure 11. Module Add - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -693,7 +709,7 @@ in the module with module code CS2103 inside the TA-Tracker.</p>
 <div class="content">
 <img src="images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
 </div>
-<div class="title">Figure 11. Group Delete - Sequence Diagram</div>
+<div class="title">Figure 12. Group Delete - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -827,7 +843,7 @@ class structure is used.</p>
 <div class="content">
 <img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram">
 </div>
-<div class="title">Figure 12. Sort Commands - Class Diagram</div>
+<div class="title">Figure 13. Sort Commands - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>Since the different commands use the same parser, the <code>SortCommandParser</code> needs to check
@@ -839,7 +855,7 @@ its parse command is called (assuming that no exception is thrown).</p>
 <div class="content">
 <img src="images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram">
 </div>
-<div class="title">Figure 13. SortCommandParser - Activity Diagram</div>
+<div class="title">Figure 14. SortCommandParser - Activity Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -882,7 +898,7 @@ model components when the user enters the command <code>sort all t/matric</code>
 <div class="content">
 <img src="images/SortAllSequenceDiagram.png" alt="SortAllSequenceDiagram">
 </div>
-<div class="title">Figure 14. Sort - Sequence Diagram</div>
+<div class="title">Figure 15. Sort - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -951,7 +967,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/AddStudentSequenceDiagram.png" alt="AddStudentSequenceDiagram">
 </div>
-<div class="title">Figure 15. Student Add - Sequence Diagram</div>
+<div class="title">Figure 16. Student Add - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1018,7 +1034,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/DeleteStudentSequenceDiagram.png" alt="DeleteStudentSequenceDiagram">
 </div>
-<div class="title">Figure 16. Student Delete - Sequence Diagram</div>
+<div class="title">Figure 17. Student Delete - Sequence Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1070,7 +1086,7 @@ functioning of the TSS view.</p>
 <div class="content">
 <img src="images/TssModelClassDiagram.png" alt="TssModelClassDiagram">
 </div>
-<div class="title">Figure 17. TSS View - Class Diagram</div>
+<div class="title">Figure 18. TSS View - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The TaTracker model class contains a TSS which helps it keep track of the total
@@ -1082,7 +1098,7 @@ the total earnings of the user.</p>
 <div class="content">
 <img src="images/TssActivityDiagram.png" alt="TssActivityDiagram">
 </div>
-<div class="title">Figure 18. TSS View - Activity Diagram</div>
+<div class="title">Figure 19. TSS View - Activity Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1155,7 +1171,7 @@ the value within the <code>TextField</code> has changed.</p>
 <div class="content">
 <img src="images/SyntaxHighlighting.png" alt="SyntaxHighlighting">
 </div>
-<div class="title">Figure 19. Syntax Highlighting - Full Activity Diagram</div>
+<div class="title">Figure 20. Syntax Highlighting - Full Activity Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -3034,4 +3050,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 02:12:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 08:51:15 UTC</div></div></div></body></html>

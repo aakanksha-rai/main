@@ -26,11 +26,10 @@
 <li><a href="#StudentView">4.1. Student View</a></li>
 <li><a href="#SessionView">4.2. Session View</a></li>
 <li><a href="#tss-view">4.3. TSS View</a></li>
-<li><a href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></li>
-<li><a href="#proposed-syntax-highlighting-feature">4.5. [Proposed] Syntax Highlighting feature</a></li>
-<li><a href="#logging">4.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
-<li><a href="#Implementation-Navigation">4.8. Filter Command</a></li>
+<li><a href="#syntax-highlighting">4.4. Syntax Highlighting</a></li>
+<li><a href="#logging">4.5. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.6. Configuration</a></li>
+<li><a href="#Implementation-Navigation">4.7. Filter Command</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -235,13 +234,14 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface
+and exposes its functionality using the <code>LogicManager.java</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram1.png" alt="LogicClassDiagram1">
 </div>
-<div class="title">Figure 2. Class Diagram of the Logic Component</div>
+<div class="title">Figure 2. Simplified Class Diagram of the Logic Component</div>
 </div>
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
@@ -307,9 +307,30 @@ In each ListPanel, the the Graphics component of each of the cells is defined by
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
+<div class="paragraph">
+<p>The <code>Logic</code> component of <code>TA-Tracker</code>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>processes user inputs into different <code>Command</code> objects,</p>
+</li>
+<li>
+<p>executes these <code>Command</code> objects to interact with the <code>Model</code> component, and</p>
+</li>
+<li>
+<p>saves data in the <code>Storage</code> component.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="logic-structure"><a class="link" href="#logic-structure">3.3.1. Logic Structure</a></h4>
+<div class="paragraph">
+<p>The following diagram shows a simplified view of the structure of the Logic component .</p>
+</div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
-<img src="images/LogicClassDiagram.png" alt="LogicClassDiagram">
+<img src="images/LogicClassDiagram1.png" alt="LogicClassDiagram1">
 </div>
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
@@ -317,40 +338,279 @@ In each ListPanel, the the Graphics component of each of the cells is defined by
 <p><strong>API</strong> :
 <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
+<div class="paragraph">
+<p>In the figure above, you can see that:</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> uses the <code>TaTrackerParser</code> class to parse the user command.</p>
+<p><code>Logic</code> behaves as a Façade class between the different <code>TA-Tracker</code> components.</p>
 </li>
 <li>
-<p><code>TaTrackerParser</code> uses specialized command parsers to parse the user command.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p><code>StudentCommandParser</code>, <code>ModuleCommandParser</code>, <code>GroupCommandParser</code>, and <code>SessionCommandParser</code>
-parse commands that interact with the models that they are named after.</p>
+<p><code>LogicManager</code> is the main driver class behind the logic in <code>TA-Tracker</code></p>
 </li>
 <li>
-<p>Other parsers, such as <code>HelpCommandParser</code>, <code>SortCommandParser</code> and <code>FilterCommandParser</code>
-parse commands that interact with the TA-Tracker user interface.</p>
+<p><code>LogicManager</code> interacts with classes in the <code>Model</code> and <code>Storage</code> component.</p>
+</li>
+<li>
+<p><code>TA-Tracker</code> logic is organised into <strong>commands</strong> and <strong>parsers</strong>.</p>
+</li>
+<li>
+<p><code>TaTrackerParser</code> is the <strong>main parser</strong>.</p>
+</li>
+<li>
+<p>A <code>Command</code> can interact with classes in the <code>Model</code> component.</p>
 </li>
 </ol>
 </div>
+</div>
+<div class="sect3">
+<h4 id="logic-hierarchy"><a class="link" href="#logic-hierarchy">3.3.2. Logic Hierarchy</a></h4>
+<div class="paragraph">
+<p>The following diagram shows how the <strong>commands</strong> and <strong>parsers</strong> are organised.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram2.png" alt="LogicClassDiagram2">
+</div>
+<div class="title">Figure 7. Structure of commands and the hierarchy of parsers</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p><code>X</code> is the category name for a group of commands<br>
+(e.g. <code>Student</code>, <code>Session</code>, <code>Module</code>).</p>
 </li>
 <li>
-<p>This results in a <code>Command</code> object which is executed by the <code>LogicManager</code>.</p>
+<p><code>XY</code> is the category name for actions specific to a group of commands<br>
+(e.g. <code>AddStudent</code>, <code>EditSession</code>, <code>DeleteModule</code>).</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p><code>Prefixes</code> contains some <code>Prefix</code> constants that are shared among classes in the <strong>Logic component</strong>.</p>
 </li>
 <li>
-<p>The command execution can affect the <code>Model</code> (e.g. adding a student).</p>
+<p>The <strong>red arrow</strong> shows that each command knows about the <code>Prefix</code> constants stored in <code>Prefixes</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>In addition to Figure 6., in the figure above, you can see that:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>There is a <strong>hierarchy</strong> of parsers, starting from <code>TaTrackerParser</code>.</p>
 </li>
 <li>
-<p>The result of the command execution is encapsulated as a <code>CommandResult</code> object which is passed back to the <code>Ui</code>.</p>
+<p>Each group of parsers have been split into <strong>smaller packages</strong> (named as <code>X</code> in the diagram)
+within the package of parsers.</p>
 </li>
 <li>
-<p>In addition, the <code>CommandResult</code> object can also instruct the <code>Ui</code> to perform certain actions, such as displaying help to the user.</p>
+<p>Each <code>Command</code> has a <code>Parser</code> that creates it from a user input.</p>
+</li>
+<li>
+<p>These <code>Command</code> classes are placed in <strong>smaller packages</strong> (with the same name <code>X</code>) within the package of commands.</p>
+</li>
+<li>
+<p>A <code>Command</code> produces a <code>CommandResult</code> when executed by <code>LogicManager</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>This will modify the <code>Model</code> internally (e.g. adding a student).</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The resulting <code>CommandResult</code> encapsulates the feedback that needs to be passed to the <code>Ui</code>.<br>
+This feedback includes:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>showing messages in the <code>UI</code>, and</p>
+</li>
+<li>
+<p>instructing the <code>Ui</code> to perform certain actions (e.g. displaying the help window).</p>
+</li>
+</ul>
+</div>
 </li>
 </ol>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>In most cases, there are <strong>two levels</strong> of parsing before a command is created<br>
+(i.e. <code>XCommandParser</code> passes the parsing to <code>XYCommandParser</code>).</p>
+</div>
+<div class="paragraph">
+<p>However there are some cases where only <strong>one level</strong> of parsing is needed<br>
+(e.g. for the <code>help</code>, <code>report</code>, and <code>exit</code> commands).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram3.png" alt="LogicClassDiagram3" width="500">
+</div>
+<div class="title">Figure 8. Skipping the second layer of parsers</div>
+</div>
+<div class="paragraph">
+<p>These command parsers will immediately create the respective <code>Command</code>,
+<strong>skipping the second layer</strong> of parsers (represented by the <strong>red arrow</strong> in the figure above).</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overview-of-commands"><a class="link" href="#overview-of-commands">3.3.3. Overview of Commands</a></h4>
+<div class="paragraph">
+<p>All <strong>commands</strong> have been packaged under their respective categories.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandsPackageDiagram1.png" alt="CommandsPackageDiagram1">
+</div>
+<div class="title">Figure 9. Structure of commands in different categories</div>
+</div>
+<div class="paragraph">
+<p>These packages depend on the <code>Command</code> class since they contain commands that inherit from the <code>Command</code> class (not shown above).</p>
+</div>
+<div class="paragraph">
+<p>In addition, the following diagram shows the information that a command should have.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/CommandsPackageDiagram2.png" alt="CommandsPackageDiagram2" width="500">
+</div>
+<div class="title">Figure 10. Internal structure of all commands</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>In each package, all commands should have their own <code>CommandDetails</code>.</p>
+</li>
+<li>
+<p><code>CommandDetails</code> store all the information that each command should have,<br>
+(e.g. their <code>commandWord</code> and <code>usage</code> message).</p>
+</li>
+<li>
+<p>For their <code>commandWord</code> and <code>sub word</code>, commands may use constants in <code>CommandWords</code> to avoid repetition<br>
+(e.g. "add", "delete", "edit").</p>
+</li>
+<li>
+<p>The <code>CommandDictionary</code>, stores a list of <code>CommandDetails</code> for all the commands.</p>
+</li>
+<li>
+<p>The <code>CommandDictionary</code> is used for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>syntax highlighting</strong>, and</p>
+</li>
+<li>
+<p>listing information in the <strong>help window</strong></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="overview-of-parsers"><a class="link" href="#overview-of-parsers">3.3.4. Overview of Parsers</a></h4>
+<div class="paragraph">
+<p>In a similar way, all <strong>parsers</strong> have been packaged under the same respective categories.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ParserPackageDiagram1.png" alt="ParserPackageDiagram1">
+</div>
+<div class="title">Figure 11. Structure of parsers in different categories</div>
+</div>
+<div class="paragraph">
+<p>These packages depend on the <code>Parser</code> interface since they contain command parsers that inherit from the <code>Parser</code> interface
+(not shown above).</p>
+</div>
+<div class="paragraph">
+<p>In addition, the following diagram shows the information that a command parser should have.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ParserPackageDiagram2.png" alt="ParserPackageDiagram2" width="300">
+</div>
+<div class="title">Figure 12. Internal structure of all command parsers</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>All command parsers use some <code>Prefix</code> constants defined in <code>Prefixes</code>.</p>
+</li>
+<li>
+<p><code>PrefixDetails</code> adds more information to a <code>Prefix</code><br>
+(e.g. their <code>constraint</code> message and a list of <code>examples</code>).</p>
+</li>
+<li>
+<p>A <code>PrefixDetail</code> has a <code>Predicate</code> to validate the user input arguments.</p>
+</li>
+<li>
+<p>The <code>PrefixDictionary</code> stores two lists of <code>Prefix</code> objects:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>parameters</code> - a list of command parameters, and</p>
+</li>
+<li>
+<p><code>optionals</code> - a list of optional parameters for the same command.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>PrefixDictionary</code> stores a list of <code>PrefixDetails</code> for all the <code>Prefix</code> objects in <code>parameters</code> and <code>optionals</code>.</p>
+</li>
+<li>
+<p>The <code>PrefixDictionary</code> is used for:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>syntax highlighting</strong>, and</p>
+</li>
+<li>
+<p>listing information in the <strong>help window</strong></p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="example-logic-sequence"><a class="link" href="#example-logic-sequence">3.3.5. Example Logic Sequence</a></h4>
 <div class="paragraph">
 <p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("group add m/CS2103 g/G03 t/lab")</code> API call.</p>
 </div>
@@ -358,7 +618,7 @@ parse commands that interact with the TA-Tracker user interface.</p>
 <div class="content">
 <img src="images/AddGroupSequenceDiagram.png" alt="AddGroupSequenceDiagram">
 </div>
-<div class="title">Figure 7. Interactions Inside the Logic Component for the <code>group add m/CS2103 g/G03 t/lab</code> Command</div>
+<div class="title">Figure 13. Interactions Inside the Logic Component for the <code>group add m/CS2103 g/G03 t/lab</code> Command</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -384,13 +644,77 @@ irrelevant interactions with the <code>Model</code> component have been omitted.
 </table>
 </div>
 </div>
+<div class="sect3">
+<h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.6. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="rationale-behind-code-prefixdetails-code-not-inheriting-from-the-code-prefix-code-class"><a class="link" href="#rationale-behind-code-prefixdetails-code-not-inheriting-from-the-code-prefix-code-class">Rationale behind <code>PrefixDetails</code> not inheriting from the <code>Prefix</code> class</a></h5>
+<div class="paragraph">
+<p>The following diagrams compare the structure of commands and their respective parsers.</p>
+</div>
+<div class="openblock clearfix">
+<div class="content">
+<div class="imageblock left">
+<div class="content">
+<img src="images/ParserPackageDiagram2.png" alt="ParserPackageDiagram2" width="300">
+</div>
+<div class="title">Figure 14. Structure of a command parser</div>
+</div>
+<div class="imageblock left">
+<div class="content">
+<img src="images/CommandsPackageDiagram2.png" alt="CommandsPackageDiagram2" width="500">
+</div>
+<div class="title">Figure 15. Structure of a command</div>
+</div>
+</div>
+</div>
+<div class="paragraph">
+<p>The difference between the <strong>commands</strong> and <strong>parsers</strong> is that the <strong>commands</strong> store their own <code>CommandDetails</code>,
+while the <strong>parsers</strong> do not store any <code>PrefixDetails</code>. Instead, they use a number of <code>Prefix</code> objects to
+parse user inputs. This is because they do not need the extra information stored in <code>PrefixDetails</code>.</p>
+</div>
+<div class="paragraph">
+<p><code>PrefixDetails</code> adds more information to a <code>Prefix</code> instead of extending it.
+Therefore, it can be detached from the command parsers without changing the <code>Prefix</code> constants in <code>Prefixes</code>.</p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="moving-code-prefixes-code-to-the-strong-commands-strong-package"><a class="link" href="#moving-code-prefixes-code-to-the-strong-commands-strong-package">Moving <code>Prefixes</code> to the <strong>Commands</strong> package</a></h5>
+<div class="paragraph">
+<p>In future versions, <code>Prefixes</code> could be stored in the <strong>Commands</strong> package,
+since each command will need to know all the <code>Prefix</code> that they are using.</p>
+</div>
+<div class="paragraph">
+<p>The following diagram shows how the command parsers can obtain all the required <code>Prefix</code> from the respective command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/LogicClassDiagram4.png" alt="LogicClassDiagram4" width="500">
+</div>
+<div class="title">Figure 16. Improving the Logic component</div>
+</div>
+<div class="paragraph">
+<p>In the diagram above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <strong>red arrow</strong> will be removed to show that the command parsers no longer need information in <code>Prefixes</code>.</p>
+</li>
+<li>
+<p><code>Prefixes</code> will be moved into the <strong>commands</strong> package.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
 </div>
-<div class="title">Figure 8. Structure of the Model Component</div>
+<div class="title">Figure 17. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/Model.java"><code>Model.java</code></a></p>
@@ -434,11 +758,14 @@ such a model may look like is given below.<br>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
+<div class="paragraph">
+<p>The following diagram is a simplified view of the Storage component.</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StorageClassDiagram.png" alt="StorageClassDiagram">
+<img src="images/StorageClassDiagram1.png" alt="StorageClassDiagram1">
 </div>
-<div class="title">Figure 9. Structure of the Storage Component</div>
+<div class="title">Figure 18. Simplified structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -456,26 +783,46 @@ such a model may look like is given below.<br>
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="saved-data"><a class="link" href="#saved-data">3.5.1. Saved Data</a></h4>
+<div class="paragraph">
+<p>The following diagram is a breakdown of the data managed by the Storage component.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StorageClassDiagram2.png" alt="StorageClassDiagram2">
+</div>
+<div class="title">Figure 19. Structure of the data stored by TA-Tracker</div>
+</div>
 <div class="paragraph">
 <p><code>TA-Tracker</code> saves the following data:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>a list of <code>Module</code> objects representing the modules that the user is assisting.</p>
+<p>a list of <code>Module</code> objects representing the modules that the user is assisting.<br></p>
+<div class="paragraph">
+<p>Within each module, there is:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
-<p>each <code>Module</code> contains a list of <code>Session</code>, representing the sessions that
-the user has completed for that module.</p>
+<p>a list of <code>Session</code>, representing the <code>done sessions</code> that the user has completed for that module.</p>
 </li>
 <li>
-<p>each <code>Module</code> contains a list of <code>Group</code>, representing the groups that the user is
-in charge of, such as a tutorial or lab.</p>
-</li>
+<p>a list of <code>Group</code>, representing the groups that the user is
+in charge of, such as a tutorial or lab.<br></p>
+<div class="paragraph">
+<p>Within each group, there is:</p>
+</div>
+<div class="ulist">
+<ul>
 <li>
-<p>each <code>Group</code> contains a list of <code>Student</code>, representing the students enrolled in
+<p>a list of <code>Student</code>, representing the students enrolled in
 the respective groups.</p>
+</li>
+</ul>
+</div>
 </li>
 </ul>
 </div>
@@ -484,6 +831,7 @@ the respective groups.</p>
 <p>a separate list of <code>Session</code> objects representing the sessions that the user has scheduled in the future.</p>
 </li>
 </ul>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -518,7 +866,7 @@ functioning of the <code>Student View</code>.</p>
 <div class="content">
 <img src="images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram">
 </div>
-<div class="title">Figure 10. Module View - Class Diagram</div>
+<div class="title">Figure 20. Module View - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>TaTracker</code> class contains a <code>UniqueModuleList</code> which helps it keep track
@@ -584,7 +932,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/AddModuleSequenceDiagram.png" alt="AddModuleSequenceDiagram">
 </div>
-<div class="title">Figure 11. Module Add - Sequence Diagram</div>
+<div class="title">Figure 21. Module Add - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -712,7 +1060,7 @@ in the module with module code CS2103 inside the TA-Tracker.</p>
 <div class="content">
 <img src="images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
 </div>
-<div class="title">Figure 12. Group Delete - Sequence Diagram</div>
+<div class="title">Figure 22. Group Delete - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -846,7 +1194,7 @@ class structure is used.</p>
 <div class="content">
 <img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram">
 </div>
-<div class="title">Figure 13. Sort Commands - Class Diagram</div>
+<div class="title">Figure 23. Sort Commands - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>Since the different commands use the same parser, the <code>SortCommandParser</code> needs to check
@@ -858,7 +1206,7 @@ its parse command is called (assuming that no exception is thrown).</p>
 <div class="content">
 <img src="images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram">
 </div>
-<div class="title">Figure 14. SortCommandParser - Activity Diagram</div>
+<div class="title">Figure 24. SortCommandParser - Activity Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -901,7 +1249,7 @@ model components when the user enters the command <code>sort all t/matric</code>
 <div class="content">
 <img src="images/SortAllSequenceDiagram.png" alt="SortAllSequenceDiagram">
 </div>
-<div class="title">Figure 15. Sort - Sequence Diagram</div>
+<div class="title">Figure 25. Sort - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -970,7 +1318,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/AddStudentSequenceDiagram.png" alt="AddStudentSequenceDiagram">
 </div>
-<div class="title">Figure 16. Student Add - Sequence Diagram</div>
+<div class="title">Figure 26. Student Add - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1037,7 +1385,7 @@ pre-existing in the TA-Tracker.</p>
 <div class="content">
 <img src="images/DeleteStudentSequenceDiagram.png" alt="DeleteStudentSequenceDiagram">
 </div>
-<div class="title">Figure 17. Student Delete - Sequence Diagram</div>
+<div class="title">Figure 27. Student Delete - Sequence Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1089,7 +1437,7 @@ of the Session View.</p>
 <div class="content">
 <img src="images/SessionModelClassDiagram.png" alt="SessionModelClassDiagram">
 </div>
-<div class="title">Figure 18. Class Diagram of Session View</div>
+<div class="title">Figure 28. Class Diagram of Session View</div>
 </div>
 <div class="paragraph">
 <p>The TaTracker model class contains a <code>UniqueSessionList</code> which helps keep track of
@@ -1107,7 +1455,7 @@ the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when 
 <div class="content">
 <img src="images/DoneSessionSequenceDiagram.png" alt="DoneSessionSequenceDiagram">
 </div>
-<div class="title">Figure 19. Sequence Diagram for Done Session</div>
+<div class="title">Figure 29. Sequence Diagram for Done Session</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1142,7 +1490,7 @@ If it does, a new session with the updated date will be added to <code>Model#Uni
 <div class="content">
 <img src="images/DoneSessionActivityDiagram.png" alt="DoneSessionActivityDiagram">
 </div>
-<div class="title">Figure 20. Activity Diagram for Done Session</div>
+<div class="title">Figure 30. Activity Diagram for Done Session</div>
 </div>
 </div>
 </div>
@@ -1162,7 +1510,7 @@ functioning of the TSS view.</p>
 <div class="content">
 <img src="images/TssModelClassDiagram.png" alt="TssModelClassDiagram">
 </div>
-<div class="title">Figure 21. TSS View - Class Diagram</div>
+<div class="title">Figure 31. TSS View - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The TaTracker model class contains a TSS which helps it keep track of the total
@@ -1174,7 +1522,7 @@ the total earnings of the user.</p>
 <div class="content">
 <img src="images/TssActivityDiagram.png" alt="TssActivityDiagram">
 </div>
-<div class="title">Figure 22. TSS View - Activity Diagram</div>
+<div class="title">Figure 32. TSS View - Activity Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1196,192 +1544,455 @@ of the session from EndDateTime and then rounding up the value to a whole.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="proposed-data-encryption"><a class="link" href="#proposed-data-encryption">4.4. [Proposed] Data Encryption</a></h3>
+<h3 id="syntax-highlighting"><a class="link" href="#syntax-highlighting">4.4. Syntax Highlighting</a></h3>
 <div class="paragraph">
-<p><em>{Explain here how the data encryption feature will be implemented}</em></p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="proposed-syntax-highlighting-feature"><a class="link" href="#proposed-syntax-highlighting-feature">4.5. [Proposed] Syntax Highlighting feature</a></h3>
-<div class="paragraph">
-<p>The syntax highlighting feature extends the <code>CommandBox</code> in the <code>MainWindow</code> of TA-Tracker
-by colouring the font of valid command words as the user is typing. Currently, when a user
-inputs an invalid command, the <code>CommandBox</code> highlights the entire command in red. This feature
-will improve on this existing feature by changing the highlighting to be in real-time,
-and on a per word basis.</p>
-</div>
-<div class="sect3">
-<h4 id="proposed-implementation-of-the-syntax-highlighting-feature"><a class="link" href="#proposed-implementation-of-the-syntax-highlighting-feature">4.5.1. Proposed Implementation of the Syntax Highlighting feature</a></h4>
-<div class="paragraph">
-<p>When the user inputs a command in the <code>CommandBox</code>, the <code>CommandBox</code> will be highlight the following:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>All valid command words. If a command word has more than one word,
-then the syntax highlighting will only appear when all of these words are in the <code>CommandBox</code>.</p>
-</li>
-<li>
-<p>All valid prefixes for each current command.</p>
-</li>
-<li>
-<p>The values of each valid prefix, if they are valid.</p>
-</li>
-</ol>
+<p>When a user types a command into the <code>CommandBox</code>, their inputs will be highlighted in different colours
+as a form of input validation.</p>
 </div>
 <div class="paragraph">
-<p>In order to keep track of all commands and parameters, the <code>CommandDictionary</code>
-will store these information in a <code>Set</code>. To support the storage of all commands,
-each command should have a class variable named <code>COMMAND_WORD</code>.</p>
+<p>In addition, the <code>ResultDisplay</code> will display different messages based on the result of the syntax highlighting.</p>
 </div>
 <div class="paragraph">
-<p>A <code>CommandBox</code> has a <code>TextField</code> that the user inputs to.
-To detect whether the user has changed their command input,
-the CommandBox registers an event listener that is triggered whenever
-the value within the <code>TextField</code> has changed.</p>
-</div>
-<div class="paragraph">
-<p>In the following diagrams, the <code>CommandBox</code> behaves as an input buffer that that listens to keyboard inputs.</p>
+<p>The following shows how the`CommandBox` and <code>ResultDisplay</code> appear in the <code>MainWindow</code> of <code>TA-Tracker</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SyntaxHighlighting.png" alt="SyntaxHighlighting">
+<img src="images/syntax-highlighting/SH-CommandBox.png" alt="SH CommandBox">
 </div>
-<div class="title">Figure 23. Syntax Highlighting - Full Activity Diagram</div>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>CommandBox</code> listens to events that change the value in its <code>TextField</code> component.</p>
-</li>
-<li>
-<p>User inputs a character<br>
-(in other words, the user changes the value stored in the <code>TextField</code> of the <code>CommandBox</code>).</p>
-</li>
-<li>
-<p>CommandBox reads the new <code>user input</code> (value) in the <code>TextField</code>.</p>
-</li>
-<li>
-<p>If the <code>user input</code> has a command word that exists in the <code>CommandDictionary</code>
-(i.e. a valid command word), highlight it.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>While the <code>user input</code> has prefixes that exists in the <code>CommandDictionary</code>,
-(i.e. any valid prefixes), highlight them.</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>For each prefix, if it has a valid value in the <code>user input</code>,
-(i.e. the prefix value is valid), highlight it.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
+<div class="title">Figure 33. The <code>CommandBox</code> and the <code>ResultDisplay</code> in <code>TA-Tracker</code></div>
 </div>
 <div class="paragraph">
-<p>When the user inputs the <code>ENTER</code> key, the user input is executed and the syntax highlighting is removed.</p>
+<p>In the figure above:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>There is a user input highlighted in <code>green</code> in the <code>CommandBox</code></p>
+</li>
+<li>
+<p>There is a message in <code>white</code> showing in the <code>ResultDisplay</code></p>
+</li>
+<li>
+<p>The command being entered is <code>session edit</code></p>
+</li>
+<li>
+<p>There are three arguments: <code>date</code>, <code>start time</code>, and <code>end time</code>.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="overview"><a class="link" href="#overview">4.4.1. Overview</a></h4>
+<div class="paragraph">
+<p>The following diagram shows how the Logic and UI components interact with each other to produce the highlighting.</p>
+</div>
+<div class="paragraph">
+<div class="title">Syntax Highlighting - Class Diagram</div>
+<p>image::SyntaxHighlightingClassDiagram.png[</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>CommandBox</code> uses a <code>CommandDictionary</code> to search for valid commands.</p>
+</li>
+<li>
+<p>The <code>CommandBox</code> stores a <code>CommandDetail</code> for processing the current command in the user input.</p>
+</li>
+<li>
+<p>The <code>CommandBox</code> stores a <code>PrefixDictionary</code> containing the required argument details (<code>PrefixDetails</code>) for the current command.</p>
+</li>
+<li>
+<p>The <code>CommandBox</code> uses a <code>CommandBoxUtil</code> to scan for valid user inputs.</p>
+</li>
+<li>
+<p>The <code>CommandBox</code> returns feedback to the <code>ResultDisplay</code>.</p>
+</li>
+<li>
+<p>The <code>ResultDisplay</code> displays the given feedback tas a message in the program.</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">4.5.2. Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="aspect-1-how-to-execute-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-how-to-execute-syntax-highlighting-in-real-time">Aspect #1: How to execute syntax highlighting in real-time</a></h5>
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.4.2. Implementation</a></h4>
 <div class="paragraph">
-<p>When the user is typing their command, the <code>CommandBox</code> will need to highlight all valid command words, prefixes, and parameters.</p>
+<p>The following diagrams show the steps for the different types of highlighting.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 32.6732%;">
-<col style="width: 32.6732%;">
-<col style="width: 34.6536%;">
-</colgroup>
-<thead>
+<div class="paragraph">
+<p>Here are some keywords that will be used to explain the implementation:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <code>full command word</code> is a text that identifies a command.</p>
+</li>
+<li>
+<p>An <code>argument</code> is a text that contains a <code>prefix</code> and a <code>value</code>.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>prefix</code> is the text value of a <code>Prefix</code> in the Logic component.</p>
+</li>
+<li>
+<p>The <code>value</code> is all the text following the <code>prefix</code>.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>The <code>preamble</code> is the text (including whitespaces) between the end of the
+<code>full command word</code>, and the beginning of the first <code>argument</code>.</p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
 <tr>
-<th class="tableblock halign-left valign-top">Solution</th>
-<th class="tableblock halign-left valign-top">Pros</th>
-<th class="tableblock halign-left valign-top">Cons</th>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Due to the limitations of PlantUML, some of the diagrams may not appear as expected.</p>
+</div>
+<div class="paragraph">
+<p>In particular, there are issues with representing alternate paths in PlantUML BETA Activity Diagrams</p>
+</div>
+<div class="paragraph">
+<p>For example:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>They split into multiple diamonds, instead of all originating from the same diamond.</p>
+</li>
+<li>
+<p>They do not converge at a single diamond, and instead skips it altogether.</p>
+</li>
+<li>
+<p>They cannot join other branches.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>In particular, the biggest limitation was the third issue.
+To overcome this, you will see multiple end nodes in some of the diagrams.
+Please assume that they all converge into a single diamond before reaching the end node.</p>
+</div>
+</td>
 </tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1 (current choice)</strong><br>
-Register an event listener in <code>CommandBox</code> that triggers when the command text in it changes.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Will have improved performance as the program can idle.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires careful implementation of JavaFX events and event listeners.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong><br>
-Constantly update the syntax highlighting (in an infinite loop) when the user input is not blank.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Simplest implementation, for example using a constantly running update loop.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">May have performance issues, since the update loop will be running even when the <code>CommandBox</code> is inactive.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 3</strong><br>
-Subscribe to a application-wide update loop in a modified TA-Tracker.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Allows integration of other real-time features, such as application notifications.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Requires major refactoring in TA-Tracker for the large-scale update loop.</p></td>
-</tr>
-</tbody>
 </table>
+</div>
+<div class="sect4">
+<h5 id="step-1-highlighting-a-new-input"><a class="link" href="#step-1-highlighting-a-new-input">Step 1. Highlighting a new input</a></h5>
+<div class="paragraph">
+<p>When a new input is entered in the <code>CommandBox</code>,
+the syntax highlighting will be reapplied to the entire input.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram explains how the <code>full command word</code> is highlighted,
+up until the beginning of the <code>preamble</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SyntaxHighlightingActivityDiagram1.png" alt="SyntaxHighlightingActivityDiagram1">
+</div>
+<div class="title">Figure 34. Step 1 - Highlighting a new input</div>
+</div>
+<div class="paragraph">
+<p>Here is the purpose of each partition in the above diagram:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>blank</code><br>
+When there is no input,
+the <code>ResultDisplay</code> should not show anything.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-1-Blank.png" alt="SH 1 Blank" width="300">
+</div>
+<div class="title">Figure 35. Blank <code>ResultDisplay</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>invalid</code><br>
+When there is no matching <code>full command word</code>,
+the <code>ResultDisplay</code> should indicate that a wrong command is entered.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-1-Invalid.png" alt="SH 1 Invalid" width="300">
+</div>
+<div class="title">Figure 36. Invalid <code>full command word</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>valid</code><br>
+When there is a matching <code>full command word</code>,
+change the highlighting rules for the new command.</p>
+</li>
+<li>
+<p><code>no_arguments</code><br>
+When <code>full command word</code> has just been entered,
+the <code>ResultDisplay</code> should indicate that a correct command has been entered.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-1-NoArgs.png" alt="SH 1 NoArgs" width="300">
+</div>
+<div class="title">Figure 37. <code>CommandBox</code> has no <code>arguments</code></div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>has_arguments</code><br>
+After processing the <code>full command word</code>,
+proceed to step 2.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There should be a rake symbol next to the only activity in this partition.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-1-HasArgs.png" alt="SH 1 HasArgs" width="250">
+</div>
+<div class="title">Figure 38. <code>CommandBox</code> has <code>arguments</code></div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="step-2-highlighting-the-preamble"><a class="link" href="#step-2-highlighting-the-preamble">Step 2. Highlighting the preamble</a></h5>
+<div class="paragraph">
+<p>After verifying that the new input has a <code>full command word</code>,
+the highlighting will also need to be reapplied to the <code>preamble</code> and <code>arguments</code>.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram explains how the <code>preamble</code> is highlighted,
+up until the beginning of the first <code>argument</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SyntaxHighlightingActivityDiagram2.png" alt="SyntaxHighlightingActivityDiagram2">
+</div>
+<div class="title">Figure 39. Step 2 - Highlighting the preamble</div>
+</div>
+<div class="paragraph">
+<p>Here is the purpose of each partition in the above diagram:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>whitespaces</code><br>
+Inputs that have trailing whitespaces will be handled separately.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-2-Space.png" alt="SH 2 Space" width="250">
+</div>
+<div class="title">Figure 40. Trailing whitespace, coloured in blue for this diagram</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>many_whitespaces</code><br>
+When there are more than two trailing whitespaces,
+the <code>ResultDisplay</code> should reshow how to use the command.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-2-ManySpace.png" alt="SH 2 ManySpace" width="400">
+</div>
+<div class="title">Figure 41. Many trailing whitespaces, coloured in blue for this diagram</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>preamble_error</code><br>
+When the input has a <code>preamble</code> that the command does not need,
+the <code>ResultDisplay</code> should indicate that a wrong command is entered.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-2-WrongPreamble.png" alt="SH 2 WrongPreamble" width="350">
+</div>
+<div class="title">Figure 42. Invalid <code>preamble</code> in input</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>preamble_end</code><br>
+After processing the <code>preamble</code>,
+proceed to step 3.<br></p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+There should be a rake symbol next to the only activity in this partition.
+</td>
+</tr>
+</table>
+</div>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-2-RightPreamble.png" alt="SH 2 RightPreamble" width="350">
+</div>
+<div class="title">Figure 43. Valid <code>preamble</code> in input</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="step-3-highlighting-the-remaining-arguments"><a class="link" href="#step-3-highlighting-the-remaining-arguments">Step 3. Highlighting the remaining arguments</a></h5>
+<div class="paragraph">
+<p>After verifying that the <code>preamble</code> is valid for the given <code>full command word</code>,
+the highlighting will need to be reapplied to each <code>argument</code> in the remaining user input.</p>
+</div>
+<div class="paragraph">
+<p>The following activity diagram explains how each <code>argument</code> is highlighted,
+up until end of the user input.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SyntaxHighlightingActivityDiagram3.png" alt="SyntaxHighlightingActivityDiagram3">
+</div>
+<div class="title">Figure 44. Step 3 - Highlighting the remaining arguments</div>
+</div>
+<div class="paragraph">
+<p>Here is the purpose of each partition in the above diagram:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>wrong</code><br>
+When the command does not need the given <code>argument</code>,
+the <code>ResultDisplay</code> should reshow how to use the command.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-3-Wrong.png" alt="SH 3 Wrong" width="500">
+</div>
+<div class="title">Figure 45. Wrong <code>argument</code> in input</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>invalid</code><br>
+When the <code>argument</code> cannot have the given <code>value</code>,
+the <code>ResultDisplay</code> should show how to use the <code>argument</code>.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-3-Invalid.png" alt="SH 3 Invalid" width="500">
+</div>
+<div class="title">Figure 46. Invalid <code>argument</code> in input</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>valid</code><br>
+After processing the current <code>argument</code>,
+the <code>ResultDisplay</code> will still show how to use the argument in case the <code>argument</code>
+can have spaces.</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/syntax-highlighting/SH-3-Valid.png" alt="SH 3 Valid" width="500">
+</div>
+<div class="title">Figure 47. Valid <code>argument</code> in input</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.4.3. Design Considerations</a></h4>
+<div class="sect4">
+<h5 id="aspect-1-executing-the-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-executing-the-syntax-highlighting-in-real-time">Aspect #1: Executing the syntax highlighting in real-time</a></h5>
+<div class="paragraph">
+<p>The current implementation reapplies the highlighting whenever the user input changes.
+When no input is changed, the program will idle.</p>
+</div>
+<div class="paragraph">
+<p>In contrast, having an infinite loop can achieve the same highlighting,
+but the program cannot idle and will consume memory when in use.</p>
+</div>
 </div>
 <div class="sect4">
 <h5 id="aspect-2-range-of-syntax-highlighting"><a class="link" href="#aspect-2-range-of-syntax-highlighting">Aspect #2: Range of syntax highlighting</a></h5>
 <div class="paragraph">
-<p>Which inputs should the syntax highlighting be limited to. There are three types of inputs:
-invalid, valid and unknown inputs.</p>
+<p>The current implementation uses three colours for the syntax highlighting.</p>
 </div>
-<table class="tableblock frame-all grid-all spread">
-<colgroup>
-<col style="width: 32.6732%;">
-<col style="width: 32.6732%;">
-<col style="width: 34.6536%;">
-</colgroup>
-<thead>
-<tr>
-<th class="tableblock halign-left valign-top">Solution</th>
-<th class="tableblock halign-left valign-top">Pros</th>
-<th class="tableblock halign-left valign-top">Cons</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 1 (current choice)</strong><br>
-Highlight valid inputs in green</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User only need to know that their input is correct.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Valid inputs may be obscured due to the choice of colour.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 2</strong><br>
-Highlight invalid inputs in red</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">User will know that they need to correct their invalid inputs.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Feature already exists when submitting an invalid full command.</p>
-<p class="tableblock">The scope of invalid inputs is too broad.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>Alternative 3</strong><br>
-All inputs</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">All inputs verified in the <code>CommandBox</code>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Too many colours may confuse the user.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="paragraph">
+<p>The following colours are used:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>Red</code> - invalid input</p>
+</li>
+<li>
+<p><code>Green</code> - valid input</p>
+</li>
+<li>
+<p><code>White</code> - the default font colour for the <code>CommandBox</code> input</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These colours have been chosen because they are standard signalling colours used in
+everyday life. Therefore the user will be familiar with these colour signals without
+a need for an explanation.</p>
+</div>
+<div class="paragraph">
+<p>Valid inputs have been highlighted in order to signal to the user that they have used
+the command correctly. An alternative would be to remove this colour though, as having too
+many flashing colours may be distracting to the user.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
+<h3 id="logging"><a class="link" href="#logging">4.5. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.6, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -1412,15 +2023,15 @@ All inputs</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.6. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Navigation"><a class="link" href="#Implementation-Navigation">4.8. Filter Command</a></h3>
+<h3 id="Implementation-Navigation"><a class="link" href="#Implementation-Navigation">4.7. Filter Command</a></h3>
 <div class="sect3">
-<h4 id="description"><a class="link" href="#description">4.8.1. Description</a></h4>
+<h4 id="description"><a class="link" href="#description">4.7.1. Description</a></h4>
 <div class="paragraph">
 <p>Different view has its own designated filter command.</p>
 </div>
@@ -1450,7 +2061,7 @@ for relevant information under the specific view will be easier.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.8.2. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.7.2. Implementation</a></h4>
 <div class="paragraph">
 <p>This section will describe in detail the implementation of the filter command.</p>
 </div>
@@ -1461,14 +2072,14 @@ for relevant information under the specific view will be easier.</p>
 <div class="content">
 <img src="images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram">
 </div>
-<div class="title">Figure 24. Activity Diagram of the Filter Command</div>
+<div class="title">Figure 48. Activity Diagram of the Filter Command</div>
 </div>
 <div class="paragraph">
 <p>Figure 1 Activity Diagram for the Execution of Filter Command</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.3. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.7.3. Implementation</a></h4>
 <div class="paragraph">
 <p>Filter Feature consists of three main parts:</p>
 </div>
@@ -1499,7 +2110,7 @@ group code given by the user.</p>
 <div class="content">
 <img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
 </div>
-<div class="title">Figure 25. Sequence Diagram for Filter Student Command</div>
+<div class="title">Figure 49. Sequence Diagram for Filter Student Command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example scenario where the user enters a command to filter students.</p>
@@ -1569,7 +2180,7 @@ will be shown.</p>
 <div class="content">
 <img src="images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
 </div>
-<div class="title">Figure 26. Class Diagram for Filter Session Command</div>
+<div class="title">Figure 50. Class Diagram for Filter Session Command</div>
 </div>
 <div class="paragraph">
 <p><strong>Filter under Claims View</strong></p>
@@ -3026,6 +3637,9 @@ will be filtered.</p>
 <p>A user with above average typing speed for <a href="#regular-english-text">regular English text</a> (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.</p>
 </li>
 <li>
+<p>A user should be able to easily see the commands that they have wrongly typed.</p>
+</li>
+<li>
 <p><code><strong>TAT</strong></code> should be able to run with or without internet connection.</p>
 </li>
 <li>
@@ -3308,4 +3922,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 11:28:45 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 11:38:56 UTC</div></div></div></body></html>

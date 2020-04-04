@@ -1553,7 +1553,7 @@ as a form of input validation.</p>
 <p>In addition, the <code>ResultDisplay</code> will display different messages based on the result of the syntax highlighting.</p>
 </div>
 <div class="paragraph">
-<p>The following shows how the`CommandBox` and <code>ResultDisplay</code> appear in the <code>MainWindow</code> of <code>TA-Tracker</code></p>
+<p>The following shows how the <code>CommandBox</code> and <code>ResultDisplay</code> appear in the <code>MainWindow</code> of <code>TA-Tracker</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1585,9 +1585,11 @@ as a form of input validation.</p>
 <div class="paragraph">
 <p>The following diagram shows how the Logic and UI components interact with each other to produce the highlighting.</p>
 </div>
-<div class="paragraph">
-<div class="title">Syntax Highlighting - Class Diagram</div>
-<p>image::SyntaxHighlightingClassDiagram.png[</p>
+<div class="imageblock">
+<div class="content">
+<img src="images/SyntaxHighlightingClassDiagram.png" alt="SyntaxHighlightingClassDiagram">
+</div>
+<div class="title">Figure 34. Syntax Highlighting - Class Diagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1696,7 +1698,7 @@ up until the beginning of the <code>preamble</code>.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram1.png" alt="SyntaxHighlightingActivityDiagram1">
 </div>
-<div class="title">Figure 34. Step 1 - Highlighting a new input</div>
+<div class="title">Figure 35. Step 1 - Highlighting a new input</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each partition in the above diagram:</p>
@@ -1714,7 +1716,7 @@ the <code>ResultDisplay</code> should not show anything.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-Blank.png" alt="SH 1 Blank" width="300">
 </div>
-<div class="title">Figure 35. Blank <code>ResultDisplay</code></div>
+<div class="title">Figure 36. Blank <code>ResultDisplay</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1729,7 +1731,7 @@ the <code>ResultDisplay</code> should indicate that a wrong command is entered.<
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-Invalid.png" alt="SH 1 Invalid" width="300">
 </div>
-<div class="title">Figure 36. Invalid <code>full command word</code></div>
+<div class="title">Figure 37. Invalid <code>full command word</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1749,7 +1751,7 @@ the <code>ResultDisplay</code> should indicate that a correct command has been e
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-NoArgs.png" alt="SH 1 NoArgs" width="300">
 </div>
-<div class="title">Figure 37. <code>CommandBox</code> has no <code>arguments</code></div>
+<div class="title">Figure 38. <code>CommandBox</code> has no <code>arguments</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1776,7 +1778,7 @@ There should be a rake symbol next to the only activity in this partition.
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-HasArgs.png" alt="SH 1 HasArgs" width="250">
 </div>
-<div class="title">Figure 38. <code>CommandBox</code> has <code>arguments</code></div>
+<div class="title">Figure 39. <code>CommandBox</code> has <code>arguments</code></div>
 </div>
 </div>
 <div class="sect4">
@@ -1793,7 +1795,7 @@ up until the beginning of the first <code>argument</code>.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram2.png" alt="SyntaxHighlightingActivityDiagram2">
 </div>
-<div class="title">Figure 39. Step 2 - Highlighting the preamble</div>
+<div class="title">Figure 40. Step 2 - Highlighting the preamble</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each partition in the above diagram:</p>
@@ -1810,7 +1812,7 @@ Inputs that have trailing whitespaces will be handled separately.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-Space.png" alt="SH 2 Space" width="250">
 </div>
-<div class="title">Figure 40. Trailing whitespace, coloured in blue for this diagram</div>
+<div class="title">Figure 41. Trailing whitespace, coloured in blue for this diagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1825,7 +1827,7 @@ the <code>ResultDisplay</code> should reshow how to use the command.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-ManySpace.png" alt="SH 2 ManySpace" width="400">
 </div>
-<div class="title">Figure 41. Many trailing whitespaces, coloured in blue for this diagram</div>
+<div class="title">Figure 42. Many trailing whitespaces, coloured in blue for this diagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1840,7 +1842,7 @@ the <code>ResultDisplay</code> should indicate that a wrong command is entered.<
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-WrongPreamble.png" alt="SH 2 WrongPreamble" width="350">
 </div>
-<div class="title">Figure 42. Invalid <code>preamble</code> in input</div>
+<div class="title">Figure 43. Invalid <code>preamble</code> in input</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1867,7 +1869,7 @@ There should be a rake symbol next to the only activity in this partition.
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-RightPreamble.png" alt="SH 2 RightPreamble" width="350">
 </div>
-<div class="title">Figure 43. Valid <code>preamble</code> in input</div>
+<div class="title">Figure 44. Valid <code>preamble</code> in input</div>
 </div>
 </div>
 <div class="sect4">
@@ -1884,7 +1886,7 @@ up until end of the user input.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram3.png" alt="SyntaxHighlightingActivityDiagram3">
 </div>
-<div class="title">Figure 44. Step 3 - Highlighting the remaining arguments</div>
+<div class="title">Figure 45. Step 3 - Highlighting the remaining arguments</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each partition in the above diagram:</p>
@@ -1902,7 +1904,7 @@ the <code>ResultDisplay</code> should reshow how to use the command.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-3-Wrong.png" alt="SH 3 Wrong" width="500">
 </div>
-<div class="title">Figure 45. Wrong <code>argument</code> in input</div>
+<div class="title">Figure 46. Wrong <code>argument</code> in input</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1917,7 +1919,7 @@ the <code>ResultDisplay</code> should show how to use the <code>argument</code>.
 <div class="content">
 <img src="images/syntax-highlighting/SH-3-Invalid.png" alt="SH 3 Invalid" width="500">
 </div>
-<div class="title">Figure 46. Invalid <code>argument</code> in input</div>
+<div class="title">Figure 47. Invalid <code>argument</code> in input</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1933,7 +1935,7 @@ can have spaces.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-3-Valid.png" alt="SH 3 Valid" width="500">
 </div>
-<div class="title">Figure 47. Valid <code>argument</code> in input</div>
+<div class="title">Figure 48. Valid <code>argument</code> in input</div>
 </div>
 </div>
 </div>
@@ -2072,7 +2074,7 @@ for relevant information under the specific view will be easier.</p>
 <div class="content">
 <img src="images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram">
 </div>
-<div class="title">Figure 48. Activity Diagram of the Filter Command</div>
+<div class="title">Figure 49. Activity Diagram of the Filter Command</div>
 </div>
 <div class="paragraph">
 <p>Figure 1 Activity Diagram for the Execution of Filter Command</p>
@@ -2110,7 +2112,7 @@ group code given by the user.</p>
 <div class="content">
 <img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
 </div>
-<div class="title">Figure 49. Sequence Diagram for Filter Student Command</div>
+<div class="title">Figure 50. Sequence Diagram for Filter Student Command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example scenario where the user enters a command to filter students.</p>
@@ -2180,7 +2182,7 @@ will be shown.</p>
 <div class="content">
 <img src="images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
 </div>
-<div class="title">Figure 50. Class Diagram for Filter Session Command</div>
+<div class="title">Figure 51. Class Diagram for Filter Session Command</div>
 </div>
 <div class="paragraph">
 <p><strong>Filter under Claims View</strong></p>
@@ -3922,4 +3924,4 @@ Expected: Similar to previous.</p>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 11:38:56 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-04 11:47:29 UTC</div></div></div></body></html>

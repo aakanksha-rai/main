@@ -1695,20 +1695,23 @@ tab as well, if you were currently on a different tab.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>session add m/CS2103T s/14:00 e/16:00 d/19-02-2020 t/consultation n/with Alice and Bob</code></p>
+<p><code>session add m/CS2103T s/14:00 e/16:00 d/2020-06-20 w/2 t/consultation n/with Alice and Bob</code></p>
 <div class="paragraph">
 <p>Adds a new session with:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>START_TIME</code> at 14:00</p>
+<p><code>START_TIME</code> at 14:00 in <code>24hr</code> format</p>
 </li>
 <li>
-<p><code>END_TIME</code> at 16:00</p>
+<p><code>END_TIME</code> at 16:00 in <code>24hr</code> format</p>
 </li>
 <li>
-<p><code>DATE</code> on 19-02-2020</p>
+<p><code>DATE</code> on 2020-06-20 in <code>yyyy-MM-dd</code> format</p>
+</li>
+<li>
+<p><code>WEEK</code> recurring period of 2 weeks</p>
 </li>
 <li>
 <p><code>MOD_CODE</code> of CS2103T</p>
@@ -1848,7 +1851,10 @@ tab as well, if you were currently on a different tab.</p>
 <p>You can use this command to mark a session as done.</p>
 </div>
 <div class="paragraph">
-<p>The session will automatically appear as a new claim in the <strong>Claims View</strong>.</p>
+<p>The session marked done will be removed from the <strong>Session View</strong> and
+will automatically appear as a new claim in the <strong>Claims View</strong>.
+If the session marked done has a recurring period, a new session with the updated date
+and timing will be added to Session View.</p>
 </div>
 <div class="paragraph">
 <p>You will automatically be switched to the claims
@@ -1868,7 +1874,7 @@ tab as well, if you were currently on a different tab.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>done 25</code><br>
+<p><code>session done 25</code><br>
 This will mark the 25th session in the <strong>Session View</strong> as done.</p>
 </li>
 </ul>
@@ -2156,4 +2162,4 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 17:06:31 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-08 17:12:53 UTC</div></div></div></body></html>

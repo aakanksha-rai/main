@@ -1215,7 +1215,7 @@ tab as well, if you were currently on a different tab.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit id/A0123456J g/G03 m/CS2103 p/91234567 e/johndoe@example.com</code></p>
+<p><code>student edit id/A0123456J g/G03 m/CS2103 p/91234567 e/johndoe@example.com</code></p>
 <div class="paragraph">
 <p>Edits the student with the matriculation number <code>A0123456J</code> to have:</p>
 </div>
@@ -1231,7 +1231,7 @@ tab as well, if you were currently on a different tab.</p>
 </div>
 </li>
 <li>
-<p><code>edit A9876543K n/Betsy Crower t/</code></p>
+<p><code>student edit A9876543K n/Betsy Crower t/</code></p>
 <div class="paragraph">
 <p>Edits student with the matriculation number <code>A9876543K</code> to have:</p>
 </div>
@@ -1681,6 +1681,14 @@ tab as well, if you were currently on a different tab.</p>
 <li>
 <p>You can edit the end time <code>e/END</code> and other details later.</p>
 </li>
+<li>
+<p>If the session has a recurring period <code>[w/WEEKS]</code>, a new session with the updated date
+and timing will be added to Session View when it is marked as done.</p>
+</li>
+<li>
+<p>You will find the recurring period <code>[w/WEEKS]</code> field handy for tasks that happen once every few weeks
+such as your weekly lab sessions or fortnightly assignment grading.</p>
+</li>
 </ol>
 </div>
 </td>
@@ -1711,7 +1719,8 @@ tab as well, if you were currently on a different tab.</p>
 <p><code>DATE</code> on 2020-06-20 in <code>yyyy-MM-dd</code> format</p>
 </li>
 <li>
-<p><code>WEEK</code> recurring period of 2 weeks</p>
+<p><code>WEEK</code> recurring period of 2 weeks: Once this session has been marked as done, a new session will
+be created with <code>DATE d/2020-07-04</code> (2 weeks later from the date of the original session)</p>
 </li>
 <li>
 <p><code>MOD_CODE</code> of CS2103T</p>
@@ -1813,7 +1822,7 @@ tab as well, if you were currently on a different tab.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>edit 1 s/14:00 e/16:00 d/19-02-2020 m/CS3243 t/grading n/Location: PLAB 04</code></p>
+<p><code>edit 1 s/14:00 e/16:00 d/2020-02-19 m/CS3243 t/grading n/Location: PLAB 04</code></p>
 <div class="paragraph">
 <p>Edits the session at index 1 to have:</p>
 </div>
@@ -1826,7 +1835,7 @@ tab as well, if you were currently on a different tab.</p>
 <p>The new <code>END_TIME</code> at 16:00</p>
 </li>
 <li>
-<p>The new <code>DATE</code> on 19-02-2020</p>
+<p>The new <code>DATE</code> on 2020-02-19 in <code>yyyy-MM-dd</code> format</p>
 </li>
 <li>
 <p>The new <code>MOD_CODE</code> CS3243</p>
@@ -2162,4 +2171,4 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 06:33:11 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 09:17:18 UTC</div></div></div></body></html>

@@ -112,7 +112,7 @@ hours in one place.</p>
 <p>TA-Tracker is tailored towards TAs who <strong>prefer to use a desktop application to
 manage their teaching duties</strong> and is well suited for those who <strong>prefer to work with a Command
 Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface
-(GUI).If you&#8217;re interested, jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
+(GUI). If you&#8217;re interested, jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
 </div>
 </div>
 </div>
@@ -126,7 +126,7 @@ the application.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Ensure you have Java <code>11</code> or above installed in your Computer.</p>
+<p>Ensure that you have Java <code>11</code> or above installed in your Computer.</p>
 </li>
 <li>
 <p>Download the latest <code>tatracker.jar</code> <a href="https://github.com/AY1920S2-CS2103T-W17-4/main//releases">here</a>.</p>
@@ -142,7 +142,7 @@ the application.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This is what the GUI looks like when the TA-Tracker is opened for the first time.</p>
+<p>This is what the GUI looks like when the TA-Tracker is opened.</p>
 </div>
 </li>
 <li>
@@ -248,6 +248,18 @@ For example, <code>[t/TAG]&#8230;&#8203;</code> can be left empty (i.e. 0 times)
 <code>t/friend t/family</code> (i.e. multiple times).</p>
 </li>
 <li>
+<p>If you use a prefix without <code>&#8230;&#8203;</code> mentioned multiple times, TA-Tracker will accept
+the last instance of the prefix.
+For example, in the command <code>module add m/CS2103T n/SE n/Software Engineering</code> ,
+a module with the module code <code>CS2013T</code> and name <code>Software Engineering</code> will be created.</p>
+</li>
+<li>
+<p>If you separate the the prefix letter and <code>/</code> while writing a command, the TA-Tracker
+will not recognise the prefix. For example, in the command <code>module add m/CS2103T
+n /Software Engineering</code> , the TA-Tracker doesn&#8217;t recognise <code>n /</code> to be the same
+as <code>n/</code> and you&#8217;ll get an error message saying that the command format used it wrong.</p>
+</li>
+<li>
 <p>Parameters can be in any order.
 For example, if the command specifies <code>n/NAME p/PHONE_NUMBER</code>, <code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p>
 </li>
@@ -298,7 +310,7 @@ first item in a list</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOD_CODE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the unique code given to the module.</p>
 <p class="tableblock">You can personalise this and give it your own code. However, we recommend you
-use the module&#8217;s code.</p></td>
+use the module&#8217;s official code.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CS2103T</strong></p></td>
 </tr>
 <tr>
@@ -311,7 +323,7 @@ or the module&#8217;s name.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>GROUP_CODE</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the unique code given to the group.</p>
 <p class="tableblock">You can personalise this and create your own code. However, we recommend that you use
-the group&#8217;s code assigned by SoC</p></td>
+the group&#8217;s official code assigned by SoC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>G06</strong></p></td>
 </tr>
 <tr>
@@ -366,11 +378,11 @@ the group&#8217;s code assigned by SoC</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>WEEK</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the recurring period of sessions.</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1</strong></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>&#8594;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that the command has more parameters than specifier.</p>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that the command has more parameters than specified.</p>
 <p class="tableblock">These missing parameters will be stated in a later section of the guide.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -421,7 +433,7 @@ made changes to TA-Tracker.</p>
 <div class="paragraph">
 <p>Under the <code>student</code> tab, the <strong>Student View</strong> is used to show you the students that you&#8217;re teaching. The students
 have been grouped according to the <strong>module</strong> and <strong>group</strong> they belong to. The <strong>Student View</strong> has been divided into
-three sections.</p>
+three columns.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -430,7 +442,8 @@ three sections.</p>
 assistant for.</p>
 </li>
 <li>
-<p>The second column shows you a list of all groups in a module of your choice.
+<p>The second column shows you a list of all groups that you&#8217;re a teaching assistant for
+in a module of your choice.
 If you haven&#8217;t chosen anything, you will be shown the groups of the module
 in the first index in the list of modules by default.</p>
 </li>
@@ -487,7 +500,7 @@ you can easily enter it into the TSS claims form at the end of the semester.</p>
 </div>
 <div class="paragraph">
 <p>The claims under this tab can be filtered by module code to enable you to easily see
-what claims to submit for each of the modules that you teach.</p>
+what claims to submit for each of the modules you teach.</p>
 </div>
 </div>
 </div>
@@ -586,6 +599,19 @@ what claims to submit for each of the modules that you teach.</p>
 </tr>
 </table>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="paragraph">
+<p><code>goto student</code></p>
+</div>
+<div class="paragraph">
+<p>This command will take you to the student tab.</p>
+</div>
+</div>
+</div>
 </div>
 <div class="sect3">
 <h4 id="exiting-the-program-code-exit-code"><a class="anchor" href="#exiting-the-program-code-exit-code"></a><a class="link" href="#exiting-the-program-code-exit-code">5.1.3. Exiting the program : <code>exit</code></a></h4>
@@ -609,11 +635,9 @@ what claims to submit for each of the modules that you teach.</p>
 </div>
 <div class="paragraph">
 <p>When a new module is created, the <strong>Student View</strong> will show the groups
-and students of the new module (which won&#8217;t include anything, initially).</p>
-</div>
-<div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+and students of the new module. (Initially, a new module doesn&#8217;t have any students or
+groups till you add some).
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>module add m/MOD_CODE n/NAME</code></p>
@@ -631,12 +655,18 @@ tab as well, if you were currently on a different tab.</p>
 <p>You can&#8217;t have two modules with the same module code in the TA-Tracker.</p>
 </li>
 <li>
-<p>MOD_CODE can&#8217;t be an empty string or a sequence of spaces.</p>
+<p>MOD_CODE and MOD_NAME can&#8217;t be an empty string or a sequence of spaces.</p>
 </li>
 <li>
 <p>You can give a module your own custom MOD_CODE or NAME if you find it easier
-to remember. However, for ease of remembrance, we recommend you use the official
+to remember. However,  we recommend you use the official
 module code and name for it.</p>
+</li>
+<li>
+<p>If the module name or module code are very long, you can increase the width of
+the module name list by dragging the edge with your cursor. However, we suggest not
+giving the modules long codes or long names. The standard official names are usually
+of a good length.</p>
 </li>
 </ul>
 </div>
@@ -693,8 +723,9 @@ the module will also be deleted.</p>
 </div>
 <div class="paragraph">
 <p>When a module is deleted, the <strong>Student View</strong> will go back to its default
-setting. You will automatically be switched to the
-student tab as well, if you were currently on a different tab.</p>
+setting. That is, you will see the details of the first group in the first module of
+the TA-Tracker.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>module delete m/MOD_CODE</code></p>
@@ -727,7 +758,7 @@ student tab as well, if you were currently on a different tab.</p>
 <li>
 <p><code>module delete m/CS2103</code></p>
 <div class="paragraph">
-<p>this will delete the module with the module code <code>CS2103</code> from the TA-Tracker.</p>
+<p>This will delete the module with the module code <code>CS2103</code> from the TA-Tracker.</p>
 </div>
 </li>
 </ul>
@@ -738,11 +769,12 @@ student tab as well, if you were currently on a different tab.</p>
 <div class="sect3">
 <h4 id="EditModule"><a class="anchor" href="#EditModule"></a><a class="link" href="#EditModule">5.2.3. Editing a Module : <code>module edit</code></a></h4>
 <div class="paragraph">
-<p>You can use this command to edit a module in the TA-Tracker.</p>
+<p>You can use this command to edit a module&#8217;s name in the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>When a module is edited, the <strong>Student View</strong> will show the groups of the module and
-the students of the first group of the module.</p>
+<p>When a module is edited, the <strong>Student View</strong> will show the groups of the edited module and
+the students of the first group of the edited module. If you were on a different tab,
+you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>module edit m/MOD_CODE n/NEW NAME</code></p>
@@ -763,6 +795,9 @@ code can&#8217;t be changed.</p>
 <li>
 <p>Editing a module doesn&#8217;t affect the students and
 groups inside the module.</p>
+</li>
+<li>
+<p>MOD_NAME can&#8217;t be an empty string or a sequence of spaces.</p>
 </li>
 <li>
 <p>You cannot edit a module that doesn&#8217;t exist.</p>
@@ -798,11 +833,8 @@ groups inside the module.</p>
 </div>
 <div class="paragraph">
 <p>When a new group is created, the <strong>Student View</strong> will show the groups of the module
-this new group belongs to and students of the new group.</p>
-</div>
-<div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+this new group belongs to and students of the new group.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
@@ -830,8 +862,8 @@ tab as well, if you were currently on a different tab.</p>
 </li>
 <li>
 <p>You can give a group your own custom GROUP_CODE (ex: 10AMGROUP) if you find it easier
-to remember. However, for ease of remembrance, we recommend you use the official
-group code   for it.</p>
+to remember. However,  we recommend you use the official
+group code for it.</p>
 </li>
 </ul>
 </div>
@@ -868,8 +900,8 @@ has module code <code>CS2103</code>.</p>
 </div>
 <div class="paragraph">
 <p>When a group is deleted, the <strong>Student View</strong> will show the details of the first group
-of the module the group was deleted from. You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+of the module the group was deleted from.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>group delete g/GROUP_CODE m/MOD_CODE</code></p>
@@ -889,9 +921,6 @@ you want to delete.</p>
 </li>
 <li>
 <p>You can&#8217;t delete a group from a module that doesn&#8217;t exist.</p>
-</li>
-<li>
-<p>You can&#8217;t delete a group that doesn&#8217;t exist.</p>
 </li>
 <li>
 <p>A group with the given group code must exist inside the module before you can delete it.</p>
@@ -932,11 +961,8 @@ The students inside the group will remain intact.</p>
 </div>
 <div class="paragraph">
 <p>When a group is edited, the <strong>Student View</strong> will show the groups in the module that
-the edited group belongs to, as well as the students that belong to the edited group.</p>
-</div>
-<div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+the edited group belongs to, as well as the students that belong to the edited group.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>group edit g/GROUP_CODE m/MOD_CODE [ng/NEW_GROUP_CODE] [nt/NEW_GROUP_TYPE]</code></p>
@@ -963,6 +989,9 @@ you want to edit.</p>
 <li>
 <p>If you are changing the group code, the module shouldn&#8217;t contain a group that has the
 same group code as the new group code.</p>
+</li>
+<li>
+<p>While the <code>nt/</code> and <code>ng/</code> prefixes are optional, at least one of them must be mentioned.</p>
 </li>
 </ul>
 </div>
@@ -996,11 +1025,8 @@ module code <code>CS2103</code>, to be a <code>tutorial</code>.</p>
 </div>
 <div class="paragraph">
 <p>When a new student is added, the <strong>Student View</strong> will show that the new student
-is added into the student list of the provided module group.</p>
-</div>
-<div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+is added into the student list of the provided module group.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>student add id/MATRIC_NUMBER n/NAME m/MOD_CODE g/GROUP_CODE
@@ -1065,7 +1091,7 @@ inside group <code>G03</code> of the module <code>CS2103</code>.</p>
 <p>You can use the rating feature to give your students participation marks.</p>
 </li>
 <li>
-<p>All students are given a default rating of 3/5 (average) if you do not specify a rating.</p>
+<p>A student is given a default rating of 3/5 (average) if you do not specify a rating.</p>
 </li>
 <li>
 <p>You can either specify a rating in the add student
@@ -1089,11 +1115,8 @@ command or,</p>
 <div class="paragraph">
 <p>When a student is removed, the <strong>Student View</strong> will show that the student
 is removed from the student list of the provided module group.
-You will see an empty list if there are no more students inside the module group.</p>
-</div>
-<div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+You will see an empty list if there are no more students inside the module group.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>student delete id/MATRIC_NUMBER g/GROUP_CODE m/MOD_CODE</code></p>
@@ -1148,11 +1171,8 @@ the module <code>CS2103</code>.</p>
 </div>
 <div class="paragraph">
 <p>When a student is edited, the <strong>Student View</strong> will show that the student has been
-edited in the student list of the provided module group.</p>
-</div>
-<div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
+edited in the student list of the provided module group.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>student edit id/MATRIC_NUMBER m/MOD_CODE g/GROUP_CODE
@@ -1175,6 +1195,9 @@ tab as well, if you were currently on a different tab.</p>
 </li>
 <li>
 <p>You cannot edit a student that does not exist inside the given module group.</p>
+</li>
+<li>
+<p>You cannot edit a student&#8217;s matriculation number</p>
 </li>
 <li>
 <p>You must edit the student with at least one of the optional fields.</p>
@@ -1258,23 +1281,8 @@ tab as well, if you were currently on a different tab.</p>
 The students will be sorted according to your specified <code>SORT_TYPE</code>.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the student tab as well, if you were currently on a different tab.</p>
-</div>
-<div class="paragraph">
-<p>Here you will see:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the specific group highlighted</p>
-</li>
-<li>
-<p>the module that the  group belongs to highlighted</p>
-</li>
-<li>
-<p>all the students in that group</p>
-</li>
-</ul>
+<p>The <strong>Student View</strong> will show you the students inside the group that you have sorted.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>sort group g/GROUP_CODE m/MOD_CODE t/SORT_TYPE</code></p>
@@ -1350,24 +1358,10 @@ The students will be sorted according to your specified <code>SORT_TYPE</code>.<
 The students will be sorted according to your specified <code>SORT_TYPE</code>.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
-</div>
-<div class="paragraph">
-<p>Here you will see:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>the specific module highlighted</p>
-</li>
-<li>
-<p>all the groups in that module</p>
-</li>
-<li>
-<p>all the students in that group</p>
-</li>
-</ul>
+<p>The <strong>Student View</strong> will show you the students inside the first group of the module
+that you have sorted. If you want to view the other groups, you can use the <code>student filter</code>
+command as explained later in this guide.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>sort module m/MOD_CODE t/SORT_TYPE</code></p>
@@ -1425,7 +1419,7 @@ tab as well, if you were currently on a different tab.</p>
 <li>
 <p><code>sort module m/CS2103 t/alpha</code></p>
 <div class="paragraph">
-<p>Sorts all groups inside the module <code>CS2103</code> <code>alphabetically</code>.</p>
+<p>Sorts all students inside all groups inside the module <code>CS2103</code> <code>alphabetically</code>.</p>
 </div>
 </li>
 </ul>
@@ -1440,21 +1434,10 @@ tab as well, if you were currently on a different tab.</p>
 The students will be sorted according to your specified <code>SORT_TYPE</code>.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the student
-tab as well, if you were currently on a different tab.</p>
-</div>
-<div class="paragraph">
-<p>Here you will see:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>all the groups in the first module in the module list</p>
-</li>
-<li>
-<p>all the students in that group</p>
-</li>
-</ul>
+<p>The <strong>Student View</strong> will show you the students inside the first group of the  first module
+in the TA-Tracker. If you want to view the other groups or modules, you can use the <code>student filter</code>
+command as explained later in this guide.
+If you were on a different tab, you will automatically be switched to the student tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>sort all t/SORT_TYPE</code></p>
@@ -1509,7 +1492,7 @@ tab as well, if you were currently on a different tab.</p>
 <li>
 <p><code>sort all t/alpha</code></p>
 <div class="paragraph">
-<p>Sorts all groups inside all modules <code>alphabetically</code>.</p>
+<p>Sorts all students in all groups inside all modules <code>alphabetically</code>.</p>
 </div>
 </li>
 </ul>
@@ -1597,13 +1580,13 @@ by the module code.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>the first group of the module specified by the given module code highlighted</p>
+<p>The first group of the module specified by the given module code highlighted</p>
 </li>
 <li>
-<p>all the students belonging to that group</p>
+<p>All the students belonging to that group</p>
 </li>
 <li>
-<p>you can use this command when you want to see all the groups belonging to a
+<p>You can use this command when you want to see all the groups belonging to a
 particular module.</p>
 </li>
 </ul>
@@ -1659,8 +1642,7 @@ particular module.</p>
 be marked as <code>not done</code>.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the session
-tab as well, if you were currently on a different tab.</p>
+<p>If you were on a different tab, you will automatically be switched to the session tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>session add m/MOD_CODE [s/START] [e/END] [d/DATE] [w/WEEKS] [t/SESSION_TYPE] [n/NOTES]</code></p>
@@ -1675,8 +1657,8 @@ tab as well, if you were currently on a different tab.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>If you want to create a session with the current date, start time and end time, you can omit
-<code>s/START</code>, <code>e/END</code> and <code>d/DATE</code>.</p>
+<p>If you want to create a session with the current date, start time and end time,
+you can omit <code>s/START</code> , <code>e/END</code> and <code>d/DATE</code>.</p>
 </li>
 <li>
 <p>You can edit the end time <code>e/END</code> and other details later.</p>
@@ -1745,8 +1727,7 @@ be created with <code>DATE d/2020-07-04</code> (2 weeks later from the date of t
 <p>You can use this command to delete a session at a specific index.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the session
-tab as well, if you were currently on a different tab.</p>
+<p>If you were on a different tab, you will automatically be switched to the session tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>session delete INDEX</code></p>
@@ -1789,8 +1770,7 @@ tab as well, if you were currently on a different tab.</p>
 <p>You can use this command to edit a session in the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the session
-tab as well, if you were currently on a different tab.</p>
+<p>If you were on a different tab, you will automatically be switched to the session tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>session edit INDEX [s/START_TIME] [e/END_TIME] [d/DATE] [w/RECUR]
@@ -1866,8 +1846,7 @@ If the session marked done has a recurring period, a new session with the update
 and timing will be added to Session View.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the claims
-tab as well, if you were currently on a different tab.</p>
+<p>If you were on a different tab, you will automatically be switched to the claims tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>session done INDEX</code></p>
@@ -1917,8 +1896,12 @@ with that module.</p>
 <p>The keyword is case-insensitive.</p>
 </div>
 <div class="paragraph">
-<p>You will automatically be switched to the session
-tab as well, if you were currently on a different tab.</p>
+<p>When you execute a new filter command, any previous filters applied on the sessions will
+be removed and only the filters from the latest command will be applied on the sessions
+list.</p>
+</div>
+<div class="paragraph">
+<p>If you were on a different tab, you will automatically be switched to the session tab.</p>
 </div>
 <div class="paragraph">
 <p>Format: <code>session filter [m/MOD_CODE] [t/SESSION_TYPE] [d/DATE]</code></p>
@@ -2001,6 +1984,9 @@ session type  ‘Tutorial` will be shown.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>If you don&#8217;t specify a rate, it is set at 40$ by default.</p>
+</li>
+<li>
 <p>AMOUNT is the amount you want to change the hourly rate to, this value will be used to calulate the
 <code>Total Earnings</code> label in the <code>Claims Tab</code> as well as the <code>Statistics Window</code>.</p>
 </li>
@@ -2022,7 +2008,7 @@ session type  ‘Tutorial` will be shown.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>set rate 25</code><br>
+<p><code>setrate 25</code><br>
 Sets the current hourly rate to 25$.</p>
 </li>
 </ul>
@@ -2034,15 +2020,81 @@ Sets the current hourly rate to 25$.</p>
 <div class="sect1">
 <h2 id="glossary"><a class="anchor" href="#glossary"></a><a class="link" href="#glossary">6. GLOSSARY</a></h2>
 <div class="sectionbody">
-
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 40%;">
+<col style="width: 40%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Term</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+<th class="tableblock halign-left valign-top">Examples</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TSS Claims Form</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This refers the claims form that Teaching Assistants
+at NUS School of Computing have to fill up at the end of each semester to claim money
+for the tasks they have completed.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form for `Teaching Assistant.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">SOC or SoC</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form for School of Computing.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Index</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to the position of an item on a list.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Index of 1 refers to the first
+item in a list.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Matric Number</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to a student&#8217;s matriculation number.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A0123456X</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Group</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The is the general term given to a group of students a TA teaches.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lab , tutorial , recitation</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TAT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form of TA-Tracker.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NUS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form of National Univeristy of Singapore.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Module</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to one of the academic courses in NUS.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tutorial</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">A tutorial is a regular meeting between a tutor and one or several
+students, for discussion of a subject that is being studied.</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+</tbody>
+</table>
 </div>
 </div>
 <div class="sect1">
 <h2 id="faq"><a class="anchor" href="#faq"></a><a class="link" href="#faq">7. FAQ</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>TODO: COME UP WITH MORE QUESTIONS</p>
-</div>
 <div class="paragraph">
 <p><strong>Q</strong>: How can I transfer my data to another Computer?<br>
 <strong>A</strong>: You can do so by first installing the app in another computer. You can then replace
@@ -2053,9 +2105,6 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 <div class="sect1">
 <h2 id="command-summary"><a class="anchor" href="#command-summary"></a><a class="link" href="#command-summary">8. Command Summary</a></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>TODO: UPDATE ONCE ALL COMMANDS HAVE BEEN WRITTEN ABOUT</p>
-</div>
 <div class="sect2">
 <h3 id="student-view-3"><a class="anchor" href="#student-view-3"></a><a class="link" href="#student-view-3">8.1. Student View</a></h3>
 <div class="sect3">
@@ -2063,7 +2112,7 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add Module:</strong> <code>module add m/MOD_CODE</code></p>
+<p><strong>Add Module:</strong> <code>module add m/MOD_CODE n/NAME</code></p>
 </li>
 <li>
 <p><strong>Delete Module:</strong> <code>module delete m/MOD_CODE</code></p>
@@ -2076,7 +2125,7 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Add Group:</strong> <code>group add g/GROUP_CODE m/MOD_CODE</code></p>
+<p><strong>Add Group:</strong> <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
 </li>
 <li>
 <p><strong>Edit Group:</strong> `group edit g/GROUP_CODE m/MOD_CODE [ng/NEW_GROUP_CODE] [nt/NEW_GROUP_TYPE]</p>
@@ -2110,13 +2159,13 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Sorting a Group:</strong> <code>sort group g/GROUP_CODE m/MOD_CODE</code></p>
+<p><strong>Sorting a Group:</strong> <code>sort group g/GROUP_CODE m/MOD_CODE t/SORT_TYPE</code></p>
 </li>
 <li>
-<p><strong>Sorting a Module:</strong> <code>sort module m/MOD_CODE</code></p>
+<p><strong>Sorting a Module:</strong> <code>sort module m/MOD_CODE t/SORT_TYPE</code></p>
 </li>
 <li>
-<p><strong>Sorting All Modules:</strong> <code>sort all</code></p>
+<p><strong>Sorting All Modules:</strong> <code>sort all t/SORT_TYPE</code></p>
 </li>
 <li>
 <p><strong>Filter:</strong> <code>student filter m/MOD_CODE [g/GROUP_CODE]</code></p>
@@ -2171,4 +2220,4 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 11:29:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-09 11:37:26 UTC</div></div></div></body></html>

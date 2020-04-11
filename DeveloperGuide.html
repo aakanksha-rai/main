@@ -85,8 +85,14 @@
 <li><a href="#implementation-4">4.6.2. Implementation</a></li>
 </ul>
 </li>
-<li><a href="#logging">4.7. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
+<li><a href="#statistic-report-generation">4.7. Statistic Report Generation</a>
+<ul class="sectlevel3">
+<li><a href="#description-3">4.7.1. Description</a></li>
+<li><a href="#implementation-5">4.7.2. Implementation</a></li>
+</ul>
+</li>
+<li><a href="#logging">4.8. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.9. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -100,6 +106,7 @@
 <li><a href="#student-view">Student View</a></li>
 <li><a href="#session-view">Session View</a></li>
 <li><a href="#claims-view-2">Claims View</a></li>
+<li><a href="#statistic-report-window">Statistic Report Window</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
@@ -131,8 +138,9 @@
 <li><a href="#filtering-claims">F.22. Filtering Claims</a></li>
 <li><a href="#listing-sessions-and-claims">F.23. Listing sessions and claims</a></li>
 <li><a href="#changing-rate">F.24. Changing rate</a></li>
-<li><a href="#deleting-a-module">F.25. Deleting a module</a></li>
-<li><a href="#exiting-the-program">F.26. Exiting the program</a></li>
+<li><a href="#viewing-statistics">F.25. Viewing Statistics</a></li>
+<li><a href="#deleting-a-module">F.26. Deleting a module</a></li>
+<li><a href="#exiting-the-program">F.27. Exiting the program</a></li>
 </ul>
 </li>
 <li><a href="#effort">9. Effort</a></li>
@@ -1730,7 +1738,7 @@ that haven&#8217;t been completed yet.</p>
 <div class="sect3">
 <h4 id="model-framework"><a class="link" href="#model-framework">4.3.1. Model Framework</a></h4>
 <div class="paragraph">
-<p>The following <em>Class diagram</em> shows how different classes are related in the functioning
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning
 of the <strong>Session View</strong>.</p>
 </div>
 <div class="imageblock">
@@ -2379,7 +2387,7 @@ many flashing colours may be distracting to the user.</p>
 <p>This section describes the implementation of the <code>filter</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The <em>Activity diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
+<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2413,7 +2421,7 @@ group code given by the user.</p>
 <p>Module code is a compulsory parameter for the user.</p>
 </div>
 <div class="paragraph">
-<p>The following <em>Sequence diagram</em> shows the sequence of commands that take place between
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
 the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
 <code>student filter m\CS2103T g\G06</code>. This command will return students from module code <code>CS2103T</code>, under group <code>G06</code>.</p>
 </div>
@@ -2521,14 +2529,99 @@ will be filtered.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<h3 id="statistic-report-generation"><a class="link" href="#statistic-report-generation">4.7. Statistic Report Generation</a></h3>
+<div class="sect3">
+<h4 id="description-3"><a class="link" href="#description-3">4.7.1. Description</a></h4>
+<div class="paragraph">
+<p>The <strong>Statistics Window</strong> can be generated and displayed using the <code>report</code> command.
+The command is used to generate a report to display information such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A breakdown and summary of completed sessions</p>
+</li>
+<li>
+<p>The number of hours of each type of completed sessions</p>
+</li>
+<li>
+<p>A breakdown of your student’s ratings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A module code can be specified such that the generated report will only include data from a specific module.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-5"><a class="link" href="#implementation-5">4.7.2. Implementation</a></h4>
+<div class="paragraph">
+<p>This section describes the implementation of the <code>report</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the interactions between the <code>UI</code> and the <code>Logic</code> components of TA-Tracker,
+when the user enters the command <code>report CS3247</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ReportSequenceDiagram.png" alt="ReportSequenceDiagram">
+</div>
+<div class="title">Figure 53. Sequence Diagram for Statistic Report Generation</div>
+</div>
+<div class="paragraph">
+<p>The following is an example scenario when the user requests for a report of a particular module,
+with the command <code>report CS3247</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is first read by <code>MainWindow</code>, through JavaFX.
+<code>MainWindow</code> passes the command as a <code>String</code> to the <code>LogicManager</code> to be processed.</p>
+</li>
+<li>
+<p><code>LogicManager</code> sends the command to <code>TaTrackerParser</code> for the command to be parsed.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> processes the first word in the command, and identifies it as a <code>ShowStatisticCommand</code>.</p>
+</li>
+<li>
+<p><code>TaTrackerParser</code> creates a <code>ShowStatisticCommandParser</code> object and passes the command argument <code>CS3247</code>
+to the <code>ShowStatisticCommandParser</code> object.</p>
+</li>
+<li>
+<p>The <code>ShowStatisticCommandParser</code> stores the target module, <code>CS3247</code>, in a <code>ShowStatisticCommand</code> object and
+this command object is returned all the way back to the <code>LogicManager</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> executes the <code>ShowStatisticCommand</code>, which creates and return a <code>StatiscCommandResult</code>. This command
+result is returned by <code>LogicManager</code> to <code>MainWindow</code></p>
+</li>
+<li>
+<p><code>MainWindow</code> detects that the the command result is of type <code>StatisticCommandResult</code>, and prepares the <code>StatisticWindow</code>
+by creating a <code>Statistic</code> object that retreives data necessary for generating the report, from <code>ReadOnlyTaTracker</code>.</p>
+</li>
+<li>
+<p>These data is then processed further by <code>Statistic</code>. This includes computing the total number of sessions per session type and sorting the students by rating.</p>
+</li>
+<li>
+<p>A <code>StatisticWindow</code> object is now created by <code>MainWindow</code>. The <code>Statistic</code> object is passed into the constructor of <code>StatisticWindow</code>.</p>
+</li>
+<li>
+<p>Finally, <code>StatisticWindow</code> updates its FXML elements and is shown to the user.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.8. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.9, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -2559,7 +2652,7 @@ will be filtered.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -3654,6 +3747,62 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="statistic-report-window"><a class="link" href="#statistic-report-window">Statistic Report Window</a></h3>
+<h4 id="use-case-uc23-displaying-a-statistic-report" class="discrete">Use case: UC23 - Displaying a statistic report</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to generate and display a statistic report.</p>
+</li>
+<li>
+<p>TA-Tracker retreives the list of sessions and students from all modules and processes the data.</p>
+</li>
+<li>
+<p>TA-Tracker opens a Statistic window and displays the processed data to the user.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The user specifies a valid module code.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TA-Tracker retreives the list of sessions and students from the specified module and processes the data.</p>
+</li>
+<li>
+<p>Use case resumes at step 3.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The user specifies a module code that does not exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -4387,12 +4536,18 @@ Expected: Shows all sessions and claims that have previously been filtered.</p>
 <li>
 <p>Test Case: <code>setrate 25</code><br>
 Expected: Sets the rate of the claims to be 25$ per hour. Money computation is
-changed accordingly.
-=== Viewing Statistics</p>
+changed accordingly.</p>
 </li>
 </ol>
 </div>
 </li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="viewing-statistics"><a class="link" href="#viewing-statistics">F.25. Viewing Statistics</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
 <li>
 <p>Displays the statistics window.</p>
 <div class="olist loweralpha">
@@ -4412,7 +4567,7 @@ Expected: Displays the statistics report of the module <code>CS1101S</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-module"><a class="link" href="#deleting-a-module">F.25. Deleting a module</a></h3>
+<h3 id="deleting-a-module"><a class="link" href="#deleting-a-module">F.26. Deleting a module</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4437,7 +4592,7 @@ this would show you an error message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program"><a class="link" href="#exiting-the-program">F.26. Exiting the program</a></h3>
+<h3 id="exiting-the-program"><a class="link" href="#exiting-the-program">F.27. Exiting the program</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4487,4 +4642,4 @@ our features that relied on timing that were almost ready had to be scrapped and
 had to look for new features to replace them.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 15:04:00 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 16:07:51 UTC</div></div></div></body></html>

@@ -62,7 +62,8 @@
 <li><a href="#SessionView">4.3. Session View</a>
 <ul class="sectlevel3">
 <li><a href="#model-framework">4.3.1. Model Framework</a></li>
-<li><a href="#implementation-of-the-session-add-edit-delete-and-done-command">4.3.2. Implementation of the Session Add, Edit, Delete and Done Command</a></li>
+<li><a href="#implementation-of-the-session-done-command">4.3.2. Implementation of the Session Done Command</a></li>
+<li><a href="#implementation-of-session-add-edit-and-delete">4.3.3. Implementation of Session Add, Edit and Delete</a></li>
 </ul>
 </li>
 <li><a href="#claims-view">4.4. Claims View</a>
@@ -1729,23 +1730,23 @@ that haven&#8217;t been completed yet.</p>
 <div class="sect3">
 <h4 id="model-framework"><a class="link" href="#model-framework">4.3.1. Model Framework</a></h4>
 <div class="paragraph">
-<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning
+<p>The following <em>Class diagram</em> shows how different classes are related in the functioning
 of the <strong>Session View</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SessionModelClassDiagram.png" alt="SessionModelClassDiagram">
 </div>
-<div class="title">Figure 31. Class Diagram of Session View</div>
+<div class="title">Figure 31. <em>Class Diagram</em> of Session View</div>
 </div>
 <div class="paragraph">
-<p>The TaTracker model class contains a <code>UniqueSessionList</code> which helps keep track of
+<p>The TA-Tracker model class contains a <code>UniqueSessionList</code> which helps keep track of
 all the <strong>sessions</strong> in TA-Tracker
 that have <strong>not</strong> been marked as done.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-session-add-edit-delete-and-done-command"><a class="link" href="#implementation-of-the-session-add-edit-delete-and-done-command">4.3.2. Implementation of the Session Add, Edit, Delete and Done Command</a></h4>
+<h4 id="implementation-of-the-session-done-command"><a class="link" href="#implementation-of-the-session-done-command">4.3.2. Implementation of the Session Done Command</a></h4>
 <div class="paragraph">
 <p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
 the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
@@ -1756,7 +1757,7 @@ when the user enters the command
 <div class="content">
 <img src="images/DoneSessionSequenceDiagram.png" alt="DoneSessionSequenceDiagram">
 </div>
-<div class="title">Figure 32. Sequence Diagram for Done Session</div>
+<div class="title">Figure 32. <em>Sequence Diagram</em> for Done Session</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1764,11 +1765,11 @@ when the user enters the command
 <p>The <code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The <code>TaTrackerParser</code> sees that the command is a type <strong>sessions</strong> and passes the command
+<p>The <code>TaTrackerParser</code> sees that the command is a <code>Session</code> command and passes the command
 to the <code>SessionCommandParser</code>.</p>
 </li>
 <li>
-<p>The <code>SessionCommandParser</code> sees that the command is a type of <strong>done</strong> and passes the
+<p>The <code>SessionCommandParser</code> sees that the command is a <code>DoneSessionCommand</code> and passes the
 arguments to the <code>DoneSessionCommandParser</code>.</p>
 </li>
 <li>
@@ -1778,14 +1779,15 @@ arguments to the <code>DoneSessionCommandParser</code>.</p>
 <p><code>LogicManager</code> calls <code>DoneSessionCommand#execute()</code> method.</p>
 </li>
 <li>
-<p>The `DoneSessionCommand`checks whether the current session called by the user has a recurring period.</p>
+<p>The <code>DoneSessionCommand</code>
+checks whether the current session called by the user has a recurring period.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If it doesn&#8217;t, &#8230;&#8203;</p>
+<p>If it does, a new session with the updated date will be added to <code>Model#UniqueSessionList()</code>.</p>
 </li>
 <li>
-<p>If it does, a new session with the updated date will be added to <code>Model#UniqueSessionList()</code>.</p>
+<p>If it does not have a recurring period, it will move on to <strong>Step 6</strong>.</p>
 </li>
 </ol>
 </div>
@@ -1794,12 +1796,9 @@ arguments to the <code>DoneSessionCommandParser</code>.</p>
 <p>The current session will be removed from <code>Model#UniqueSessionList</code>.</p>
 </li>
 <li>
-<p>The updated filtered session list will be displayed to the user.</p>
+<p>The updated session list will be displayed to the user.</p>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>The <code>session add</code>, <code>session edit</code> and <code>session delete</code> commands have been implemented in a similar manner.</p>
 </div>
 <div class="paragraph">
 <p>The following <em>Activity Diagram</em> describes how TaTracker is updated when a <code>SessionDone</code> command is entered.</p>
@@ -1824,6 +1823,26 @@ during the done session command.</p>
 </td>
 </tr>
 </table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-session-add-edit-and-delete"><a class="link" href="#implementation-of-session-add-edit-and-delete">4.3.3. Implementation of Session Add, Edit and Delete</a></h4>
+<div class="paragraph">
+<p>The <code>session edit</code> and <code>session delete</code> commands have been implemented in a similar manner
+to <code>DoneSessionCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>For <code>session add</code> command,
+these following steps are taken once the execute command of an <code>AddSessionCommand</code> object is called:</p>
+</div>
+<div class="paragraph">
+<p>The <code>AddSessionCommand</code> object checks whether the module is present in the model of the TA-Tracker .</p>
+</div>
+<div class="paragraph">
+<p>If it exists, the session is created.</p>
+</div>
+<div class="paragraph">
+<p>If it doesn’t exist, an exception is thrown explaining that the module doesn’t exist.</p>
 </div>
 </div>
 </div>
@@ -2352,10 +2371,6 @@ many flashing colours may be distracting to the user.</p>
 </div>
 </div>
 </div>
-<div class="paragraph">
-<p>The different filter commands exist to make it easier to search for relevant information
-under each view.</p>
-</div>
 </div>
 <div class="sect3">
 <h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.2. Implementation</a></h4>
@@ -2363,7 +2378,7 @@ under each view.</p>
 <p>This section describes the implementation of the <code>filter</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command :</p>
+<p>The <em>Activity diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2387,9 +2402,8 @@ under each view.</p>
 </li>
 </ol>
 </div>
-<div class="paragraph">
-<p><strong>Filter under Student View</strong></p>
-</div>
+<div class="sect4">
+<h5 id="filter-under-student-view"><a class="link" href="#filter-under-student-view">4.6.2.1. Filter under Student View</a></h5>
 <div class="paragraph">
 <p>Students are filtered based on the module code and/or
 group code given by the user.</p>
@@ -2398,14 +2412,15 @@ group code given by the user.</p>
 <p>Module code is a compulsory parameter for the user.</p>
 </div>
 <div class="paragraph">
-<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between the <code>Logic</code>
-and <code>Model</code> components of the TA-Tracker when the user enters the command <code>student filter m/CS2103T g/G06</code>.</p>
+<p>The following <em>Sequence diagram</em> shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
+<code>student filter m\CS2103T g\G06</code>. This command will return students from module code <code>CS2103T</code>, under group <code>G06</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
 </div>
-<div class="title">Figure 51. Sequence Diagram for Filter Student Command</div>
+<div class="title">Figure 51. <em>Sequence Diagram</em> for Filter Student Command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example scenario where the user enters a command to filter students.</p>
@@ -2437,7 +2452,7 @@ module and/or group.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If it doesn&#8217;t &#8230;&#8203;</p>
+<p>If it doesn&#8217;t, a <code>CommandException</code> is thrown saying that no such students exists.</p>
 </li>
 <li>
 <p>If it does, the <code>FilterStudentCommand</code> returns a <code>CommandResult</code> with a success message.</p>
@@ -2445,15 +2460,11 @@ module and/or group.</p>
 </ol>
 </div>
 </li>
-<li>
-<p>If all of the given inputs does not match any existing modules and/or group,
-a command exception is thrown saying that no such students exists.</p>
-</li>
 </ol>
 </div>
-<div class="paragraph">
-<p><strong>Filter under Session View</strong></p>
 </div>
+<div class="sect4">
+<h5 id="filter-under-session-view"><a class="link" href="#filter-under-session-view">4.6.2.2. Filter under Session View</a></h5>
 <div class="paragraph">
 <p>Sessions can be filtered with the following parameters:</p>
 </div>
@@ -2480,8 +2491,7 @@ The <code>SessionPredicate</code> object updates the filtered session list by ke
 The filtered list will then be displayed.</p>
 </div>
 <div class="paragraph">
-<p>When one or more parameters are used by the user, if one of the keywords used appears
-in a session, it will be filtered.
+<p>When the user specifies a keyword, sessions that contain the keywords will be filtered and shown to the user.
 If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
 will be shown.</p>
 </div>
@@ -2495,9 +2505,9 @@ the <code>SessionFilter</code> Command.</p>
 </div>
 <div class="title">Figure 52. Class Diagram for Filter Session Command</div>
 </div>
-<div class="paragraph">
-<p><strong>Filter under Claims View</strong></p>
 </div>
+<div class="sect4">
+<h5 id="filter-under-claims-view"><a class="link" href="#filter-under-claims-view">4.6.2.3. Filter under Claims View</a></h5>
 <div class="paragraph">
 <p>The user can only filter the <strong>Claims View</strong> by module code.
 When the user enters the command <code>claims filter m/MODULE_CODE</code>, claims that contain the module code
@@ -2505,6 +2515,7 @@ will be filtered.</p>
 </div>
 <div class="paragraph">
 <p>The command used to filter claims is implemented the same way as <code>SessionFilterCommand</code>.</p>
+</div>
 </div>
 </div>
 </div>
@@ -3289,22 +3300,22 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </li>
 </ol>
 </div>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>3a. The module and/or group does not exist.</p>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
-<p>1a1. TA-Tracker shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -3332,24 +3343,85 @@ the list of existing students in the <strong>Student View</strong>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>1a. The user requests to add a recurring session.</p>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>1a1. TA-Tracker creates a new session, and labels it as recurring.</p>
+<div class="paragraph">
+<p>Use case resumes at step 2.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The user adds a session with a module code that does not exists.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc18-deleting-a-session" class="discrete">Use case: UC18 - Deleting a session</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Session Tab</code> (UC02) to view
+the list of existing sessions in the <strong>Session View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
+</li>
+<li>
+<p>User requests to delete a session.</p>
+</li>
+<li>
+<p>TA-Tracker deletes the session.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The index is invalid</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </li>
-</ol>
+</ul>
 </div>
-<h4 id="use-case-uc18-editing-a-session" class="discrete">Use case: UC18 - Editing a session</h4>
+<h4 id="use-case-uc19-editing-a-session" class="discrete">Use case: UC19 - Editing a session</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3379,73 +3451,19 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Session View is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
 <p>3a. The given session list index is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
 </ul>
-</div>
-<h4 id="use-case-uc19-deleting-a-session" class="discrete">Use case: UC19 - Deleting a session</h4>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to go to the <code>Session Tab</code> (UC02) to view
-the list of existing sessions in the <strong>Session View</strong>.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
-</li>
-<li>
-<p>User requests to delete a session.</p>
-</li>
-<li>
-<p>TA-Tracker deletes the session.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a. The index is invalid</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
 </div>
 <h4 id="use-case-uc20-marking-a-session-as-done" class="discrete">Use case: UC20 - Marking a session as done</h4>
 <div class="paragraph">
@@ -3480,23 +3498,13 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>2a. The Session View is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
 <p>3a. The given session list index is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -3534,22 +3542,22 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>3a. The search did find any matches.</p>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 <div class="sect2">
@@ -3624,22 +3632,22 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>3a. The search did find any matches.</p>
-<div class="olist none">
-<ol class="none">
+<div class="ulist none">
+<ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error.</p>
 <div class="paragraph">
-<p>Use case ends.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </li>
-</ol>
+</ul>
 </div>
 </div>
 </div>
@@ -4306,15 +4314,20 @@ Expected: Edits the session at index <code>1</code> of the session list to be of
 <ol class="loweralpha" type="a">
 <li>
 <p>Test Case: <code>session filter m/CS1101S</code><br>
-Expected: Shows all sessions associated with the module <code>CS1101S</code>.</p>
+Expected: Shows all sessions associated with the <strong>module</strong> <code>CS1101S</code>.</p>
 </li>
 <li>
 <p>Test Case: <code>session filter t/tutorial</code><br>
-Expected: Shows all sessions that are of type tutorial.</p>
+Expected: Shows all sessions that are of <strong>type</strong> <code>tutorial</code>.</p>
 </li>
 <li>
 <p>Test Case: <code>session filter d/2020-03-20</code><br>
-Expected: Shows all sessions on the date <code>2020-03-20</code>.</p>
+Expected: Shows all sessions on the <strong>date</strong> <code>2020-03-20</code>.</p>
+</li>
+<li>
+<p>Test Case: <code>session filter d/2020-03-20 t/tutorial m/CS1101S</code><br>
+Expected: Shows all sessions that contains <strong>date</strong> <code>2020-03-20</code>, <strong>session type</strong> <code>tutorial</code>
+and <strong>module code</strong> <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
@@ -4470,4 +4483,4 @@ our features that relied on timing that were almost ready had to be scrapped and
 had to look for new features to replace them.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:11:02 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:18:29 UTC</div></div></div></body></html>

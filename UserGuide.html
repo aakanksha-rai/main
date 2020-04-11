@@ -63,7 +63,12 @@
 <li><a href="#claims-view-2">5.4. Claims View</a>
 <ul class="sectlevel3">
 <li><a href="#filter-code-filter-code-2">5.4.1. Filter : <code>filter</code></a></li>
-<li><a href="#changing-the-hourly-rate-code-set-rate-code">5.4.2. Changing the hourly rate : <code>set rate</code></a></li>
+<li><a href="#setrate">5.4.2. Changing the hourly rate : <code>setrate</code></a></li>
+</ul>
+</li>
+<li><a href="#statistics-window">5.5. Statistics Window</a>
+<ul class="sectlevel3">
+<li><a href="#generate-statistic-report-code-report-code">5.5.1. Generate Statistic Report : <code>report</code></a></li>
 </ul>
 </li>
 </ul>
@@ -88,6 +93,7 @@
 </ul>
 </li>
 <li><a href="#claims-view-3">8.4. Claims View</a></li>
+<li><a href="#statistics">8.5. Statistics</a></li>
 </ul>
 </li>
 </ul>
@@ -2050,7 +2056,7 @@ session type  ‘Tutorial` will be shown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="changing-the-hourly-rate-code-set-rate-code"><a class="anchor" href="#changing-the-hourly-rate-code-set-rate-code"></a><a class="link" href="#changing-the-hourly-rate-code-set-rate-code">5.4.2. Changing the hourly rate : <code>set rate</code></a></h4>
+<h4 id="setrate"><a class="anchor" href="#setrate"></a><a class="link" href="#setrate">5.4.2. Changing the hourly rate : <code>setrate</code></a></h4>
 <div class="paragraph">
 <p>Sets the hourly rate for the total income and claim computation.</p>
 </div>
@@ -2067,7 +2073,7 @@ session type  ‘Tutorial` will be shown.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>If you don&#8217;t specify a rate, it is set at 40$ by default (the rate at which most SOC TAs are being paid per hour).</p>
+<p>If you don&#8217;t specify a rate, it is set at $40.00 by default (the rate at which most SOC TAs are being paid per hour).</p>
 </li>
 <li>
 <p><code>RATE</code> is the amount you want to change the hourly rate to, this value will be used to calulate the
@@ -2089,7 +2095,78 @@ session type  ‘Tutorial` will be shown.</p>
 <ul>
 <li>
 <p><code>setrate 25</code><br>
-Sets the current hourly rate to 25$.</p>
+Sets the current hourly rate to $25.00.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="statistics-window"><a class="anchor" href="#statistics-window"></a><a class="link" href="#statistics-window">5.5. Statistics Window</a></h3>
+<div class="sect3">
+<h4 id="generate-statistic-report-code-report-code"><a class="anchor" href="#generate-statistic-report-code-report-code"></a><a class="link" href="#generate-statistic-report-code-report-code">5.5.1. Generate Statistic Report : <code>report</code></a></h4>
+<div class="paragraph">
+<p>You can use this command to generate a report to display information such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A breakdown and summary of completed sessions</p>
+</li>
+<li>
+<p>The number of hours of each type of completed sessions</p>
+</li>
+<li>
+<p>A breakdown of your student&#8217;s ratings</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Optionally, you can specify a module code. If a module code is specified, the report generated will only include data from the specified module.</p>
+</div>
+<div class="paragraph">
+<p>Pressing the <code>esc</code> key on your keyboard will close the statistics window.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>report [MOD_CODE]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>Similar to the <strong>Claims View</strong>, the report will only display sessions that have been marked as done.</p>
+</li>
+<li>
+<p><code>Total Claimable Hours</code> is computed using the current specified <code>rate</code>. See <a href="#setrate">Section 5.4.2, &#8220;Changing the hourly rate : <code>setrate</code>&#8221;</a>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>report</code></p>
+<div class="paragraph">
+<p>Generate and display a report of sessions and students from all modules.</p>
+</div>
+</li>
+<li>
+<p><code>report CS3243</code></p>
+<div class="paragraph">
+<p>Generate and display a report of sessions and students from the module CS3243.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -2328,5 +2405,15 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </ul>
 </div>
 </div>
+<div class="sect2">
+<h3 id="statistics"><a class="anchor" href="#statistics"></a><a class="link" href="#statistics">8.5. Statistics</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Generate Statistics Report:</strong> <code>report [MOD_CODE]</code></p>
+</li>
+</ul>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 11:32:59 UTC</div></div></div></body></html>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:02:12 UTC</div></div></div></body></html>

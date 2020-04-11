@@ -3,7 +3,7 @@
 <link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link active" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>TA-Tracker - User Guide</h1></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team W17-4</code>      Since: <code>Jan 2010</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team W17-4</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -13,9 +13,14 @@
 <li><a href="#quick-start">2. Quick Start</a></li>
 <li><a href="#about-the-user-guide">3. About the User Guide</a>
 <ul class="sectlevel2">
-<li><a href="#commonly-used-symbols">3.1. Commonly Used Symbols</a></li>
+<li><a href="#common-symbols">3.1. Common Symbols</a></li>
 <li><a href="#command-format">3.2. Command Format</a></li>
-<li><a href="#common-parameters">3.3. Common Parameters</a></li>
+<li><a href="#common-parameters">3.3. Common Parameters</a>
+<ul class="sectlevel3">
+<li><a href="#duplicate-parameters">3.3.1. Duplicate Parameters</a></li>
+<li><a href="#rearranging-parameters">3.3.2. Rearranging Parameters</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><a href="#Layout">4. Layout</a>
@@ -27,73 +32,80 @@
 </li>
 <li><a href="#Usage">5. Usage</a>
 <ul class="sectlevel2">
-<li><a href="#navigation">5.1. Navigation</a>
-<ul class="sectlevel3">
-<li><a href="#viewing-help-code-help-code">5.1.1. Viewing help : <code>help</code></a></li>
-<li><a href="#switching-tabs-code-goto-code">5.1.2. Switching tabs : <code>goto</code></a></li>
-<li><a href="#exiting-the-program-code-exit-code">5.1.3. Exiting the program : <code>exit</code></a></li>
+<li><a href="#keyboard-shortcuts">5.1. Keyboard Shortcuts</a></li>
+<li><a href="#syntax-highlighting">5.2. Syntax Highlighting</a></li>
+<li><a href="#hints">5.3. Hints</a></li>
 </ul>
 </li>
-<li><a href="#student-view-2">5.2. Student View</a>
-<ul class="sectlevel3">
-<li><a href="#AddModule">5.2.1. Adding a Module : <code>module add</code></a></li>
-<li><a href="#DeleteModule">5.2.2. Deleting a Module : <code>module delete</code></a></li>
-<li><a href="#EditModule">5.2.3. Editing a Module : <code>module edit</code></a></li>
-<li><a href="#AddGroup">5.2.4. Adding a Group : <code>group add</code></a></li>
-<li><a href="#DeleteGroup">5.2.5. Deleting a Group : <code>group delete</code></a></li>
-<li><a href="#EditGroup">5.2.6. Editing a Group : <code>group edit</code></a></li>
-<li><a href="#AddStudent">5.2.7. Adding a Student : <code>student add</code></a></li>
-<li><a href="#DeleteStudent">5.2.8. Deleting a Student : <code>student delete</code></a></li>
-<li><a href="#EditStudent">5.2.9. Editing a Student : <code>student edit</code></a></li>
-<li><a href="#Sort">5.2.10. Sorting a Group : <code>sort group</code></a></li>
-<li><a href="#sorting-a-module-code-sort-module-code">5.2.11. Sorting a Module : <code>sort module</code></a></li>
-<li><a href="#sorting-everything-code-sort-all-code">5.2.12. Sorting Everything : <code>sort all</code></a></li>
-<li><a href="#FilterStudent">5.2.13. Filter : <code>filter</code></a></li>
-</ul>
-</li>
-<li><a href="#session-view-2">5.3. Session View</a>
-<ul class="sectlevel3">
-<li><a href="#AddSession">5.3.1. Adding a Session : <code>session add</code></a></li>
-<li><a href="#deleting-a-session-code-session-delete-code">5.3.2. Deleting a Session : <code>session delete</code></a></li>
-<li><a href="#editing-a-session-code-session-edit-code">5.3.3. Editing a Session : <code>session edit</code></a></li>
-<li><a href="#marking-a-session-as-done-code-session-done-code">5.3.4. Marking a Session as Done : <code>session done</code></a></li>
-<li><a href="#filter-code-filter-code">5.3.5. Filter : <code>filter</code></a></li>
-</ul>
-</li>
-<li><a href="#claims-view-2">5.4. Claims View</a>
-<ul class="sectlevel3">
-<li><a href="#filter-code-filter-code-2">5.4.1. Filter : <code>filter</code></a></li>
-<li><a href="#setrate">5.4.2. Changing the hourly rate : <code>setrate</code></a></li>
-</ul>
-</li>
-<li><a href="#statistics-window">5.5. Statistics Window</a>
-<ul class="sectlevel3">
-<li><a href="#generate-statistic-report-code-report-code">5.5.1. Generate Statistic Report : <code>report</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#glossary">6. GLOSSARY</a></li>
-<li><a href="#faq">7. FAQ</a></li>
-<li><a href="#command-summary">8. Command Summary</a>
+<li><a href="#Commands">6. Commands</a>
 <ul class="sectlevel2">
-<li><a href="#navigation-2">8.1. Navigation</a></li>
-<li><a href="#student-view-3">8.2. Student View</a>
+<li><a href="#navigation">6.1. Navigation</a>
 <ul class="sectlevel3">
-<li><a href="#module-commands">8.2.1. Module commands</a></li>
-<li><a href="#group-commands">8.2.2. Group commands</a></li>
-<li><a href="#student-commands">8.2.3. Student commands</a></li>
-<li><a href="#others">8.2.4. Others</a></li>
+<li><a href="#viewing-help-code-help-code">6.1.1. Viewing help : <code>help</code></a></li>
+<li><a href="#switching-tabs-code-goto-code">6.1.2. Switching tabs : <code>goto</code></a></li>
+<li><a href="#exiting-the-program-code-exit-code">6.1.3. Exiting the program : <code>exit</code></a></li>
 </ul>
 </li>
-<li><a href="#session-view-3">8.3. Session View</a>
+<li><a href="#student-view-2">6.2. Student View</a>
 <ul class="sectlevel3">
-<li><a href="#session-commands">8.3.1. Session commands</a></li>
-<li><a href="#others-2">8.3.2. Others</a></li>
+<li><a href="#AddModule">6.2.1. Adding a Module : <code>module add</code></a></li>
+<li><a href="#DeleteModule">6.2.2. Deleting a Module : <code>module delete</code></a></li>
+<li><a href="#EditModule">6.2.3. Editing a Module : <code>module edit</code></a></li>
+<li><a href="#AddGroup">6.2.4. Adding a Group : <code>group add</code></a></li>
+<li><a href="#DeleteGroup">6.2.5. Deleting a Group : <code>group delete</code></a></li>
+<li><a href="#EditGroup">6.2.6. Editing a Group : <code>group edit</code></a></li>
+<li><a href="#AddStudent">6.2.7. Adding a Student : <code>student add</code></a></li>
+<li><a href="#DeleteStudent">6.2.8. Deleting a Student : <code>student delete</code></a></li>
+<li><a href="#EditStudent">6.2.9. Editing a Student : <code>student edit</code></a></li>
+<li><a href="#Sort">6.2.10. Sorting a Group : <code>sort group</code></a></li>
+<li><a href="#sorting-a-module-code-sort-module-code">6.2.11. Sorting a Module : <code>sort module</code></a></li>
+<li><a href="#sorting-everything-code-sort-all-code">6.2.12. Sorting Everything : <code>sort all</code></a></li>
+<li><a href="#FilterStudent">6.2.13. Filter : <code>filter</code></a></li>
 </ul>
 </li>
-<li><a href="#claims-view-3">8.4. Claims View</a></li>
-<li><a href="#statistics">8.5. Statistics</a></li>
+<li><a href="#session-view-2">6.3. Session View</a>
+<ul class="sectlevel3">
+<li><a href="#AddSession">6.3.1. Adding a Session : <code>session add</code></a></li>
+<li><a href="#deleting-a-session-code-session-delete-code">6.3.2. Deleting a Session : <code>session delete</code></a></li>
+<li><a href="#editing-a-session-code-session-edit-code">6.3.3. Editing a Session : <code>session edit</code></a></li>
+<li><a href="#marking-a-session-as-done-code-session-done-code">6.3.4. Marking a Session as Done : <code>session done</code></a></li>
+<li><a href="#filter-code-filter-code">6.3.5. Filter : <code>filter</code></a></li>
+</ul>
+</li>
+<li><a href="#claims-view-2">6.4. Claims View</a>
+<ul class="sectlevel3">
+<li><a href="#filter-code-filter-code-2">6.4.1. Filter : <code>filter</code></a></li>
+<li><a href="#setrate">6.4.2. Changing the hourly rate : <code>setrate</code></a></li>
+</ul>
+</li>
+<li><a href="#statistics-window">6.5. Statistics Window</a>
+<ul class="sectlevel3">
+<li><a href="#generate-statistic-report-code-report-code">6.5.1. Generate Statistic Report : <code>report</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#glossary">7. Glossary</a></li>
+<li><a href="#faq">8. FAQ</a></li>
+<li><a href="#command-summary">9. Command Summary</a>
+<ul class="sectlevel2">
+<li><a href="#navigation-2">9.1. Navigation</a></li>
+<li><a href="#student-view-3">9.2. Student View</a>
+<ul class="sectlevel3">
+<li><a href="#module-commands">9.2.1. Module commands</a></li>
+<li><a href="#group-commands">9.2.2. Group commands</a></li>
+<li><a href="#student-commands">9.2.3. Student commands</a></li>
+<li><a href="#others">9.2.4. Others</a></li>
+</ul>
+</li>
+<li><a href="#session-view-3">9.3. Session View</a>
+<ul class="sectlevel3">
+<li><a href="#session-commands">9.3.1. Session commands</a></li>
+<li><a href="#others-2">9.3.2. Others</a></li>
+</ul>
+</li>
+<li><a href="#claims-view-3">9.4. Claims View</a></li>
+<li><a href="#statistics">9.5. Statistics</a></li>
 </ul>
 </li>
 </ul>
@@ -103,22 +115,47 @@
 <h2 id="introduction"><a class="anchor" href="#introduction"></a><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Are you a <strong>Teaching Assistant at NUS School of Computing (SOC)</strong> who is tired of having to <strong>keep
-track of all your claimable hours</strong> in some unappealing excel spreadsheet just so you
-can fill up the Teaching Support Student (TSS) Claims form accurately at the end of the semester?
-Do you want a desktop application where you can <strong>keep track of things related to your teaching duties,
-such as strongest and weakest students,</strong> all in one place? If so, TA-Tracker is the tool for you!</p>
+<p>Are you a <strong>Teaching Assistant</strong> in <strong>NUS School of Computing (NUS SOC)</strong> who is tired of having to
+fill out the <strong>Teaching Support Student (TSS) Claims Form</strong> accurately at the end of the semester?</p>
 </div>
 <div class="paragraph">
-<p>TA-Tracker is a productivity tool made for NUS SOC Teaching Assistants (TAs)
-who want to be able to track and manage their students and claimable
-hours in one place.</p>
+<p>Do you wish there was a <strong>desktop application</strong> that can help you <strong>keep track of your teaching duties</strong>,
+such as your <strong>claimable hours</strong> and <strong>student ratings</strong>, all in <strong>one place</strong>?</p>
 </div>
 <div class="paragraph">
-<p>TA-Tracker is tailored towards TAs who <strong>prefer to use a desktop application to
-manage their teaching duties</strong> and is well suited for those who <strong>prefer to work with a Command
-Line Interface</strong> (CLI) while still having the benefits of a Graphical User Interface
-(GUI). If you&#8217;re interested, jump to the <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to get started!</p>
+<p>Look no further, because <strong>TA-Tracker</strong> is the tool just for <strong>you</strong>!</p>
+</div>
+<div class="paragraph">
+<p><strong>No more</strong> saving your claimable hours in an <strong>unappealing spreadsheet</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>No more</strong> keeping notes about your students in a <strong>cluttered diary</strong>.</p>
+</div>
+<div class="paragraph">
+<p><strong>TA-Tracker</strong> is a <strong>productivity tool</strong> that is made for all you <strong>NUS SOC Teaching Assistants (TAs)</strong>
+who need to easily <strong>fill out forms</strong>, such as the <strong>TSS Claims Form</strong>, at the end of the semester.</p>
+</div>
+<div class="paragraph">
+<p><strong>TA-Tracker</strong> has features that will help you easily <strong>track and manage</strong>
+your <strong>claimable hours</strong> and <strong>students</strong> in <strong>one place</strong>.</p>
+</div>
+<div class="paragraph">
+<p>What&#8217;s more, <strong>TA-Tracker</strong> has:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>A <strong>Command Line Interface (CLI)</strong> for all you <strong>TAs</strong> who
+can type fast and prefer to use a keyboard, and</p>
+</li>
+<li>
+<p>A <strong>Graphical User Interface (GUI)</strong> so that
+you can easily view all your <strong>teaching duties</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If you are interested, jump to <a href="#quick-start">Section 2, &#8220;Quick Start&#8221;</a> to discover how easy it is to fill out forms using <strong>TA-Tracker</strong>.</p>
 </div>
 </div>
 </div>
@@ -148,11 +185,11 @@ the application.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This is what the GUI looks like when the TA-Tracker is opened.</p>
+<p>This is how the GUI may look like when the TA-Tracker is opened.</p>
 </div>
 </li>
 <li>
-<p>Type the command in the command box and press <kbd>Enter</kbd> to execute it.<br>
+<p>Type a command in the command box, and press <kbd>Enter</kbd> to execute it.<br>
 e.g. typing <strong><code>help</code></strong> and pressing <kbd>Enter</kbd> will open the help window.</p>
 </li>
 <li>
@@ -183,9 +220,9 @@ your data manually.
 the TA-Tracker to make your life as a Teaching Assistant easier.</p>
 </div>
 <div class="sect2">
-<h3 id="commonly-used-symbols"><a class="anchor" href="#commonly-used-symbols"></a><a class="link" href="#commonly-used-symbols">3.1. Commonly Used Symbols</a></h3>
+<h3 id="common-symbols"><a class="anchor" href="#common-symbols"></a><a class="link" href="#common-symbols">3.1. Common Symbols</a></h3>
 <div class="paragraph">
-<p>This section shows you the symbols commonly used in the User Guide.</p>
+<p>This section shows you the symbols commonly used in this guide.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -233,54 +270,140 @@ the TA-Tracker to make your life as a Teaching Assistant easier.</p>
 <div class="sect2">
 <h3 id="command-format"><a class="anchor" href="#command-format"></a><a class="link" href="#command-format">3.2. Command Format</a></h3>
 <div class="paragraph">
-<p>All the commands written in the user guide follow some rules that have been mentioned
-below. This will help you better understand how to use the commands.</p>
+<p>This section shows you how all the commands in this guide have been formatted.</p>
 </div>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 66.6667%;">
+<col style="width: 20%;">
+<col style="width: 30%;">
+<col style="width: 50%;">
 </colgroup>
 <thead>
 <tr>
-<th class="tableblock halign-left valign-top">Rule</th>
-<th class="tableblock halign-left valign-top">Examples</th>
+<th class="tableblock halign-left valign-top">Format</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+<th class="tableblock halign-left valign-top">Example</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Words in <code>UPPER_CASE</code> are the parameters to be supplied by the user.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In
-<code>student add n/NAME</code>, <code>NAME</code> is a parameter which can be used as <code>student add n/John Doe</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>lower_case/</code></p>
+</div>
+<div class="paragraph">
+<p>Any lower case letters, followed by a forward slash</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>These are <strong>prefixes</strong>.</p>
+</div>
+<div class="paragraph">
+<p>They are used to separate the different parameters of a command.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>These are prefixes:<br>
+<code>n/</code>, <code>d/</code>, <code>t/</code></p>
+</div>
+<div class="paragraph">
+<p>Note that prefixes <strong>cannot have spaces</strong>:<br>
+<code>n /</code> is <strong>not a prefix</strong>, and will not be recognized.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Items in square brackets are optional.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>n/NAME [t/TAG]</code> can be used as
-<code>n/John Doe t/Fast learner</code> or as <code>n/John Doe</code>.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>UPPER_CASE</code></p>
+</div>
+<div class="paragraph">
+<p>Words in upper case</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>These are <strong>parameters</strong>.</p>
+</div>
+<div class="paragraph">
+<p>You will need to supply parameters in order to complete certain commands.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>You can create a <strong>student</strong> with the name <strong>John Doe</strong> using the <code>student add</code> command.</p>
+</div>
+<div class="paragraph">
+<p>Suppose the <code>student add</code> command looks like this:<br>
+<code>student add n/NAME</code></p>
+</div>
+<div class="paragraph">
+<p>Simply replace <code>NAME</code> with <code>John Doe</code> to create the student <strong>John Doe</strong>:<br>
+<code>student add n/John Doe</code></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Items with <code>…</code>​ after them can be used multiple times or none at all.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">- Left Empty: <code>t/</code> (i.e. 0 times)</p>
-<p class="tableblock">- Used one time: <code>t/friend</code> (i.e. once)</p>
-<p class="tableblock">- Used multiple times: <code>t/friend t/family</code> (i.e. 2 times).</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>[UPPER_CASE]</code></p>
+</div>
+<div class="paragraph">
+<p>Words in upper case, surrounded by square brackets</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>These are <strong>optional parameters</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Certain commands can be used without these parameters.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Suppose a command contains <strong>two parameters</strong> next to each other:<br>
+<code>n/NAME [t/TAG]</code></p>
+</div>
+<div class="paragraph">
+<p>The <strong>first parameter</strong> <code>NAME</code> is <strong>compulsory</strong>.<br>
+The <strong>second parameter</strong> <code>TAG</code> is <strong>optional</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Since a <code>TAG</code> is <strong>optional</strong>, you will be able to use the command with these <strong>inputs</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/John Doe t/Fast learner</code>, or</p>
+</li>
+<li>
+<p><code>n/John Doe</code></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If you use a prefix without <code>&#8230;&#8203;</code> mentioned multiple times, TA-Tracker only will accept
-the last instance of the prefix.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In the command <code>module add m/CS2103T n/SE n/Software Engineering</code> ,
-a module with the module code <code>CS2013T</code> and name <code>Software Engineering</code> will be created.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If you separate the the prefix letter and <code>/</code> while writing a command, TA-Tracker
-will not recognise the prefix.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">In the command <code>module add m/CS2103T
-n /Software Engineering</code> , TA-Tracker doesn&#8217;t recognise <code>n /</code> to be the same
-as <code>n/</code> and you&#8217;ll get an error message saying that the command format used is wrong.</p></td>
-</tr>
-<tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Parameters can be in any order.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">If the command specifies <code>n/NAME p/PHONE_NUMBER</code>,
-<code>p/PHONE_NUMBER n/NAME</code> is also acceptable.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>UPPER_CASE&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p><code>[UPPER_CASE]&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>An ellipsis <code>&#8230;&#8203;</code> following any words in upper case</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>These are parameters that can be used <strong>multiple times</strong> or <strong>none at all</strong>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The following parameter can be used <strong>multiple times</strong>:<br>
+<code>t/TAG&#8230;&#8203;</code></p>
+</div>
+<div class="paragraph">
+<p>This means that it can be:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Left empty</strong> (i.e. 0 times):<br>
+<code>t/</code></p>
+</li>
+<li>
+<p><strong>Used one time</strong> (i.e. 1 time):<br>
+<code>t/friend</code></p>
+</li>
+<li>
+<p><strong>Used multiple times</strong> (i.e. 2 or more times):<br>
+<code>t/friend t/family</code></p>
+</li>
+</ul>
+</div></div></td>
 </tr>
 </tbody>
 </table>
@@ -305,116 +428,385 @@ as <code>n/</code> and you&#8217;ll get an error message saying that the command
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>TAB_NAME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to the different <code>tab</code> names.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>student</strong> - to indicate the <strong>Student View</strong></p>
-<p class="tableblock"><strong>session</strong> - to indicate the <strong>Session View</strong></p>
-<p class="tableblock"><strong>claims</strong> - to indicate the <strong>Claims View</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>TAB_NAME</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>This refers to the different <code>tab</code> names.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>student</strong> - to indicate the <strong>Student View</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>session</strong> - to indicate the <strong>Session View</strong></p>
+</div>
+<div class="paragraph">
+<p><strong>claims</strong> - to indicate the <strong>Claims View</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>INDEX</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the position of an item in a list</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1</strong> - refers to the
-first item in a list</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>INDEX</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the position of an item in a list</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>1</strong> - refers to the
+first item in a list</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MATRIC_NUMBER</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the matriculation number of a student.</p>
-<p class="tableblock">It must start with an A, have 7 numbers in between and end with an alphabet.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>A0123456X</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>MOD_CODE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the unique code given to the module.</p>
+</div>
+<div class="paragraph">
+<p>You can personalise this and give it your own code. However, we recommend you
+use the module&#8217;s official code.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>CS2103T</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>MOD_CODE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the unique code given to the module.</p>
-<p class="tableblock">You can personalise this and give it your own code. However, we recommend you
-use the module&#8217;s official code.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>CS2103T</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>GROUP_CODE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the unique code given to the group.</p>
+</div>
+<div class="paragraph">
+<p>You can personalise this and create your own code. However, we recommend that you use
+the group&#8217;s official code assigned by SoC</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>G06</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NAME</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Depending on the command, this could either refer to the student&#8217;s name
-or the module&#8217;s name.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>John Doe</strong> or <strong>Software Engineering</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>NEW_GROUP_CODE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the new group code of a group when you edit a group.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>G05</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GROUP_CODE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the unique code given to the group.</p>
-<p class="tableblock">You can personalise this and create your own code. However, we recommend that you use
-the group&#8217;s official code assigned by SoC</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>G06</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>GROUP_TYPE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the group type.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>lab</strong>, <strong>tutorial</strong>, <strong>recitation</strong> or <strong>other</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NEW_GROUP_CODE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the new group code of a group when you edit a group.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>G05</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>NEW_GROUP_TYPE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the new group type you want a group to be.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>lab</strong>, <strong>tutorial</strong>,
+<strong>recitation</strong> or <strong>other</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>GROUP_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the group type.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lab</strong>, <strong>tutorial</strong>, <strong>recitation</strong> or <strong>other</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>MATRIC_NUMBER</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the matriculation number of a student.</p>
+</div>
+<div class="paragraph">
+<p>It must start with an A, have 7 numbers in between and end with an alphabet.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>A0123456X</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NEW_GROUP_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the new group type you want a group to be.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>lab</strong>, <strong>tutorial</strong>,
-<strong>recitation</strong> or <strong>other</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>NAME</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Depending on the command, this could either refer to the student&#8217;s name
+or the module&#8217;s name.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>John Doe</strong> or <strong>Software Engineering</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SORT_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to how you want to sort the <strong>Student View</strong>.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>alpha</strong>, <strong>alphabetical</strong> or <strong>alphabetically</strong> to sort alphabetically.</p>
-<p class="tableblock"><strong>rating asc</strong> to sort by rating in ascending order.</p>
-<p class="tableblock"><strong>rating desc</strong> to sort by rating in descending order.</p>
-<p class="tableblock"><strong>matric</strong> to sort by matriculation number.</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>SORT_TYPE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to how you want to sort the <strong>Student View</strong>.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>alpha</strong>, <strong>alphabetical</strong> or <strong>alphabetically</strong> - to sort alphabetically.</p>
+</div>
+<div class="paragraph">
+<p><strong>rating asc</strong> - to sort by rating in ascending order.</p>
+</div>
+<div class="paragraph">
+<p><strong>rating desc</strong> - to sort by rating in descending order.</p>
+</div>
+<div class="paragraph">
+<p><strong>matric</strong> - to sort by matriculation number.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>SESSION_TYPE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to the type of session.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>consult</strong> - consultation</p>
-<p class="tableblock"><strong>tutorial</strong> - tutorial</p>
-<p class="tableblock"><strong>lab</strong> - lab</p>
-<p class="tableblock"><strong>grading</strong> - grading assignments, projects or assessments</p>
-<p class="tableblock"><strong>prep</strong> - class preparation</p>
-<p class="tableblock"><strong>todo</strong> - other tasks and notes</p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>SESSION_TYPE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to the type of session.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>consult</strong> - consultation</p>
+</div>
+<div class="paragraph">
+<p><strong>tutorial</strong> - tutorial</p>
+</div>
+<div class="paragraph">
+<p><strong>lab</strong> - lab</p>
+</div>
+<div class="paragraph">
+<p><strong>grading</strong> - grading assignments, projects or assessments</p>
+</div>
+<div class="paragraph">
+<p><strong>prep</strong> - class preparation</p>
+</div>
+<div class="paragraph">
+<p><strong>todo</strong> - other tasks and notes</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>NOTES</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Refers to any extra description</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>This time was spent correcting 40 assignments&#8230;&#8203;</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>NOTES</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Refers to any extra description</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>This time was spent correcting 40 assignments</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>START</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the starting time. Must be in the <code>HH:mm</code> format.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>10:42</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>START</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the starting time. Must be in the <code>HH:mm</code> format.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>10:42</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>END</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the ending time. Must be in the <code>HH:mm</code> format.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>11:42</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>END</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the ending time. Must be in the <code>HH:mm</code> format.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>16:42</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>DATE</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the date of a session. Must be in the <code>yyyy-MM-dd</code> format.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>2020-06-20</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>DATE</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the date of a session. Must be in the <code>yyyy-MM-dd</code> format.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>2020-06-20</strong></p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>WEEK</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the recurring period of sessions.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>1</strong></p></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>WEEK</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the recurring period of a session.</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>1</strong> - represents a session that repeats every week.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>&#8594;</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates that the command has more parameters than specified.</p>
-<p class="tableblock">These missing parameters will be stated in a later section of the guide.</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>RATING</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the rating of a student.</p>
+</div>
+<div class="paragraph">
+<p>A rating is as a number between 1 (Poor) to 5 (Excellent).</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>3</strong> - represents an average student rating.</p>
+</div></div></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>./</code></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Indicates the presence of a tag that will be specified in a late section of the guide.</p></td>
-<td class="tableblock halign-left valign-top"></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>EMAIL</code></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Indicates the email of a student.</p>
+</div>
+<div class="paragraph">
+<p>Emails should be in <code>local-part@domain format</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>local-part</code> can only contain:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Alphanumeric characters, and</p>
+</li>
+<li>
+<p>The following special characters:<br>
+!#$%&amp;'*+/=?`{|}~^.-</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The <code>domain</code> can only contain:
+* Alphanumeric characters
+* * The following special characters in between:<br>
+.-</p>
+</div>
+<div class="paragraph">
+<p>The domain name must also:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Have at least 2 characters</p>
+</li>
+<li>
+<p>Start and end with alphanumeric characters</p>
+</li>
+</ul>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>johnDoe97@example123.com</strong></p>
+</div></div></td>
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="duplicate-parameters"><a class="anchor" href="#duplicate-parameters"></a><a class="link" href="#duplicate-parameters">3.3.1. Duplicate Parameters</a></h4>
+<div class="paragraph">
+<p>You can specify the same parameter <strong>more than once</strong> in a command.
+Depending on the command, you will see <strong>different outcomes</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Here is a table explaining the different outcomes:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 30%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Parameter</th>
+<th class="tableblock halign-left valign-top">Explanation</th>
+<th class="tableblock halign-left valign-top">Example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Can be used multiple times</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>All occurrences</strong> will be used when executing the command</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>In the <code>student add</code> command, you can create a <strong>student</strong> with <strong>multiple tags</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Therefore, you can input multiple tags by chaining them:<br>
+<code>t/needs help t/aka henry</code></p>
+</div>
+<div class="paragraph">
+<p>This will give a student the tags <code>needs help</code> and <code>aka henry</code>.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Can only be used once</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The very <strong>last occurrence</strong> will be used when executing the command</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><code>module add m/CS2103T n/SE n/Software Engineering</code></p>
+</div>
+<div class="paragraph">
+<p>If you execute this command, you will create a <strong>module</strong> with the name <code>Software Engineering</code>.</p>
+</div>
+<div class="paragraph">
+<p>The name <code>SE</code> will be ignored.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect3">
+<h4 id="rearranging-parameters"><a class="anchor" href="#rearranging-parameters"></a><a class="link" href="#rearranging-parameters">3.3.2. Rearranging Parameters</a></h4>
+<div class="paragraph">
+<p>Parameters can be in <strong>any order</strong> if they have <strong>prefixes</strong>.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a command needs a <code>n/NAME</code> and <code>p/PHONE_NUMBER</code>, you can specify them in any order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>n/NAME p/PHONE_NUMBER</code>, or</p>
+</li>
+<li>
+<p><code>p/PHONE_NUMBER n/NAME</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>However, if the command has a parameter <strong>without a prefix</strong>, that parameter <strong>must</strong> be
+the very <strong>first parameter</strong>.</p>
+</div>
+<div class="paragraph">
+<p>For example, if a command needs an <code>INDEX</code>, it must be the <strong>first parameter</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>INDEX n/NAME</code> is valid, but</p>
+</li>
+<li>
+<p><code>n/NAME INDEX</code> is invalid</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -422,14 +814,30 @@ the group&#8217;s official code assigned by SoC</p></td>
 <h2 id="Layout"><a class="anchor" href="#Layout"></a><a class="link" href="#Layout">4. Layout</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This is a brief overview of the layout of the TA-Tracker. The TA-Tracker is divided
-into three different views - the <strong>Student View</strong>, the <strong>Session View</strong> and the <strong>Claims View</strong>.
-Each of the views correspond to their following <code>tab</code> header.</p>
+<p>This section gives you a brief overview of the layout of the <strong>TA-Tracker</strong>.</p>
 </div>
 <div class="paragraph">
-<p>When you enter a new command, you will be automatically switched to the relevant <code>tab</code>
-so that you can instantly see the command results. The <code>tab</code> will also be highlighted in
-orange.</p>
+<p><strong>TA-Tracker</strong> is divided into three <code>tabs</code> representing the different <strong>Views</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <strong>Student View</strong> under the <code>student tab</code>,</p>
+</li>
+<li>
+<p>The <strong>Session View</strong> under the <code>session tab</code>, and</p>
+</li>
+<li>
+<p>The <strong>Claims View</strong> under the <code>claims tab</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When you switch to a <code>tab</code>, that <code>tab</code> will be highlighted in orange.</p>
+</div>
+<div class="paragraph">
+<p>Furthermore, when you enter a new command, you will be automatically switched to the relevant <code>tab</code>
+so that you can instantly see the result of the command.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -441,18 +849,30 @@ orange.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>You can click on a <code>tab</code> header to change the currently shown <strong>View</strong>. The new <code>tab</code>
-will be highlighted in blue.</p>
+<p>You can <strong>select</strong> a <code>tab</code> to show a different <strong>View</strong>.
+This <code>tab</code> will be highlighted in <strong>blue</strong>.</p>
 </li>
 <li>
-<p>The <code>tab</code> that you were switched to when you enter commands will remain highlighted
-in orange even if you click on other <code>tabs</code>. That way, it is easier for you to remember
-where you last made changes to TA-Tracker.</p>
+<p>If you are <strong>switched</strong> to a <code>tab</code> when you <strong>enter a command</strong>,
+that <code>tab</code> will be highlighted in <strong>orange</strong>.<br></p>
+<div class="paragraph">
+<p>This should help you easily remember
+where you last made a change in <strong>TA-Tracker</strong>.</p>
+</div>
 </li>
 <li>
-<p>You may notice that the orange and blue highlights for the <code>tab</code> headers are not
-horizontally aligned.This is to prevent the highlights from overlapping each other,
+<p>You will sometimes see the <code>tabs</code> highlighted in both <strong>orange</strong> and <strong>blue</strong>.<br></p>
+<div class="paragraph">
+<p>The <strong>orange</strong> <code>tab</code> will remain highlighted even if you select another <code>tab</code>.</p>
+</div>
+</li>
+<li>
+<p>You may notice that the <strong>orange</strong> and <strong>blue</strong> highlights for the <code>tabs</code> are <strong>not
+the same size</strong>.<br></p>
+<div class="paragraph">
+<p>This is to <strong>prevent</strong> the highlights from <strong>overlapping</strong> each other,
 allowing you to see them better.</p>
+</div>
 </li>
 </ul>
 </div>
@@ -592,63 +1012,192 @@ assistant for.</p>
 <h2 id="Usage"><a class="anchor" href="#Usage"></a><a class="link" href="#Usage">5. Usage</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>You can interact with TA-Tracker using <code>CLI</code> commands!</p>
+<p>This section describes how you can interact with <strong>TA-Tracker</strong>.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
+<div class="sect2">
+<h3 id="keyboard-shortcuts"><a class="anchor" href="#keyboard-shortcuts"></a><a class="link" href="#keyboard-shortcuts">5.1. Keyboard Shortcuts</a></h3>
 <div class="paragraph">
-<p>As you type a command:</p>
+<p>You can navigate everything in <strong>TA-Tracker</strong> with just a <strong>keyboard</strong>!</p>
 </div>
-<div class="ulist">
+<div class="paragraph">
+<p>Here are some keyboard shortcuts that you can use:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 20%;">
+<col style="width: 80%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Shortcut Key</th>
+<th class="tableblock halign-left valign-top">Usages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><kbd>Esc</kbd></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
-<p><strong>valid inputs</strong> will be highlighted in <code>green</code></p>
+<p><strong>Toggle</strong> between the <code>command box</code> and the <strong>Views</strong>.</p>
 </li>
 <li>
-<p><strong>invalid inputs</strong> will be highlighted in <code>red</code></p>
+<p><strong>Close</strong> a popup window.</p>
 </li>
 </ul>
-</div>
-<div class="paragraph">
-<p>By <strong>default</strong> the font colour is <code>white</code>. You will see this colour when you use whitespaces between words in your input.</p>
-</div>
-</td>
+</div></div></td>
 </tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
 <tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You will also see some helpful information when you are typing out a command:</p>
-</div>
-<div class="ulist">
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><kbd>↑</kbd> <code>up</code><br>
+<kbd>↓</kbd> <code>down</code><br>
+arrow keys</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
 <ul>
 <li>
-<p><strong>The command usage</strong> will be appear when you <code><em>first type the command word</em></code>, and after <code><em>every two whitespaces</em></code>.</p>
-</li>
-<li>
-<p><strong>The first invalid prefix</strong> of your commands will be indicated.</p>
+<p><strong>Scroll</strong> through a list<br>
+(you must toggle out of the <code>command box</code> in order to use this shortcut)</p>
 </li>
 </ul>
-</div>
-</td>
+</div></div></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><kbd>←</kbd> <code>left</code><br>
+<kbd>→</kbd> <code>right</code><br>
+arrow keys</p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p><strong>Navigate</strong> between <strong>different lists</strong> in the same <strong>View</strong>.<br>
+(you must toggle out of the <code>command box</code> in order to use this shortcut)</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
 </table>
 </div>
 <div class="sect2">
-<h3 id="navigation"><a class="anchor" href="#navigation"></a><a class="link" href="#navigation">5.1. Navigation</a></h3>
+<h3 id="syntax-highlighting"><a class="anchor" href="#syntax-highlighting"></a><a class="link" href="#syntax-highlighting">5.2. Syntax Highlighting</a></h3>
+<div class="paragraph">
+<p>When you type a command into the <code>command box</code>, your input will be <strong>highlighted</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Here is a table explaining the meaning of each colour:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Colour</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>green</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Valid</strong> input.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>red</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>Invalid</strong> input.</p>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p><strong>white</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>The <strong>default</strong> font colour.</p>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="hints"><a class="anchor" href="#hints"></a><a class="link" href="#hints">5.3. Hints</a></h3>
+<div class="paragraph">
+<p>When you type out a command, you will also see <code>hints</code> about how to use the command.</p>
+</div>
+<div class="paragraph">
+<p>Here is a table describing the different types of hints that you will encounter:</p>
+</div>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 10%;">
+<col style="width: 90%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Hint</th>
+<th class="tableblock halign-left valign-top">Trigger</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Showing the <strong>command usage</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>When you <strong>first type out</strong> the <code>command word</code>.</p>
+</li>
+<li>
+<p>After typing <strong>two whitespaces</strong> in a row.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><div><div class="paragraph">
+<p>Showing the <strong>parameter usage</strong></p>
+</div></div></td>
+<td class="tableblock halign-left valign-top"><div><div class="ulist">
+<ul>
+<li>
+<p>When you <strong>first type out</strong> a <strong>valid prefix</strong>.</p>
+</li>
+<li>
+<p>When there is an <strong>invalid prefix</strong> in your command.</p>
+</li>
+</ul>
+</div></div></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="Commands"><a class="anchor" href="#Commands"></a><a class="link" href="#Commands">6. Commands</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section explains how to use all the <code>CLI</code> commands in <strong>TA-Tracker</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="navigation"><a class="anchor" href="#navigation"></a><a class="link" href="#navigation">6.1. Navigation</a></h3>
+<div class="paragraph">
+<p>These commands are used to control the different <strong>windows</strong> in <strong>TA-Tracker</strong>,
+as well as switching between the different <strong>Views</strong>.</p>
+</div>
 <div class="sect3">
-<h4 id="viewing-help-code-help-code"><a class="anchor" href="#viewing-help-code-help-code"></a><a class="link" href="#viewing-help-code-help-code">5.1.1. Viewing help : <code>help</code></a></h4>
+<h4 id="viewing-help-code-help-code"><a class="anchor" href="#viewing-help-code-help-code"></a><a class="link" href="#viewing-help-code-help-code">6.1.1. Viewing help : <code>help</code></a></h4>
 <div class="paragraph">
 <p>You can open the <code>help window</code> with this command. You can close the <code>help window</code> by pressing the <code>ESC</code> key
 on your keyboard.</p>
@@ -658,7 +1207,7 @@ on your keyboard.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="switching-tabs-code-goto-code"><a class="anchor" href="#switching-tabs-code-goto-code"></a><a class="link" href="#switching-tabs-code-goto-code">5.1.2. Switching tabs : <code>goto</code></a></h4>
+<h4 id="switching-tabs-code-goto-code"><a class="anchor" href="#switching-tabs-code-goto-code"></a><a class="link" href="#switching-tabs-code-goto-code">6.1.2. Switching tabs : <code>goto</code></a></h4>
 <div class="paragraph">
 <p>You can switch to different <code>tabs</code> with this command to show their associated <strong>view</strong>.</p>
 </div>
@@ -698,7 +1247,7 @@ on your keyboard.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="exiting-the-program-code-exit-code"><a class="anchor" href="#exiting-the-program-code-exit-code"></a><a class="link" href="#exiting-the-program-code-exit-code">5.1.3. Exiting the program : <code>exit</code></a></h4>
+<h4 id="exiting-the-program-code-exit-code"><a class="anchor" href="#exiting-the-program-code-exit-code"></a><a class="link" href="#exiting-the-program-code-exit-code">6.1.3. Exiting the program : <code>exit</code></a></h4>
 <div class="paragraph">
 <p>You can exit the program with this command.</p>
 </div>
@@ -708,12 +1257,12 @@ on your keyboard.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="student-view-2"><a class="anchor" href="#student-view-2"></a><a class="link" href="#student-view-2">5.2. Student View</a></h3>
+<h3 id="student-view-2"><a class="anchor" href="#student-view-2"></a><a class="link" href="#student-view-2">6.2. Student View</a></h3>
 <div class="paragraph">
 <p>This section explains all the commands you can use in the <strong>Student View</strong>.</p>
 </div>
 <div class="sect3">
-<h4 id="AddModule"><a class="anchor" href="#AddModule"></a><a class="link" href="#AddModule">5.2.1. Adding a Module : <code>module add</code></a></h4>
+<h4 id="AddModule"><a class="anchor" href="#AddModule"></a><a class="link" href="#AddModule">6.2.1. Adding a Module : <code>module add</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to add a new module to the TA-Tracker.</p>
 </div>
@@ -797,7 +1346,7 @@ to the TA-Tracker.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="DeleteModule"><a class="anchor" href="#DeleteModule"></a><a class="link" href="#DeleteModule">5.2.2. Deleting a Module : <code>module delete</code></a></h4>
+<h4 id="DeleteModule"><a class="anchor" href="#DeleteModule"></a><a class="link" href="#DeleteModule">6.2.2. Deleting a Module : <code>module delete</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to delete a module from the TA-Tracker.</p>
 </div>
@@ -851,7 +1400,7 @@ If you were on a different <code>tab</code>, you will automatically be switched 
 </div>
 </div>
 <div class="sect3">
-<h4 id="EditModule"><a class="anchor" href="#EditModule"></a><a class="link" href="#EditModule">5.2.3. Editing a Module : <code>module edit</code></a></h4>
+<h4 id="EditModule"><a class="anchor" href="#EditModule"></a><a class="link" href="#EditModule">6.2.3. Editing a Module : <code>module edit</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to edit a module&#8217;s name in the TA-Tracker.</p>
 </div>
@@ -911,7 +1460,7 @@ groups inside the module.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="AddGroup"><a class="anchor" href="#AddGroup"></a><a class="link" href="#AddGroup">5.2.4. Adding a Group : <code>group add</code></a></h4>
+<h4 id="AddGroup"><a class="anchor" href="#AddGroup"></a><a class="link" href="#AddGroup">6.2.4. Adding a Group : <code>group add</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to add a group to the TA-Tracker.</p>
 </div>
@@ -975,7 +1524,7 @@ has module code <code>CS2103</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="DeleteGroup"><a class="anchor" href="#DeleteGroup"></a><a class="link" href="#DeleteGroup">5.2.5. Deleting a Group : <code>group delete</code></a></h4>
+<h4 id="DeleteGroup"><a class="anchor" href="#DeleteGroup"></a><a class="link" href="#DeleteGroup">6.2.5. Deleting a Group : <code>group delete</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to delete a group from the TA-Tracker.</p>
 </div>
@@ -1035,7 +1584,7 @@ has module code <code>CS2103</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="EditGroup"><a class="anchor" href="#EditGroup"></a><a class="link" href="#EditGroup">5.2.6. Editing a Group : <code>group edit</code></a></h4>
+<h4 id="EditGroup"><a class="anchor" href="#EditGroup"></a><a class="link" href="#EditGroup">6.2.6. Editing a Group : <code>group edit</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to edit a group in the TA-Tracker.</p>
 </div>
@@ -1103,7 +1652,7 @@ module code <code>CS2103</code>, to be a <code>tutorial</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">5.2.7. Adding a Student : <code>student add</code></a></h4>
+<h4 id="AddStudent"><a class="anchor" href="#AddStudent"></a><a class="link" href="#AddStudent">6.2.7. Adding a Student : <code>student add</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to add a new student to the TA-Tracker.</p>
 </div>
@@ -1197,7 +1746,7 @@ in 5.2.9.)</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">5.2.8. Deleting a Student : <code>student delete</code></a></h4>
+<h4 id="DeleteStudent"><a class="anchor" href="#DeleteStudent"></a><a class="link" href="#DeleteStudent">6.2.8. Deleting a Student : <code>student delete</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to delete a student from the TA-Tracker.</p>
 </div>
@@ -1254,7 +1803,7 @@ the module <code>CS2103</code>.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="EditStudent"><a class="anchor" href="#EditStudent"></a><a class="link" href="#EditStudent">5.2.9. Editing a Student : <code>student edit</code></a></h4>
+<h4 id="EditStudent"><a class="anchor" href="#EditStudent"></a><a class="link" href="#EditStudent">6.2.9. Editing a Student : <code>student edit</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to edit a student in the TA-Tracker.</p>
 </div>
@@ -1364,7 +1913,7 @@ If you were on a different <code>tab</code>, you will automatically be switched 
 </div>
 </div>
 <div class="sect3">
-<h4 id="Sort"><a class="anchor" href="#Sort"></a><a class="link" href="#Sort">5.2.10. Sorting a Group : <code>sort group</code></a></h4>
+<h4 id="Sort"><a class="anchor" href="#Sort"></a><a class="link" href="#Sort">6.2.10. Sorting a Group : <code>sort group</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to chose how you want to sort your students in a specific group.
 The students will be sorted according to your specified <code>SORT_TYPE</code>.</p>
@@ -1441,7 +1990,7 @@ If you were on a different <code>tab</code>, you will automatically be switched 
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-a-module-code-sort-module-code"><a class="anchor" href="#sorting-a-module-code-sort-module-code"></a><a class="link" href="#sorting-a-module-code-sort-module-code">5.2.11. Sorting a Module : <code>sort module</code></a></h4>
+<h4 id="sorting-a-module-code-sort-module-code"><a class="anchor" href="#sorting-a-module-code-sort-module-code"></a><a class="link" href="#sorting-a-module-code-sort-module-code">6.2.11. Sorting a Module : <code>sort module</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to chose how you want to sort your students in a specific module.
 The students will be sorted according to your specified <code>SORT_TYPE</code>.</p>
@@ -1517,7 +2066,7 @@ If you were on a different <code>tab</code>, you will automatically be switched 
 </div>
 </div>
 <div class="sect3">
-<h4 id="sorting-everything-code-sort-all-code"><a class="anchor" href="#sorting-everything-code-sort-all-code"></a><a class="link" href="#sorting-everything-code-sort-all-code">5.2.12. Sorting Everything : <code>sort all</code></a></h4>
+<h4 id="sorting-everything-code-sort-all-code"><a class="anchor" href="#sorting-everything-code-sort-all-code"></a><a class="link" href="#sorting-everything-code-sort-all-code">6.2.12. Sorting Everything : <code>sort all</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to chose how you want to sort all of your students.
 The students will be sorted according to your specified <code>SORT_TYPE</code>.</p>
@@ -1590,7 +2139,7 @@ If you were on a different <code>tab</code>, you will automatically be switched 
 </div>
 </div>
 <div class="sect3">
-<h4 id="FilterStudent"><a class="anchor" href="#FilterStudent"></a><a class="link" href="#FilterStudent">5.2.13. Filter : <code>filter</code></a></h4>
+<h4 id="FilterStudent"><a class="anchor" href="#FilterStudent"></a><a class="link" href="#FilterStudent">6.2.13. Filter : <code>filter</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to see the students in a particular group
 and module.</p>
@@ -1716,12 +2265,12 @@ particular module.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="session-view-2"><a class="anchor" href="#session-view-2"></a><a class="link" href="#session-view-2">5.3. Session View</a></h3>
+<h3 id="session-view-2"><a class="anchor" href="#session-view-2"></a><a class="link" href="#session-view-2">6.3. Session View</a></h3>
 <div class="paragraph">
 <p>This section explains the different commands that can be used in the <strong>Session View</strong>.</p>
 </div>
 <div class="sect3">
-<h4 id="AddSession"><a class="anchor" href="#AddSession"></a><a class="link" href="#AddSession">5.3.1. Adding a Session : <code>session add</code></a></h4>
+<h4 id="AddSession"><a class="anchor" href="#AddSession"></a><a class="link" href="#AddSession">6.3.1. Adding a Session : <code>session add</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to add a new session.</p>
 </div>
@@ -1811,7 +2360,7 @@ be created with <code>DATE d/2020-07-04</code> (2 weeks later from the date of t
 </div>
 </div>
 <div class="sect3">
-<h4 id="deleting-a-session-code-session-delete-code"><a class="anchor" href="#deleting-a-session-code-session-delete-code"></a><a class="link" href="#deleting-a-session-code-session-delete-code">5.3.2. Deleting a Session : <code>session delete</code></a></h4>
+<h4 id="deleting-a-session-code-session-delete-code"><a class="anchor" href="#deleting-a-session-code-session-delete-code"></a><a class="link" href="#deleting-a-session-code-session-delete-code">6.3.2. Deleting a Session : <code>session delete</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to delete a session at a specific <code>index</code>.</p>
 </div>
@@ -1854,7 +2403,7 @@ be created with <code>DATE d/2020-07-04</code> (2 weeks later from the date of t
 </div>
 </div>
 <div class="sect3">
-<h4 id="editing-a-session-code-session-edit-code"><a class="anchor" href="#editing-a-session-code-session-edit-code"></a><a class="link" href="#editing-a-session-code-session-edit-code">5.3.3. Editing a Session : <code>session edit</code></a></h4>
+<h4 id="editing-a-session-code-session-edit-code"><a class="anchor" href="#editing-a-session-code-session-edit-code"></a><a class="link" href="#editing-a-session-code-session-edit-code">6.3.3. Editing a Session : <code>session edit</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to edit a session in the TA-Tracker.</p>
 </div>
@@ -1924,7 +2473,7 @@ be created with <code>DATE d/2020-07-04</code> (2 weeks later from the date of t
 </div>
 </div>
 <div class="sect3">
-<h4 id="marking-a-session-as-done-code-session-done-code"><a class="anchor" href="#marking-a-session-as-done-code-session-done-code"></a><a class="link" href="#marking-a-session-as-done-code-session-done-code">5.3.4. Marking a Session as Done : <code>session done</code></a></h4>
+<h4 id="marking-a-session-as-done-code-session-done-code"><a class="anchor" href="#marking-a-session-as-done-code-session-done-code"></a><a class="link" href="#marking-a-session-as-done-code-session-done-code">6.3.4. Marking a Session as Done : <code>session done</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to mark a session as done.</p>
 </div>
@@ -1960,7 +2509,7 @@ This will mark the 25th session in the <strong>Session View</strong> as done.</p
 </div>
 </div>
 <div class="sect3">
-<h4 id="filter-code-filter-code"><a class="anchor" href="#filter-code-filter-code"></a><a class="link" href="#filter-code-filter-code">5.3.5. Filter : <code>filter</code></a></h4>
+<h4 id="filter-code-filter-code"><a class="anchor" href="#filter-code-filter-code"></a><a class="link" href="#filter-code-filter-code">6.3.5. Filter : <code>filter</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to filter the sessions in the <strong>Session View</strong>.</p>
 </div>
@@ -2022,9 +2571,9 @@ session type  ‘Tutorial` will be shown.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="claims-view-2"><a class="anchor" href="#claims-view-2"></a><a class="link" href="#claims-view-2">5.4. Claims View</a></h3>
+<h3 id="claims-view-2"><a class="anchor" href="#claims-view-2"></a><a class="link" href="#claims-view-2">6.4. Claims View</a></h3>
 <div class="sect3">
-<h4 id="filter-code-filter-code-2"><a class="anchor" href="#filter-code-filter-code-2"></a><a class="link" href="#filter-code-filter-code-2">5.4.1. Filter : <code>filter</code></a></h4>
+<h4 id="filter-code-filter-code-2"><a class="anchor" href="#filter-code-filter-code-2"></a><a class="link" href="#filter-code-filter-code-2">6.4.1. Filter : <code>filter</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to filters sessions in the <strong>Claims View</strong> by the module code.</p>
 </div>
@@ -2056,7 +2605,7 @@ session type  ‘Tutorial` will be shown.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="setrate"><a class="anchor" href="#setrate"></a><a class="link" href="#setrate">5.4.2. Changing the hourly rate : <code>setrate</code></a></h4>
+<h4 id="setrate"><a class="anchor" href="#setrate"></a><a class="link" href="#setrate">6.4.2. Changing the hourly rate : <code>setrate</code></a></h4>
 <div class="paragraph">
 <p>Sets the hourly rate for the total income and claim computation.</p>
 </div>
@@ -2102,9 +2651,9 @@ Sets the current hourly rate to $25.00.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics-window"><a class="anchor" href="#statistics-window"></a><a class="link" href="#statistics-window">5.5. Statistics Window</a></h3>
+<h3 id="statistics-window"><a class="anchor" href="#statistics-window"></a><a class="link" href="#statistics-window">6.5. Statistics Window</a></h3>
 <div class="sect3">
-<h4 id="generate-statistic-report-code-report-code"><a class="anchor" href="#generate-statistic-report-code-report-code"></a><a class="link" href="#generate-statistic-report-code-report-code">5.5.1. Generate Statistic Report : <code>report</code></a></h4>
+<h4 id="generate-statistic-report-code-report-code"><a class="anchor" href="#generate-statistic-report-code-report-code"></a><a class="link" href="#generate-statistic-report-code-report-code">6.5.1. Generate Statistic Report : <code>report</code></a></h4>
 <div class="paragraph">
 <p>You can use this command to generate a report to display information such as:</p>
 </div>
@@ -2143,7 +2692,7 @@ Sets the current hourly rate to $25.00.</p>
 <p>Similar to the <strong>Claims View</strong>, the report will only display sessions that have been marked as done.</p>
 </li>
 <li>
-<p><code>Total Claimable Hours</code> is computed using the current specified <code>rate</code>. See <a href="#setrate">Section 5.4.2, &#8220;Changing the hourly rate : <code>setrate</code>&#8221;</a>.</p>
+<p><code>Total Claimable Hours</code> is computed using the current specified <code>rate</code>. See <a href="#setrate">Section 6.4.2, &#8220;Changing the hourly rate : <code>setrate</code>&#8221;</a>.</p>
 </li>
 </ul>
 </div>
@@ -2175,7 +2724,7 @@ Sets the current hourly rate to $25.00.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="glossary"><a class="anchor" href="#glossary"></a><a class="link" href="#glossary">6. GLOSSARY</a></h2>
+<h2 id="glossary"><a class="anchor" href="#glossary"></a><a class="link" href="#glossary">7. Glossary</a></h2>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
@@ -2262,7 +2811,7 @@ students, for discussion of a subject that is being studied.</p></td>
 </div>
 </div>
 <div class="sect1">
-<h2 id="faq"><a class="anchor" href="#faq"></a><a class="link" href="#faq">7. FAQ</a></h2>
+<h2 id="faq"><a class="anchor" href="#faq"></a><a class="link" href="#faq">8. FAQ</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><strong>Q</strong>: How can I transfer my data to another Computer?<br>
@@ -2272,28 +2821,28 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 <div class="sect1">
-<h2 id="command-summary"><a class="anchor" href="#command-summary"></a><a class="link" href="#command-summary">8. Command Summary</a></h2>
+<h2 id="command-summary"><a class="anchor" href="#command-summary"></a><a class="link" href="#command-summary">9. Command Summary</a></h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="navigation-2"><a class="anchor" href="#navigation-2"></a><a class="link" href="#navigation-2">8.1. Navigation</a></h3>
+<h3 id="navigation-2"><a class="anchor" href="#navigation-2"></a><a class="link" href="#navigation-2">9.1. Navigation</a></h3>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Viewing Help:</strong> <code>help</code></p>
+<p><strong>View Help:</strong> <code>help</code></p>
 </li>
 <li>
-<p><strong>Switching tabs:</strong> <code>goto TAB_NAME</code></p>
+<p><strong>Switch Tabs:</strong> <code>goto TAB_NAME</code></p>
 </li>
 <li>
-<p><strong>Exiting the program:</strong> <code>exit</code></p>
+<p><strong>Exit the Program:</strong> <code>exit</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="student-view-3"><a class="anchor" href="#student-view-3"></a><a class="link" href="#student-view-3">8.2. Student View</a></h3>
+<h3 id="student-view-3"><a class="anchor" href="#student-view-3"></a><a class="link" href="#student-view-3">9.2. Student View</a></h3>
 <div class="sect3">
-<h4 id="module-commands"><a class="anchor" href="#module-commands"></a><a class="link" href="#module-commands">8.2.1. Module commands</a></h4>
+<h4 id="module-commands"><a class="anchor" href="#module-commands"></a><a class="link" href="#module-commands">9.2.1. Module commands</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2309,14 +2858,14 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 <div class="sect3">
-<h4 id="group-commands"><a class="anchor" href="#group-commands"></a><a class="link" href="#group-commands">8.2.2. Group commands</a></h4>
+<h4 id="group-commands"><a class="anchor" href="#group-commands"></a><a class="link" href="#group-commands">9.2.2. Group commands</a></h4>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>Add Group:</strong> <code>group add g/GROUP_CODE m/MOD_CODE t/GROUP_TYPE</code></p>
 </li>
 <li>
-<p><strong>Edit Group:</strong> `group edit g/GROUP_CODE m/MOD_CODE [ng/NEW_GROUP_CODE] [nt/NEW_GROUP_TYPE]</p>
+<p><strong>Edit Group:</strong> <code>group edit g/GROUP_CODE m/MOD_CODE [ng/NEW_GROUP_CODE] [nt/NEW_GROUP_TYPE]</code></p>
 </li>
 <li>
 <p><strong>Delete Group:</strong> <code>group delete g/GROUP_CODE m/MOD_CODE</code></p>
@@ -2325,7 +2874,7 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 <div class="sect3">
-<h4 id="student-commands"><a class="anchor" href="#student-commands"></a><a class="link" href="#student-commands">8.2.3. Student commands</a></h4>
+<h4 id="student-commands"><a class="anchor" href="#student-commands"></a><a class="link" href="#student-commands">9.2.3. Student commands</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2341,29 +2890,29 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 <div class="sect3">
-<h4 id="others"><a class="anchor" href="#others"></a><a class="link" href="#others">8.2.4. Others</a></h4>
+<h4 id="others"><a class="anchor" href="#others"></a><a class="link" href="#others">9.2.4. Others</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Sorting a Group:</strong> <code>sort group g/GROUP_CODE m/MOD_CODE t/SORT_TYPE</code></p>
+<p><strong>Sort Group:</strong> <code>sort group g/GROUP_CODE m/MOD_CODE t/SORT_TYPE</code></p>
 </li>
 <li>
-<p><strong>Sorting a Module:</strong> <code>sort module m/MOD_CODE t/SORT_TYPE</code></p>
+<p><strong>Sort Module:</strong> <code>sort module m/MOD_CODE t/SORT_TYPE</code></p>
 </li>
 <li>
-<p><strong>Sorting All Modules:</strong> <code>sort all t/SORT_TYPE</code></p>
+<p><strong>Sort All Modules:</strong> <code>sort all t/SORT_TYPE</code></p>
 </li>
 <li>
-<p><strong>Filter:</strong> <code>student filter m/MOD_CODE [g/GROUP_CODE]</code></p>
+<p><strong>Filter Students:</strong> <code>student filter m/MOD_CODE [g/GROUP_CODE]</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="session-view-3"><a class="anchor" href="#session-view-3"></a><a class="link" href="#session-view-3">8.3. Session View</a></h3>
+<h3 id="session-view-3"><a class="anchor" href="#session-view-3"></a><a class="link" href="#session-view-3">9.3. Session View</a></h3>
 <div class="sect3">
-<h4 id="session-commands"><a class="anchor" href="#session-commands"></a><a class="link" href="#session-commands">8.3.1. Session commands</a></h4>
+<h4 id="session-commands"><a class="anchor" href="#session-commands"></a><a class="link" href="#session-commands">9.3.1. Session commands</a></h4>
 <div class="ulist">
 <ul>
 <li>
@@ -2376,37 +2925,37 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 <p><strong>Edit Session:</strong> <code>session edit INDEX [s/START_TIME] [e/END_TIME] [d/DATE] [w/RECUR] [m/MODULE] [t/SESSION_TYPE] [n/NOTES]</code></p>
 </li>
 <li>
-<p><strong>Mark as Done:</strong> <code>session done INDEX</code></p>
+<p><strong>Done Session:</strong> <code>session done INDEX</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="others-2"><a class="anchor" href="#others-2"></a><a class="link" href="#others-2">8.3.2. Others</a></h4>
+<h4 id="others-2"><a class="anchor" href="#others-2"></a><a class="link" href="#others-2">9.3.2. Others</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Filter:</strong> <code>session filter [d/DATE]  [m/MOD_CODE] [t/SESSION_TYPE]</code></p>
+<p><strong>Filter Sessions:</strong> <code>session filter [d/DATE]  [m/MOD_CODE] [t/SESSION_TYPE]</code></p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="claims-view-3"><a class="anchor" href="#claims-view-3"></a><a class="link" href="#claims-view-3">8.4. Claims View</a></h3>
+<h3 id="claims-view-3"><a class="anchor" href="#claims-view-3"></a><a class="link" href="#claims-view-3">9.4. Claims View</a></h3>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>Set Rate:</strong> <code>setrate RATE</code></p>
 </li>
 <li>
-<p><strong>Filter:</strong> <code>claims filter m/MOD_CODE</code></p>
+<p><strong>Filter Claims:</strong> <code>claims filter m/MOD_CODE</code></p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="statistics"><a class="anchor" href="#statistics"></a><a class="link" href="#statistics">8.5. Statistics</a></h3>
+<h3 id="statistics"><a class="anchor" href="#statistics"></a><a class="link" href="#statistics">9.5. Statistics</a></h3>
 <div class="ulist">
 <ul>
 <li>
@@ -2416,4 +2965,4 @@ the empty data file it creates with the data file of your previous TA-Tracker fo
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:02:12 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 12:11:02 UTC</div></div></div></body></html>

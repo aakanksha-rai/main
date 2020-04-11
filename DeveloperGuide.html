@@ -1,9 +1,9 @@
-<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>TA-Tracker - Developer Guide</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><meta name="author" content="- Developer Guide"><title>TA-Tracker</title><link rel="stylesheet" href="./gh-pages.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
-<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>TA-Tracker - Developer Guide</h1></div><div id="content"><div id="preamble">
+<link rel="stylesheet" href="./coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link active" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>TA-Tracker</h1><div class="details"><span class="author" id="author">- Developer Guide</span><br></div></div><div id="content"><div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>By: <code>Team W17-4</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
+<p>By: <code>Team W17-4</code>      Since: <code>Jan 2020</code>      Licence: <code>MIT</code></p>
 </div>
 </div>
 <div id="toc" class="toc">
@@ -14,23 +14,78 @@
 <li><a href="#design">3. Design</a>
 <ul class="sectlevel2">
 <li><a href="#Design-Architecture">3.1. Architecture</a></li>
-<li><a href="#Design-Ui">3.2. UI component</a></li>
-<li><a href="#Design-Logic">3.3. Logic component</a></li>
-<li><a href="#Design-Model">3.4. Model component</a></li>
-<li><a href="#Design-Storage">3.5. Storage component</a></li>
+<li><a href="#Design-Ui">3.2. UI component</a>
+<ul class="sectlevel3">
+<li><a href="#tabs">3.2.1. Tabs</a></li>
+</ul>
+</li>
+<li><a href="#Design-Logic">3.3. Logic component</a>
+<ul class="sectlevel3">
+<li><a href="#logic-structure">3.3.1. Logic Structure</a></li>
+<li><a href="#logic-hierarchy">3.3.2. Logic Hierarchy</a></li>
+<li><a href="#overview-of-commands">3.3.3. Overview of Commands</a></li>
+<li><a href="#overview-of-parsers">3.3.4. Overview of Parsers</a></li>
+<li><a href="#example-logic-sequence">3.3.5. Example Logic Sequence</a></li>
+<li><a href="#design-considerations">3.3.6. Design Considerations</a></li>
+</ul>
+</li>
+<li><a href="#Design-Model">3.4. Model component</a>
+<ul class="sectlevel3">
+<li><a href="#example-of-model-usage">3.4.1. Example of Model Usage</a></li>
+</ul>
+</li>
+<li><a href="#Design-Storage">3.5. Storage component</a>
+<ul class="sectlevel3">
+<li><a href="#saved-data">3.5.1. Saved Data</a></li>
+</ul>
+</li>
 <li><a href="#Design-Commons">3.6. Common classes</a></li>
 </ul>
 </li>
 <li><a href="#implementation">4. Implementation</a>
 <ul class="sectlevel2">
-<li><a href="#StudentView">4.1. Student View</a></li>
-<li><a href="#session-view">4.2. Session View</a></li>
-<li><a href="#SessionView">4.3. Session View</a></li>
-<li><a href="#claims-view">4.4. Claims View</a></li>
-<li><a href="#syntax-highlighting">4.5. Syntax Highlighting</a></li>
-<li><a href="#logging">4.6. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.7. Configuration</a></li>
-<li><a href="#Implementation-Navigation">4.8. Filter Command</a></li>
+<li><a href="#Implementation-Goto">4.1. Goto Command</a>
+<ul class="sectlevel3">
+<li><a href="#description">4.1.1. Description</a></li>
+<li><a href="#implementation-2">4.1.2. Implementation</a></li>
+</ul>
+</li>
+<li><a href="#StudentView">4.2. Student View</a>
+<ul class="sectlevel3">
+<li><a href="#implementation-of-the-model-framework">4.2.1. Implementation of the Model Framework</a></li>
+<li><a href="#implementation-of-the-module-add-delete-and-edit-commands">4.2.2. Implementation of the Module Add, Delete and Edit Commands</a></li>
+<li><a href="#implementation-of-the-group-add-delete-and-edit-commands">4.2.3. Implementation of the Group Add, Delete and Edit Commands</a></li>
+<li><a href="#implementation-of-the-student-add-delete-and-edit-commands">4.2.4. Implementation of the Student Add, Delete and Edit Commands</a></li>
+<li><a href="#implementation-of-the-sort-group-module-and-all-command">4.2.5. Implementation of the Sort Group, Module and All Command</a></li>
+</ul>
+</li>
+<li><a href="#SessionView">4.3. Session View</a>
+<ul class="sectlevel3">
+<li><a href="#model-framework">4.3.1. Model Framework</a></li>
+<li><a href="#implementation-of-the-session-add-edit-delete-and-done-command">4.3.2. Implementation of the Session Add, Edit, Delete and Done Command</a></li>
+</ul>
+</li>
+<li><a href="#claims-view">4.4. Claims View</a>
+<ul class="sectlevel3">
+<li><a href="#model-framework-2">4.4.1. Model Framework</a></li>
+<li><a href="#set-rate-command">4.4.2. Set Rate Command</a></li>
+</ul>
+</li>
+<li><a href="#syntax-highlighting">4.5. Syntax Highlighting</a>
+<ul class="sectlevel3">
+<li><a href="#overview">4.5.1. Overview</a></li>
+<li><a href="#implementation-3">4.5.2. Implementation</a></li>
+<li><a href="#design-considerations-2">4.5.3. Design Considerations</a></li>
+</ul>
+</li>
+<li><a href="#Implementation-Filter">4.6. Filter Command</a>
+<ul class="sectlevel3">
+<li><a href="#description-2">4.6.1. Description</a></li>
+<li><a href="#implementation-4">4.6.2. Implementation</a></li>
+</ul>
+</li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -40,49 +95,43 @@
 <li><a href="#user-stories">Appendix B: User Stories</a></li>
 <li><a href="#use-cases">Appendix C: Use Cases</a>
 <ul class="sectlevel2">
-<li><a href="#use-case-add-session">Use case: Add session</a></li>
-<li><a href="#use-case-delete-session">Use case: Delete session</a></li>
-<li><a href="#use-case-edit-session">Use case: Edit session</a></li>
-<li><a href="#use-case-delete-session-2">Use case: Delete session</a></li>
-<li><a href="#use-case-mark-a-session-as-done">Use case: Mark a session as done</a></li>
-<li><a href="#use-case-enroll-student-into-class">Use case: Enroll student into class</a></li>
-<li><a href="#use-case-kick-student-from-class">Use case: Kick student from class</a></li>
-<li><a href="#use-case-filter-students-under-student-view">Use case: Filter students under Student View</a></li>
-<li><a href="#use-case-filter-sessions-under-session-view">Use case: Filter sessions under Session View</a></li>
-<li><a href="#use-case-filter-claims-under-claims-view">Use case: Filter claims under Claims View</a></li>
+<li><a href="#navigation">Navigation</a></li>
+<li><a href="#student-view">Student View</a></li>
+<li><a href="#session-view">Session View</a></li>
+<li><a href="#claims-view-2">Claims View</a></li>
 </ul>
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#glossary-2">8. GLOSSARY</a></li>
-<li><a href="#product-survey">Appendix F: Product Survey</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
 <ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">G.1. Launch and Shutdown</a></li>
-<li><a href="#viewing-help">G.2. Viewing help</a></li>
-<li><a href="#changing-tabs">G.3. Changing Tabs</a></li>
-<li><a href="#adding-a-module">G.4. Adding a module</a></li>
-<li><a href="#adding-a-group-to-a-module">G.5. Adding a group to a module</a></li>
-<li><a href="#adding-students-to-a-group">G.6. Adding students to a group</a></li>
-<li><a href="#editing-a-student">G.7. Editing a student</a></li>
-<li><a href="#editing-a-group">G.8. Editing a group</a></li>
-<li><a href="#editing-a-module-s-name">G.9. Editing a module&#8217;s name</a></li>
-<li><a href="#viewing-a-specific-module">G.10. Viewing a specific module</a></li>
-<li><a href="#viewing-a-specific-group">G.11. Viewing a specific group</a></li>
-<li><a href="#sorting-a-group">G.12. Sorting a group</a></li>
-<li><a href="#sorting-a-module">G.13. Sorting a module</a></li>
-<li><a href="#sorting-all-modules">G.14. Sorting all modules</a></li>
-<li><a href="#deleting-a-student">G.15. Deleting a student</a></li>
-<li><a href="#deleting-a-group">G.16. Deleting a group</a></li>
-<li><a href="#adding-a-session">G.17. Adding a session</a></li>
-<li><a href="#marking-a-session-as-done">G.18. Marking a session as done</a></li>
-<li><a href="#deleting-a-session">G.19. Deleting a session</a></li>
-<li><a href="#editing-a-session">G.20. Editing a session</a></li>
-<li><a href="#filtering-sessions">G.21. Filtering sessions</a></li>
-<li><a href="#filtering-claims">G.22. Filtering Claims</a></li>
-<li><a href="#changing-rate">G.23. Changing rate</a></li>
-<li><a href="#deleting-a-module">G.24. Deleting a module</a></li>
-<li><a href="#exiting-the-program">G.25. Exiting the program</a></li>
+<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
+<li><a href="#viewing-help">F.2. Viewing help</a></li>
+<li><a href="#changing-tabs">F.3. Changing Tabs</a></li>
+<li><a href="#adding-a-module">F.4. Adding a module</a></li>
+<li><a href="#adding-a-group-to-a-module">F.5. Adding a group to a module</a></li>
+<li><a href="#adding-students-to-a-group">F.6. Adding students to a group</a></li>
+<li><a href="#editing-a-student">F.7. Editing a student</a></li>
+<li><a href="#editing-a-group">F.8. Editing a group</a></li>
+<li><a href="#editing-a-module-s-name">F.9. Editing a module&#8217;s name</a></li>
+<li><a href="#viewing-a-specific-module">F.10. Viewing a specific module</a></li>
+<li><a href="#viewing-a-specific-group">F.11. Viewing a specific group</a></li>
+<li><a href="#sorting-a-group">F.12. Sorting a group</a></li>
+<li><a href="#sorting-a-module">F.13. Sorting a module</a></li>
+<li><a href="#sorting-all-modules">F.14. Sorting all modules</a></li>
+<li><a href="#deleting-a-student">F.15. Deleting a student</a></li>
+<li><a href="#deleting-a-group">F.16. Deleting a group</a></li>
+<li><a href="#adding-a-session">F.17. Adding a session</a></li>
+<li><a href="#marking-a-session-as-done">F.18. Marking a session as done</a></li>
+<li><a href="#deleting-a-session">F.19. Deleting a session</a></li>
+<li><a href="#editing-a-session">F.20. Editing a session</a></li>
+<li><a href="#filtering-sessions">F.21. Filtering sessions</a></li>
+<li><a href="#filtering-claims">F.22. Filtering Claims</a></li>
+<li><a href="#listing-sessions-and-claims">F.23. Listing sessions and claims</a></li>
+<li><a href="#changing-rate">F.24. Changing rate</a></li>
+<li><a href="#deleting-a-module">F.25. Deleting a module</a></li>
+<li><a href="#exiting-the-program">F.26. Exiting the program</a></li>
 </ul>
 </li>
 <li><a href="#effort">9. Effort</a></li>
@@ -93,9 +142,10 @@
 <h2 id="introduction"><a class="link" href="#introduction">1. Introduction</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TA-Tracker is a productivity tool made for NUS Computing Teaching Assistants (TAs)
-who want to be able to track and manage their students and claimable
-hours in one place.</p>
+<p>TA-Tracker
+is a productivity tool made for <strong>NUS School of Computing (SoC) Teaching Assistants (TAs)</strong>
+who want to be able to track and manage their <strong>students</strong> and <strong>claimable
+hours</strong> in one place.</p>
 </div>
 <div class="paragraph">
 <p>Teaching Assistants at SoC have to keep a track of:</p>
@@ -103,54 +153,47 @@ hours in one place.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>students</p>
+<p>claimable hours so that they can fill up the TSS Claims form at the end of each semester.</p>
+</li>
+<li>
+<p>teaching-related sessions with claimable hours</p>
+</li>
+<li>
+<p>students and their contact information</p>
 </li>
 <li>
 <p>students' participation marks</p>
 </li>
 <li>
-<p>notes they have for certain students that they can later use for recommendations.</p>
-</li>
-<li>
-<p>upcoming teaching-related sessions (of which the hours can be claimed)</p>
-</li>
-<li>
-<p>claimable hours so that they can fill up the TSS Claims form at the end of each semester.</p>
+<p>notes for certain students (such as recommendations)</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Rather than managing this through several excel
-spreadsheets and notes, TA-Tracker allows TAs to track everything in a single, convenient-to-use
+spreadsheets and notes, TA-Tracker
+allows TAs to track everything in a single, convenient-to-use
 platform.</p>
 </div>
 <div class="paragraph">
-<p>In particular, TA-Tracker is a <strong>Command Line Interface (CLI)</strong> application packaged
+<p>In particular, TA-Tracker
+is a <strong>Command Line Interface (CLI)</strong> application packaged
 with a <strong>Graphical User Interface (GUI)</strong>. This means that users are expected to interact
-with the TA-Tracker mainly through the command line, and each command executed will
-evoke a visual response in the TA-Tracker.</p>
+with the TA-Tracker
+mainly through the command line, and each command executed will
+evoke a visual response in the TA-Tracker
+.</p>
 </div>
 <div class="paragraph">
-<p>Any help on the development of the TA-Tracker would be greatly appreciated, and there
+<p>Any help on the development of the TA-Tracker
+would be greatly appreciated, and there
 are a couple of ways that you can do so:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>contribute to TA-Tracker&#8217;s code base by expanding its features such as:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>adding an option to enter assignment grades</p>
-</li>
-<li>
-<p>add students to consultations in session view</p>
-</li>
-<li>
-<p>list all the consultations a student has attended in student view</p>
-</li>
-</ul>
-</div>
+<p>contribute to TA-Tracker
+'s code base by expanding its features</p>
 </li>
 <li>
 <p>help us improve test coverage</p>
@@ -161,8 +204,10 @@ are a couple of ways that you can do so:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>This guide aims to kick-start your journey as a contributor to the TA-Tracker by getting
-you up to speed with how TA-Tracker&#8217;s codebase and inner workings function. It also
+<p>This guide aims to kick-start your journey as a contributor to the TA-Tracker
+by getting
+you up to speed with how TA-Tracker
+'s codebase and inner workings function. It also
 hopes to serve as a useful reference to current contributors in times of confusion or
 when faced with difficulties.</p>
 </div>
@@ -180,10 +225,12 @@ when faced with difficulties.</p>
 <h2 id="design"><a class="link" href="#design">3. Design</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TA-Tracker has been designed with <code>Object-Oriented Programming</code>
+<p>TA-Tracker
+has been designed with <code>Object-Oriented Programming</code>
 principles in mind. We also attempted to use <code>Defensive Programming</code> wherever
 possible. This section serves to give a description of the
-major components in the architecture of TA-Tracker. Subsequent sections
+major components in the architecture of TA-Tracker
+. Subsequent sections
 provide more information on the inner workings of individual components.</p>
 </div>
 <div class="sect2">
@@ -195,7 +242,8 @@ provide more information on the inner workings of individual components.</p>
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the App.
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the TA-Tracker
+.
 Given below is a quick overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
@@ -217,21 +265,22 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 <div class="ulist">
 <ul>
 <li>
-<p>At app launch: Initializes the components in the correct sequence, and connects them up with each other.</p>
+<p>At app launch: Initializing the components in the correct sequence, and connects them up with each other.</p>
 </li>
 <li>
-<p>At shut down: Shuts down the components and invokes cleanup method where necessary.</p>
+<p>At shut down: Shutting down the components and invoking cleanup methods where necessary.</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by multiple other components.
+<p><a href="#Design-Commons"><strong><code>Commons</code></strong></a> represents a collection of classes used by the other components.
 The following class plays an important role at the architecture level:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the App&#8217;s log file.</p>
+<p><code>LogsCenter</code> : Used by many classes to write log messages to the TA-Tracker
+'s log file.</p>
 </li>
 </ul>
 </div>
@@ -241,13 +290,16 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the App.</p>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the TA-Tracker
+.</p>
 </li>
 <li>
-<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: The command executor.</p>
+<p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: Handles execution of TA-Tracker
+commands.</p>
 </li>
 <li>
-<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Holds the data of the App in-memory.</p>
+<p><a href="#Design-Model"><strong><code>Model</code></strong></a>: Organises the data of the TA-Tracker
+into different sections.</p>
 </li>
 <li>
 <p><a href="#Design-Storage"><strong><code>Storage</code></strong></a>: Reads data from, and writes data to, the hard disk.</p>
@@ -260,7 +312,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Defines its <em>API</em> in an <code>interface</code> with the same name as the Component.</p>
+<p>Defines its <strong>API</strong> in an <code>interface</code> with the same name as the Component.</p>
 </li>
 <li>
 <p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
@@ -268,8 +320,8 @@ The following class plays an important role at the architecture level:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>For example, the <code>Logic</code> component (see the class diagram given below) defines its API in the <code>Logic.java</code> interface
-and exposes its functionality using the <code>LogicManager.java</code> class.</p>
+<p>For example, the <code>Logic</code> component (see the <em>Class Diagram</em> given below) defines its API in the <code>Logic</code> interface
+and exposes its functionality using the <code>LogicManager</code> class.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -280,7 +332,7 @@ and exposes its functionality using the <code>LogicManager.java</code> class.</p
 <h4 id="how-the-architecture-components-interact-with-each-other" class="discrete">How the architecture components interact with each other</h4>
 <div class="paragraph">
 <p>The <em>Sequence Diagram</em> below shows how the components interact with each other
-for the scenario where the user issues the command <code>session delete 1</code>.</p>
+for the scenario where the user enters the command <code>session delete 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -294,6 +346,9 @@ for the scenario where the user issues the command <code>session delete 1</code>
 </div>
 <div class="sect2">
 <h3 id="Design-Ui"><a class="link" href="#Design-Ui">3.2. UI component</a></h3>
+<div class="paragraph">
+<p>The <em>Class Diagram</em> below shows how the <code>UI</code> components interact with each other.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/UiClassDiagram.png" alt="UiClassDiagram">
@@ -318,41 +373,10 @@ for the scenario where the user issues the command <code>session delete 1</code>
 </ol>
 </div>
 <div class="paragraph">
-<p>All these, including the <code>MainWindow</code>, inherit from the
-abstract <code>UiPart</code> class.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/StudentTabClassDiagram.png" alt="StudentTabClassDiagram">
-</div>
-<div class="title">Figure 5. Structure of the Student Tab Component</div>
-</div>
-<div class="paragraph">
-<p>The UI contains 3 tabs:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>the <code>Student Tab</code>,</p>
-</li>
-<li>
-<p>the <code>Session Tab</code> and</p>
-</li>
-<li>
-<p>the <code>Claims Tab</code>.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>Each of these tabs consist of one or more List Panels (e.g. <code>StudentListPanel</code>) and its
-respective Card (e.g. <code>StudentCard</code>). In each List Panel, the the <code>Graphics</code> component of
-each of the List Cells is defined by the respective Card.</p>
-</div>
-<div class="paragraph">
-<p>The other 2 Tabs follow the same structure as the Class diagram above.</p>
-</div>
-<div class="paragraph">
-<p>The <code>UI</code> component uses JavaFx UI framework. The layout of these UI parts are defined in matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/MainWindow.java"><code>MainWindow</code></a> is specified in <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
+<p>The <code>UI</code> component uses <strong>JavaFx</strong> UI framework. The layout of these UI parts are defined in
+matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the
+layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/MainWindow.java"><code>MainWindow</code></a> is
+specified in <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>UI</code> component,</p>
@@ -367,11 +391,62 @@ each of the List Cells is defined by the respective Card.</p>
 </li>
 </ul>
 </div>
+<div class="sect3">
+<h4 id="tabs"><a class="link" href="#tabs">3.2.1. Tabs</a></h4>
+<div class="paragraph">
+<p>The <em>Class Diagram</em> below shows how the components in the <code>Student Tab</code> interact with each other.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/StudentTabClassDiagram.png" alt="StudentTabClassDiagram">
+</div>
+<div class="title">Figure 5. Structure of the Student Tab Component</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>All the <code>ListPanels</code> and <code>Cards</code> inherit from the abstract <code>UiPart</code> class.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The UI contains 3 <code>tabs</code>:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>Student Tab</code></p>
+</li>
+<li>
+<p>The <code>Session Tab</code></p>
+</li>
+<li>
+<p>The <code>Claims Tab</code></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>Each of these tabs consist of one or more List Panels (e.g. <code>StudentListPanel</code>) and its
+respective Card (e.g. <code>StudentCard</code>). In each List Panel, the the <code>Graphics</code> component of
+each of the List Cells is defined by the respective Card.</p>
+</div>
+<div class="paragraph">
+<p>The other 2 <code>Tabs</code> follow the same structure as the <em>Class Diagram</em> above.</p>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Logic"><a class="link" href="#Design-Logic">3.3. Logic component</a></h3>
 <div class="paragraph">
-<p>The <code>Logic</code> component of <code>TA-Tracker</code>:</p>
+<p>The <code>Logic</code> component of `TA-Tracker
+`:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -389,7 +464,7 @@ each of the List Cells is defined by the respective Card.</p>
 <div class="sect3">
 <h4 id="logic-structure"><a class="link" href="#logic-structure">3.3.1. Logic Structure</a></h4>
 <div class="paragraph">
-<p>The following diagram shows a simplified view of the structure of the Logic component .</p>
+<p>The following <em>Class Diagram</em> shows a simplified view of the structure of the <code>Logic</code> component .</p>
 </div>
 <div id="fig-LogicClassDiagram" class="imageblock">
 <div class="content">
@@ -407,16 +482,19 @@ each of the List Cells is defined by the respective Card.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>Logic</code> behaves as a Façade class between the different <code>TA-Tracker</code> components.</p>
+<p><code>Logic</code> behaves as a Façade class between the different `TA-Tracker
+` components.</p>
 </li>
 <li>
-<p><code>LogicManager</code> is the main driver class behind the logic in <code>TA-Tracker</code></p>
+<p><code>LogicManager</code> is the main driver class behind the logic in `TA-Tracker
+`</p>
 </li>
 <li>
 <p><code>LogicManager</code> interacts with classes in the <code>Model</code> and <code>Storage</code> component.</p>
 </li>
 <li>
-<p><code>TA-Tracker</code> logic is organised into <strong>commands</strong> and <strong>parsers</strong>.</p>
+<p>`TA-Tracker
+` logic is organised into <strong>commands</strong> and <strong>parsers</strong>.</p>
 </li>
 <li>
 <p><code>TaTrackerParser</code> is the <strong>main parser</strong>.</p>
@@ -430,7 +508,7 @@ each of the List Cells is defined by the respective Card.</p>
 <div class="sect3">
 <h4 id="logic-hierarchy"><a class="link" href="#logic-hierarchy">3.3.2. Logic Hierarchy</a></h4>
 <div class="paragraph">
-<p>The following diagram shows how the <strong>commands</strong> and <strong>parsers</strong> are organised.</p>
+<p>The following <em>Class Diagram</em> shows how the <code>commands</code> and <code>parsers</code> are organised.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -519,7 +597,7 @@ This feedback includes:</p>
 <p>showing messages in the <code>UI</code>, and</p>
 </li>
 <li>
-<p>instructing the <code>Ui</code> to perform certain actions (e.g. displaying the help window).</p>
+<p>instructing the <code>Ui</code> to perform certain actions (e.g. displaying the <code>HelpWindow</code>).</p>
 </li>
 </ul>
 </div>
@@ -552,7 +630,7 @@ This feedback includes:</p>
 <div class="sect3">
 <h4 id="overview-of-commands"><a class="link" href="#overview-of-commands">3.3.3. Overview of Commands</a></h4>
 <div class="paragraph">
-<p>All <strong>commands</strong> have been packaged under their respective categories.</p>
+<p>The following <em>Class Diagram</em> illustrates how all <code>commands</code> have been packaged under their respective categories.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -564,7 +642,7 @@ This feedback includes:</p>
 <p>These packages depend on the <code>Command</code> class since they contain commands that inherit from the <code>Command</code> class (not shown above).</p>
 </div>
 <div class="paragraph">
-<p>In addition, the following diagram shows the information that a command should have.</p>
+<p>In addition, the following <code>Class Diagram</code> shows the information that a <code>command</code> should have.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -620,7 +698,7 @@ This feedback includes:</p>
 (not shown above).</p>
 </div>
 <div class="paragraph">
-<p>In addition, the following diagram shows the information that a command parser should have.</p>
+<p>In addition, the following <code>Class Diagram</code> shows the information that a <code>command parser</code> should have.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -675,7 +753,7 @@ This feedback includes:</p>
 <div class="sect3">
 <h4 id="example-logic-sequence"><a class="link" href="#example-logic-sequence">3.3.5. Example Logic Sequence</a></h4>
 <div class="paragraph">
-<p>Given below is the Sequence Diagram for interactions within the <code>Logic</code> component for the <code>execute("group add m/CS2103 g/G03 t/lab")</code> API call.</p>
+<p>Given below is the <em>Sequence Diagram</em> for interactions within the <code>Logic</code> component for the <code>execute("group add m/CS2103 g/G03 t/lab")</code> API call.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -694,7 +772,7 @@ This feedback includes:</p>
 <ul class="horizontal">
 <li>
 <p>The lifeline for <code>GroupCommandParser</code> and <code>AddGroupCommandParser</code> should end at the
-destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
 </li>
 <li>
 <p>Since the purpose of this diagram is to show the interactions within the <code>Logic</code> component,
@@ -710,9 +788,9 @@ irrelevant interactions with the <code>Model</code> component have been omitted.
 <div class="sect3">
 <h4 id="design-considerations"><a class="link" href="#design-considerations">3.3.6. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="rationale-behind-code-prefixdetails-code-not-inheriting-from-the-code-prefix-code-class"><a class="link" href="#rationale-behind-code-prefixdetails-code-not-inheriting-from-the-code-prefix-code-class">Rationale behind <code>PrefixDetails</code> not inheriting from the <code>Prefix</code> class</a></h5>
+<h5 id="rationale-behind-code-prefixdetails-code-not-inheriting-from-the-code-prefix-code-class"><a class="link" href="#rationale-behind-code-prefixdetails-code-not-inheriting-from-the-code-prefix-code-class">3.3.6.1. Rationale behind <code>PrefixDetails</code> not inheriting from the <code>Prefix</code> class</a></h5>
 <div class="paragraph">
-<p>The following diagrams compare the structure of commands and their respective parsers.</p>
+<p>The following <em>Class Diagrams</em> compare the structure of <code>commands</code> and their respective <code>parsers.</code></p>
 </div>
 <div class="openblock clearfix">
 <div class="content">
@@ -720,13 +798,13 @@ irrelevant interactions with the <code>Model</code> component have been omitted.
 <div class="content">
 <img src="images/ParserPackageDiagram2.png" alt="ParserPackageDiagram2" width="300">
 </div>
-<div class="title">Figure 14. Structure of a command parser</div>
+<div class="title">Figure 14. Structure of a <code>command parser</code></div>
 </div>
 <div class="imageblock left">
 <div class="content">
 <img src="images/CommandsPackageDiagram2.png" alt="CommandsPackageDiagram2" width="500">
 </div>
-<div class="title">Figure 15. Structure of a command</div>
+<div class="title">Figure 15. Structure of a <code>command</code></div>
 </div>
 </div>
 </div>
@@ -741,13 +819,13 @@ Therefore, it can be detached from the command parsers without changing the <cod
 </div>
 </div>
 <div class="sect4">
-<h5 id="moving-code-prefixes-code-to-the-strong-commands-strong-package"><a class="link" href="#moving-code-prefixes-code-to-the-strong-commands-strong-package">Moving <code>Prefixes</code> to the <strong>Commands</strong> package</a></h5>
+<h5 id="moving-code-prefixes-code-to-the-strong-commands-strong-package"><a class="link" href="#moving-code-prefixes-code-to-the-strong-commands-strong-package">3.3.6.2. Moving <code>Prefixes</code> to the <strong>Commands</strong> package</a></h5>
 <div class="paragraph">
 <p>In future versions, <code>Prefixes</code> could be stored in the <strong>Commands</strong> package,
 since each command will need to know all the <code>Prefix</code> that they are using.</p>
 </div>
 <div class="paragraph">
-<p>The following diagram shows how the command parsers can obtain all the required <code>Prefix</code> from the respective command.</p>
+<p>The following <code>Class Diagrams</code> shows how the command parsers can obtain all the required <code>Prefix</code> from the respective <code>command.</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -773,6 +851,9 @@ since each command will need to know all the <code>Prefix</code> that they are u
 </div>
 <div class="sect2">
 <h3 id="Design-Model"><a class="link" href="#Design-Model">3.4. Model component</a></h3>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how the different <code>Model</code> components interact with each other.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModelClassDiagram.png" alt="ModelClassDiagram">
@@ -788,44 +869,47 @@ since each command will need to know all the <code>Prefix</code> that they are u
 <div class="ulist">
 <ul>
 <li>
-<p>stores a <code>UserPref</code> object that represents the user&#8217;s preferences.</p>
+<p>Stores a <code>UserPref</code> object that represents the user&#8217;s preferences</p>
 </li>
 <li>
-<p>stores the TA-Tracker data.</p>
+<p>Stores the TA-Tracker
+data</p>
 </li>
 <li>
-<p>exposes 5 unmodifiable <code>ObservableList&lt;&gt;</code> objects:</p>
+<p>Exposes 5 unmodifiable <code>ObservableList&lt;&gt;</code> objects:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>filteredStudentList</code>, an <code>ObservableList&lt;Student&gt;</code> that contains all the Students in the TA-Tracker.</p>
+<p><code>filteredStudentList</code>, an that contains all the <code>Students</code> in the TA-Tracker</p>
 </li>
 <li>
-<p><code>filteredSessionList</code>, an <code>ObservableList&lt;Session&gt;</code> that contains all the Sessions in the TA-Tracker that have not been marked as done.</p>
+<p><code>filteredSessionList</code>, an that contains all the <code>Sessions</code> in the TA-Tracker
+that have <strong>not</strong> been marked as done</p>
 </li>
 <li>
-<p><code>filteredDoneSessionList</code>, an `ObservableList&lt;Session&gt; that contains all the Sessions in the TA-Tracker that have been marked as done.</p>
+<p><code>filteredDoneSessionList</code>, an that contains all the <code>Sessions</code> in the TA-Tracker
+that <strong>have been marked as done</strong></p>
 </li>
 <li>
-<p><code>filteredModuleList</code>, an <code>ObservableList&lt;Module&gt;</code> that contains all the Modules in the TA-Tracker.</p>
+<p><code>filteredModuleList</code>, an that contains all the <code>Modules</code> in the TA-Tracker</p>
 </li>
 <li>
-<p><code>filteredGroupList</code>, an <code>ObservableList&lt;Group&gt;</code> that contains all the Groups in the TA-Tracker.</p>
+<p><code>filteredGroupList</code>, an that contains all the <code>Groups</code> in the TA-Tracker</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>these lists can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change.</p>
+<p>These lists can be 'observed' e.g. the UI can be bound to this list so that the UI automatically updates when the data in the list change</p>
 </li>
 <li>
-<p>does not depend on any of the other three components.</p>
+<p>Does not depend on any of the other three components</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>The following class diagram shows the relationship between the different classes
-in the model component.</p>
+<p>The following <em>Class Diagram</em> shows the relationship between the different classes
+in the <code>Model</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -833,17 +917,31 @@ in the model component.</p>
 </div>
 <div class="title">Figure 18. Model Components - Class Diagram</div>
 </div>
+<div class="sect3">
+<h4 id="example-of-model-usage"><a class="link" href="#example-of-model-usage">3.4.1. Example of Model Usage</a></h4>
+<div class="paragraph">
+<p>The following <em>Object Diagram</em> shows an example of the relationship between the different <code>Model</code> objects.
+This example is based on the state of TA-Tracker
+when it is first run (without any user data).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModelObjectDiagram.png" alt="ModelObjectDiagram">
+</div>
+<div class="title">Figure 19. Model Components - Object Diagram</div>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="paragraph">
-<p>The following diagram is a simplified view of the Storage component.</p>
+<p>The following <code>Class Diagram</code> is a simplified view of the <code>Storage</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram1.png" alt="StorageClassDiagram1">
 </div>
-<div class="title">Figure 19. Simplified structure of the Storage Component</div>
+<div class="title">Figure 20. Simplified structure of the Storage Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/storage/Storage.java"><code>Storage.java</code></a></p>
@@ -857,23 +955,25 @@ in the model component.</p>
 <p>can save <code>UserPref</code> objects in json format and read it back.</p>
 </li>
 <li>
-<p>can save the TA-Tracker data in json format and read it back.</p>
+<p>can save the TA-Tracker
+data in json format and read it back.</p>
 </li>
 </ul>
 </div>
 <div class="sect3">
 <h4 id="saved-data"><a class="link" href="#saved-data">3.5.1. Saved Data</a></h4>
 <div class="paragraph">
-<p>The following diagram is a breakdown of the data managed by the Storage component.</p>
+<p>The following <code>Class Diagram</code> is a breakdown of the data managed by the <code>Storage</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StorageClassDiagram2.png" alt="StorageClassDiagram2">
 </div>
-<div class="title">Figure 20. Structure of the data stored by TA-Tracker</div>
+<div class="title">Figure 21. Structure of the data stored by TA-Tracker</div>
 </div>
 <div class="paragraph">
-<p><code>TA-Tracker</code> saves the following data:</p>
+<p>`TA-Tracker
+` saves the following data:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -927,34 +1027,107 @@ the respective groups.</p>
 <p>This section describes some noteworthy details on how certain features are implemented.</p>
 </div>
 <div class="sect2">
-<h3 id="StudentView"><a class="link" href="#StudentView">4.1. Student View</a></h3>
+<h3 id="Implementation-Goto"><a class="link" href="#Implementation-Goto">4.1. Goto Command</a></h3>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">4.1.1. Description</a></h4>
 <div class="paragraph">
-<p><strong>Student View</strong> is used to display all modules, groups and students in the TA-Tracker.</p>
+<p>The <code>goto</code> command has been implemented to allow users to programmatically switch through the <code>tabs</code> using
+the command line, rather than clicking on the tab headers.</p>
+</div>
+<div class="paragraph">
+<p>The command can be utilised by inputing <code>goto TAB_NAME</code>.
+<code>TAB_NAME</code> is a compulsory parameter for the user.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-2"><a class="link" href="#implementation-2">4.1.2. Implementation</a></h4>
+<div class="paragraph">
+<p>This section describes the implementation of the <code>goto</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the interactions between the <code>Logic</code> and <code>UI</code> components of
+the TA-Tracker
+when the user enters the command <code>goto claims</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/GotoSequenceDiagram.png" alt="GotoSequenceDiagram">
+</div>
+<div class="title">Figure 22. Sequence Diagram for Goto Claims Command</div>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario where the user enters a command to switch to the <code>Claims Tab</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
+<code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a <code>GotoCommand</code> and passes the command
+to the <code>GotoCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>GotoCommandParser</code> creates a <code>GotoCommand</code> object
+with the relevant keywords.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>GotoCommand</code> 's execute method.</p>
+</li>
+<li>
+<p>The <code>GotoCommand</code> object checks whether any of the keywords given by the user
+matches the existing tab headers. If it does, the <code>GotoCommand</code> returns a <code>CommandResult</code>
+with a success message.</p>
+</li>
+<li>
+<p><code>MainWindow</code> selects the <code>ClaimsTab</code> in the <code>TabPane</code> to switch to the <code>Claims Tab</code></p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="StudentView"><a class="link" href="#StudentView">4.2. Student View</a></h3>
+<div class="paragraph">
+<p><strong>Student View</strong> is used to display all modules, groups and students in the TA-Tracker
+.</p>
 </div>
 <div class="paragraph">
 <p>Students are a part of <strong>groups</strong> and groups are a part of <strong>modules</strong>.</p>
 </div>
 <div class="sect3">
-<h4 id="model-framework"><a class="link" href="#model-framework">4.1.1. Model Framework</a></h4>
+<h4 id="implementation-of-the-model-framework"><a class="link" href="#implementation-of-the-model-framework">4.2.1. Implementation of the Model Framework</a></h4>
 <div class="paragraph">
-<p>The following class diagram shows how different classes are related in the
-functioning of the <code>Student View</code>.</p>
+<p>The following <em>Class Diagram</em> shows how different classes are related in the
+functioning of the <strong>Student View</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram">
 </div>
-<div class="title">Figure 21. Student View - Class Diagram</div>
+<div class="title">Figure 23. Student View - Class Diagram</div>
 </div>
 <div class="paragraph">
+<p>In the diagram above, you can see that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
 <p>The <code>TaTracker</code> class contains a <code>UniqueModuleList</code> which helps it keep track
-of the different <strong>modules</strong> the user is associated with. Each <code>Module</code> contains a
-<code>UniqueGroupList</code>.</p>
-</div>
-<div class="paragraph">
-<p>The <code>UniqueGroupList</code> contains a list of all the <strong>groups</strong> of a module that the user
-is affiliated with. Each <code>Group</code> contains a <code>UniqueStudentsList</code> that contains the
-<strong>students</strong> in that group.</p>
+of the different <strong>modules</strong> the user is teaching.</p>
+</li>
+<li>
+<p>Each <code>Module</code> contains a <code>UniqueGroupList</code>.</p>
+</li>
+<li>
+<p>The <code>UniqueGroupList</code> contains a list of all the <strong>groups of a module</strong> that the user
+is teaching.</p>
+</li>
+<li>
+<p>Each <code>Group</code> contains a <code>UniqueStudentsList</code> that contains the <strong>students in that group</strong>.</p>
+</li>
+</ul>
 </div>
 <div class="exampleblock">
 <div class="content">
@@ -990,14 +1163,21 @@ That is why we decided to stick to our current implementation.</p>
 </div>
 </div>
 </div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning of a <code>Student</code> Object.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/StudentClassDiagram.png" alt="StudentClassDiagram">
 </div>
-<div class="title">Figure 22. Structure of the Student Component</div>
+<div class="title">Figure 24. Structure of the Student Component</div>
 </div>
 <div class="paragraph">
 <p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/student/Student.java"><code>Student.java</code></a></p>
+</div>
+<div class="paragraph">
+<p>The other models (<code>Module</code>, <code>Group</code> and <code>Session</code>) have been implemented in a similar manner. The main difference is that the other models do not
+have any <code>Tags</code>.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1018,21 +1198,18 @@ such a model may look like is given below.<br>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-module-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-module-add-delete-and-edit-commands">4.1.2. Implementation of the Module Add, Delete and Edit Commands</a></h4>
+<h4 id="implementation-of-the-module-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-module-add-delete-and-edit-commands">4.2.2. Implementation of the Module Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
-<p>The following sequence diagram shows the sequence of commands that take place
-between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker when the user enters the
+<p>The following <em>Sequence Diagram</em> shows the interactions
+between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
+when the user enters the
 command <code>module add m/CS2103 n/Software Engineering</code>.</p>
-</div>
-<div class="paragraph">
-<p>Note: This diagram assumes that there is no module with the module code <code>CS2103</code>
-pre-existing in the TA-Tracker.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/AddModuleSequenceDiagram.png" alt="AddModuleSequenceDiagram">
 </div>
-<div class="title">Figure 23. Module Add - Sequence Diagram</div>
+<div class="title">Figure 25. Module Add - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1044,8 +1221,13 @@ pre-existing in the TA-Tracker.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>This diagram assumes that a module with the module code <code>CS2103</code>
+exists in the TA-Tracker
+.</p>
+</li>
+<li>
 <p>The lifeline for <code>ModuleCommandParser</code> and <code>AddModuleCommandParser</code> should end at the
-destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
 </li>
 </ul>
 </div>
@@ -1059,11 +1241,11 @@ destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the
 <p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The <code>TaTrackerParser</code> sees that the command is of type <strong>module</strong> and passes the
+<p>The <code>TaTrackerParser</code> sees that this command is a <strong>module</strong> command and passes the
 command to the <code>ModuleCommandParser</code>.</p>
 </li>
 <li>
-<p>The <code>ModuleCommandParser</code> sees that the command is of type <strong>add</strong> and passes the
+<p>The <code>ModuleCommandParser</code> sees that this command is an <strong>add</strong> command and passes the
 arguments to the <code>AddModuleCommandParser</code>.</p>
 </li>
 <li>
@@ -1071,17 +1253,29 @@ arguments to the <code>AddModuleCommandParser</code>.</p>
 name.</p>
 </li>
 <li>
-<p>The <code>AddModuleCommandParser</code> then creates an <code>AddModuleCommand</code> object and passes
-it the created module. The parser then returns the <code>AddModuleCommand</code> object.</p>
+<p>The <code>AddModuleCommandParser</code> then creates an <code>AddModuleCommand</code> object with a newly
+created module. The parser then returns the <code>AddModuleCommand</code> object.</p>
 </li>
 <li>
-<p>LogicManager calls <code>AddModuleCommand</code> 's execute method. The <code>AddModuleCommand</code> object
-checks whether a module with the given module code already exists in TA-Tracker.
-If it does, a command exception is thrown saying that a module with the given module
-code already exists in the TA-Tracker.</p>
+<p><code>LogicManager</code> calls <code>AddModuleCommand</code> 's execute method.</p>
 </li>
 <li>
-<p>If no such module exists, the module is added to the TA-Tracker.</p>
+<p>The <code>AddModuleCommand</code> object
+checks whether a module with the given module code already exists in *TA-Tracker
+*</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it does, a command exception is thrown saying that a module with the given module
+code already exists in the *TA-Tracker
+*.</p>
+</li>
+<li>
+<p>If no such module exists, the module is added to the *TA-Tracker
+*.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>The <code>AddModuleCommand</code> returns a <code>CommandResult</code> with a success message.</p>
@@ -1091,29 +1285,34 @@ code already exists in the TA-Tracker.</p>
 <div class="paragraph">
 <p>The command used to delete a module has been implemented in a similar way. The main
 difference is that the <code>DeleteModuleCommand</code> checks whether an object with the given
-module code exists in the TA-Tracker. If no such module exists, a command exception
+module code exists in the TA-Tracker
+. If no such module exists, a command exception
 is thrown saying that a module with the given module code doesn&#8217;t exist. If it does
 exist, <strong>first all the sessions linked to that module are removed</strong> , then the module
-is removed from the TA-Tracker.</p>
+is removed from the TA-Tracker
+.</p>
 </div>
 <div class="paragraph">
 <p>The <code>module edit</code> command has been implemented in a similar manner.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-group-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-group-add-delete-and-edit-commands">4.1.3. Implementation of the Group Add, Delete and Edit Commands</a></h4>
+<h4 id="implementation-of-the-group-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-group-add-delete-and-edit-commands">4.2.3. Implementation of the Group Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
-<p>A group is added to the TA-Tracker in a similar manner to to how a module is added to
-the TA-Tracker.</p>
+<p>A <strong>group</strong> is added to the TA-Tracker
+in a similar manner to to how a <strong>module</strong> is added to
+the TA-Tracker
+.</p>
 </div>
 <div class="paragraph">
-<p>The following steps are taken once the execute command of an AddGroupCommand object
+<p>The following steps are taken once the <em>execute</em> command of an <code>AddGroupCommand</code> object
 is called:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker.</p>
+<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker
+.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1149,18 +1348,14 @@ with the same group code in a module.</p>
 to the interactions when deleting a group as shown below.</p>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram shows the interactions between the logic and model
+<p>The following <em>Sequence Diagram</em> shows the interactions between the <code>logic</code> and <code>model</code>
 components when the user inputs the command <code>group delete m/CS2103 g/G03</code>.</p>
-</div>
-<div class="paragraph">
-<p>Note: This diagram is under the case where a group with the group code G03 does exist
-in the module with module code CS2103 inside the TA-Tracker.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DeleteGroupSequenceDiagram.png" alt="DeleteGroupSequenceDiagram">
 </div>
-<div class="title">Figure 24. Group Delete - Sequence Diagram</div>
+<div class="title">Figure 26. Group Delete - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1172,8 +1367,13 @@ in the module with module code CS2103 inside the TA-Tracker.</p>
 <div class="ulist">
 <ul>
 <li>
+<p>This diagram is under the case where a group with the group code G03 does exist
+in the module with module code CS2103 inside the TA-Tracker
+.</p>
+</li>
+<li>
 <p>The lifeline for <code>GroupCommandParser</code> and <code>DeleteGroupCommandParser</code> should end at the
-destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
 </li>
 <li>
 <p>The main difference between the <code>Module</code> and <code>Group</code> commands is that the <code>Group</code>
@@ -1205,15 +1405,25 @@ it the module code, group code and group type. The parser then returns the <code
 </li>
 <li>
 <p><code>LogicManager</code> calls <code>DeleteGroupCommand</code> 's execute method. The <code>DeleteGroupCommand</code> object
-checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker.
+checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker
+.
 If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
-code doesn&#8217;t exist in the TA-Tracker.</p>
+code doesn&#8217;t exist in the TA-Tracker
+.</p>
 </li>
 <li>
 <p>If the module exists, the <code>DeleteGroupCommand</code> then checks whether a group with the
-given group code exists within that module. If it doesn&#8217;t,
-a command exception is thrown saying that no such group exists. If the group does
-exist, it is removed from the module.</p>
+given group code exists within that module.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If the group doesn&#8217;t exist, a command exception is thrown saying that no such group exists.</p>
+</li>
+<li>
+<p>If the group does exist, it is removed from the module.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>The <code>DeleteGroupCommand</code> returns a <code>CommandResult</code> with a success message.</p>
@@ -1225,21 +1435,18 @@ exist, it is removed from the module.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-student-add-and-delete-commands"><a class="link" href="#implementation-of-the-student-add-and-delete-commands">4.1.4. Implementation of the Student Add and Delete Commands</a></h4>
+<h4 id="implementation-of-the-student-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-student-add-delete-and-edit-commands">4.2.4. Implementation of the Student Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
-<p>The following sequence diagram shows the sequence of commands that take place
-between the logic and model components of the TA-Tracker when the user enters the
-command <code>student add n/John Doe p/98765432 e/johnd@example.com m/A0181234G</code>.</p>
-</div>
-<div class="paragraph">
-<p>Note: This diagram assumes that there is no student with the matric number <code>A0181234G</code>
-pre-existing in the TA-Tracker.</p>
+<p>The following <em>Sequence Diagram</em> shows the interactions that take place
+between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
+when the user enters the
+command <code>student delete id/A0181234G</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/AddStudentSequenceDiagram.png" alt="AddStudentSequenceDiagram">
+<img src="images/DeleteStudentSequenceDiagram.png" alt="DeleteStudentSequenceDiagram">
 </div>
-<div class="title">Figure 25. Student Add - Sequence Diagram</div>
+<div class="title">Figure 27. Student Delete - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1251,62 +1458,18 @@ pre-existing in the TA-Tracker.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The lifeline for <code>StudentCommandParser</code> and <code>AddStudentCommandParser</code> should end at the
-destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+<p>This diagram assumes that there is a student with the matric number <code>A0181234G</code>
+already exists in the TA-Tracker</p>
+</li>
+<li>
+<p>The lifeline for <code>StudentCommandParser</code> and <code>DeleteStudentCommandParser</code> should end at the
+destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
 </li>
 </ul>
 </div>
 </td>
 </tr>
 </table>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
-</li>
-<li>
-<p>The <code>TaTrackerParser</code> sees that the command is of type <strong>student</strong> and passes the
-command to the <code>StudentCommandParser</code>.</p>
-</li>
-<li>
-<p>The <code>StudentCommandParser</code> sees that the command is of type <strong>add</strong> and passes the
-arguments to the <code>AddStudentCommandParser</code>.</p>
-</li>
-<li>
-<p>The <code>AddStudentCommandParser</code> creates a <strong>Student</strong> with the given parameters.</p>
-</li>
-<li>
-<p>The <code>AddStudentCommandParser</code> then creates an <code>AddStudentCommand</code> object and passes
-it the created module. The parser then returns the <code>AddStudentCommand</code>.</p>
-</li>
-<li>
-<p><code>LogicManager</code> calls <code>AddStudentCommand</code> 's execute method. The <code>AddStudentCommand</code> object
-checks whether a student with the given matric number already exists in TA-Tracker.
-If it does, a command exception is thrown saying that a student with the matric number
-already exists in the TA-Tracker.</p>
-</li>
-<li>
-<p>If no such student exists, the student is added to the TA-Tracker.</p>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p>The command used to delete a student has been implemented in a similar way. The main
-difference is that the <code>DeleteStudentCommand</code> checks whether an object with the given
-matric number exists in the TA-Tracker. If no such student exists, a command exception
-is thrown saying that a student with the given matric number doesn&#8217;t exist. If it does
-exist, the student is removed from the TA-Tracker.</p>
-</div>
-<div class="paragraph">
-<p>Note: This diagram assumes that a student with the matric number <code>A0181234G</code> exists
-in the TA-Tracker.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/DeleteStudentSequenceDiagram.png" alt="DeleteStudentSequenceDiagram">
-</div>
-<div class="title">Figure 26. Student Delete - Sequence Diagram</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1330,10 +1493,16 @@ arguments to the <code>DeleteStudentCommandParser</code>.</p>
 it the created student. The parser then returns the <code>DeleteStudentCommand</code></p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>DeleteStudentCommand&#8217;s</code> execute method. The <code>DeleteGroupCommand</code> object
-checks whether a student with the given matric number already exists in TA-Tracker.
-If it doesn&#8217;t, a command exception is thrown saying that a student with the given matric number
-doesn&#8217;t exist in the TA-Tracker.</p>
+<p><code>LogicManager</code> calls <code>DeleteStudentCommand&#8217;s</code> execute method.</p>
+</li>
+<li>
+<p>The <code>DeleteStudentCommand</code> object
+checks whether a student with the given matric number already exists in TA-Tracker</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it student doesn&#8217;t exist, a command exception is thrown saying that a student with the given matric number
+doesn&#8217;t exist in the TA-Tracker</p>
 </li>
 <li>
 <p>If the student exists, the <code>DeleteStudentCommand</code> object retrieves the student from the
@@ -1341,12 +1510,37 @@ model and removes the student.</p>
 </li>
 </ol>
 </div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>student edit</code> command has been implemented in a similar manner.</p>
+</div>
+<div class="paragraph">
+<p>The <code>student add</code> command has been implemented in a similar way as well. The main
+difference is that the <code>AddStudentCommand</code> checks whether an object with the given
+matric number exists in the TA-Tracker
+. If such student exists, a command exception
+is thrown saying that a student with the given matric number already exists.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-sort-command"><a class="link" href="#implementation-of-the-sort-command">4.1.5. Implementation of the Sort Command</a></h4>
+<h4 id="implementation-of-the-sort-group-module-and-all-command"><a class="link" href="#implementation-of-the-sort-group-module-and-all-command">4.2.5. Implementation of the Sort Group, Module and All Command</a></h4>
 <div class="paragraph">
-<p>The sort command allows the user to sort the students in the student view either <strong>alphabetically</strong>,
-by <strong>rating (in ascending or descending order)</strong> or by <strong>matriculation number</strong>.</p>
+<p>The sort command allows the user to sort the students in the <strong>Student View</strong>. Here are the ways you can use the sort command:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>alphabetically</p>
+</li>
+<li>
+<p>rating (in ascending or descending order)</p>
+</li>
+<li>
+<p>matriculation number</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>The sort command can be used in three ways:</p>
@@ -1354,19 +1548,17 @@ by <strong>rating (in ascending or descending order)</strong> or by <strong>matr
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code> : When a user enters the command in this
-manner, they are sorting all the students of the given group in the given module
-by type TYPE.</p>
+<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code> : This sorts all the students of the given
+group in the given module by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort module g/MODULE_CODE t/TYPE</code> : When a user enters a command in this manner, they
-are sorting all the students of all the groups in the given module by type TYPE
-(which can be either alphabetical or by rating).</p>
+<p><code>sort module g/MODULE_CODE t/TYPE</code> : This sorts all the students of all the groups in the
+given module by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort all t/TYPE</code> : When a user enters a command in this manner, they are sorting all
-students of all groups of all the modules in the TA-Tracker by the type TYPE (which
-can be either alphabetical or by rating).</p>
+<p><code>sort all t/TYPE</code> : This sorts all students of all groups of all the modules in the
+TA-Tracker
+by the type <code>TYPE</code></p>
 </li>
 </ol>
 </div>
@@ -1405,26 +1597,37 @@ can be either alphabetical or by rating).</p>
 </table>
 </div>
 <div class="paragraph">
-<p>Since these sort commands function differently but use the same parser, the following
-class structure is used.</p>
+<p>Since these <code>Sort</code> commands function differently but use the same parser, the structure shown in the following
+<em>Class Diagram</em> is used.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram">
 </div>
-<div class="title">Figure 27. Sort Commands - Class Diagram</div>
+<div class="title">Figure 28. Sort Commands - Class Diagram</div>
 </div>
 <div class="paragraph">
-<p>Since the different commands use the same parser, the <code>SortCommandParser</code> needs to check
-which prefixes have been passed and return the appropriate command accordingly.
-The following activity diagram shows the steps the SortCommandParser takes once
-its parse command is called (assuming that no exception is thrown).</p>
+<p>Since the different commands use the same parser, the <code>SortCommandParser</code> needs to:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>check which prefixes have been passed and</p>
+</li>
+<li>
+<p>return the appropriate command accordingly.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> shows the steps the <code>SortCommandParser</code> takes once
+its <em>parse</em> method is called (assuming that no exception is thrown).</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram">
 </div>
-<div class="title">Figure 28. SortCommandParser - Activity Diagram</div>
+<div class="title">Figure 29. SortCommandParser - Activity Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1437,7 +1640,7 @@ its parse command is called (assuming that no exception is thrown).</p>
 <ul>
 <li>
 <p>The final else clause would throw an error explaining that the command format is
-invalid. But due to a limitation in PlantUML&#8217;s beta version of showing activity diagrams,
+invalid. But due to a limitation in <strong>PlantUML&#8217;s</strong> beta version of showing activity diagrams,
 we were unable to indicate exceptions thrown in the proper way and decided to mention
 it here instead.</p>
 </li>
@@ -1455,14 +1658,14 @@ appropriate parameters with the correct prefixes, a command exception is thrown.
 </table>
 </div>
 <div class="paragraph">
-<p>The following sequence diagram illustrates the interactions between the logic and
-model components when the user enters the command <code>sort all t/matric</code>.</p>
+<p>The following <em>Sequence Diagram</em> illustrates the interactions between the <code>Logic</code> and
+<code>Model</code> components when the user enters the command <code>sort all t/matric</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SortAllSequenceDiagram.png" alt="SortAllSequenceDiagram">
 </div>
-<div class="title">Figure 29. Sort - Sequence Diagram</div>
+<div class="title">Figure 30. Sort - Sequence Diagram</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1475,7 +1678,7 @@ model components when the user enters the command <code>sort all t/matric</code>
 <ul>
 <li>
 <p>The lifeline for <code>SortCommandParser</code> should end at the
-destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.</p>
+destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
 </li>
 <li>
 <p>The <code>SortCommandParser</code>, which creates <code>Sort</code> commands, is different from the other
@@ -1508,7 +1711,7 @@ and determines that since the sort command word is <code>all</code> , it must cr
 </li>
 <li>
 <p><code>SortCommand</code> checks the type of sorting that is indicated. Since the sort type
-is <code>matric</code> , it calls <code>model</code> 's <code>sortModulesByMatricNumber()</code> command.</p>
+is <code>matric</code> , it calls <code>Model</code> 's <code>sortModulesByMatricNumber()</code> command.</p>
 </li>
 <li>
 <p>The <code>SortCommand</code> returns a <code>CommandResult</code> with a success message.</p>
@@ -1518,44 +1721,42 @@ is <code>matric</code> , it calls <code>model</code> 's <code>sortModulesByMatri
 </div>
 </div>
 <div class="sect2">
-<h3 id="session-view"><a class="link" href="#session-view">4.2. Session View</a></h3>
-
-</div>
-<div class="sect2">
 <h3 id="SessionView"><a class="link" href="#SessionView">4.3. Session View</a></h3>
 <div class="paragraph">
 <p><strong>Session View</strong> is the term used to refer to the view that contains a list of all sessions
 that haven&#8217;t been completed yet.</p>
 </div>
 <div class="sect3">
-<h4 id="model-framework-2"><a class="link" href="#model-framework-2">4.3.1. Model Framework</a></h4>
+<h4 id="model-framework"><a class="link" href="#model-framework">4.3.1. Model Framework</a></h4>
 <div class="paragraph">
-<p>The following class diagram shows how different classes are related in the functioning
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning
 of the <strong>Session View</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SessionModelClassDiagram.png" alt="SessionModelClassDiagram">
 </div>
-<div class="title">Figure 30. Class Diagram of Session View</div>
+<div class="title">Figure 31. Class Diagram of Session View</div>
 </div>
 <div class="paragraph">
 <p>The TaTracker model class contains a <code>UniqueSessionList</code> which helps keep track of
-all the <strong>upcoming sessions</strong> the user has.</p>
+all the <strong>sessions</strong> in TA-Tracker
+that have <strong>not</strong> been marked as done.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-session-done-command"><a class="link" href="#implementation-of-the-session-done-command">4.3.2. Implementation of the Session Done Command</a></h4>
+<h4 id="implementation-of-the-session-add-edit-delete-and-done-command"><a class="link" href="#implementation-of-the-session-add-edit-delete-and-done-command">4.3.2. Implementation of the Session Add, Edit, Delete and Done Command</a></h4>
 <div class="paragraph">
-<p>The following sequence diagram shows the sequence of commands that take place between
-the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
+when the user enters the command
 <code>session done 1</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/DoneSessionSequenceDiagram.png" alt="DoneSessionSequenceDiagram">
 </div>
-<div class="title">Figure 31. Sequence Diagram for Done Session</div>
+<div class="title">Figure 32. Sequence Diagram for Done Session</div>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1574,9 +1775,20 @@ arguments to the <code>DoneSessionCommandParser</code>.</p>
 <p>The <code>DoneSessionCommandParser</code> creates a <code>DoneSessionCommand</code> with the given index.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>DoneSessionCommand#execute()</code> method. The <code>DoneSessionCommand</code>
-checks whether the current session called by the user has a recurring period.
-If it does, a new session with the updated date will be added to <code>Model#UniqueSessionList()</code>.</p>
+<p><code>LogicManager</code> calls <code>DoneSessionCommand#execute()</code> method.</p>
+</li>
+<li>
+<p>The `DoneSessionCommand`checks whether the current session called by the user has a recurring period.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it doesn&#8217;t, &#8230;&#8203;</p>
+</li>
+<li>
+<p>If it does, a new session with the updated date will be added to <code>Model#UniqueSessionList()</code>.</p>
+</li>
+</ol>
+</div>
 </li>
 <li>
 <p>The current session will be removed from <code>Model#UniqueSessionList</code>.</p>
@@ -1586,11 +1798,32 @@ If it does, a new session with the updated date will be added to <code>Model#Uni
 </li>
 </ol>
 </div>
+<div class="paragraph">
+<p>The <code>session add</code>, <code>session edit</code> and <code>session delete</code> commands have been implemented in a similar manner.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> describes how TaTracker is updated when a <code>SessionDone</code> command is entered.</p>
+</div>
 <div class="imageblock">
 <div class="content">
-<img src="images/DoneSessionActivityDiagram.png" alt="DoneSessionActivityDiagram">
+<img src="images/TssActivityDiagram.png" alt="TssActivityDiagram">
 </div>
-<div class="title">Figure 32. Activity Diagram for Done Session</div>
+<div class="title">Figure 33. Session Done- Activity Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>The above diagram assumes that a valid index has been input into the TA-Tracker
+during the done session command.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1601,40 +1834,51 @@ If it does, a new session with the updated date will be added to <code>Model#Uni
 been done.</p>
 </div>
 <div class="sect3">
-<h4 id="model-framework-3"><a class="link" href="#model-framework-3">4.4.1. Model Framework</a></h4>
+<h4 id="model-framework-2"><a class="link" href="#model-framework-2">4.4.1. Model Framework</a></h4>
 <div class="paragraph">
-<p>The following class diagram shows how different classes are related in the
-functioning of the Claims view.</p>
+<p>The following <em>Class Diagram</em> shows how different classes are related in the
+functioning of the <strong>Claims View</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/TssModelClassDiagram.png" alt="TssModelClassDiagram">
 </div>
-<div class="title">Figure 33. Claims View - Class Diagram</div>
+<div class="title">Figure 34. Claims View - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The TaTracker model class contains a UniqueDoneSessionList which keeps track of
-all the sessions that have been marked as done. Each of the sessions are associated
-with a Module in the UniqueModuleList.</p>
-</div>
-<div class="paragraph">
-<p>The following diagram describes how TaTracker is updated when a Done Session command is entered.</p>
+all the <strong>sessions that have been marked as done</strong>. Each of the sessions must belong to a Module in the UniqueModuleList.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="session-done-command"><a class="link" href="#session-done-command">4.4.2. Session Done Command</a></h4>
-<div class="imageblock">
-<div class="content">
-<img src="images/TssActivityDiagram.png" alt="TssActivityDiagram">
-</div>
-<div class="title">Figure 34. Session Done- Activity Diagram</div>
-</div>
+<h4 id="set-rate-command"><a class="link" href="#set-rate-command">4.4.2. Set Rate Command</a></h4>
 <div class="paragraph">
-<p>Note: The above diagram assumes that a valid index has been input into the TA-Tracker during
-the done session command.</p>
+<p>Given below is an example scenario where the user enters the command <code>setrate 50</code>.</p>
 </div>
-<div class="paragraph">
-<p>{insert Filter Claims sequence diagram here}</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.</p>
+</li>
+<li>
+<p><code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a type of SetRate and passes the command
+to the <code>SetRateCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>SetRateCommandParser</code> object checks that the given <code>RATE</code> input
+by the user is a valid integer. If it is, the <code>SetRateCommandParser</code> creates a
+<code>SetRateCommand</code> object with the relevant integer.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>SetRateCommand</code> 's execute method.</p>
+</li>
+<li>
+<p><code>MainWindow</code> updates the <code>TotalEarnings</code> label in the <code>ClaimsTab</code> and the <code>StatisticsWindow</code></p>
+</li>
+</ol>
 </div>
 </div>
 </div>
@@ -1648,13 +1892,13 @@ as a form of input validation.</p>
 <p>In addition, the <code>ResultDisplay</code> will display different messages based on the result of the syntax highlighting.</p>
 </div>
 <div class="paragraph">
-<p>The following shows how the <code>CommandBox</code> and <code>ResultDisplay</code> appear in the <code>MainWindow</code> of <code>TA-Tracker</code></p>
+<p>The following shows how the <code>CommandBox</code> and <code>ResultDisplay</code> appear in the <code>MainWindow</code> of `TA-Tracker
+`</p>
 </div>
-<div class="imageblock">
-<div class="content">
-<img src="images/syntax-highlighting/SH-CommandBox.png" alt="SH CommandBox">
-</div>
-<div class="title">Figure 35. The <code>CommandBox</code> and the <code>ResultDisplay</code> in <code>TA-Tracker</code></div>
+<div class="paragraph">
+<div class="title">The <code>CommandBox</code> and the <code>ResultDisplay</code> in `TA-Tracker</div>
+<p>`
+image::syntax-highlighting/SH-CommandBox.png[]</p>
 </div>
 <div class="paragraph">
 <p>In the figure above:</p>
@@ -1678,41 +1922,44 @@ as a form of input validation.</p>
 <div class="sect3">
 <h4 id="overview"><a class="link" href="#overview">4.5.1. Overview</a></h4>
 <div class="paragraph">
-<p>The following diagram shows how the Logic and UI components interact with each other to produce the highlighting.</p>
+<p>The following <em>Class Diagram</em> shows how the <code>Logic</code> and <code>UI</code> components interact with each other to produce the highlighting.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SyntaxHighlightingClassDiagram.png" alt="SyntaxHighlightingClassDiagram">
 </div>
-<div class="title">Figure 36. Syntax Highlighting - Class Diagram</div>
+<div class="title">Figure 35. Syntax Highlighting - Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>The <code>CommandBox</code>:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>CommandBox</code> uses a <code>CommandDictionary</code> to search for valid commands.</p>
+<p>Uses a <code>CommandDictionary</code> to search for valid commands.</p>
 </li>
 <li>
-<p>The <code>CommandBox</code> stores a <code>CommandDetail</code> for processing the current command in the user input.</p>
+<p>Stores a <code>CommandDetail</code> for processing the current command in the user input.</p>
 </li>
 <li>
-<p>The <code>CommandBox</code> stores a <code>PrefixDictionary</code> containing the required argument details (<code>PrefixDetails</code>) for the current command.</p>
+<p>Stores a <code>PrefixDictionary</code> containing the required argument details (<code>PrefixDetails</code>) for the current command.</p>
 </li>
 <li>
-<p>The <code>CommandBox</code> uses a <code>CommandBoxUtil</code> to scan for valid user inputs.</p>
+<p>Uses a <code>CommandBoxUtil</code> to scan for valid user inputs.</p>
 </li>
 <li>
-<p>The <code>CommandBox</code> returns feedback to the <code>ResultDisplay</code>.</p>
-</li>
-<li>
-<p>The <code>ResultDisplay</code> displays the given feedback tas a message in the program.</p>
+<p>Returns feedback to the <code>ResultDisplay</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>The <code>ResultDisplay</code> displays the given feedback tas a message in the program.</p>
+</div>
 </div>
 <div class="sect3">
-<h4 id="implementation-2"><a class="link" href="#implementation-2">4.5.2. Implementation</a></h4>
+<h4 id="implementation-3"><a class="link" href="#implementation-3">4.5.2. Implementation</a></h4>
 <div class="paragraph">
-<p>The following diagrams show the steps for the different types of highlighting.</p>
+<p>The following diagrams show the steps for the different types of syntax highlighting.</p>
 </div>
 <div class="paragraph">
 <p>Here are some keywords that will be used to explain the implementation:</p>
@@ -1749,10 +1996,10 @@ as a form of input validation.</p>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Due to the limitations of PlantUML, some of the diagrams may not appear as expected.</p>
+<p>Due to the limitations of <strong>PlantUML</strong>, some of the diagrams may not appear as expected.</p>
 </div>
 <div class="paragraph">
-<p>In particular, there are issues with representing alternate paths in PlantUML BETA Activity Diagrams</p>
+<p>In particular, there are issues with representing alternate paths in <strong>PlantUML</strong> BETA Activity Diagrams</p>
 </div>
 <div class="paragraph">
 <p>For example:</p>
@@ -1780,20 +2027,20 @@ Please assume that they all converge into a single diamond before reaching the e
 </table>
 </div>
 <div class="sect4">
-<h5 id="step-1-highlighting-a-new-input"><a class="link" href="#step-1-highlighting-a-new-input">Step 1. Highlighting a new input</a></h5>
+<h5 id="step-1-highlighting-a-new-input"><a class="link" href="#step-1-highlighting-a-new-input">4.5.2.1. Step 1. Highlighting a new input</a></h5>
 <div class="paragraph">
-<p>When a new input is entered in the <code>CommandBox</code>,
-the syntax highlighting will be reapplied to the entire input.</p>
+<p>When a new user input is entered in the <code>CommandBox</code>,
+the syntax highlighting will be reapplied.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram explains how the <code>full command word</code> is highlighted,
+<p>The following <em>Activity Diagram</em> explains how the <code>full command word</code> is highlighted,
 up until the beginning of the <code>preamble</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram1.png" alt="SyntaxHighlightingActivityDiagram1">
 </div>
-<div class="title">Figure 37. Step 1 - Highlighting a new input</div>
+<div class="title">Figure 36. Step 1 - Highlighting a new input</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each partition in the above diagram:</p>
@@ -1811,7 +2058,7 @@ the <code>ResultDisplay</code> should not show anything.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-Blank.png" alt="SH 1 Blank" width="300">
 </div>
-<div class="title">Figure 38. Blank <code>ResultDisplay</code></div>
+<div class="title">Figure 37. Blank <code>ResultDisplay</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1826,7 +2073,7 @@ the <code>ResultDisplay</code> should indicate that a wrong command is entered.<
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-Invalid.png" alt="SH 1 Invalid" width="300">
 </div>
-<div class="title">Figure 39. Invalid <code>full command word</code></div>
+<div class="title">Figure 38. Invalid <code>full command word</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1846,7 +2093,7 @@ the <code>ResultDisplay</code> should indicate that a correct command has been e
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-NoArgs.png" alt="SH 1 NoArgs" width="300">
 </div>
-<div class="title">Figure 40. <code>CommandBox</code> has no <code>arguments</code></div>
+<div class="title">Figure 39. <code>CommandBox</code> has no <code>arguments</code></div>
 </div>
 <div class="ulist">
 <ul>
@@ -1873,24 +2120,24 @@ There should be a rake symbol next to the only activity in this partition.
 <div class="content">
 <img src="images/syntax-highlighting/SH-1-HasArgs.png" alt="SH 1 HasArgs" width="250">
 </div>
-<div class="title">Figure 41. <code>CommandBox</code> has <code>arguments</code></div>
+<div class="title">Figure 40. <code>CommandBox</code> has <code>arguments</code></div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="step-2-highlighting-the-preamble"><a class="link" href="#step-2-highlighting-the-preamble">Step 2. Highlighting the preamble</a></h5>
+<h5 id="step-2-highlighting-the-preamble"><a class="link" href="#step-2-highlighting-the-preamble">4.5.2.2. Step 2. Highlighting the preamble</a></h5>
 <div class="paragraph">
 <p>After verifying that the new input has a <code>full command word</code>,
 the highlighting will also need to be reapplied to the <code>preamble</code> and <code>arguments</code>.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram explains how the <code>preamble</code> is highlighted,
+<p>The following <em>Activity Diagram</em> explains how the <code>preamble</code> is highlighted,
 up until the beginning of the first <code>argument</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram2.png" alt="SyntaxHighlightingActivityDiagram2">
 </div>
-<div class="title">Figure 42. Step 2 - Highlighting the preamble</div>
+<div class="title">Figure 41. Step 2 - Highlighting the preamble</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each partition in the above diagram:</p>
@@ -1907,7 +2154,7 @@ Inputs that have trailing whitespaces will be handled separately.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-Space.png" alt="SH 2 Space" width="250">
 </div>
-<div class="title">Figure 43. Trailing whitespace, coloured in blue for this diagram</div>
+<div class="title">Figure 42. Trailing whitespace, coloured in blue for this diagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1922,7 +2169,7 @@ the <code>ResultDisplay</code> should reshow how to use the command.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-ManySpace.png" alt="SH 2 ManySpace" width="400">
 </div>
-<div class="title">Figure 44. Many trailing whitespaces, coloured in blue for this diagram</div>
+<div class="title">Figure 43. Many trailing whitespaces, coloured in blue for this diagram</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1937,7 +2184,7 @@ the <code>ResultDisplay</code> should indicate that a wrong command is entered.<
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-WrongPreamble.png" alt="SH 2 WrongPreamble" width="350">
 </div>
-<div class="title">Figure 45. Invalid <code>preamble</code> in input</div>
+<div class="title">Figure 44. Invalid <code>preamble</code> in input</div>
 </div>
 <div class="ulist">
 <ul>
@@ -1964,24 +2211,24 @@ There should be a rake symbol next to the only activity in this partition.
 <div class="content">
 <img src="images/syntax-highlighting/SH-2-RightPreamble.png" alt="SH 2 RightPreamble" width="350">
 </div>
-<div class="title">Figure 46. Valid <code>preamble</code> in input</div>
+<div class="title">Figure 45. Valid <code>preamble</code> in input</div>
 </div>
 </div>
 <div class="sect4">
-<h5 id="step-3-highlighting-the-remaining-arguments"><a class="link" href="#step-3-highlighting-the-remaining-arguments">Step 3. Highlighting the remaining arguments</a></h5>
+<h5 id="step-3-highlighting-the-remaining-arguments"><a class="link" href="#step-3-highlighting-the-remaining-arguments">4.5.2.3. Step 3. Highlighting the remaining arguments</a></h5>
 <div class="paragraph">
 <p>After verifying that the <code>preamble</code> is valid for the given <code>full command word</code>,
 the highlighting will need to be reapplied to each <code>argument</code> in the remaining user input.</p>
 </div>
 <div class="paragraph">
-<p>The following activity diagram explains how each <code>argument</code> is highlighted,
+<p>The following <em>Activity Diagram</em> explains how each <code>argument</code> is highlighted,
 up until end of the user input.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram3.png" alt="SyntaxHighlightingActivityDiagram3">
 </div>
-<div class="title">Figure 47. Step 3 - Highlighting the remaining arguments</div>
+<div class="title">Figure 46. Step 3 - Highlighting the remaining arguments</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each partition in the above diagram:</p>
@@ -1999,7 +2246,7 @@ the <code>ResultDisplay</code> should reshow how to use the command.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-3-Wrong.png" alt="SH 3 Wrong" width="500">
 </div>
-<div class="title">Figure 48. Wrong <code>argument</code> in input</div>
+<div class="title">Figure 47. Wrong <code>argument</code> in input</div>
 </div>
 <div class="ulist">
 <ul>
@@ -2014,7 +2261,7 @@ the <code>ResultDisplay</code> should show how to use the <code>argument</code>.
 <div class="content">
 <img src="images/syntax-highlighting/SH-3-Invalid.png" alt="SH 3 Invalid" width="500">
 </div>
-<div class="title">Figure 49. Invalid <code>argument</code> in input</div>
+<div class="title">Figure 48. Invalid <code>argument</code> in input</div>
 </div>
 <div class="ulist">
 <ul>
@@ -2030,14 +2277,14 @@ can have spaces.</p>
 <div class="content">
 <img src="images/syntax-highlighting/SH-3-Valid.png" alt="SH 3 Valid" width="500">
 </div>
-<div class="title">Figure 50. Valid <code>argument</code> in input</div>
+<div class="title">Figure 49. Valid <code>argument</code> in input</div>
 </div>
 </div>
 </div>
 <div class="sect3">
 <h4 id="design-considerations-2"><a class="link" href="#design-considerations-2">4.5.3. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="aspect-1-executing-the-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-executing-the-syntax-highlighting-in-real-time">Aspect #1: Executing the syntax highlighting in real-time</a></h5>
+<h5 id="aspect-1-executing-the-syntax-highlighting-in-real-time"><a class="link" href="#aspect-1-executing-the-syntax-highlighting-in-real-time">4.5.3.1. Aspect #1: Executing the syntax highlighting in real-time</a></h5>
 <div class="paragraph">
 <p>The current implementation reapplies the highlighting whenever the user input changes.
 When no input is changed, the program will idle.</p>
@@ -2048,7 +2295,7 @@ but the program cannot idle and will consume memory when in use.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="aspect-2-range-of-syntax-highlighting"><a class="link" href="#aspect-2-range-of-syntax-highlighting">Aspect #2: Range of syntax highlighting</a></h5>
+<h5 id="aspect-2-range-of-syntax-highlighting"><a class="link" href="#aspect-2-range-of-syntax-highlighting">4.5.3.2. Aspect #2: Range of syntax highlighting</a></h5>
 <div class="paragraph">
 <p>The current implementation uses three colours for the syntax highlighting.</p>
 </div>
@@ -2082,53 +2329,9 @@ many flashing colours may be distracting to the user.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="link" href="#logging">4.6. Logging</a></h3>
-<div class="paragraph">
-<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.7, &#8220;Configuration&#8221;</a>)</p>
-</li>
-<li>
-<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
-</li>
-<li>
-<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><strong>Logging Levels</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
-</li>
-<li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
-</li>
-<li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
-</li>
-<li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.7. Configuration</a></h3>
-<div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="Implementation-Navigation"><a class="link" href="#Implementation-Navigation">4.8. Filter Command</a></h3>
+<h3 id="Implementation-Filter"><a class="link" href="#Implementation-Filter">4.6. Filter Command</a></h3>
 <div class="sect3">
-<h4 id="description"><a class="link" href="#description">4.8.1. Description</a></h4>
+<h4 id="description-2"><a class="link" href="#description-2">4.6.1. Description</a></h4>
 <div class="paragraph">
 <p>Different view has its own designated filter command.</p>
 </div>
@@ -2137,13 +2340,13 @@ many flashing colours may be distracting to the user.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Student View, <code>student filter</code> command is provided.</p>
+<p><strong>Student View</strong>, has the <code>student filter</code></p>
 </li>
 <li>
-<p>Session View, <code>session filter</code> command is provided.</p>
+<p><strong>Session View</strong>, has the <code>session filter</code></p>
 </li>
 <li>
-<p>Claims View, <code>claims filter</code> command is provided.</p>
+<p><strong>Claims View</strong>, has the <code>claims filter</code></p>
 </li>
 </ul>
 </div>
@@ -2155,24 +2358,21 @@ under each view.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-3"><a class="link" href="#implementation-3">4.8.2. Implementation</a></h4>
+<h4 id="implementation-4"><a class="link" href="#implementation-4">4.6.2. Implementation</a></h4>
 <div class="paragraph">
 <p>This section describes the implementation of the <code>filter</code> command.</p>
 </div>
 <div class="paragraph">
-<p>The activity diagram below summarises what happens when the user executes a <code>filter</code> command :</p>
+<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command :</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram">
 </div>
-<div class="title">Figure 51. Activity Diagram of the Filter Command</div>
+<div class="title">Figure 50. <em>Activity Diagram</em> of the Filter Command</div>
 </div>
-</div>
-<div class="sect3">
-<h4 id="implementation-4"><a class="link" href="#implementation-4">4.8.3. Implementation</a></h4>
 <div class="paragraph">
-<p>The filter feature consists of three main parts:</p>
+<p>The filter feature consists of three main steps:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2197,41 +2397,59 @@ group code given by the user.</p>
 <div class="paragraph">
 <p>Module code is a compulsory parameter for the user.</p>
 </div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between the <code>Logic</code>
+and <code>Model</code> components of the TA-Tracker when the user enters the command <code>student filter m/CS2103T g/G06</code>.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
 </div>
-<div class="title">Figure 52. Sequence Diagram for Filter Student Command</div>
+<div class="title">Figure 51. Sequence Diagram for Filter Student Command</div>
 </div>
 <div class="paragraph">
 <p>Given below is an example scenario where the user enters a command to filter students.</p>
 </div>
-<div class="paragraph">
-<p><strong>Step 1:</strong> The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
 <code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 2:</strong> The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
 to the <code>StudentCommandParser</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 3:</strong> The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
-arguments to the <code>FilterStudentViewCommandParser</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 4:</strong> The <code>FilterStudentViewCommandParser</code> creates a <code>FilterStudentViewCommand</code> object
+</li>
+<li>
+<p>The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
+arguments to the <code>FilterStudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommandParser</code> creates a <code>FilterStudentCommand</code> object
 with the relevant keywords.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>FilterStudentCommand</code> 's execute method.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommand</code> object checks whether any of the keywords given by the user matches the existing
+module and/or group.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it doesn&#8217;t &#8230;&#8203;</p>
+</li>
+<li>
+<p>If it does, the <code>FilterStudentCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+</li>
+</ol>
 </div>
-<div class="paragraph">
-<p><strong>Step 5:</strong> <code>LogicManager</code> calls <code>FilterStudentViewCommand</code> 's execute method.
-The <code>FilterStudentViewCommand</code> object checks whether any of the keywords given by the user
-matches the existing module and/or group.
-If it does, the <code>FilterStudentViewCommand</code> returns a <code>CommandResult</code>
-with a success message.</p>
-</div>
-<div class="paragraph">
-<p><strong>Step 6:</strong> If all of the given inputs does not match any existing modules and/or group,
+</li>
+<li>
+<p>If all of the given inputs does not match any existing modules and/or group,
 a command exception is thrown saying that no such students exists.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p><strong>Filter under Session View</strong></p>
@@ -2267,23 +2485,71 @@ in a session, it will be filtered.
 If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
 will be shown.</p>
 </div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning of
+the <code>SessionFilter</code> Command.</p>
+</div>
 <div class="imageblock">
 <div class="content">
 <img src="images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
 </div>
-<div class="title">Figure 53. Class Diagram for Filter Session Command</div>
+<div class="title">Figure 52. Class Diagram for Filter Session Command</div>
 </div>
 <div class="paragraph">
 <p><strong>Filter under Claims View</strong></p>
 </div>
 <div class="paragraph">
-<p>The user can only filter the Claims View by module code.
+<p>The user can only filter the <strong>Claims View</strong> by module code.
 When the user enters the command <code>claims filter m/MODULE_CODE</code>, claims that contain the module code
 will be filtered.</p>
 </div>
 <div class="paragraph">
 <p>The command used to filter claims is implemented the same way as <code>SessionFilterCommand</code>.</p>
 </div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="logging"><a class="link" href="#logging">4.7. Logging</a></h3>
+<div class="paragraph">
+<p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
+</li>
+<li>
+<p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
+</li>
+<li>
+<p>Currently log messages are output through: <code>Console</code> and to a <code>.log</code> file.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>Logging Levels</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+</li>
+<li>
+<p><code>WARNING</code> : Can continue, but with caution</p>
+</li>
+<li>
+<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+</li>
+<li>
+<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
+<div class="paragraph">
+<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -2529,17 +2795,36 @@ much money I have earned and stay motivated</p></td>
 <div class="paragraph">
 <p>(For all use cases below, the <strong>System</strong> is the <code>TA-Tracker</code> and the <strong>Actor</strong> is the <code>user</code>, unless specified otherwise)</p>
 </div>
-<h3 id="use-case-goto-a-tab" class="discrete">Use case: Goto a tab</h3>
+<div class="sect2">
+<h3 id="navigation"><a class="link" href="#navigation">Navigation</a></h3>
+<h4 id="use-case-uc01-viewing-the-help-menu" class="discrete">Use case: UC01 - Viewing the help menu</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view a different tab.</p>
+<p>User requests to view the <code>help window.</code></p>
 </li>
 <li>
-<p>TA-Tracker layout changes to show the new tab.</p>
+<p>TA-Tracker opens a new window showing the list of commands.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="use-case-uc02-going-to-a-different-tab" class="discrete">Use case: UC02 - Going to a different tab</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to a different <code>tab</code>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the requested <code>tab</code>.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2552,7 +2837,7 @@ much money I have earned and stay motivated</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>1a.  The requested tab is invalid.</p>
+<p>1a.  The requested <code>tab</code> is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -2566,104 +2851,27 @@ much money I have earned and stay motivated</p></td>
 </li>
 </ul>
 </div>
-<h3 id="use-case-viewing-the-help-menu" class="discrete">Use case: Viewing the help menu</h3>
+<h4 id="use-case-uc03-exiting-the-app" class="discrete">Use case: UC03 - Exiting the app</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the help menu.</p>
+<p>User requests to exit the app.</p>
 </li>
 <li>
-<p>TA-Tracker opens a new window showing the list of commands.</p>
+<p>TA-Tracker closes the App window.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
 </li>
 </ol>
 </div>
-<h3 id="use-case-change-the-hourly-pay-rate" class="discrete">Use case: Change the hourly pay rate</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to change the hourly pay rate to a specified amount.</p>
-</li>
-<li>
-<p>TA-Tracker changes the pay rate.</p>
-</li>
-<li>
-<p>TA-Tracker shows an edited TSS claims page with the total earnings adjusted to reflect the new pay rate.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a. The given rate is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-add-student" class="discrete">Use case: Add student</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to add a student.</p>
-</li>
-<li>
-<p>TA-Tracker adds new student.</p>
-</li>
-<li>
-<p>TA-Tracker layout changes to show the student tab.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>1a. The input required (eg. Matric Number) to add a student is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 1.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-add-module" class="discrete">Use case: Add module</h3>
+<div class="sect2">
+<h3 id="student-view"><a class="link" href="#student-view">Student View</a></h3>
+<h4 id="use-case-uc04-adding-a-module" class="discrete">Use case: UC04 - Adding a module</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -2676,7 +2884,7 @@ much money I have earned and stay motivated</p></td>
 <p>TA-Tracker adds a new module.</p>
 </li>
 <li>
-<p>TA-Tracker layout changes to show the student tab.</p>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2703,20 +2911,98 @@ much money I have earned and stay motivated</p></td>
 </li>
 </ul>
 </div>
-<h3 id="use-case-add-tutorial" class="discrete">Use case: Add tutorial</h3>
+<h4 id="use-case-uc05-editing-a-module" class="discrete">Use case: UC05 - Editing a module</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to add a new tutorial.</p>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing modules in the <strong>Student View</strong>.</p>
 </li>
 <li>
-<p>TA-Tracker shows adds a new tutorial linked to the specified module.</p>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
 </li>
 <li>
-<p>TA-Tracker layout changes to show the session tab.</p>
+<p>User requests to edit an existing module.</p>
+</li>
+<li>
+<p>TA-Tracker edits the module.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="use-case-uc06-deleting-module" class="discrete">Use case: UC06 - Deleting module</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing modules in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to delete an existing module.</p>
+</li>
+<li>
+<p>TA-Tracker deletes the module and all of the sessions, groups, and students in it.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+<li>
+<p>3a. The given module code is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc07-adding-a-group" class="discrete">Use case: UC07 - Adding a group</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing modules in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to add a group to a module</p>
+</li>
+<li>
+<p>TA-Tracker adds the new group</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2760,26 +3046,127 @@ much money I have earned and stay motivated</p></td>
 </li>
 </ul>
 </div>
-<h3 id="use-case-edit-student" class="discrete">Use case: Edit Student</h3>
+<h4 id="use-case-uc08-editing-a-group" class="discrete">Use case: UC08 - Editing a group</h4>
+<div class="paragraph">
+<p><strong>MSS</strong>
+. User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing groups in the <strong>Student View</strong>.
+. TA-Tracker switches to the <code>Student Tab</code>.
+. User requests to edit a group
+. TA-Tracker edits the group</p>
+</div>
+<h4 id="use-case-uc09-deleting-group" class="discrete">Use case: UC09 - Deleting group</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to switch to the student tab.</p>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing groups in the <strong>Student View</strong>.</p>
 </li>
 <li>
-<p>TA-Tracker shows a list of students in the student tab.</p>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
 </li>
 <li>
-<p>User filters the list in order to get the student&#8217;s matric number.</p>
+<p>User requests to delete a group</p>
 </li>
 <li>
-<p>User requests to edit a specific student in the list.</p>
+<p>TA-Tracker deletes the group and all of the students in it</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The list is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
 </li>
 <li>
-<p>TA-Tracker edits the student according to the specified parameters.</p>
+<p>3a. The given group code is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc10-adding-a-student" class="discrete">Use case: UC10 - Adding a student</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing groups in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to add a new student to a group</p>
+</li>
+<li>
+<p>TA-Tracker adds the new student</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The input required (eg. Matric Number) to add a student is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc11-editing-a-student" class="discrete">Use case: UC11 - Editing a Student</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing students in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to edit a student</p>
+</li>
+<li>
+<p>TA-Tracker edits the student</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2825,26 +3212,24 @@ much money I have earned and stay motivated</p></td>
 </li>
 </ul>
 </div>
-<h3 id="use-case-delete-student" class="discrete">Use case: Delete student</h3>
+<h4 id="use-case-uc12-deleting-a-student" class="discrete">Use case: UC12 - Deleting a student</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to show students tab.</p>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing students in the <strong>Student View</strong>.</p>
 </li>
 <li>
-<p>TA-Tracker shows a list of students in the student tab.</p>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
 </li>
 <li>
-<p>User filters the list in order to get the student&#8217;s index.</p>
+<p>User requests to delete a student</p>
 </li>
 <li>
-<p>User requests to delete a specific student in the list.</p>
-</li>
-<li>
-<p>TA-Tracker deletes the student.</p>
+<p>TA-Tracker deletes the student</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -2877,550 +3262,21 @@ much money I have earned and stay motivated</p></td>
 </li>
 </ul>
 </div>
-<h3 id="use-case-delete-module" class="discrete">Use case: Delete module</h3>
+<h4 id="use-case-uc13-sorting-a-group" class="discrete">Use case: UC13 - Sorting a group</h4>
+<h4 id="use-case-uc14-sorting-a-module" class="discrete">Use case: UC14 - Sorting a module</h4>
+<h4 id="use-case-uc15-sorting-a-all" class="discrete">Use case: UC15 - Sorting a all</h4>
+<h4 id="use-case-uc16-filtering-the-student-view" class="discrete">Use case: UC16 - Filtering the Student View</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to show the students tab.</p>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing students in the <strong>Student View</strong>.</p>
 </li>
 <li>
-<p>TA-Tracker shows a list of modules in the student tab.</p>
-</li>
-<li>
-<p>User requests to delete a specific module in the list.</p>
-</li>
-<li>
-<p>TA-Tracker deletes the module and all of the sessions and groups in it.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given module code is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<h3 id="use-case-delete-group" class="discrete">Use case: Delete group</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to show students page.</p>
-</li>
-<li>
-<p>TA-Tracker shows a list of groups categorised by module.</p>
-</li>
-<li>
-<p>User filters the list in order to get the group&#8217;s group code.</p>
-</li>
-<li>
-<p>User requests to delete a specific group in the list.</p>
-</li>
-<li>
-<p>TA-Tracker deletes the group and all of the students in it.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The list is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-<li>
-<p>3a. The given group code is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="sect2">
-<h3 id="use-case-add-session"><a class="link" href="#use-case-add-session">Use case: Add session</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to add a session.</p>
-</li>
-<li>
-<p>TA-Tracker creates the new session.</p>
-</li>
-<li>
-<p>TA-Tracker adds the new session into the session list.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Session Tab in order to display the new session.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>1a. The user requests to add a recurring session.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>1a1. TA-Tracker creates a new session, and labels it as recurring.</p>
-<div class="paragraph">
-<p>Use case resumes at step 3.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-delete-session"><a class="link" href="#use-case-delete-session">Use case: Delete session</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view the Session View.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Schedule View.</p>
-</li>
-<li>
-<p>User requests to delete a specific session in the list.</p>
-</li>
-<li>
-<p>TA-Tracker deletes the session.</p>
-</li>
-<li>
-<p>TA-Tracker displays the new session list.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a. The index is invalid</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-edit-session"><a class="link" href="#use-case-edit-session">Use case: Edit session</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view the Session View.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Session Tab.</p>
-</li>
-<li>
-<p>User requests to edit a specific session in the list.</p>
-</li>
-<li>
-<p>TA-Tracker edits the session.</p>
-</li>
-<li>
-<p>TA-Tracker replaces the session in the current view with the new version.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The Session View is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The given session list index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-delete-session-2"><a class="link" href="#use-case-delete-session-2">Use case: Delete session</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view the Session View.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Session Tab.</p>
-</li>
-<li>
-<p>User requests to delete a specific session in the view.</p>
-</li>
-<li>
-<p>TA-Tracker deletes the session.</p>
-</li>
-<li>
-<p>TA-Tracker removes the session from the current view.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The Session View is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The index is invalid.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>3a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-mark-a-session-as-done"><a class="link" href="#use-case-mark-a-session-as-done">Use case: Mark a session as done</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view the Session View.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Session Tab.</p>
-</li>
-<li>
-<p>User requests to mark a specific session in the view as done.</p>
-</li>
-<li>
-<p>TA-Tracker marks the session as done.</p>
-</li>
-<li>
-<p>TA-Tracker removes the session from the current view.</p>
-</li>
-<li>
-<p>TA-Tracker adds the session to the Claims View.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Claims Tab.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>2a. The Session View is empty.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a. The given session list index is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>3a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-enroll-student-into-class"><a class="link" href="#use-case-enroll-student-into-class">Use case: Enroll student into class</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to enroll a student in a session group.</p>
-</li>
-<li>
-<p>TA-Tracker registers the student in the session group.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Student View.</p>
-</li>
-<li>
-<p>TA-Tracker shows the student in the student list for the session group.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a. The student does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2b. The module does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2b1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2c. The session group does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2c1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-kick-student-from-class"><a class="link" href="#use-case-kick-student-from-class">Use case: Kick student from class</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to withdraw a student from a session group.</p>
-</li>
-<li>
-<p>TA-Tracker removes the student from the session group.</p>
-</li>
-<li>
-<p>TA-Tracker switches to the Student View.</p>
-</li>
-<li>
-<p>TA-Tracker shows that the student is removed from the student list for the session group.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
-</div>
-</li>
-</ol>
-</div>
-<div class="paragraph">
-<p><strong>Extensions</strong></p>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a. The student does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2a1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2b. The module does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2b1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2c. The session group does not exist.</p>
-<div class="olist none">
-<ol class="none">
-<li>
-<p>2c1. TA-Tracker shows an error message.</p>
-<div class="paragraph">
-<p>Use case resumes at step 2.</p>
-</div>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="use-case-filter-students-under-student-view"><a class="link" href="#use-case-filter-students-under-student-view">Use case: Filter students under Student View</a></h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to view the Student View.</p>
-</li>
-<li>
-<p>Ta-Tracker switches to the Student View.</p>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
 </li>
 <li>
 <p>User requests to filter students from a specific module and/or group.</p>
@@ -3452,17 +3308,214 @@ much money I have earned and stay motivated</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-sessions-under-session-view"><a class="link" href="#use-case-filter-sessions-under-session-view">Use case: Filter sessions under Session View</a></h3>
+<h3 id="session-view"><a class="link" href="#session-view">Session View</a></h3>
+<h4 id="use-case-uc17-adding-a-session" class="discrete">Use case: UC17 - Adding a session</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the Session View.</p>
+<p>User requests to add a session.</p>
 </li>
 <li>
-<p>Ta-Tracker switches to Session View.</p>
+<p>TA-Tracker adds the session.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>1a. The user requests to add a recurring session.</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>1a1. TA-Tracker creates a new session, and labels it as recurring.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="use-case-uc18-editing-a-session" class="discrete">Use case: UC18 - Editing a session</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Session Tab</code> (UC02) to view
+the list of existing sessions in the <strong>Session View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
+</li>
+<li>
+<p>User requests to edit a session.</p>
+</li>
+<li>
+<p>TA-Tracker edits the session.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The Session View is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The given session list index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc19-deleting-a-session" class="discrete">Use case: UC19 - Deleting a session</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Session Tab</code> (UC02) to view
+the list of existing sessions in the <strong>Session View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
+</li>
+<li>
+<p>User requests to delete a session.</p>
+</li>
+<li>
+<p>TA-Tracker deletes the session.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a. The index is invalid</p>
+<div class="olist none">
+<ol class="none">
+<li>
+<p>2a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<h4 id="use-case-uc20-marking-a-session-as-done" class="discrete">Use case: UC20 - Marking a session as done</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Session Tab</code> (UC02) to view
+the list of existing sessions in the <strong>Session View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
+</li>
+<li>
+<p>User requests to mark a session as done.</p>
+</li>
+<li>
+<p>TA-Tracker marks the session as done and removes the session from the <strong>Session View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker adds the session to the <strong>Claims View</strong> and switches to the <code>Claims Tab</code>.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>2a. The Session View is empty.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a. The given session list index is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc21-filtering-under-session-view" class="discrete">Use case: UC21 - Filtering under Session View</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Session Tab</code> (UC02) to view
+the list of existing sessions in the <strong>Session View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Session Tab</code>.</p>
 </li>
 <li>
 <p>User requests to filter sessions specific to date/module code/session type.</p>
@@ -3500,26 +3553,68 @@ much money I have earned and stay motivated</p></td>
 </div>
 </div>
 <div class="sect2">
-<h3 id="use-case-filter-claims-under-claims-view"><a class="link" href="#use-case-filter-claims-under-claims-view">Use case: Filter claims under Claims View</a></h3>
+<h3 id="claims-view-2"><a class="link" href="#claims-view-2">Claims View</a></h3>
+<h4 id="use-case-uc22-changing-the-hourly-pay-rate" class="discrete">Use case: UC22 - Changing the hourly pay rate</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>User requests to view the Claims View.</p>
+<p>User requests to change the hourly pay rate to a specified amount.</p>
 </li>
 <li>
-<p>Ta-Tracker switches to Claims View.</p>
+<p>TA-Tracker changes the pay rate and adjusted the total earnings to reflect the new pay rate.</p>
 </li>
 <li>
-<p>User requests to filter sessions specific to module code.</p>
+<p>TA-Tracker switches to the <code>Claims Tab</code>.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a. The given rate is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc23-filtering-under-claims-view" class="discrete">Use case: UC23 - Filtering under Claims View</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Claims Tab</code> (UC02) to view
+the list of existing claims in the <strong>Claims View</strong>.</p>
 </li>
 <li>
-<p>TA-Tracker retrieves a list of sessions containing the keyword.</p>
+<p>TA-Tracker switches to the <code>Claims Tab</code>.</p>
 </li>
 <li>
-<p>TA-Tracker shows the list of sessions.</p>
+<p>User requests to filter claims specific to module code.</p>
+</li>
+<li>
+<p>TA-Tracker retrieves a list of claims containing the keyword.</p>
+</li>
+<li>
+<p>TA-Tracker shows the list of claims.</p>
 <div class="paragraph">
 <p>Use case ends.</p>
 </div>
@@ -3542,23 +3637,6 @@ much money I have earned and stay motivated</p></td>
 </div>
 </li>
 </ol>
-</div>
-</li>
-</ol>
-</div>
-<h3 id="use-case-exit-the-app" class="discrete">Use case: Exit the app</h3>
-<div class="paragraph">
-<p><strong>MSS</strong></p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>User requests to exit the app.</p>
-</li>
-<li>
-<p>App window closes.</p>
-<div class="paragraph">
-<p>Use case ends.</p>
 </div>
 </li>
 </ol>
@@ -3727,44 +3805,7 @@ with the goal of ensuring the systems are running efficiently and effectively.</
 </div>
 </div>
 <div class="sect1">
-<h2 id="product-survey"><a class="link" href="#product-survey">Appendix F: Product Survey</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>Product Name</strong></p>
-</div>
-<div class="paragraph">
-<p>Author: &#8230;&#8203;</p>
-</div>
-<div class="paragraph">
-<p>Pros:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Cons:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-<li>
-<p>&#8230;&#8203;</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix G: Instructions for Manual Testing</a></h2>
+<h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Given below are instructions to test the app manually. These instructions will help you
@@ -3784,7 +3825,7 @@ These instructions only provide a starting point for testers to work on; testers
 </table>
 </div>
 <div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">G.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3833,7 +3874,7 @@ Expected: The student view under the student app is shown.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-help"><a class="link" href="#viewing-help">G.2. Viewing help</a></h3>
+<h3 id="viewing-help"><a class="link" href="#viewing-help">F.2. Viewing help</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3851,7 +3892,7 @@ Expected: Opens the help window.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-tabs"><a class="link" href="#changing-tabs">G.3. Changing Tabs</a></h3>
+<h3 id="changing-tabs"><a class="link" href="#changing-tabs">F.3. Changing Tabs</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3877,7 +3918,7 @@ Expected: Opens the student tab.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-module"><a class="link" href="#adding-a-module">G.4. Adding a module</a></h3>
+<h3 id="adding-a-module"><a class="link" href="#adding-a-module">F.4. Adding a module</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3892,7 +3933,7 @@ automatically switched to <strong>Student View</strong>.</p>
 </li>
 <li>
 <p>Test Case: <code>module add m/CS1101S n/PE2</code><br>
-Expected: You will see an error message that this module already exists. (Assuming you
+ Expected: You will see an error message that this module already exists. (Assuming you
 added a module with module code CS1101S)</p>
 </li>
 </ol>
@@ -3917,7 +3958,7 @@ CS1101S.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-group-to-a-module"><a class="link" href="#adding-a-group-to-a-module">G.5. Adding a group to a module</a></h3>
+<h3 id="adding-a-group-to-a-module"><a class="link" href="#adding-a-group-to-a-module">F.5. Adding a group to a module</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3964,7 +4005,7 @@ A group with group code <code>G06</code> of type <code>lab</code> will be added 
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-students-to-a-group"><a class="link" href="#adding-students-to-a-group">G.6. Adding students to a group</a></h3>
+<h3 id="adding-students-to-a-group"><a class="link" href="#adding-students-to-a-group">F.6. Adding students to a group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -3988,7 +4029,7 @@ to the group <code>G06</code> of the module <code>CS1101S</code> with a rating o
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-student"><a class="link" href="#editing-a-student">G.7. Editing a student</a></h3>
+<h3 id="editing-a-student"><a class="link" href="#editing-a-student">F.7. Editing a student</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4006,7 +4047,7 @@ Expected: Changes the rating of the student with matric number <code>A123456X</c
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-group"><a class="link" href="#editing-a-group">G.8. Editing a group</a></h3>
+<h3 id="editing-a-group"><a class="link" href="#editing-a-group">F.8. Editing a group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4026,7 +4067,7 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-module-s-name"><a class="link" href="#editing-a-module-s-name">G.9. Editing a module&#8217;s name</a></h3>
+<h3 id="editing-a-module-s-name"><a class="link" href="#editing-a-module-s-name">F.9. Editing a module&#8217;s name</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4035,7 +4076,7 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Test Case: <code>module edit m/CS1101S n/New Name</code>
- Expected: The name of the module with module code <code>CS1101S</code> will change to <code>New Name</code>
+Expected: The name of the module with module code <code>CS1101S</code> will change to <code>New Name</code>
 but the groups and students inside it will remain intact.</p>
 </li>
 </ol>
@@ -4045,7 +4086,7 @@ but the groups and students inside it will remain intact.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-specific-module"><a class="link" href="#viewing-a-specific-module">G.10. Viewing a specific module</a></h3>
+<h3 id="viewing-a-specific-module"><a class="link" href="#viewing-a-specific-module">F.10. Viewing a specific module</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4064,7 +4105,7 @@ of the group at index 1 of the module&#8217;s group list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="viewing-a-specific-group"><a class="link" href="#viewing-a-specific-group">G.11. Viewing a specific group</a></h3>
+<h3 id="viewing-a-specific-group"><a class="link" href="#viewing-a-specific-group">F.11. Viewing a specific group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4083,7 +4124,7 @@ of the group <code>G06</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-a-group"><a class="link" href="#sorting-a-group">G.12. Sorting a group</a></h3>
+<h3 id="sorting-a-group"><a class="link" href="#sorting-a-group">F.12. Sorting a group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4101,7 +4142,7 @@ Expected: Sorts all the students in the group <code>G06</code> of module <code>C
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-a-module"><a class="link" href="#sorting-a-module">G.13. Sorting a module</a></h3>
+<h3 id="sorting-a-module"><a class="link" href="#sorting-a-module">F.13. Sorting a module</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4120,7 +4161,7 @@ You will see the students in the group at index 1 of the group list of module <c
 </div>
 </div>
 <div class="sect2">
-<h3 id="sorting-all-modules"><a class="link" href="#sorting-all-modules">G.14. Sorting all modules</a></h3>
+<h3 id="sorting-all-modules"><a class="link" href="#sorting-all-modules">F.14. Sorting all modules</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4140,7 +4181,7 @@ at index 1 of the module list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-student"><a class="link" href="#deleting-a-student">G.15. Deleting a student</a></h3>
+<h3 id="deleting-a-student"><a class="link" href="#deleting-a-student">F.15. Deleting a student</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4159,7 +4200,7 @@ of the module <code>m/CS1101S</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-group"><a class="link" href="#deleting-a-group">G.16. Deleting a group</a></h3>
+<h3 id="deleting-a-group"><a class="link" href="#deleting-a-group">F.16. Deleting a group</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4179,7 +4220,7 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="adding-a-session"><a class="link" href="#adding-a-session">G.17. Adding a session</a></h3>
+<h3 id="adding-a-session"><a class="link" href="#adding-a-session">F.17. Adding a session</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4200,7 +4241,7 @@ with the module <code>CS1101S</code> and be a <code>consultation</code> with Ali
 </div>
 </div>
 <div class="sect2">
-<h3 id="marking-a-session-as-done"><a class="link" href="#marking-a-session-as-done">G.18. Marking a session as done</a></h3>
+<h3 id="marking-a-session-as-done"><a class="link" href="#marking-a-session-as-done">F.18. Marking a session as done</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4220,7 +4261,7 @@ period. The session marked as done will be added to the claims list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-session"><a class="link" href="#deleting-a-session">G.19. Deleting a session</a></h3>
+<h3 id="deleting-a-session"><a class="link" href="#deleting-a-session">F.19. Deleting a session</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4238,7 +4279,7 @@ Expected: Deletes the session at index <code>1</code> of the session list.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="editing-a-session"><a class="link" href="#editing-a-session">G.20. Editing a session</a></h3>
+<h3 id="editing-a-session"><a class="link" href="#editing-a-session">F.20. Editing a session</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4256,7 +4297,7 @@ Expected: Edits the session at index <code>1</code> of the session list to be of
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-sessions"><a class="link" href="#filtering-sessions">G.21. Filtering sessions</a></h3>
+<h3 id="filtering-sessions"><a class="link" href="#filtering-sessions">F.21. Filtering sessions</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4282,7 +4323,7 @@ Expected: Shows all sessions on the date <code>2020-03-20</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="filtering-claims"><a class="link" href="#filtering-claims">G.22. Filtering Claims</a></h3>
+<h3 id="filtering-claims"><a class="link" href="#filtering-claims">F.22. Filtering Claims</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4301,7 +4342,25 @@ Expected: Shows all sessions that have been marked as done
 </div>
 </div>
 <div class="sect2">
-<h3 id="changing-rate"><a class="link" href="#changing-rate">G.23. Changing rate</a></h3>
+<h3 id="listing-sessions-and-claims"><a class="link" href="#listing-sessions-and-claims">F.23. Listing sessions and claims</a></h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Lists all sessions and claims again (removes all filters that have been previously applied).</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>list</code><br>
+Expected: Shows all sessions and claims that have previously been filtered.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="changing-rate"><a class="link" href="#changing-rate">F.24. Changing rate</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4336,7 +4395,7 @@ Expected: Displays the statistics report of the module <code>CS1101S</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="deleting-a-module"><a class="link" href="#deleting-a-module">G.24. Deleting a module</a></h3>
+<h3 id="deleting-a-module"><a class="link" href="#deleting-a-module">F.25. Deleting a module</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4361,7 +4420,7 @@ this would show you an error message.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="exiting-the-program"><a class="link" href="#exiting-the-program">G.25. Exiting the program</a></h3>
+<h3 id="exiting-the-program"><a class="link" href="#exiting-the-program">F.26. Exiting the program</a></h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4411,4 +4470,4 @@ our features that relied on timing that were almost ready had to be scrapped and
 had to look for new features to replace them.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-10 12:47:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-11 09:49:41 UTC</div></div></div></body></html>

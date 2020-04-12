@@ -1148,9 +1148,9 @@ all modules, a <code>List</code> to store all groups and a <code>List</code> to 
 groups and students.</p>
 </li>
 <li>
-<p>This would require <strong>students to keep track of which group and which module they&#8217;re
+<p>This would require <strong>students togt keep track of which group and which module they&#8217;re
 a part of</strong>. Similarly, <strong>groups would have to keep a track of the students it contains</strong>.
-This would create a <strong>cyclic dependenc</strong>y (which could be solved using an association class).</p>
+This would create a <strong>cyclic dependency</strong> (which could be solved using an association class).</p>
 </li>
 <li>
 <p>The <code>List</code> of groups could contain multiple groups with the same group code as group code
@@ -1778,6 +1778,9 @@ is <code>matric</code> , it calls <code>Model#sortModulesByMatricNumber()</code>
 <div class="sect2">
 <h3 id="SessionView"><a class="anchor" href="#SessionView"></a><a class="link" href="#SessionView">4.4. Session View</a></h3>
 <div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
 <p><strong>Session View</strong> is the term used to refer to the view that contains a list of all sessions
 that haven&#8217;t been completed yet.</p>
 </div>
@@ -1804,6 +1807,9 @@ that have <strong>not</strong> been marked as done.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-the-session-done-command"><a class="anchor" href="#implementation-of-the-session-done-command"></a><a class="link" href="#implementation-of-the-session-done-command">4.4.2. Implementation of the Session Done Command</a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="paragraph">
 <p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
 the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
@@ -1865,9 +1871,9 @@ checks whether the current session called by the user has a recurring period.</p
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/TssActivityDiagram.png" alt="TssActivityDiagram">
+<img src="images/DoneSessionActivityDiagram.png" alt="DoneSessionActivityDiagram">
 </div>
-<div class="title">Figure 30. Session Done- Activity Diagram</div>
+<div class="title">Figure 30. Session Done <em>Activity Diagram</em></div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1887,6 +1893,9 @@ during the done session command.</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-session-add-edit-and-delete"><a class="anchor" href="#implementation-of-session-add-edit-and-delete"></a><a class="link" href="#implementation-of-session-add-edit-and-delete">4.4.3. Implementation of Session Add, Edit and Delete</a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="paragraph">
 <p>The <code>session edit</code> and <code>session delete</code> commands have been implemented in a similar manner
 to <code>DoneSessionCommand</code>.</p>
@@ -2665,6 +2674,9 @@ before the each of the three steps explained in the <a href="#Impl-Syntax">Imple
 </div>
 <div class="sect2">
 <h3 id="Implementation-Filter"><a class="anchor" href="#Implementation-Filter"></a><a class="link" href="#Implementation-Filter">4.7. Filter Command</a></h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="sect3">
 <h4 id="description-2"><a class="anchor" href="#description-2"></a><a class="link" href="#description-2">4.7.1. Description</a></h4>
 <div class="paragraph">
@@ -4060,7 +4072,7 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </div>
 <h4 id="use-case-uc16-filtering-the-student-view" class="discrete">Use case: UC16 - Filtering the Student View</h4>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p><strong>MSS</strong> (Contributed by Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4107,7 +4119,7 @@ the list of existing students in the <strong>Student View</strong>.</p>
 <h3 id="session-view"><a class="anchor" href="#session-view"></a><a class="link" href="#session-view">Session View</a></h3>
 <h4 id="use-case-uc17-adding-a-session" class="discrete">Use case: UC17 - Adding a session</h4>
 <div class="paragraph">
-<p><strong>MSS</strong> (Contributed by Fatin)</p>
+<p><strong>MSS</strong> (Contributed by Fatin, Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4164,7 +4176,7 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </div>
 <h4 id="use-case-uc18-deleting-a-session" class="discrete">Use case: UC18 - Deleting a session</h4>
 <div class="paragraph">
-<p><strong>MSS</strong> (Contributed by Fatin)</p>
+<p><strong>MSS</strong> (Contributed by Fatin, Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4208,7 +4220,7 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 </div>
 <h4 id="use-case-uc19-editing-a-session" class="discrete">Use case: UC19 - Editing a session</h4>
 <div class="paragraph">
-<p><strong>MSS</strong> (Contributed by Fatin)</p>
+<p><strong>MSS</strong> (Contributed by Fatin, Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4252,7 +4264,7 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 </div>
 <h4 id="use-case-uc20-marking-a-session-as-done" class="discrete">Use case: UC20 - Marking a session as done</h4>
 <div class="paragraph">
-<p><strong>MSS</strong> (Contributed by Fatin)</p>
+<p><strong>MSS</strong> (Contributed by Fatin, Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4299,7 +4311,7 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 </div>
 <h4 id="use-case-uc21-filtering-under-session-view" class="discrete">Use case: UC21 - Filtering under Session View</h4>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p><strong>MSS</strong> (Contributed by Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4389,7 +4401,7 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 </div>
 <h4 id="use-case-uc23-filtering-under-claims-view" class="discrete">Use case: UC23 - Filtering under Claims View</h4>
 <div class="paragraph">
-<p><strong>MSS</strong></p>
+<p><strong>MSS</strong> (Contributed by Chua Yi Jing)</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -4531,117 +4543,102 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 <div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 20%;">
-<col style="width: 40%;">
-<col style="width: 40%;">
+<col style="width: 33.3333%;">
+<col style="width: 66.6667%;">
 </colgroup>
 <thead>
 <tr>
 <th class="tableblock halign-left valign-top">Term</th>
 <th class="tableblock halign-left valign-top">Explanation</th>
-<th class="tableblock halign-left valign-top">Examples</th>
 </tr>
 </thead>
 <tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TSS</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form for <code>Teaching Support Student</code>.</p></td>
+</tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TSS Claims Form</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This refers the claims form that Teaching Assistants
 at NUS School of Computing have to fill up at the end of each semester to claim money
 for the tasks they have completed.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form for `Teaching Assistant.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">SOC or SoC</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form for School of Computing.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Index</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to the position of an item on a list.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Index of 1 refers to the first
-item in a list.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to the position of an item on a list. For example:
+Index of 1 refers to the first item in a list.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Matric Number</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to a student&#8217;s matriculation number.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">A0123456X</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This refers to a student&#8217;s matriculation number. For example: A0123456X</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Group</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">The is the general term given to a group of students a TA teaches.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lab, tutorial, recitation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">The is the general term given to a group of students a TA teaches. For example:
+lab, tutorial, recitation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TAT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form of TA-Tracker.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NUS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form of National University of Singapore.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Module</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Refers to one of the academic courses in NUS.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Tutorial</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">A tutorial is a regular meeting between a tutor and one or several
 students, for discussion of a subject that is being studied.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">API</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for "Application Programming Interface" which simplifies programming
 by abstracting the underlying implementation and only exposing objects or actions
 the developer needs.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Locale</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for a setting on the user&#8217;s computer that defines the user&#8217;s
 language and region.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PlantUML</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for a software tool that we use to render the diagrams used
 in this document.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NFR</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for "Non-functional Requirement"</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Mainstream OS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for commonly used Operating Systems (OS) such as Windows, Linux, Unix, OS-X.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Regular English Text</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for text with ordinary English grammar structures and vocabulary generally used by the public.
 It excludes syntax related to programming and <a href="#system-administration">system administration</a>.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">System Administration</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for the field of work in which someone manages one or more systems, be they software, hardware, servers or workstations
 with the goal of ensuring the systems are running efficiently and effectively.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">MSS</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Stands for Main Success Scenario that describes the interaction for a given use case, which assumes that nothing goes wrong.</p></td>
-<td class="tableblock halign-left valign-top"></td>
 </tr>
 </tbody>
 </table>
@@ -5031,6 +5028,9 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </ol>
 </div>
 <h3 id="adding-a-session" class="discrete">Adding a session</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5050,6 +5050,9 @@ with the module <code>CS1101S</code> and be a <code>consultation</code> with Ali
 </ol>
 </div>
 <h3 id="marking-a-session-as-done" class="discrete">Marking a session as done</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5068,6 +5071,9 @@ period. The session marked as done will be added to the claims list.</p>
 </ol>
 </div>
 <h3 id="deleting-a-session" class="discrete">Deleting a session</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5084,6 +5090,9 @@ Expected: Deletes the session at index <code>1</code> of the session list.</p>
 </ol>
 </div>
 <h3 id="editing-a-session" class="discrete">Editing a session</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5100,6 +5109,9 @@ Expected: Edits the session at index <code>1</code> of the session list to be of
 </ol>
 </div>
 <h3 id="filtering-sessions" class="discrete">Filtering sessions</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5129,6 +5141,9 @@ and <strong>module code</strong> <code>CS1101S</code>.</p>
 </ol>
 </div>
 <h3 id="filtering-claims" class="discrete">Filtering Claims</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5146,6 +5161,9 @@ Expected: Shows all sessions that have been marked as done
 </ol>
 </div>
 <h3 id="listing-sessions-and-claims" class="discrete">Listing sessions and claims</h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5243,31 +5261,28 @@ Expected: Exits the program.</p>
 <h2 id="effort"><a class="anchor" href="#effort"></a><a class="link" href="#effort">Appendix G: Effort</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Creating this application was fairly difficult and required a lot of effort from us.</p>
+<p>(Contributed by Fatin)</p>
+</div>
+<div class="paragraph">
+<p>Creating this application was fairly difficult and required much blood, toil, tears and sweat. Cumulatively, the project amasses a great 20,000 lines of code combined. This meant that it required a great deal of communication and discussion amongst all parties, which was especially difficult due to the quarantine measures that resulted from the on-going COVID-19 situation. However, the 5 of us persevered and remedied the situation by holding regular video conferences to replace our weekly group meetings.</p>
 </div>
 <div class="paragraph">
 <p>While AB3 deals with only one entity, this application deals with multiple entities.
-AB3 contains only <code>persons</code>. This application has 3 views to begin with - the <strong>Student View</strong>,
-<strong>Session View</strong> and <strong>Claims View</strong>. This is a big change from AB3&#8217;s UI.</p>
+•  AB3 contains only persons. While we were able to refactor some aspects of Person into Student, we had to create Session, Group and Module from scratch.
+•  The UI of AB3 only contains one ListPanel. On the other hand, TA-Tracker has 5 list panels spread out in 3 views - the Student View, Session View and Claims View. This is a big change from AB3’s UI.
+•  In addition to that, we also have a statistics window in addition to our help window, which is significantly more appealing than the AB3 help window.</p>
 </div>
 <div class="paragraph">
-<p>While we were able to refactor <code>person</code> into <code>student</code>,
-we had to create <code>session</code>, <code>group</code> and <code>module</code> from scratch. In addition to that,
-we also have a <code>statistics</code> window and our <code>help</code> window is significantly more appealing
-than the AB3 <code>help</code> window.</p>
+<p>Furthermore, TA-Tracker’s additional features such as automated tab switching, filtering, sorting and syntax highlighting meant that our app varies greatly from what AB3 has to offer in terms of user experience. These carefully thought out features were designed primarily with the user’s needs in mind, to provide the user with a platform that would greatly improve the efficiency of tracking duties as a TA.</p>
 </div>
 <div class="paragraph">
-<p>Due to our inexperience with UI work, we had initially planned <strong>Student View</strong> to look
-very different. Therefore, the way it was implemented was a little different.
-Once we got more familiar with JavaFX, we realised that our initial plan was no longer
-feasible and had to change the way <strong>Student View</strong> was implemented and had to add a lot
-of supporting methods to allow the UI to work the way it does.</p>
+<p>Due to our inexperience with UI work, we had initially planned Student View to look very different. Therefore, the way it was initially implemented differed significantly from the current one. Once we became more familiar with JavaFX, we realised that our initial plan was no longer feasible within our given timeframe. As a result, we had to change the implementation of Student View. Furthermore, add a lot of supporting methods were required to allow the UI to work the way it does.</p>
 </div>
 <div class="paragraph">
-<p>Another challenge we faced was that we were unaware of restrictions regarding timing
-in features for the module CS2103 for which this application has been created. Two of
-our features that relied on timing that were almost ready had to be scrapped and we
-had to look for new features to replace them.</p>
+<p>Another challenge we faced was that we were unaware of restrictions regarding temporal-based features. Two of our features relied heavily on timing, and as a result, they had to be scrapped from the project. This also resulted in our group having to do a lot of last-minute brainstorming to come up with ideas for new features as replacements. Fortunately, we managed to pull through by designing a highly useful StatisticsWindow to improve upon our current application.</p>
+</div>
+<div class="paragraph">
+<p>During this whole process, we took great pains to ensure that the code quality of our code-base is upheld by ensuring we had thorough peer reviews for every pull request that we make. Nonetheless, our actions paid off as we managed to maintain a Codacy rating of A throughout the project.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 15:06:05 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 15:33:46 UTC</div></div></div></body></html>

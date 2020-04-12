@@ -109,7 +109,7 @@
 <li><a href="#statistic-report-window">Statistic Report Window</a></li>
 </ul>
 </li>
-<li><a href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></li>
+<li><a href="#non-functional-requirements">Appendix D: Non-Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
 <li><a href="#glossary-2">8. GLOSSARY</a></li>
 <li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
@@ -143,7 +143,7 @@
 <li><a href="#exiting-the-program">F.27. Exiting the program</a></li>
 </ul>
 </li>
-<li><a href="#effort">9. Effort</a></li>
+<li><a href="#effort">Appendix G: Effort</a></li>
 </ul>
 </div>
 </div>
@@ -190,8 +190,7 @@ is a <strong>Command Line Interface (CLI)</strong> application packaged
 with a <strong>Graphical User Interface (GUI)</strong>. This means that users are expected to interact
 with the TA-Tracker
 mainly through the command line, and each command executed will
-evoke a visual response in the TA-Tracker
-.</p>
+evoke a visual response in the TA-Tracker.</p>
 </div>
 <div class="paragraph">
 <p>Any help on the development of the TA-Tracker
@@ -238,8 +237,7 @@ when faced with difficulties.</p>
 has been designed with <code>Object-Oriented Programming</code>
 principles in mind. We also attempted to use <code>Defensive Programming</code> wherever
 possible. This section serves to give a description of the
-major components in the architecture of TA-Tracker
-. Subsequent sections
+major components in the architecture of TA-Tracker. Subsequent sections
 provide more information on the inner workings of individual components.</p>
 </div>
 <div class="sect2">
@@ -251,9 +249,8 @@ provide more information on the inner workings of individual components.</p>
 <div class="title">Figure 1. Architecture Diagram</div>
 </div>
 <div class="paragraph">
-<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the TA-Tracker
-.
-Given below is a quick overview of each component.</p>
+<p>The <strong><em>Architecture Diagram</em></strong> given above explains the high-level design of the TA-Tracker. Given below is a quick
+overview of each component.</p>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -277,7 +274,7 @@ Refer to the <a href="UsingPlantUml.html">Using PlantUML guide</a> to learn how 
 <p>At app launch: Initializing the components in the correct sequence, and connects them up with each other.</p>
 </li>
 <li>
-<p>At shut down: Shutting down the components and invoking cleanup methods where necessary.</p>
+<p>At shut down: Shutting down the components and invoking clean-up methods where necessary.</p>
 </li>
 </ul>
 </div>
@@ -288,7 +285,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><code>LogsCenter</code> : Used by many classes to write log messages to the TA-Tracker
+<p><code>LogsCenter</code>: Used by many classes to write log messages to the TA-Tracker
 's log file.</p>
 </li>
 </ul>
@@ -299,8 +296,7 @@ The following class plays an important role at the architecture level:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the TA-Tracker
-.</p>
+<p><a href="#Design-Ui"><strong><code>UI</code></strong></a>: The UI of the TA-Tracker.</p>
 </li>
 <li>
 <p><a href="#Design-Logic"><strong><code>Logic</code></strong></a>: Handles execution of TA-Tracker
@@ -324,7 +320,7 @@ into different sections.</p>
 <p>Defines its <strong>API</strong> in an <code>interface</code> with the same name as the Component.</p>
 </li>
 <li>
-<p>Exposes its functionality using a <code>{Component Name}Manager</code> class.</p>
+<p>Exposes its functionality using a <code>{Component Name} Manager</code> class.</p>
 </li>
 </ul>
 </div>
@@ -365,10 +361,10 @@ for the scenario where the user enters the command <code>session delete 1</code>
 <div class="title">Figure 4. Structure of the UI Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/Ui.java"><code>Ui.java</code></a></p>
+<p><strong>API</strong>: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/Ui.java"><code>Ui.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g.<code>CommandBox</code>, <code>ResultDisplay</code>,
+<p>The UI consists of a <code>MainWindow</code> that is made up of parts e.g. <code>CommandBox</code>, <code>ResultDisplay</code>,
 <code>StudentTab</code>, <code>StatusBarFooter</code> etc. The UI also contains 2 more windows, namely:</p>
 </div>
 <div class="olist arabic">
@@ -382,7 +378,7 @@ for the scenario where the user enters the command <code>session delete 1</code>
 </ol>
 </div>
 <div class="paragraph">
-<p>The <code>UI</code> component uses <strong>JavaFx</strong> UI framework. The layout of these UI parts are defined in
+<p>The <code>UI</code> component uses <strong>JavaFx</strong> UI framework. The layout of these UI parts is defined in
 matching <code>.fxml</code> files that are in the <code>src/main/resources/view</code> folder. For example, the
 layout of the <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/ui/MainWindow.java"><code>MainWindow</code></a> is
 specified in <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/resources/view/MainWindow.fxml"><code>MainWindow.fxml</code></a></p>
@@ -443,7 +439,7 @@ specified in <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master
 </div>
 <div class="paragraph">
 <p>Each of these tabs consist of one or more List Panels (e.g. <code>StudentListPanel</code>) and its
-respective Card (e.g. <code>StudentCard</code>). In each List Panel, the the <code>Graphics</code> component of
+respective Card (e.g. <code>StudentCard</code>). In each List Panel, the <code>Graphics</code> component of
 each of the List Cells is defined by the respective Card.</p>
 </div>
 <div class="paragraph">
@@ -482,7 +478,7 @@ each of the List Cells is defined by the respective Card.</p>
 <div class="title">Figure 6. Structure of the Logic Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> :
+<p><strong>API</strong>:
 <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/logic/Logic.java"><code>Logic.java</code></a></p>
 </div>
 <div class="paragraph">
@@ -620,7 +616,7 @@ This feedback includes:</p>
 (i.e. <code>XCommandParser</code> passes the parsing to <code>XYCommandParser</code>).</p>
 </div>
 <div class="paragraph">
-<p>However there are some cases where only <strong>one level</strong> of parsing is needed<br>
+<p>However, there are some cases where only <strong>one level</strong> of parsing is needed<br>
 (e.g. for the <code>help</code>, <code>report</code>, and <code>exit</code> commands).</p>
 </div>
 <div class="imageblock">
@@ -651,7 +647,7 @@ This feedback includes:</p>
 <p>These packages depend on the <code>Command</code> class since they contain commands that inherit from the <code>Command</code> class (not shown above).</p>
 </div>
 <div class="paragraph">
-<p>In addition, the following <code>Class Diagram</code> shows the information that a <code>command</code> should have.</p>
+<p>In addition, the following <em>Class Diagram</em> shows the information that a <code>command</code> should have.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -666,10 +662,10 @@ This feedback includes:</p>
 </li>
 <li>
 <p><code>CommandDetails</code> store all the information that each command should have,<br>
-(e.g. their <code>commandWord</code> and <code>usage</code> message).</p>
+(e.g. their <code>CommandWord</code> and <code>usage</code> message).</p>
 </li>
 <li>
-<p>For their <code>commandWord</code> and <code>sub word</code>, commands may use constants in <code>CommandWords</code> to avoid repetition<br>
+<p>For their <code>CommandWord</code> and <code>SubWord</code>, commands may use constants in <code>CommandWords</code> to avoid repetition<br>
 (e.g. "add", "delete", "edit").</p>
 </li>
 <li>
@@ -707,7 +703,7 @@ This feedback includes:</p>
 (not shown above).</p>
 </div>
 <div class="paragraph">
-<p>In addition, the following <code>Class Diagram</code> shows the information that a <code>command parser</code> should have.</p>
+<p>In addition, the following <em>Class Diagram</em> shows the information that a <code>command parser</code> should have.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -834,7 +830,7 @@ Therefore, it can be detached from the command parsers without changing the <cod
 since each command will need to know all the <code>Prefix</code> that they are using.</p>
 </div>
 <div class="paragraph">
-<p>The following <code>Class Diagrams</code> shows how the command parsers can obtain all the required <code>Prefix</code> from the respective <code>command.</code></p>
+<p>The following <em>Class Diagrams</em> shows how the command parsers can obtain all the required <code>Prefix</code> from the respective <code>command.</code></p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -870,7 +866,7 @@ since each command will need to know all the <code>Prefix</code> that they are u
 <div class="title">Figure 17. Structure of the Model Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/Model.java"><code>Model.java</code></a></p>
+<p><strong>API</strong>: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/Model.java"><code>Model.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Model</code>,</p>
@@ -889,21 +885,21 @@ data</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>filteredStudentList</code>, an that contains all the <code>Students</code> in the TA-Tracker</p>
+<p><code>filteredStudentList</code>, which contains all the <code>Students</code> in the TA-Tracker</p>
 </li>
 <li>
-<p><code>filteredSessionList</code>, an that contains all the <code>Sessions</code> in the TA-Tracker
+<p><code>filteredSessionList</code>, which contains all the <code>Sessions</code> in the TA-Tracker
 that have <strong>not</strong> been marked as done</p>
 </li>
 <li>
-<p><code>filteredDoneSessionList</code>, an that contains all the <code>Sessions</code> in the TA-Tracker
+<p><code>filteredDoneSessionList</code>, which contains all the <code>Sessions</code> in the TA-Tracker
 that <strong>have been marked as done</strong></p>
 </li>
 <li>
-<p><code>filteredModuleList</code>, an that contains all the <code>Modules</code> in the TA-Tracker</p>
+<p><code>filteredModuleList</code>, which contains all the <code>Modules</code> in the TA-Tracker</p>
 </li>
 <li>
-<p><code>filteredGroupList</code>, an that contains all the <code>Groups</code> in the TA-Tracker</p>
+<p><code>filteredGroupList</code>, which contains all the <code>Groups</code> in the TA-Tracker</p>
 </li>
 </ol>
 </div>
@@ -944,7 +940,7 @@ when it is first run (without any user data).</p>
 <div class="sect2">
 <h3 id="Design-Storage"><a class="link" href="#Design-Storage">3.5. Storage component</a></h3>
 <div class="paragraph">
-<p>The following <code>Class Diagram</code> is a simplified view of the <code>Storage</code> component.</p>
+<p>The following <em>Class Diagram</em> is a simplified view of the <code>Storage</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -953,7 +949,7 @@ when it is first run (without any user data).</p>
 <div class="title">Figure 20. Simplified structure of the Storage Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/storage/Storage.java"><code>Storage.java</code></a></p>
+<p><strong>API</strong>: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/storage/Storage.java"><code>Storage.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The <code>Storage</code> component,</p>
@@ -972,7 +968,7 @@ data in json format and read it back.</p>
 <div class="sect3">
 <h4 id="saved-data"><a class="link" href="#saved-data">3.5.1. Saved Data</a></h4>
 <div class="paragraph">
-<p>The following <code>Class Diagram</code> is a breakdown of the data managed by the <code>Storage</code> component.</p>
+<p>The following <em>Class Diagram</em> is a breakdown of the data managed by the <code>Storage</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1044,7 +1040,7 @@ the respective groups.</p>
 the command line, rather than clicking on the tab headers.</p>
 </div>
 <div class="paragraph">
-<p>The command can be utilised by inputing <code>goto TAB_NAME</code>.
+<p>The command can be utilised by entering <code>goto TAB_NAME</code>.
 <code>TAB_NAME</code> is a compulsory parameter for the user.</p>
 </div>
 </div>
@@ -1086,11 +1082,22 @@ with the relevant keywords.</p>
 </li>
 <li>
 <p>The <code>GotoCommand</code> object checks whether any of the keywords given by the user
-matches the existing tab headers. If it does, the <code>GotoCommand</code> returns a <code>CommandResult</code>
-with a success message.</p>
+matches the existing tab headers.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it does, the <code>GotoCommand</code> returns a <code>CommandResult</code> with a success message and an enum specifying
+how MainWindow should handle the next action.</p>
 </li>
 <li>
-<p><code>MainWindow</code> selects the <code>ClaimsTab</code> in the <code>TabPane</code> to switch to the <code>Claims Tab</code></p>
+<p>If it doesn&#8217;t, an exception is thrown.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p><code>MainWindow</code> calls the handleGoto() method to select the <code>ClaimsTab</code> in the <code>TabPane</code>, completing the tab-switching
+process.</p>
 </li>
 </ol>
 </div>
@@ -1099,8 +1106,7 @@ with a success message.</p>
 <div class="sect2">
 <h3 id="StudentView"><a class="link" href="#StudentView">4.2. Student View</a></h3>
 <div class="paragraph">
-<p><strong>Student View</strong> is used to display all modules, groups and students in the TA-Tracker
-.</p>
+<p><strong>Student View</strong> is used to display all modules, groups and students in the TA-Tracker.</p>
 </div>
 <div class="paragraph">
 <p>Students are a part of <strong>groups</strong> and groups are a part of <strong>modules</strong>.</p>
@@ -1182,7 +1188,7 @@ That is why we decided to stick to our current implementation.</p>
 <div class="title">Figure 24. Structure of the Student Component</div>
 </div>
 <div class="paragraph">
-<p><strong>API</strong> : <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/student/Student.java"><code>Student.java</code></a></p>
+<p><strong>API</strong>: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/student/Student.java"><code>Student.java</code></a></p>
 </div>
 <div class="paragraph">
 <p>The other models (<code>Module</code>, <code>Group</code> and <code>Session</code>) have been implemented in a similar manner. The main difference is that the other models do not
@@ -1231,8 +1237,7 @@ command <code>module add m/CS2103 n/Software Engineering</code>.</p>
 <ul>
 <li>
 <p>This diagram assumes that a module with the module code <code>CS2103</code>
-exists in the TA-Tracker
-.</p>
+exists in the TA-Tracker.</p>
 </li>
 <li>
 <p>The lifeline for <code>ModuleCommandParser</code> and <code>AddModuleCommandParser</code> should end at the
@@ -1294,12 +1299,19 @@ code already exists in the *TA-Tracker
 <div class="paragraph">
 <p>The command used to delete a module has been implemented in a similar way. The main
 difference is that the <code>DeleteModuleCommand</code> checks whether an object with the given
-module code exists in the TA-Tracker
-. If no such module exists, a command exception
-is thrown saying that a module with the given module code doesn&#8217;t exist. If it does
-exist, <strong>first all the sessions linked to that module are removed</strong> , then the module
-is removed from the TA-Tracker
-.</p>
+module code exists in the TA-Tracker.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If no such module exists, a command exception
+is thrown saying that a module with the given module code doesn&#8217;t exist.</p>
+</li>
+<li>
+<p>If it does exist, <strong>first all the sessions linked to that module are removed</strong>, then the module
+is removed from the TA-Tracker.</p>
+</li>
+</ol>
 </div>
 <div class="paragraph">
 <p>The <code>module edit</code> command has been implemented in a similar manner.</p>
@@ -1309,9 +1321,8 @@ is removed from the TA-Tracker
 <h4 id="implementation-of-the-group-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-group-add-delete-and-edit-commands">4.2.3. Implementation of the Group Add, Delete and Edit Commands</a></h4>
 <div class="paragraph">
 <p>A <strong>group</strong> is added to the TA-Tracker
-in a similar manner to to how a <strong>module</strong> is added to
-the TA-Tracker
-.</p>
+in a similar manner to  how a <strong>module</strong> is added to
+the TA-Tracker.</p>
 </div>
 <div class="paragraph">
 <p>The following steps are taken once the <em>execute</em> command of an <code>AddGroupCommand</code> object
@@ -1320,8 +1331,7 @@ is called:</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker
-.</p>
+<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
@@ -1377,8 +1387,7 @@ components when the user inputs the command <code>group delete m/CS2103 g/G03</c
 <ul>
 <li>
 <p>This diagram is under the case where a group with the group code G03 does exist
-in the module with module code CS2103 inside the TA-Tracker
-.</p>
+in the module with module code CS2103 inside the TA-Tracker.</p>
 </li>
 <li>
 <p>The lifeline for <code>GroupCommandParser</code> and <code>DeleteGroupCommandParser</code> should end at the
@@ -1414,11 +1423,9 @@ it the module code, group code and group type. The parser then returns the <code
 </li>
 <li>
 <p><code>LogicManager</code> calls <code>DeleteGroupCommand</code> 's execute method. The <code>DeleteGroupCommand</code> object
-checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker
-.
+checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker.
 If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
-code doesn&#8217;t exist in the TA-Tracker
-.</p>
+code doesn&#8217;t exist in the TA-Tracker.</p>
 </li>
 <li>
 <p>If the module exists, the <code>DeleteGroupCommand</code> then checks whether a group with the
@@ -1510,7 +1517,7 @@ checks whether a student with the given matric number already exists in TA-Track
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If it student doesn&#8217;t exist, a command exception is thrown saying that a student with the given matric number
+<p>If the student doesn&#8217;t exist, a command exception is thrown saying that a student with the given matric number
 doesn&#8217;t exist in the TA-Tracker</p>
 </li>
 <li>
@@ -1528,8 +1535,7 @@ model and removes the student.</p>
 <div class="paragraph">
 <p>The <code>student add</code> command has been implemented in a similar way as well. The main
 difference is that the <code>AddStudentCommand</code> checks whether an object with the given
-matric number exists in the TA-Tracker
-. If such student exists, a command exception
+matric number exists in the TA-Tracker. If such student exists, a command exception
 is thrown saying that a student with the given matric number already exists.</p>
 </div>
 </div>
@@ -1557,15 +1563,15 @@ is thrown saying that a student with the given matric number already exists.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code> : This sorts all the students of the given
+<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code>: This sorts all the students of the given
 group in the given module by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort module g/MODULE_CODE t/TYPE</code> : This sorts all the students of all the groups in the
+<p><code>sort module g/MODULE_CODE t/TYPE</code>: This sorts all the students of all the groups in the
 given module by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort all t/TYPE</code> : This sorts all students of all groups of all the modules in the
+<p><code>sort all t/TYPE</code>: This sorts all students of all groups of all the modules in the
 TA-Tracker
 by the type <code>TYPE</code></p>
 </li>
@@ -1712,7 +1718,7 @@ command to the <code>SortCommandParser</code>.</p>
 </li>
 <li>
 <p>The <code>SortCommandParser</code> performs the steps shown in the previous activity diagram
-and determines that since the sort command word is <code>all</code> , it must create and return a
+and determines that since the sort command word is <code>all</code>, it must create and return a
 <code>SortCommand</code>.</p>
 </li>
 <li>
@@ -1720,7 +1726,7 @@ and determines that since the sort command word is <code>all</code> , it must cr
 </li>
 <li>
 <p><code>SortCommand</code> checks the type of sorting that is indicated. Since the sort type
-is <code>matric</code> , it calls <code>Model</code> 's <code>sortModulesByMatricNumber()</code> command.</p>
+is <code>matric</code>, it calls <code>Model</code> 's <code>sortModulesByMatricNumber()</code> command.</p>
 </li>
 <li>
 <p>The <code>SortCommand</code> returns a <code>CommandResult</code> with a success message.</p>
@@ -1981,7 +1987,7 @@ image::syntax-highlighting/SH-CommandBox.png[]</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>The <code>ResultDisplay</code> displays the given feedback tas a message in the program.</p>
+<p>The <code>ResultDisplay</code> displays the given feedback as a message in the program.</p>
 </div>
 </div>
 <div class="sect3">
@@ -2345,7 +2351,7 @@ but the program cannot idle and will consume memory when in use.</p>
 </div>
 <div class="paragraph">
 <p>These colours have been chosen because they are standard signalling colours used in
-everyday life. Therefore the user will be familiar with these colour signals without
+everyday life. Therefore, the user will be familiar with these colour signals without
 a need for an explanation.</p>
 </div>
 <div class="paragraph">
@@ -2597,11 +2603,11 @@ this command object is returned all the way back to the <code>LogicManager</code
 result is returned by <code>LogicManager</code> to <code>MainWindow</code></p>
 </li>
 <li>
-<p><code>MainWindow</code> detects that the the command result is of type <code>StatisticCommandResult</code>, and prepares the <code>StatisticWindow</code>
-by creating a <code>Statistic</code> object that retreives data necessary for generating the report, from <code>ReadOnlyTaTracker</code>.</p>
+<p><code>MainWindow</code> detects that the command result is of type <code>StatisticCommandResult</code>, and prepares the <code>StatisticWindow</code>
+by creating a <code>Statistic</code> object that retrieves data necessary for generating the report, from <code>ReadOnlyTaTracker</code>.</p>
 </li>
 <li>
-<p>These data is then processed further by <code>Statistic</code>. This includes computing the total number of sessions per session type and sorting the students by rating.</p>
+<p>The data is then processed further by <code>Statistic</code>. This includes computing the total number of sessions per session type and sorting the students by rating.</p>
 </li>
 <li>
 <p>A <code>StatisticWindow</code> object is now created by <code>MainWindow</code>. The <code>Statistic</code> object is passed into the constructor of <code>StatisticWindow</code>.</p>
@@ -2637,16 +2643,16 @@ by creating a <code>Statistic</code> object that retreives data necessary for ge
 <div class="ulist">
 <ul>
 <li>
-<p><code>SEVERE</code> : Critical problem detected which may possibly cause the termination of the application</p>
+<p><code>SEVERE</code>: Critical problem detected which may possibly cause the termination of the application</p>
 </li>
 <li>
-<p><code>WARNING</code> : Can continue, but with caution</p>
+<p><code>WARNING</code>: Can continue, but with caution</p>
 </li>
 <li>
-<p><code>INFO</code> : Information showing the noteworthy actions by the App</p>
+<p><code>INFO</code>: Information showing the noteworthy actions by the App</p>
 </li>
 <li>
-<p><code>FINE</code> : Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
+<p><code>FINE</code>: Details that is not usually noteworthy but may be useful in debugging e.g. print the actual list instead of just its size</p>
 </li>
 </ul>
 </div>
@@ -2654,7 +2660,7 @@ by creating a <code>Statistic</code> object that retreives data necessary for ge
 <div class="sect2">
 <h3 id="Implementation-Configuration"><a class="link" href="#Implementation-Configuration">4.9. Configuration</a></h3>
 <div class="paragraph">
-<p>Certain properties of the application can be controlled (e.g user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
+<p>Certain properties of the application can be controlled (e.. user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
 </div>
 </div>
@@ -2771,7 +2777,7 @@ necessary</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">see an overview upcoming tasks I have</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">see an overview of the upcoming tasks I have</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">plan my schedule accordingly</p></td>
 </tr>
 <tr>
@@ -2881,7 +2887,7 @@ much money I have earned and stay motivated</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">get a message when a new task clashes with an old one</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">receive a warning message when a new task clashes with an old one</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">prevent clashes in my schedule (coming in V2.0)</p></td>
 </tr>
 <tr>
@@ -3153,12 +3159,24 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 </div>
 <h4 id="use-case-uc08-editing-a-group" class="discrete">Use case: UC08 - Editing a group</h4>
 <div class="paragraph">
-<p><strong>MSS</strong>
-. User requests to go to the <code>Student Tab</code> (UC02) to view
-the list of existing groups in the <strong>Student View</strong>.
-. TA-Tracker switches to the <code>Student Tab</code>.
-. User requests to edit a group
-. TA-Tracker edits the group</p>
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing groups in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to edit a group</p>
+</li>
+<li>
+<p>TA-Tracker edits the group</p>
+</li>
+</ol>
 </div>
 <h4 id="use-case-uc09-deleting-group" class="discrete">Use case: UC09 - Deleting group</h4>
 <div class="paragraph">
@@ -3240,7 +3258,7 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1a. The input required (eg. Matric Number) to add a student is invalid.</p>
+<p>1a. The input required (e.g. Matric Number) to add a student is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3369,7 +3387,7 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </div>
 <h4 id="use-case-uc13-sorting-a-group" class="discrete">Use case: UC13 - Sorting a group</h4>
 <h4 id="use-case-uc14-sorting-a-module" class="discrete">Use case: UC14 - Sorting a module</h4>
-<h4 id="use-case-uc15-sorting-a-all" class="discrete">Use case: UC15 - Sorting a all</h4>
+<h4 id="use-case-uc15-sorting-all" class="discrete">Use case: UC15 - Sorting all</h4>
 <h4 id="use-case-uc16-filtering-the-student-view" class="discrete">Use case: UC16 - Filtering the Student View</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -3749,7 +3767,7 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 </div>
 <div class="sect2">
 <h3 id="statistic-report-window"><a class="link" href="#statistic-report-window">Statistic Report Window</a></h3>
-<h4 id="use-case-uc23-displaying-a-statistic-report" class="discrete">Use case: UC23 - Displaying a statistic report</h4>
+<h4 id="use-case-uc24-displaying-a-statistic-report" class="discrete">Use case: UC24 - Displaying a statistic report</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -3759,7 +3777,7 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 <p>User requests to generate and display a statistic report.</p>
 </li>
 <li>
-<p>TA-Tracker retreives the list of sessions and students from all modules and processes the data.</p>
+<p>TA-Tracker retrieves the list of sessions and students from all modules and processes the data.</p>
 </li>
 <li>
 <p>TA-Tracker opens a Statistic window and displays the processed data to the user.</p>
@@ -3779,7 +3797,7 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. TA-Tracker retreives the list of sessions and students from the specified module and processes the data.</p>
+<p>1a1. TA-Tracker retrieves the list of sessions and students from the specified module and processes the data.</p>
 </li>
 <li>
 <p>Use case resumes at step 3.</p>
@@ -3806,7 +3824,7 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non Functional Requirements</a></h2>
+<h2 id="non-functional-requirements"><a class="link" href="#non-functional-requirements">Appendix D: Non-Functional Requirements</a></h2>
 <div class="sectionbody">
 <div class="olist arabic">
 <ol class="arabic">
@@ -3892,7 +3910,7 @@ item in a list.</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Group</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">The is the general term given to a group of students a TA teaches.</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">lab , tutorial , recitation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">lab, tutorial, recitation</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TAT</p></td>
@@ -3901,7 +3919,7 @@ item in a list.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">NUS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form of National Univeristy of Singapore.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">This is the short form of National University of Singapore.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
 <tr>
@@ -3946,7 +3964,7 @@ in this document.</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Regular English Text</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">Stands for text with ordinary english grammar structures and vocabulary generally used by the public.
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stands for text with ordinary English grammar structures and vocabulary generally used by the public.
 It excludes syntax related to programming and <a href="#system-administration">system administration</a>.</p></td>
 <td class="tableblock halign-left valign-top"></td>
 </tr>
@@ -4140,7 +4158,7 @@ added a group with group code G06 to the module CS1101S)</p>
 <li>
 <p>Test Case: <code>group add g/G06 m/CS3243 t/lab</code><br>
 Expected: Assuming a module with module code <code>CS3243</code> exists in the TA-Tracker and
-doesn&#8217;t contain a group with group code <code>G06</code> ,
+doesn&#8217;t contain a group with group code <code>G06</code>,
 A group with group code <code>G06</code> of type <code>lab</code> will be added to the module
 <code>CS3243</code>.</p>
 </li>
@@ -4294,7 +4312,7 @@ of the group <code>G06</code>.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Test Case: <code>sort group g/G06 m/CS1101S t/alpha</code><br>
-Expected: Sorts all the students in the group <code>G06</code> of module <code>CS1101S</code> alphabetically.</p>
+Expected: Sorts all the students in the group <code>G06</code> of the module <code>CS1101S</code> alphabetically.</p>
 </li>
 </ol>
 </div>
@@ -4312,8 +4330,8 @@ Expected: Sorts all the students in the group <code>G06</code> of module <code>C
 <ol class="loweralpha" type="a">
 <li>
 <p>Test Case: <code>sort module g/G06 m/CS1101S t/alpha</code><br>
-Expected: Sorts all the students in all the groups of module <code>CS1101S</code> alphabetically.
-You will see the students in the group at index 1 of the group list of module <code>CS1101S</code>.</p>
+Expected: Sorts all the students in all the groups of the module <code>CS1101S</code> alphabetically.
+You will see the students in the group at index 1 of the group list of  the module <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
@@ -4612,7 +4630,7 @@ Expected: Exits the program.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="effort"><a class="link" href="#effort">9. Effort</a></h2>
+<h2 id="effort"><a class="link" href="#effort">Appendix G: Effort</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Creating this application was fairly difficult and required a lot of effort from us.</p>
@@ -4642,4 +4660,4 @@ our features that relied on timing that were almost ready had to be scrapped and
 had to look for new features to replace them.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 04:38:22 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 05:39:06 UTC</div></div></div></body></html>

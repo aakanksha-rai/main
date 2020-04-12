@@ -3225,6 +3225,12 @@ much money I have earned and stay motivated</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">enter my students' assignment grades</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my students' progress (coming in V2.0)</p></td>
 </tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">add my students' to consultation sessions</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of how frequently each student has consulted me (coming in V2.0)</p></td>
+</tr>
 </tbody>
 </table>
 </div>
@@ -5264,25 +5270,55 @@ Expected: Exits the program.</p>
 <p>(Contributed by Fatin)</p>
 </div>
 <div class="paragraph">
-<p>Creating this application was fairly difficult and required much blood, toil, tears and sweat. Cumulatively, the project amasses a great 20,000 lines of code combined. This meant that it required a great deal of communication and discussion amongst all parties, which was especially difficult due to the quarantine measures that resulted from the on-going COVID-19 situation. However, the 5 of us persevered and remedied the situation by holding regular video conferences to replace our weekly group meetings.</p>
+<p>Creating this application was fairly difficult and required much blood, toil, tears and sweat. Cumulatively, the
+project amasses a great <strong>20,000 lines of code</strong> combined. This meant that it required a great deal of <strong>communication and
+discussion amongst all parties</strong>, which was <em>especially difficult</em> due to the quarantine measures that resulted from the
+on-going COVID-19 situation. However, the 5 of us persevered and remedied the situation by holding regular video
+conferences to replace our weekly group meetings.</p>
 </div>
 <div class="paragraph">
-<p>While AB3 deals with only one entity, this application deals with multiple entities.
-•  AB3 contains only persons. While we were able to refactor some aspects of Person into Student, we had to create Session, Group and Module from scratch.
-•  The UI of AB3 only contains one ListPanel. On the other hand, TA-Tracker has 5 list panels spread out in 3 views - the Student View, Session View and Claims View. This is a big change from AB3’s UI.
-•  In addition to that, we also have a statistics window in addition to our help window, which is significantly more appealing than the AB3 help window.</p>
+<p>While AB3 deals with only one entity, this application deals with <strong>multiple entities</strong>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>AB3</strong> contains only <code>Person</code>. While we were able to refactor some aspects of <code>Person</code> into <code>Student</code>, we had to create
+<code>Session</code>, <code>Group</code> and <code>Module</code> from scratch.</p>
+</li>
+<li>
+<p>The <code>UI</code> of <strong>AB3</strong> only contains one <code>ListPanel</code>. On the other hand, TA-Tracker has <strong>5 <code>ListPanels</code></strong> spread out in 3 views -
+the <strong>StudentView</strong>, <strong>SessionView</strong> and <strong>ClaimsView</strong>. This is a big change from <strong>AB3’s</strong> <code>UI</code>.</p>
+</li>
+<li>
+<p>We also have a <code>StatisticsWindow in addition to our `HelpWindow</code>, which is significantly more appealing than the
+<strong>AB3</strong> <code>HelpWindow</code>.</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>Furthermore, TA-Tracker’s additional features such as automated tab switching, filtering, sorting and syntax highlighting meant that our app varies greatly from what AB3 has to offer in terms of user experience. These carefully thought out features were designed primarily with the user’s needs in mind, to provide the user with a platform that would greatly improve the efficiency of tracking duties as a TA.</p>
+<p>Furthermore, <strong>TA-Tracker’s</strong> additional features such as <code>automated tab switching</code>, <code>filtering</code>, <code>sorting</code> and <code>syntax
+highlighting</code> meant that our app varies greatly from what <strong>AB3</strong> has to offer in terms of user experience. These carefully
+thought out features were <em>designed primarily with the user’s needs in mind</em>, to provide the user with a platform that
+would greatly improve the efficiency of tracking duties as a TA.</p>
 </div>
 <div class="paragraph">
-<p>Due to our inexperience with UI work, we had initially planned Student View to look very different. Therefore, the way it was initially implemented differed significantly from the current one. Once we became more familiar with JavaFX, we realised that our initial plan was no longer feasible within our given timeframe. As a result, we had to change the implementation of Student View. Furthermore, add a lot of supporting methods were required to allow the UI to work the way it does.</p>
+<p>Due to our inexperience with <code>UI</code> work, we had initially planned the <strong>StudentView</strong> to look very different. Therefore, the way
+it was initially implemented differed significantly from the current one. Once we became more familiar with <strong>JavaFX</strong>, we
+realised that our initial plan was no longer feasible within our given timeframe. As a result, we had to change the
+implementation of <strong>StudentView</strong>. Furthermore, a lot of supporting methods were required to allow the <code>UI</code> to work the
+way it does.</p>
 </div>
 <div class="paragraph">
-<p>Another challenge we faced was that we were unaware of restrictions regarding temporal-based features. Two of our features relied heavily on timing, and as a result, they had to be scrapped from the project. This also resulted in our group having to do a lot of last-minute brainstorming to come up with ideas for new features as replacements. Fortunately, we managed to pull through by designing a highly useful StatisticsWindow to improve upon our current application.</p>
+<p>Another challenge we faced was that we were unaware of restrictions regarding <strong>temporal-based features</strong>. Two of our
+features <em>relied heavily on timing</em>, and as a result, they had to be scrapped from the project. This also resulted in our
+group having to do a lot of last-minute brainstorming to come up with ideas for new features as replacements.
+Fortunately, we managed to pull through by designing a highly useful <code>StatisticsWindow</code> to improve upon our current
+application.</p>
 </div>
 <div class="paragraph">
-<p>During this whole process, we took great pains to ensure that the code quality of our code-base is upheld by ensuring we had thorough peer reviews for every pull request that we make. Nonetheless, our actions paid off as we managed to maintain a Codacy rating of A throughout the project.</p>
+<p>During this whole process, we took great pains to ensure that the <strong>code quality</strong> of our code-base was upheld by verifying
+every pull request that we make with thorough peer reviews from at least one other party. Nonetheless, our actions
+paid off as we managed to maintain a <strong>Codacy rating of A</strong> throughout the project.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 15:33:46 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 16:07:07 UTC</div></div></div></body></html>

@@ -111,38 +111,7 @@
 </li>
 <li><a href="#non-functional-requirements">Appendix D: Non-Functional Requirements</a></li>
 <li><a href="#glossary">Appendix E: Glossary</a></li>
-<li><a href="#glossary-2">8. GLOSSARY</a></li>
-<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a>
-<ul class="sectlevel2">
-<li><a href="#launch-and-shutdown">F.1. Launch and Shutdown</a></li>
-<li><a href="#viewing-help">F.2. Viewing help</a></li>
-<li><a href="#changing-tabs">F.3. Changing Tabs</a></li>
-<li><a href="#adding-a-module">F.4. Adding a module</a></li>
-<li><a href="#adding-a-group-to-a-module">F.5. Adding a group to a module</a></li>
-<li><a href="#adding-students-to-a-group">F.6. Adding students to a group</a></li>
-<li><a href="#editing-a-student">F.7. Editing a student</a></li>
-<li><a href="#editing-a-group">F.8. Editing a group</a></li>
-<li><a href="#editing-a-module-s-name">F.9. Editing a module&#8217;s name</a></li>
-<li><a href="#viewing-a-specific-module">F.10. Viewing a specific module</a></li>
-<li><a href="#viewing-a-specific-group">F.11. Viewing a specific group</a></li>
-<li><a href="#sorting-a-group">F.12. Sorting a group</a></li>
-<li><a href="#sorting-a-module">F.13. Sorting a module</a></li>
-<li><a href="#sorting-all-modules">F.14. Sorting all modules</a></li>
-<li><a href="#deleting-a-student">F.15. Deleting a student</a></li>
-<li><a href="#deleting-a-group">F.16. Deleting a group</a></li>
-<li><a href="#adding-a-session">F.17. Adding a session</a></li>
-<li><a href="#marking-a-session-as-done">F.18. Marking a session as done</a></li>
-<li><a href="#deleting-a-session">F.19. Deleting a session</a></li>
-<li><a href="#editing-a-session">F.20. Editing a session</a></li>
-<li><a href="#filtering-sessions">F.21. Filtering sessions</a></li>
-<li><a href="#filtering-claims">F.22. Filtering Claims</a></li>
-<li><a href="#listing-sessions-and-claims">F.23. Listing sessions and claims</a></li>
-<li><a href="#changing-rate">F.24. Changing rate</a></li>
-<li><a href="#viewing-statistics">F.25. Viewing Statistics</a></li>
-<li><a href="#deleting-a-module">F.26. Deleting a module</a></li>
-<li><a href="#exiting-the-program">F.27. Exiting the program</a></li>
-</ul>
-</li>
+<li><a href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></li>
 <li><a href="#effort">Appendix G: Effort</a></li>
 </ul>
 </div>
@@ -1078,7 +1047,7 @@ to the <code>GotoCommandParser</code>.</p>
 with the relevant keywords.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>GotoCommand</code> 's execute method.</p>
+<p><code>LogicManager</code> calls <code>GotoCommand#execute()</code>.</p>
 </li>
 <li>
 <p>The <code>GotoCommand</code> object checks whether any of the keywords given by the user
@@ -1147,6 +1116,18 @@ is teaching.</p>
 <div class="exampleblock">
 <div class="content">
 <div class="paragraph">
+<p><strong>Design Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>The initial idea for the <strong>Student View</strong> UI was to simply <strong>list</strong> all the students of
+all groups and modules, <strong>sorted by group code and module code</strong>. Therefore the model
+framework has been implemented in this manner.</p>
+</div>
+<div class="paragraph">
+<p>The idea was scrapped as once it was implemented, it looked too messy and wasn&#8217;t
+user-friendly. We changed the UI but kept the current model framework.</p>
+</div>
+<div class="paragraph">
 <p><strong>Alternative Implementation</strong></p>
 </div>
 <div class="ulist">
@@ -1156,13 +1137,13 @@ is teaching.</p>
 all modules, a <code>List</code> to store all groups and a <code>List</code> to store all students.</p>
 </li>
 <li>
-<p>We would then have to filter by module code and/or group code to show the appropriate
+<p>We would then have to <strong>filter by module code and/or group code</strong> to show the appropriate
 groups and students.</p>
 </li>
 <li>
-<p>This would require students to keep track of which group and which module they&#8217;re
-a part of. Similarly, groups would have to keep a track of the students it contains.
-This would create a cyclic dependency (which could be solved using an association class).</p>
+<p>This would require <strong>students to keep track of which group and which module they&#8217;re
+a part of</strong>. Similarly, <strong>groups would have to keep a track of the students it contains</strong>.
+This would create a <strong>cyclic dependenc</strong>y (which could be solved using an association class).</p>
 </li>
 <li>
 <p>The <code>List</code> of groups could contain multiple groups with the same group code as group code
@@ -1170,8 +1151,9 @@ is only unique within a module. Group codes can be shared across modules.</p>
 </li>
 <li>
 <p>While this implementation would make it easier to generate a report at the end of
-the semester (explained towards the end of the guide), it would require more commands
-and the creation of association classes which would unnecessarily complicate the model.
+the semester (explained later in the guide), it would require more commands
+and the <strong>creation of many association classes</strong> which would unnecessarily
+<strong>complicate the model</strong>.
 That is why we decided to stick to our current implementation.</p>
 </li>
 </ul>
@@ -1191,7 +1173,8 @@ That is why we decided to stick to our current implementation.</p>
 <p><strong>API</strong>: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/tree/master/src/main/java/tatracker/model/student/Student.java"><code>Student.java</code></a></p>
 </div>
 <div class="paragraph">
-<p>The other models (<code>Module</code>, <code>Group</code> and <code>Session</code>) have been implemented in a similar manner. The main difference is that the other models do not
+<p>The other models (<code>Module</code>, <code>Group</code> and <code>Session</code>) have been implemented in a similar manner.
+The main difference is that the other models do not
 have any <code>Tags</code>.</p>
 </div>
 <div class="admonitionblock note">
@@ -1237,7 +1220,7 @@ command <code>module add m/CS2103 n/Software Engineering</code>.</p>
 <ul>
 <li>
 <p>This diagram assumes that a module with the module code <code>CS2103</code>
-exists in the TA-Tracker.</p>
+doesn&#8217;t exist in the TA-Tracker.</p>
 </li>
 <li>
 <p>The lifeline for <code>ModuleCommandParser</code> and <code>AddModuleCommandParser</code> should end at the
@@ -1255,11 +1238,11 @@ destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lif
 <p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The <code>TaTrackerParser</code> sees that this command is a <strong>module</strong> command and passes the
+<p>The <code>TaTrackerParser</code> sees that this command is a <strong>module command</strong> and passes the
 command to the <code>ModuleCommandParser</code>.</p>
 </li>
 <li>
-<p>The <code>ModuleCommandParser</code> sees that this command is an <strong>add</strong> command and passes the
+<p>The <code>ModuleCommandParser</code> sees that this command is an <strong>add command</strong> and passes the
 arguments to the <code>AddModuleCommandParser</code>.</p>
 </li>
 <li>
@@ -1271,45 +1254,43 @@ name.</p>
 created module. The parser then returns the <code>AddModuleCommand</code> object.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>AddModuleCommand</code> 's execute method.</p>
+<p><code>LogicManager</code> calls <code>AddModuleCommand#execute()</code>.</p>
 </li>
 <li>
 <p>The <code>AddModuleCommand</code> object
-checks whether a module with the given module code already exists in *TA-Tracker
-*</p>
+checks whether a module with the given module code already exists in <strong>TA-Tracker</strong></p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If it does, a command exception is thrown saying that a module with the given module
-code already exists in the *TA-Tracker
-*.</p>
+<p>If it does, a <strong>command exception is thrown</strong> saying that a module with the given module
+code already exists in the <strong>TA-Tracker</strong>.</p>
 </li>
 <li>
-<p>If no such module exists, the module is added to the *TA-Tracker
-*.</p>
+<p>If no such module exists, the <strong>module is added to the TA-Tracker</strong>.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>The <code>AddModuleCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+<p>The <code>AddModuleCommand</code> returns a <code>CommandResult</code>.</p>
 </li>
 </ol>
 </div>
 <div class="paragraph">
 <p>The command used to delete a module has been implemented in a similar way. The main
-difference is that the <code>DeleteModuleCommand</code> checks whether an object with the given
-module code exists in the TA-Tracker.</p>
+difference is that when the <code>DeleteModuleCommand</code> checks whether an object with the given
+module code exists in the TA-Tracker</p>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
 <li>
-<p>If no such module exists, a command exception
-is thrown saying that a module with the given module code doesn&#8217;t exist.</p>
+<p>If no such module exists, a <strong>command exception
+is thrown</strong> saying that a module with the given module code doesn&#8217;t exist.</p>
 </li>
 <li>
-<p>If it does exist, <strong>first all the sessions linked to that module are removed</strong>, then the module
-is removed from the TA-Tracker.</p>
+<p>If it does
+exist, <strong>first all the sessions linked to that module are removed</strong> , then the module
+is removed from the TA-Tracker</p>
 </li>
 </ol>
 </div>
@@ -1325,20 +1306,21 @@ in a similar manner to  how a <strong>module</strong> is added to
 the TA-Tracker.</p>
 </div>
 <div class="paragraph">
-<p>The following steps are taken once the <em>execute</em> command of an <code>AddGroupCommand</code> object
+<p>The following steps are taken once the <em>execute</em> method of an <code>AddGroupCommand</code> object
 is called:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker.</p>
+<p>The <code>AddGroupCommand</code> object checks whether the <strong>module</strong> is present in the model of the TA-Tracker
+.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If it exists, the module is retrieved.</p>
+<p>If it exists, the <strong>module is retrieved</strong>.</p>
 </li>
 <li>
-<p>If it doesn&#8217;t exist, an exception is thrown explaining that the module doesn&#8217;t
+<p>If it doesn&#8217;t exist, an <strong>exception is thrown</strong> explaining that the module doesn&#8217;t
 exist.</p>
 </li>
 </ol>
@@ -1350,11 +1332,11 @@ the new group exists in the module retrieved beforehand.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If it doesn&#8217;t exist, the group is added to the module and a <code>CommandResult</code> object
+<p>If it doesn&#8217;t exist, the <strong>group is added to the module</strong> and a <code>CommandResult</code> object
 with the success message is returned.</p>
 </li>
 <li>
-<p>If it does exist, an exception is thrown explaining that you can&#8217;t have two groups
+<p>If it does exist, an <strong>exception is thrown</strong> explaining that you can&#8217;t have two groups
 with the same group code in a module.</p>
 </li>
 </ol>
@@ -1367,7 +1349,7 @@ with the same group code in a module.</p>
 to the interactions when deleting a group as shown below.</p>
 </div>
 <div class="paragraph">
-<p>The following <em>Sequence Diagram</em> shows the interactions between the <code>logic</code> and <code>model</code>
+<p>The following <em>Sequence Diagram</em> shows the interactions between the <code>Logic</code> and <code>Model</code>
 components when the user inputs the command <code>group delete m/CS2103 g/G03</code>.</p>
 </div>
 <div class="imageblock">
@@ -1410,11 +1392,11 @@ exists inside the module with the given module code.</p>
 <p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The <code>TaTrackerParser</code> sees that the command is of type <strong>group</strong> and passes the
+<p>The <code>TaTrackerParser</code> sees that the command is a <strong>group command</strong> and passes the
 command to the <code>GroupCommandParser</code>.</p>
 </li>
 <li>
-<p>The <code>GroupCommandParser</code> sees that the command is of type <strong>delete</strong> and passes the
+<p>The <code>GroupCommandParser</code> sees that the command is a <strong>delete command</strong> and passes the
 arguments to the <code>DeleteGroupCommandParser</code>.</p>
 </li>
 <li>
@@ -1422,10 +1404,10 @@ arguments to the <code>DeleteGroupCommandParser</code>.</p>
 it the module code, group code and group type. The parser then returns the <code>DeleteGroupCommand</code> object.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>DeleteGroupCommand</code> 's execute method. The <code>DeleteGroupCommand</code> object
-checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker.
-If it doesn&#8217;t, a command exception is thrown saying that a module with the given module
-code doesn&#8217;t exist in the TA-Tracker.</p>
+<p><code>LogicManager</code> calls <code>DeleteGroupCommand#execute()</code>. The <code>DeleteGroupCommand</code> object
+checks whether a <strong>module</strong> with the given module code already exists in TA-Tracker
+If it doesn&#8217;t, a <strong>command exception is thrown</strong> saying that a module with the given module
+code doesn&#8217;t exist in the TA-Tracker</p>
 </li>
 <li>
 <p>If the module exists, the <code>DeleteGroupCommand</code> then checks whether a group with the
@@ -1433,16 +1415,16 @@ given group code exists within that module.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>If the group doesn&#8217;t exist, a command exception is thrown saying that no such group exists.</p>
+<p>If the group doesn&#8217;t exist, a <strong>command exception is thrown</strong> saying that no such group exists.</p>
 </li>
 <li>
-<p>If the group does exist, it is removed from the module.</p>
+<p>If the group does exist, it is <strong>removed from the module</strong>.</p>
 </li>
 </ol>
 </div>
 </li>
 <li>
-<p>The <code>DeleteGroupCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+<p>The <code>DeleteGroupCommand</code> returns a <code>CommandResult</code>.</p>
 </li>
 </ol>
 </div>
@@ -1493,11 +1475,11 @@ destroy marker (X) but due to a limitation of <strong>PlantUML</strong>, the lif
 <p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The <code>TaTrackerParser</code> sees that the command is of type <strong>student</strong> and passes the
+<p>The <code>TaTrackerParser</code> sees that the command is a <strong>student command</strong> and passes the
 command to the <code>StudentCommandParser</code>.</p>
 </li>
 <li>
-<p>The <code>StudentCommandParser</code> sees that the command is of type <strong>delete</strong> and passes the
+<p>The <code>StudentCommandParser</code> sees that the command is a <strong>delete command</strong> and passes the
 arguments to the <code>DeleteStudentCommandParser</code>.</p>
 </li>
 <li>
@@ -1509,7 +1491,7 @@ arguments to the <code>DeleteStudentCommandParser</code>.</p>
 it the created student. The parser then returns the <code>DeleteStudentCommand</code></p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>DeleteStudentCommand&#8217;s</code> execute method.</p>
+<p><code>LogicManager</code> calls <code>DeleteStudentCommand#execute()</code>.</p>
 </li>
 <li>
 <p>The <code>DeleteStudentCommand</code> object
@@ -1542,20 +1524,7 @@ is thrown saying that a student with the given matric number already exists.</p>
 <div class="sect3">
 <h4 id="implementation-of-the-sort-group-module-and-all-command"><a class="link" href="#implementation-of-the-sort-group-module-and-all-command">4.2.5. Implementation of the Sort Group, Module and All Command</a></h4>
 <div class="paragraph">
-<p>The sort command allows the user to sort the students in the <strong>Student View</strong>. Here are the ways you can use the sort command:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>alphabetically</p>
-</li>
-<li>
-<p>rating (in ascending or descending order)</p>
-</li>
-<li>
-<p>matriculation number</p>
-</li>
-</ol>
+<p>The sort command allows the user to sort the students in the <strong>Student View</strong>.</p>
 </div>
 <div class="paragraph">
 <p>The sort command can be used in three ways:</p>
@@ -1563,15 +1532,15 @@ is thrown saying that a student with the given matric number already exists.</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code>: This sorts all the students of the given
-group in the given module by type <code>TYPE</code>.</p>
+<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code> : This sorts all the students of the <strong>given
+group in the given module</strong> by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort module g/MODULE_CODE t/TYPE</code>: This sorts all the students of all the groups in the
-given module by type <code>TYPE</code>.</p>
+<p><code>sort module g/MODULE_CODE t/TYPE</code> : This sorts all the students of <strong>all the groups in the
+given module</strong> by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort all t/TYPE</code>: This sorts all students of all groups of all the modules in the
+<p><code>sort all t/TYPE</code> : This sorts all students of <strong>all groups of all the modules</strong> in the
 TA-Tracker
 by the type <code>TYPE</code></p>
 </li>
@@ -1612,7 +1581,8 @@ by the type <code>TYPE</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Since these <code>Sort</code> commands function differently but use the same parser, the structure shown in the following
+<p>Since these <code>Sort</code> commands function differently but use a single parser,
+the structure shown in the following
 <em>Class Diagram</em> is used.</p>
 </div>
 <div class="imageblock">
@@ -1621,18 +1591,35 @@ by the type <code>TYPE</code></p>
 </div>
 <div class="title">Figure 28. Sort Commands - Class Diagram</div>
 </div>
-<div class="paragraph">
-<p>Since the different commands use the same parser, the <code>SortCommandParser</code> needs to:</p>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>SortGroupCommand</code> sorts the students in a particular group of a
+particular module.</p>
+</li>
+<li>
+<p><code>SortModuleCommand</code> sorts the students in all groups of all modules.</p>
+</li>
+<li>
+<p><code>SortCommand</code> sorts the students in all groups of all modules.</p>
+</li>
+</ul>
 </div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>check which prefixes have been passed and</p>
-</li>
-<li>
-<p>return the appropriate command accordingly.</p>
-</li>
-</ol>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Since the different commands use the same parser,
+the <code>SortCommandParser</code> needs to check the sub-command word and return
+the appropriate sort command.</p>
 </div>
 <div class="paragraph">
 <p>The following <em>Activity Diagram</em> shows the steps the <code>SortCommandParser</code> takes once
@@ -1654,17 +1641,13 @@ its <em>parse</em> method is called (assuming that no exception is thrown).</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The final else clause would throw an error explaining that the command format is
-invalid. But due to a limitation in <strong>PlantUML&#8217;s</strong> beta version of showing activity diagrams,
-we were unable to indicate exceptions thrown in the proper way and decided to mention
-it here instead.</p>
+<p>The sub-command word here refers to <code>all</code>, <code>module</code> or <code>group</code>. If none of the above
+command words are used, a <strong>command exception</strong> will be thrown, explaining that it is an
+invalid comnmand.</p>
 </li>
 <li>
-<p>Command word here refers to <code>all</code>, <code>module</code> or <code>group</code>.</p>
-</li>
-<li>
-<p>If the user enters the <code>sort</code> command with a command word but doesn&#8217;t include the
-appropriate parameters with the correct prefixes, a command exception is thrown.</p>
+<p>If the user enters the <code>sort</code> command with a command word but <strong>doesn&#8217;t include the
+appropriate parameters with the correct prefixes, a command exception is thrown</strong>.</p>
 </li>
 </ul>
 </div>
@@ -1713,20 +1696,20 @@ creates all the different Sort commands within itself.</p>
 <p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
 </li>
 <li>
-<p>The <code>TaTrackerParser</code> sees that the command is of type <code>sort</code> and passes the
+<p>The <code>TaTrackerParser</code> sees that the command is a <strong>sort command</strong> and passes the
 command to the <code>SortCommandParser</code>.</p>
 </li>
 <li>
 <p>The <code>SortCommandParser</code> performs the steps shown in the previous activity diagram
-and determines that since the sort command word is <code>all</code>, it must create and return a
+and determines that since the sub-command word is <code>all</code> , it must create and return a
 <code>SortCommand</code>.</p>
 </li>
 <li>
-<p><code>LogicManager</code> calls <code>SortCommand</code> 's execute method.</p>
+<p><code>LogicManager</code> calls <code>SortCommand#execute()</code>.</p>
 </li>
 <li>
 <p><code>SortCommand</code> checks the type of sorting that is indicated. Since the sort type
-is <code>matric</code>, it calls <code>Model</code> 's <code>sortModulesByMatricNumber()</code> command.</p>
+is <code>matric</code> , it calls <code>Model#sortModulesByMatricNumber()</code> command.</p>
 </li>
 <li>
 <p>The <code>SortCommand</code> returns a <code>CommandResult</code> with a success message.</p>
@@ -2704,7 +2687,10 @@ by creating a <code>Statistic</code> object that retrieves data necessary for ge
 <p>has a need to track and manage all their claimable hours of teaching</p>
 </li>
 <li>
-<p>has a need to keep track of their tasks and reminders (TA-related and/or personal)</p>
+<p>has a need to track all their students in multiple groups and/or modules</p>
+</li>
+<li>
+<p>has a need to keep track of their tasks (TA-related)</p>
 </li>
 <li>
 <p>prefer apps on desktop over other platforms</p>
@@ -2723,7 +2709,8 @@ by creating a <code>Statistic</code> object that retrieves data necessary for ge
 <div class="ulist">
 <ul>
 <li>
-<p>congregates all information regarding claimable hours of teaching in a single location</p>
+<p>congregates all information regarding claimable hours of teaching and student information
+in a single location</p>
 </li>
 <li>
 <p>provides desired (TSS) format back to users for convenient viewing</p>
@@ -2760,6 +2747,12 @@ by creating a <code>Statistic</code> object that retrieves data necessary for ge
 <td class="tableblock halign-left valign-top"><p class="tableblock">be able to use a help command</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">refer to instructions on what commands are available when
 I forget about them</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">state that a task is recurring</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prevent the need to put a recurring task in my schedule each week</p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>* * *</code></p></td>
@@ -2893,8 +2886,14 @@ much money I have earned and stay motivated</p></td>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">state that a task is recurring</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">prevent the need to put a recurring task in my schedule each week</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">be able to mark student&#8217;s attendance</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my students' attendance (coming in V2.0)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>*</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">TA</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">enter my students' assignment grades</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">keep track of my students' progress (coming in V2.0)</p></td>
 </tr>
 </tbody>
 </table>
@@ -3008,11 +3007,37 @@ much money I have earned and stay motivated</p></td>
 <div class="ulist">
 <ul>
 <li>
-<p>1a. The given module code is invalid.</p>
+<p>1a. The given module code already exists in the TA-Tracker.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>1a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1b. The give module code is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>1c. The given module name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1c1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
 </div>
@@ -3045,6 +3070,39 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 </div>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given module code doesn&#8217;t exist in the TA-Tracker.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given module name is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <h4 id="use-case-uc06-deleting-module" class="discrete">Use case: UC06 - Deleting module</h4>
 <div class="paragraph">
@@ -3082,7 +3140,7 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 </div>
 </li>
 <li>
-<p>3a. The given module code is invalid.</p>
+<p>3a. The given module code doesn&#8217;t exist in the TA-Tracker.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3123,33 +3181,55 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 <div class="paragraph">
 <p><strong>Extensions</strong></p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given module code doesn&#8217;t exist in the TA-Tracker.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The given module code is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. TA-Tracker shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
 </div>
 </li>
+<li>
+<p>3b. The given group code is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
 </ul>
 </div>
+</li>
+<li>
+<p>3c. The given group code already exists in the module.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a. The given class code is invalid.</p>
-<div class="ulist none">
-<ul class="none">
-<li>
-<p>1a1. TA-Tracker shows an error message.</p>
+<p>3c1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d. The given group code is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -3177,6 +3257,65 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 <p>TA-Tracker edits the group</p>
 </li>
 </ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given module code doesn&#8217;t exist in the TA-Tracker.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The new group code already exists in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d. The new group code is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
 </div>
 <h4 id="use-case-uc09-deleting-group" class="discrete">Use case: UC09 - Deleting group</h4>
 <div class="paragraph">
@@ -3214,11 +3353,24 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </div>
 </li>
 <li>
-<p>3a. The given group code is invalid.</p>
+<p>3a. The given module doesn&#8217;t exist in the TA-Tracker.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -3258,13 +3410,39 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>1a. The input required (e.g. Matric Number) to add a student is invalid.</p>
+<p>3a. The input required (for example, Matric Number) to add a student is invalid.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>1a1. TA-Tracker shows an error message.</p>
+<p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given module doesn&#8217;t exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -3386,8 +3564,182 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </ul>
 </div>
 <h4 id="use-case-uc13-sorting-a-group" class="discrete">Use case: UC13 - Sorting a group</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing groups in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to sort all students in a group.</p>
+</li>
+<li>
+<p>TA-Tracker sorts the students in the group.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given sort type is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given module doesn&#8217;t exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h4 id="use-case-uc14-sorting-a-module" class="discrete">Use case: UC14 - Sorting a module</h4>
-<h4 id="use-case-uc15-sorting-all" class="discrete">Use case: UC15 - Sorting all</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to go to the <code>Student Tab</code> (UC02) to view
+the list of existing groups in the <strong>Student View</strong>.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+</li>
+<li>
+<p>User requests to sort all students in all groups of a module.</p>
+</li>
+<li>
+<p>TA-Tracker sorts the students in the group.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>3a. The given sort type is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 1.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given module doesn&#8217;t exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<h4 id="use-case-uc15-sorting-all-modules" class="discrete">Use case: UC15 - Sorting all modules</h4>
+<div class="paragraph">
+<p><strong>MSS</strong></p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>User requests to sort all students in all groups of a module.</p>
+</li>
+<li>
+<p>TA-Tracker sorts the students in the group.</p>
+</li>
+<li>
+<p>TA-Tracker switches to the <code>Student Tab</code>.</p>
+<div class="paragraph">
+<p>Use case ends.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><strong>Extensions</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>1a. The given sort type is invalid.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>1a1. TA-Tracker shows an error message.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
 <h4 id="use-case-uc16-filtering-the-student-view" class="discrete">Use case: UC16 - Filtering the Student View</h4>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
@@ -3859,12 +4211,6 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 <div class="sect1">
 <h2 id="glossary"><a class="link" href="#glossary">Appendix E: Glossary</a></h2>
 <div class="sectionbody">
-
-</div>
-</div>
-<div class="sect1">
-<h2 id="glossary-2"><a class="link" href="#glossary-2">8. GLOSSARY</a></h2>
-<div class="sectionbody">
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 20%;">
@@ -4003,8 +4349,7 @@ These instructions only provide a starting point for testers to work on; testers
 </tr>
 </table>
 </div>
-<div class="sect2">
-<h3 id="launch-and-shutdown"><a class="link" href="#launch-and-shutdown">F.1. Launch and Shutdown</a></h3>
+<h3 id="launch-and-shutdown" class="discrete">Launch and Shutdown</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4051,9 +4396,7 @@ Expected: The student view under the student app is shown.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="viewing-help"><a class="link" href="#viewing-help">F.2. Viewing help</a></h3>
+<h3 id="viewing-help" class="discrete">Viewing help</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4069,9 +4412,7 @@ Expected: Opens the help window.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="changing-tabs"><a class="link" href="#changing-tabs">F.3. Changing Tabs</a></h3>
+<h3 id="changing-tabs" class="discrete">Changing Tabs</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4095,9 +4436,7 @@ Expected: Opens the student tab.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-module"><a class="link" href="#adding-a-module">F.4. Adding a module</a></h3>
+<h3 id="adding-a-module" class="discrete">Adding a module</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4135,9 +4474,7 @@ CS1101S.</p>
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-group-to-a-module"><a class="link" href="#adding-a-group-to-a-module">F.5. Adding a group to a module</a></h3>
+<h3 id="adding-a-group-to-a-module" class="discrete">Adding a group to a module</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4182,9 +4519,7 @@ A group with group code <code>G06</code> of type <code>lab</code> will be added 
 </tr>
 </table>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-students-to-a-group"><a class="link" href="#adding-students-to-a-group">F.6. Adding students to a group</a></h3>
+<h3 id="adding-students-to-a-group" class="discrete">Adding students to a group</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4206,9 +4541,7 @@ to the group <code>G06</code> of the module <code>CS1101S</code> with a rating o
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-student"><a class="link" href="#editing-a-student">F.7. Editing a student</a></h3>
+<h3 id="editing-a-student" class="discrete">Editing a student</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4224,9 +4557,7 @@ Expected: Changes the rating of the student with matric number <code>A123456X</c
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-group"><a class="link" href="#editing-a-group">F.8. Editing a group</a></h3>
+<h3 id="editing-a-group" class="discrete">Editing a group</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4244,9 +4575,7 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-module-s-name"><a class="link" href="#editing-a-module-s-name">F.9. Editing a module&#8217;s name</a></h3>
+<h3 id="editing-a-module-s-name" class="discrete">Editing a module&#8217;s name</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4263,9 +4592,7 @@ but the groups and students inside it will remain intact.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="viewing-a-specific-module"><a class="link" href="#viewing-a-specific-module">F.10. Viewing a specific module</a></h3>
+<h3 id="viewing-a-specific-module" class="discrete">Viewing a specific module</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4282,9 +4609,7 @@ of the group at index 1 of the module&#8217;s group list.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="viewing-a-specific-group"><a class="link" href="#viewing-a-specific-group">F.11. Viewing a specific group</a></h3>
+<h3 id="viewing-a-specific-group" class="discrete">Viewing a specific group</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4301,9 +4626,7 @@ of the group <code>G06</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-a-group"><a class="link" href="#sorting-a-group">F.12. Sorting a group</a></h3>
+<h3 id="sorting-a-group" class="discrete">Sorting a group</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4319,9 +4642,7 @@ Expected: Sorts all the students in the group <code>G06</code> of the module <co
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-a-module"><a class="link" href="#sorting-a-module">F.13. Sorting a module</a></h3>
+<h3 id="sorting-a-module" class="discrete">Sorting a module</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4338,9 +4659,7 @@ You will see the students in the group at index 1 of the group list of  the modu
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="sorting-all-modules"><a class="link" href="#sorting-all-modules">F.14. Sorting all modules</a></h3>
+<h3 id="sorting-all-modules" class="discrete">Sorting all modules</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4358,9 +4677,7 @@ at index 1 of the module list.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-student"><a class="link" href="#deleting-a-student">F.15. Deleting a student</a></h3>
+<h3 id="deleting-a-student" class="discrete">Deleting a student</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4377,9 +4694,7 @@ of the module <code>m/CS1101S</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-group"><a class="link" href="#deleting-a-group">F.16. Deleting a group</a></h3>
+<h3 id="deleting-a-group" class="discrete">Deleting a group</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4397,9 +4712,7 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="adding-a-session"><a class="link" href="#adding-a-session">F.17. Adding a session</a></h3>
+<h3 id="adding-a-session" class="discrete">Adding a session</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4418,9 +4731,7 @@ with the module <code>CS1101S</code> and be a <code>consultation</code> with Ali
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="marking-a-session-as-done"><a class="link" href="#marking-a-session-as-done">F.18. Marking a session as done</a></h3>
+<h3 id="marking-a-session-as-done" class="discrete">Marking a session as done</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4438,9 +4749,7 @@ period. The session marked as done will be added to the claims list.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-session"><a class="link" href="#deleting-a-session">F.19. Deleting a session</a></h3>
+<h3 id="deleting-a-session" class="discrete">Deleting a session</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4456,9 +4765,7 @@ Expected: Deletes the session at index <code>1</code> of the session list.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="editing-a-session"><a class="link" href="#editing-a-session">F.20. Editing a session</a></h3>
+<h3 id="editing-a-session" class="discrete">Editing a session</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4474,9 +4781,7 @@ Expected: Edits the session at index <code>1</code> of the session list to be of
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="filtering-sessions"><a class="link" href="#filtering-sessions">F.21. Filtering sessions</a></h3>
+<h3 id="filtering-sessions" class="discrete">Filtering sessions</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4505,9 +4810,7 @@ and <strong>module code</strong> <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="filtering-claims"><a class="link" href="#filtering-claims">F.22. Filtering Claims</a></h3>
+<h3 id="filtering-claims" class="discrete">Filtering Claims</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4524,9 +4827,7 @@ Expected: Shows all sessions that have been marked as done
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="listing-sessions-and-claims"><a class="link" href="#listing-sessions-and-claims">F.23. Listing sessions and claims</a></h3>
+<h3 id="listing-sessions-and-claims" class="discrete">Listing sessions and claims</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4542,9 +4843,7 @@ Expected: Shows all sessions and claims that have previously been filtered.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="changing-rate"><a class="link" href="#changing-rate">F.24. Changing rate</a></h3>
+<h3 id="changing-rate" class="discrete">Changing rate</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4561,9 +4860,7 @@ changed accordingly.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="viewing-statistics"><a class="link" href="#viewing-statistics">F.25. Viewing Statistics</a></h3>
+<h3 id="viewing-statistics" class="discrete">Viewing Statistics</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4583,9 +4880,7 @@ Expected: Displays the statistics report of the module <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="deleting-a-module"><a class="link" href="#deleting-a-module">F.26. Deleting a module</a></h3>
+<h3 id="deleting-a-module" class="discrete">Deleting a module</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4608,9 +4903,7 @@ this would show you an error message.</p>
 </li>
 </ol>
 </div>
-</div>
-<div class="sect2">
-<h3 id="exiting-the-program"><a class="link" href="#exiting-the-program">F.27. Exiting the program</a></h3>
+<h3 id="exiting-the-program" class="discrete">Exiting the program</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -4625,7 +4918,6 @@ Expected: Exits the program.</p>
 </div>
 </li>
 </ol>
-</div>
 </div>
 </div>
 </div>
@@ -4660,4 +4952,4 @@ our features that relied on timing that were almost ready had to be scrapped and
 had to look for new features to replace them.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 07:05:41 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-12 08:07:42 UTC</div></div></div></body></html>

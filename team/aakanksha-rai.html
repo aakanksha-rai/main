@@ -3,63 +3,50 @@
 <link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Aakanksha Rai - Project Portfolio</h1></div><div id="content"><div class="sect1">
 <h2 id="project-ta-tracker"><a class="link" href="#project-ta-tracker">PROJECT: TA-Tracker</a></h2>
 <div class="sectionbody">
-<hr>
-</div>
-</div>
-<div class="sect1">
-<h2 id="overview"><a class="link" href="#overview">Overview</a></h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>TA-Tracker is a productivity tool made for NUS Computing Teaching Assistants (TAs)
-who want to be able to track and manage all of their claimable hours and the students
-they are teaching in one place..</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
-<div class="sectionbody">
 <div class="sect2">
-<h3 id="student-view"><a class="link" href="#student-view">Student View</a></h3>
+<h3 id="overview"><a class="link" href="#overview">Overview</a></h3>
 <div class="paragraph">
-<p>I was in charge of the <strong>Student View</strong> and created the models used in <strong>Student View</strong>.
-I also wrote most of the commands that come under <strong>Student View</strong>.</p>
+<p>TA-Tracker is a productivity tool made for <strong>NUS Computing Teaching Assistants (TAs)</strong>
+who want to be able to track and manage all of their claimable hours and the students
+they are teaching in one place. The application is written in <strong>Java</strong> and spans <strong>20k
+Lines of Code</strong>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h3>
+<div class="paragraph">
+<p>As the main developer in charge of the <strong>Student View</strong>, my main contributions were in
+the <strong>Student View</strong>. They include <strong>creating models, writing commands, creating tests
+and adding documentation for the Student View</strong>. In total, I wrote about <strong>7kLoc</strong>.</p>
 </div>
 <div class="sect3">
 <h4 id="create-the-models"><a class="link" href="#create-the-models">Create the Models</a></h4>
 <div class="paragraph">
 <p>I created the <code>Module</code>, <code>UniqueModuleList</code>, <code>Group</code> and <code>UniqueGroupList</code> models
-that were used in <strong>Student View</strong> from scratch.</p>
+that were used in <strong>Student View</strong> from scratch.
+These models are necessary to ensure the
+proper functioning of the commands in the <strong>Student View</strong>.
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/88">#88</a>)</p>
 </div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Justification:</strong> A TA would need to keep track of their students, grouped according
-to which group and module they are a part of. These models were required in all the features
-of our product.</p>
-</li>
-<li>
-<p><strong>Highlights:</strong> The models were created the way they were as initially the UI plans for
-<strong>Student View</strong> were different. Once we realised that our previous plan wasn&#8217;t feasible,
-we switched to our current implementation and I had to add many functions to support
-the new UI.</p>
-</li>
-</ul>
+<div class="paragraph">
+<p>I created a lot of supporting methods for the UI, especially the highlighting feature.
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/202">#202</a>)</p>
+</div>
+<div class="paragraph">
+<p>I also added the required support for the filter feature in the models
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/191">#191</a>).</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="sort-commands"><a class="link" href="#sort-commands">Sort Commands</a></h4>
-<div class="paragraph">
-<p>This was one of my main features.</p>
-</div>
 <div class="ulist">
 <ul>
 <li>
 <p><strong>What it does:</strong> Allows the user to sort the students by rating (in ascending or
 descending order), by matriculation number or alphabetically. There are three variations
-of the sort - <code>sort all</code> which is used to sort all students in all groups of all modules,
-<code>sort module</code> which is used to sort all students in all groups of a particular module and
-<code>sort group</code> which is used to sort all students in a particular group of a particular module.</p>
+of the sort - <code>sort all</code> which is used to sort <strong>all students in all groups of all modules</strong>,
+<code>sort module</code> which is used to sort <strong>all students in all groups of a particular module</strong> and
+<code>sort group</code> which is used to sort <strong>all students in a particular group of a particular module</strong>.</p>
 </li>
 <li>
 <p><strong>Justification:</strong> This feature improves the product as TA&#8217;s are often required to
@@ -68,46 +55,49 @@ by <strong>matriculation number</strong> when grading assessments or by <strong>
 strong or weak students.</p>
 </li>
 <li>
-<p><strong>Highlights:</strong> This feature was difficult to implement as it had several sub-parts.
-Furthermore, it had initially been implemented in a different way but had to be changed
-significantly in order for it to be compatible with the <strong>interactive parser</strong>.</p>
+<p>This feature was difficult to implement as it had several sub-parts.
+Furthermore, it had initially been implemented in a different way
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/195">#195</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/200">#200</a>)
+but later had to be changed in order for it to be compatible with the <strong>interactive parser</strong>
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/205">#205</a>).</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="other-minor-enhancements"><a class="link" href="#other-minor-enhancements">Other Minor Enhancements</a></h4>
+<h4 id="other-commands"><a class="link" href="#other-commands">Other Commands</a></h4>
 <div class="paragraph">
-<p>My other minor enhancements include the implementation of the following commands:</p>
+<p>The other commands I implemented are:</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><code>module add</code></p>
+<p><code>module add</code> (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/102">#102</a>)</p>
 </li>
 <li>
-<p><code>module delete</code></p>
+<p><code>module delete</code> (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/107">#107</a>)</p>
 </li>
 <li>
-<p><code>module edit</code></p>
+<p><code>module edit</code> (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/206">#206</a>)</p>
 </li>
 <li>
-<p><code>group add</code></p>
+<p><code>group add</code> (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/121">#121</a>)</p>
 </li>
 <li>
-<p><code>group delete</code></p>
+<p><code>group delete</code> (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/122">#122</a>)</p>
 </li>
 <li>
-<p><code>group edit</code></p>
+<p><code>group edit</code> (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/196">#196</a>)</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Justification:</strong> These commands are needed to manipulate data in the <strong>Student View</strong>.</p>
+<p>These commands are needed to manipulate data in the <strong>Student View</strong>.</p>
 </li>
 <li>
-<p><strong>Highlights:</strong> While they come under Minor Enhancements, overall these commands were
-quite a lot of work as they had many edge cases such as editing the group code of to
-make it a duplicate group.</p>
+<p>Overall, these commands required a fair amount of work, especially due
+to the possible edge cases they have such as the user changing the group code to that
+of a pre-existing group.</p>
 </li>
 </ul>
 </div>
@@ -115,56 +105,47 @@ make it a duplicate group.</p>
 </ol>
 </div>
 </div>
-</div>
-<div class="sect2">
-<h3 id="code-contributed"><a class="link" href="#code-contributed">Code contributed</a></h3>
+<div class="sect3">
+<h4 id="testing"><a class="link" href="#testing">Testing</a></h4>
 <div class="paragraph">
-<p>The code I contributed can be found here:</p>
+<p>I created all the classes required to test the <strong>Student View</strong> such as <code>GroupBuilder</code>,
+<code>ModuleBuilder</code>, <code>TypicalGroups</code>, <code>TypicalModules</code>, etc. I also wrote the tests
+for all my enhancements and have an average coverage over 85% for my sections in the
+codebase. (<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/232">#232</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/345">#345</a>,)</p>
 </div>
 <div class="paragraph">
-<p>[<a href="https://github.com">Functional code</a>] <em>{give links to collated code files}</em></p>
+<p><strong>The code I contributed can be found
+<a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=aakanksha-rai">here</a>.</strong></p>
 </div>
-<div class="paragraph">
-<p>[<a href="https://github.com">Test code</a>] <em>{give links to collated code files}</em></p>
 </div>
+<div class="sect3">
+<h4 id="other-contributions"><a class="link" href="#other-contributions">Other contributions:</a></h4>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>Other contributions</strong>:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Project management:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Managed releases <code>v1.3</code> - <code>v1.5rc</code> (3 releases) on GitHub</p>
-</li>
-</ul>
-</div>
+<p>Managed release <code>v1.4</code> on GitHub</p>
 </li>
 <li>
-<p>Enhancements to existing features:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Updated the GUI color scheme (Pull requests <a href="https://github.com">#33</a>,
-<a href="https://github.com">#34</a>)</p>
-</li>
-<li>
-<p>Wrote additional tests for existing features to increase coverage from 88%
-to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://github.com">#38</a>)</p>
-</li>
-</ul>
-</div>
+<p>Refactored the codebase to make it match TA-Tracker
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/142">#142</a>)</p>
 </li>
 <li>
 <p>Documentation:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Did cosmetic tweaks to existing contents of the User Guide:
-<a href="https://github.com">#14</a></p>
+<p>Created a User Guide skeleton for everyone to follow and made a few cosmetic
+tweaks to existing contents (such as adding a table for the common parameters)
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/215">#215</a>)</p>
+</li>
+<li>
+<p>Updated the User Guide and Developer Guide with details for the Student View
+and the commands used in the Student View.</p>
+</li>
+<li>
+<p>Added screenshots of the UI with annotations to the User Guide for all commands
+(<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/371">#371</a>)</p>
 </li>
 </ul>
 </div>
@@ -174,44 +155,19 @@ to 92% (Pull requests <a href="https://github.com">#36</a>, <a href="https://git
 <div class="ulist">
 <ul>
 <li>
-<p>PRs reviewed (with non-trivial review comments): <a href="https://github.com">#12</a>,
-<a href="https://github.com">#32</a>, <a href="https://github.com">#19</a>, <a href="https://github.com">#42</a></p>
+<p>I reviewed PRs to help maintain code and documentation quality. Some examples are:
+<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/187">#187</a>, <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/208">#208</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/179">#179</a>, <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/364">#364</a>,</p>
 </li>
 <li>
-<p>Contributed to forum discussions (examples:  <a href="https://github.com">1</a>,
-<a href="https://github.com">2</a>, <a href="https://github.com">3</a>, <a href="https://github.com">4</a>)</p>
-</li>
-<li>
-<p>Reported bugs and suggestions for other teams in the class (examples :
-<a href="https://github.com">1</a>, <a href="https://github.com">2</a>, <a href="https://github.com">3</a>)</p>
-</li>
-<li>
-<p>Some parts of the history feature I added was adopted by several other
-class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2</a>)</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Tools:</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Integrated a third party library (Natty) to the project (<a href="https://github.com">#42</a>)</p>
-</li>
-<li>
-<p>Integrated a new Github plugin (CircleCI) to the team repo</p>
+<p>I also contributed to forum discussions. Some examples are:
+<a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/105">1</a>, <a href="https://github.com/nus-cs2103-AY1920S2/forum/issues/98">2</a>,</p>
 </li>
 </ul>
 </div>
 </li>
 </ul>
 </div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>{you can add/remove categories in the list above}</em></p>
 </div>
 </div>
 </div>
@@ -225,11 +181,269 @@ class mates (<a href="https://github.com">1</a>, <a href="https://github.com">2<
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the User Guide. They showcase my
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are some of the sections I contributed to the User Guide. They showcase my
 ability to write documentation targeting end-users.</em></p></td>
 </tr>
 </tbody>
 </table>
+<div class="sect3">
+<h4 id="AddModule"><a class="link" href="#AddModule">Adding a Module : <code>module add</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to <strong>add a new module</strong> to the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>When a new module is created, the <strong>Student View</strong> will show the groups
+and students of the new module.</p>
+</div>
+<div class="paragraph">
+<p>You may notice that the <strong>group list and the student list are empty</strong>. This is because
+you haven&#8217;t added any groups or students to the module yet.</p>
+</div>
+<div class="paragraph">
+<p>If you were on a different <code>tab</code>, you will automatically be switched to the <code>student tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>module add m/MOD_CODE n/NAME</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You <strong>can&#8217;t</strong> have two modules with the <strong>same module code</strong> in the TA-Tracker.</p>
+</li>
+<li>
+<p><code>MOD_CODE</code> and <code>MOD_NAME</code> can&#8217;t be a <strong>empty or a sequence of spaces</strong>.</p>
+</li>
+<li>
+<p>You can give a module your own <strong>custom</strong> <code>MOD_CODE</code> or <code>NAME</code> if you find it easier
+to remember. However,  we recommend you use the <strong>official
+module code and name</strong> for it.</p>
+</li>
+<li>
+<p>If the module name or module code are very long, you can <strong>increase the width</strong> of
+the module name list by dragging the edge with your cursor. However, we suggest not
+giving the modules long codes or long names. The standard official names are usually
+of a good length.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>You can&#8217;t edit the <code>MOD_CODE</code> once the module has been created, so do take
+care to ensure that the code is correct.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>module add m/CS2100 n/Computer Organisation</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModuleAdd.png" alt="ModuleAdd" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>This will add a module with the module code <code>CS2100</code> and name <code>Computer Organisation</code>
+to the TA-Tracker.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="EditGroup"><a class="link" href="#EditGroup">Editing a Group : <code>group edit</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to <strong>edit a group</strong> in the TA-Tracker.</p>
+</div>
+<div class="paragraph">
+<p>This command can be used to change the <strong>group code and the group type</strong> of the group.
+The students inside the group will remain intact.</p>
+</div>
+<div class="paragraph">
+<p>When a group is edited, the <strong>Student View</strong> will show the groups in the module that
+the edited group belongs to, as well as the students that belong to the edited group.
+If you were on a different <code>tab</code>, you will automatically be switched to the <code>student tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>group edit g/GROUP_CODE m/MOD_CODE [ng/NEW_GROUP_CODE] [nt/NEW_GROUP_TYPE]</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p><code>MOD_CODE</code> here refers to the module code of the module that contains the group that
+you want to edit.</p>
+</li>
+<li>
+<p>You <strong>can&#8217;t</strong> edit a group inside a module that doesn&#8217;t exist.</p>
+</li>
+<li>
+<p>You <strong>can&#8217;t</strong> edit a group that doesn&#8217;t exist.</p>
+</li>
+<li>
+<p>If you are changing the group code, the module shouldn&#8217;t contain a group that has the
+same group code as the new group code.</p>
+</li>
+<li>
+<p>While the <code>nt/</code> and <code>ng/</code> prefixes are optional, at least one of them must be mentioned.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>group edit g/G01 m/CS3243 nt/lab</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/GroupEdit.png" alt="GroupEdit" width="900">
+</div>
+</div>
+<div class="paragraph">
+<p>This will change the group type of the group with group code <code>G01</code>, inside the module with
+module code <code>CS3243</code>, to be a <code>lab</code>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="Sort"><a class="link" href="#Sort">Sorting a Group : <code>sort group</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to <strong>sort your students in a specific group</strong>.
+The students will be sorted according to the <code>SORT_TYPE</code> you specify.</p>
+</div>
+<div class="paragraph">
+<p>The <strong>Student View</strong> will show you the students inside the group that you have sorted.
+If you were on a different <code>tab</code>, you will automatically be switched to the <code>student tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>sort group g/GROUP_CODE m/MOD_CODE t/SORT_TYPE</code></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>You <strong>can&#8217;t</strong> sort a group inside a module that doesn&#8217;t exist.</p>
+</li>
+<li>
+<p>You <strong>can&#8217;t</strong> sort a group that doesn&#8217;t exist.</p>
+</li>
+<li>
+<p>To sort alphabetically you can use the following to indicate sort type:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alphabetically</code></p>
+</li>
+<li>
+<p><code>alphabetical</code></p>
+</li>
+<li>
+<p><code>alpha</code></p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>To sort by matriculation number, <code>SORT_TYPE</code> must be <code>matric</code>.</p>
+</li>
+<li>
+<p>To sort by rating in ascending order, <code>SORT_TYPE</code> must be <code>rating asc</code>.</p>
+</li>
+<li>
+<p>To sort by rating in descending order, <code>SORT_TYPE</code> must be <code>rating desc</code>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sort group m/CS2100 g/G06 t/rating asc</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortGroup.png" alt="SortGroup" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Sorts the student inside <code>G06</code> of module <code>CS2100</code> by rating in ascending order.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -241,20 +455,401 @@ ability to write documentation targeting end-users.</em></p></td>
 </colgroup>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are sections I contributed to the Developer Guide. They showcase
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>Given below are some of the sections I contributed to the Developer Guide. They showcase
 my ability to write technical documentation and the technical depth of my
 contributions to the project.</em></p></td>
 </tr>
 </tbody>
 </table>
-</div>
-</div>
-<div class="sect1">
-<h2 id="project-powerpointlabs"><a class="link" href="#project-powerpointlabs">PROJECT: PowerPointLabs</a></h2>
-<div class="sectionbody">
-<hr>
+<div class="sect3">
+<h4 id="implementation-of-the-model-framework"><a class="link" href="#implementation-of-the-model-framework">Implementation of the Model Framework</a></h4>
 <div class="paragraph">
-<p><em>{Optionally, you may include other projects in your portfolio.}</em></p>
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the
+functioning of the <strong>Student View</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram" width="670">
+</div>
+<div class="title">Figure 1. Student View - Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>In the diagram above, you can see that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>TaTracker</code> class contains a <code>UniqueModuleList</code> which helps it keep track
+of the different <strong>modules</strong> the user is teaching.</p>
+</li>
+<li>
+<p>Each <code>Module</code> contains a <code>UniqueGroupList</code>.</p>
+</li>
+<li>
+<p>Each <code>UniqueGroupList</code> contains a list of all the <strong>groups of a module</strong> that the user
+is teaching.</p>
+</li>
+<li>
+<p>Each <code>Group</code> contains a <code>UniqueStudentsList</code> that contains the <strong>students in that group</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p><strong>Design Considerations</strong></p>
+</div>
+<div class="paragraph">
+<p>The initial idea for the <strong>Student View</strong> UI was to show the Student View as a <strong>list of modules</strong>
+where each module contained a <strong>list of groups</strong> and each group contained a <strong>list of students</strong>.
+Keeping this in mind, we created the current model framework.</p>
+</div>
+<div class="paragraph">
+<p>The idea for the UI was scrapped as once we realised it would look messy and won&#8217;t
+be user-friendly. We changed the UI to what it is now, but decided to keep the model framework
+the way it is.</p>
+</div>
+<div class="paragraph">
+<p><strong>Alternative Implementation</strong></p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>An alternative implementation would be to have a single <code>UniqueModuleList</code> to store
+all modules, a <code>List</code> to store all groups and a <code>List</code> to store all students.</p>
+</li>
+<li>
+<p>We would then have to <strong>filter by module code and/or group code</strong> to show the appropriate
+groups and students.</p>
+</li>
+<li>
+<p>This would require <strong>students to keep track of which group and which module they&#8217;re
+a part of</strong>. Similarly, <strong>groups would have to keep a track of the students they contain</strong>.
+This would create a <strong>cyclic dependency</strong> (which could be solved using an association class).</p>
+</li>
+<li>
+<p>The <code>List</code> of groups could contain multiple groups with the same group code as group code
+is only unique within a module. Group codes can be shared across modules.</p>
+</li>
+<li>
+<p>While this implementation would make it easier to generate a report at the end of
+the semester (explained later in the guide), it would require more commands
+and the <strong>creation of many association classes</strong> which would unnecessarily
+<strong>complicate the model</strong>.
+That is why we decided to stick to our current implementation.</p>
+</li>
+</ul>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:03:57 UTC</div></div></div></body></html>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-sort-group-module-and-all-command"><a class="link" href="#implementation-of-the-sort-group-module-and-all-command">Implementation of the Sort Group, Module and All Command</a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
+<p>The sort command allows the user to sort the students in the <strong>Student View</strong>.</p>
+</div>
+<div class="paragraph">
+<p>The sort command can be used in three ways:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>sort group g/GROUP_CODE m/MODULE_CODE t/TYPE</code> : This sorts all the students of the <strong>given
+group in the given module</strong> by type <code>TYPE</code>.</p>
+</li>
+<li>
+<p><code>sort module g/MODULE_CODE t/TYPE</code> : This sorts all the students of <strong>all the groups in the
+given module</strong> by type <code>TYPE</code>.</p>
+</li>
+<li>
+<p><code>sort all t/TYPE</code> : This sorts all students of <strong>all groups in all modules</strong> in the
+TA-Tracker
+by the type <code>TYPE</code></p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>TYPE</code> here could mean any of the following:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>alpha</code>, <code>alphabetical</code> or <code>alphabetically</code> to sort alphabetically.</p>
+</li>
+<li>
+<p><code>rating asc</code> to sort by rating in ascending order.</p>
+</li>
+<li>
+<p><code>rating desc</code> to sort by rating in descending order.</p>
+</li>
+<li>
+<p><code>matric</code> to sort by matriculation number.</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Since the <code>Sort</code> commands function differently but use a single parser,
+the structure shown in the following
+<em>Class Diagram</em> is used.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram" width="400">
+</div>
+<div class="title">Figure 2. Sort Commands - Class Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><code>SortGroupCommand</code> sorts the students in a particular group of a
+particular module.</p>
+</li>
+<li>
+<p><code>SortModuleCommand</code> sorts the students in all groups of all modules.</p>
+</li>
+<li>
+<p><code>SortCommand</code> sorts the students in all groups of all modules.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Since the different commands use the same parser,
+the <code>SortCommandParser</code> needs to check the sub-command word and return
+the appropriate sort command.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> shows the steps the <code>SortCommandParser</code> takes once
+its <em>parse</em> method is called (assuming that no exception is thrown).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram">
+</div>
+<div class="title">Figure 3. SortCommandParser - Activity Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The sub-command word here refers to <code>all</code>, <code>module</code> or <code>group</code>. If none of the above
+sub-command words is used, a <strong>command exception</strong> will be thrown, explaining that it is an
+invalid command.</p>
+</li>
+<li>
+<p>If the user enters the <code>sort</code> command with a command word but <strong>doesn&#8217;t include the
+appropriate parameters with the correct prefixes, a command exception is thrown</strong>.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> illustrates the interactions between the <code>Logic</code> and
+<code>Model</code> components when the user enters the command <code>sort all t/matric</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SortAllSequenceDiagram.png" alt="SortAllSequenceDiagram">
+</div>
+<div class="title">Figure 4. Sort - Sequence Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The lifeline for <code>SortCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
+</li>
+<li>
+<p>The <code>SortCommandParser</code>, which creates <code>Sort</code> commands, is different from the other
+command parsers. While the other commands have another level of parsing (such as the
+<code>ModuleCommandParser</code> for <code>Module</code> commands), the <code>SortCommandParser</code>
+creates all the different Sort commands within itself.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a <strong>sort command</strong> and passes the
+command to the <code>SortCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>SortCommandParser</code> performs the steps shown in the previous activity diagram
+and determines that since the sub-command word is <code>all</code> , it must create and return a
+<code>SortCommand</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>SortCommand#execute()</code>.</p>
+</li>
+<li>
+<p><code>SortCommand</code> checks the type of sorting that is indicated. Since the sort type
+is <code>matric</code> , it calls <code>Model#sortModulesByMatricNumber()</code> command.</p>
+</li>
+<li>
+<p>The <code>SortCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-module-add-delete-and-edit-commands"><a class="link" href="#implementation-of-the-module-add-delete-and-edit-commands">Implementation of the Module Add, Delete and Edit Commands</a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the interactions
+between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
+when the user enters the
+command <code>module add m/CS2103 n/Software Engineering</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/AddModuleSequenceDiagram.png" alt="AddModuleSequenceDiagram">
+</div>
+<div class="title">Figure 5. Module Add - Sequence Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>This diagram assumes that a module with the module code <code>CS2103</code>
+doesn&#8217;t exist in the TA-Tracker.</p>
+</li>
+<li>
+<p>The lifeline for <code>ModuleCommandParser</code> and <code>AddModuleCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that this command is a <strong>module command</strong> and passes the
+command to the <code>ModuleCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>ModuleCommandParser</code> sees that this command is an <strong>add command</strong> and passes the
+arguments to the <code>AddModuleCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>AddModuleCommandParser</code> creates a <code>Module</code> with the given module code and
+name.</p>
+</li>
+<li>
+<p>The <code>AddModuleCommandParser</code> then creates an <code>AddModuleCommand</code> object with a newly
+created module. The parser then returns the <code>AddModuleCommand</code> object.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>AddModuleCommand#execute()</code>.</p>
+</li>
+<li>
+<p>The <code>AddModuleCommand</code> object
+checks whether a module with the given module code already exists in <strong>TA-Tracker</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it does, a <strong>command exception is thrown</strong> saying that a module with the given module
+code already exists in the <strong>TA-Tracker</strong>.</p>
+</li>
+<li>
+<p>If no such module exists, the <strong>module is added to the TA-Tracker</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The <code>AddModuleCommand</code> returns a <code>CommandResult</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The command used to delete a module has been implemented in a similar way. The main
+difference is that when the <code>DeleteModuleCommand</code> checks whether an object with the given
+module code exists in the TA-Tracker</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If no such module exists, a <strong>command exception
+is thrown</strong> saying that a module with the given module code doesn&#8217;t exist.</p>
+</li>
+<li>
+<p>If it does
+exist, <strong>first all the sessions linked to that module are removed</strong> , then the module
+is removed from the TA-Tracker</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>The <code>module edit</code> command has been implemented in a similar manner.</p>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:49:22 UTC</div></div></div></body></html>

@@ -1,0 +1,201 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Aakanksha Rai - UML Diagrams</title><link rel="stylesheet" href="stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link" href="AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"></div><div id="content"><div class="sect2">
+<h3 id="aakanksha-rai-uml-diagrams"><a class="link" href="#aakanksha-rai-uml-diagrams">Aakanksha Rai - UML Diagrams</a></h3>
+<div class="paragraph">
+<p>Some sections from the explanations have been removed from this document in order
+to fit the page requirement. Please read the Developer Guide for more detailed
+explanations.</p>
+</div>
+<hr>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the
+functioning of the <strong>Student View</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram" width="450">
+</div>
+<div class="title">Figure 1. Student View - Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>In the diagram above, you can see that:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>TaTracker</code> class contains a <code>UniqueModuleList</code> which helps it keep track
+of the different <strong>modules</strong> the user is teaching.</p>
+</li>
+<li>
+<p>Each <code>Module</code> contains a <code>UniqueGroupList</code>. Each <code>UniqueGroupList</code> contains a list
+of all the <strong>groups of a module</strong> that the user
+is teaching.</p>
+</li>
+<li>
+<p>Each <code>Group</code> contains a <code>UniqueStudentsList</code> that contains the <strong>students in that group</strong>.</p>
+</li>
+</ul>
+</div>
+<hr>
+<div class="paragraph">
+<p>Since the <code>Sort</code> commands function differently but use a single parser,
+the structure shown in the following
+<em>Class Diagram</em> is used.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram" width="300">
+</div>
+<div class="title">Figure 2. Sort Commands - Class Diagram</div>
+</div>
+<div class="paragraph">
+<p>Since the different commands use the same parser,
+the <code>SortCommandParser</code> needs to check the sub-command word and return
+the appropriate sort command.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> shows the steps the <code>SortCommandParser</code> takes once
+its <em>parse</em> method is called (assuming that no exception is thrown).</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortParserActivityDiagram.png" alt="SortParserActivityDiagram" width="700">
+</div>
+<div class="title">Figure 3. SortCommandParser - Activity Diagram</div>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> illustrates the interactions between the <code>Logic</code> and
+<code>Model</code> components when the user enters the command <code>sort all t/matric</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/SortAllSequenceDiagram.png" alt="SortAllSequenceDiagram" width="800">
+</div>
+<div class="title">Figure 4. Sort - Sequence Diagram</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The <code>SortCommandParser</code>, which creates <code>Sort</code> commands, is different from the other
+command parsers. While the other commands have another level of parsing (such as the
+<code>ModuleCommandParser</code> for <code>Module</code> commands), the <code>SortCommandParser</code>
+creates all the different Sort commands within itself.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a <strong>sort command</strong> and passes the
+command to the <code>SortCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>SortCommandParser</code> performs the steps shown in the previous activity diagram
+and determines that since the sub-command word is <code>all</code> , it must create and return a
+<code>SortCommand</code>.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>SortCommand#execute()</code>.</p>
+</li>
+<li>
+<p><code>SortCommand</code> checks the type of sorting that is indicated. Since the sort type
+is <code>matric</code> , it calls <code>Model#sortModulesByMatricNumber()</code> command.</p>
+</li>
+<li>
+<p>The <code>SortCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the interactions
+between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
+when the user enters the
+command <code>module add m/CS2103 n/Software Engineering</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/AddModuleSequenceDiagram.png" alt="AddModuleSequenceDiagram" width="1000">
+</div>
+<div class="title">Figure 5. Module Add - Sequence Diagram</div>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that this command is a <strong>module command</strong> and passes the
+command to the <code>ModuleCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>ModuleCommandParser</code> sees that this command is an <strong>add command</strong> and passes the
+arguments to the <code>AddModuleCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>AddModuleCommandParser</code> creates a <code>Module</code> with the given module code and
+name.</p>
+</li>
+<li>
+<p>The <code>AddModuleCommandParser</code> then creates an <code>AddModuleCommand</code> object with a newly
+created module. The parser then returns the <code>AddModuleCommand</code> object.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>AddModuleCommand#execute()</code>.</p>
+</li>
+<li>
+<p>The <code>AddModuleCommand</code> object
+checks whether a module with the given module code already exists in <strong>TA-Tracker</strong></p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it does, a <strong>command exception is thrown</strong> saying that a module with the given module
+code already exists in the <strong>TA-Tracker</strong>.</p>
+</li>
+<li>
+<p>If no such module exists, the <strong>module is added to the TA-Tracker</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The <code>AddModuleCommand</code> returns a <code>CommandResult</code>.</p>
+</li>
+</ol>
+</div>
+<hr>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist">
+<ul>
+<li>
+<p>The lifeline of a class in a Sequence Diagram should end at the destroy marker(X).
+However, due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of the diagram.</p>
+</li>
+</ul>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:49:22 UTC</div></div></div></body></html>

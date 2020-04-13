@@ -175,8 +175,7 @@ are a couple of ways that you can do so:</p>
 <div class="ulist">
 <ul>
 <li>
-<p>contribute to TA-Tracker
-'s code base by expanding its features</p>
+<p>contribute to TA-Tracker&#8217;s code base by expanding its features</p>
 </li>
 <li>
 <p>help us improve test coverage</p>
@@ -189,8 +188,7 @@ are a couple of ways that you can do so:</p>
 <div class="paragraph">
 <p>This guide aims to kick-start your journey as a contributor to the TA-Tracker
 by getting
-you up to speed with how TA-Tracker
-'s codebase and inner workings function. It also
+you up to speed with how TA-Tracker&#8217;s codebase and inner workings function. It also
 hopes to serve as a useful reference to current contributors in times of confusion or
 when faced with difficulties.</p>
 </div>
@@ -656,6 +654,9 @@ since they contain classes that implement it.</p>
 <div class="sect3">
 <h4 id="example-logic-sequence"><a class="anchor" href="#example-logic-sequence"></a><a class="link" href="#example-logic-sequence">3.3.5. Example Logic Sequence</a></h4>
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p>The following <em>Sequence Diagram</em> shows all the interactions inside the <code>Logic</code> component
 when executing the <code>group add m/CS2103 g/G03 t/lab</code> command.</p>
 </div>
@@ -757,7 +758,7 @@ in the <code>Model</code> component.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModelComponentsClassDiagram.png" alt="ModelComponentsClassDiagram">
+<img src="images/ModelComponentsClassDiagram.png" alt="ModelComponentsClassDiagram" width="670">
 </div>
 <div class="title">Figure 13. Model Components - Class Diagram</div>
 </div>
@@ -1090,12 +1091,15 @@ process.</p>
 <div class="sect3">
 <h4 id="implementation-of-the-model-framework"><a class="anchor" href="#implementation-of-the-model-framework"></a><a class="link" href="#implementation-of-the-model-framework">4.3.1. Implementation of the Model Framework</a></h4>
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p>The following <em>Class Diagram</em> shows how different classes are related in the
 functioning of the <strong>Student View</strong>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram">
+<img src="images/ModuleModelClassDiagram.png" alt="ModuleModelClassDiagram" width="670">
 </div>
 <div class="title">Figure 20. Student View - Class Diagram</div>
 </div>
@@ -1112,7 +1116,7 @@ of the different <strong>modules</strong> the user is teaching.</p>
 <p>Each <code>Module</code> contains a <code>UniqueGroupList</code>.</p>
 </li>
 <li>
-<p>The <code>UniqueGroupList</code> contains a list of all the <strong>groups of a module</strong> that the user
+<p>Each <code>UniqueGroupList</code> contains a list of all the <strong>groups of a module</strong> that the user
 is teaching.</p>
 </li>
 <li>
@@ -1126,13 +1130,14 @@ is teaching.</p>
 <p><strong>Design Considerations</strong></p>
 </div>
 <div class="paragraph">
-<p>The initial idea for the <strong>Student View</strong> UI was to simply <strong>list</strong> all the students of
-all groups and modules, <strong>sorted by group code and module code</strong>. Therefore the model
-framework has been implemented in this manner.</p>
+<p>The initial idea for the <strong>Student View</strong> UI was to show the Student View as a <strong>list of modules</strong>
+where each module contained a <strong>list of groups</strong> and each group contained a <strong>list of students</strong>.
+Keeping this in mind, we created the current model framework.</p>
 </div>
 <div class="paragraph">
-<p>The idea was scrapped as once it was implemented, it looked too messy and wasn&#8217;t
-user-friendly. We changed the UI but kept the current model framework.</p>
+<p>The idea for the UI was scrapped as once we realised it would look messy and won&#8217;t
+be user-friendly. We changed the UI to what it is now, but decided to keep the model framework
+the way it is.</p>
 </div>
 <div class="paragraph">
 <p><strong>Alternative Implementation</strong></p>
@@ -1148,8 +1153,8 @@ all modules, a <code>List</code> to store all groups and a <code>List</code> to 
 groups and students.</p>
 </li>
 <li>
-<p>This would require <strong>students togt keep track of which group and which module they&#8217;re
-a part of</strong>. Similarly, <strong>groups would have to keep a track of the students it contains</strong>.
+<p>This would require <strong>students to keep track of which group and which module they&#8217;re
+a part of</strong>. Similarly, <strong>groups would have to keep a track of the students they contain</strong>.
 This would create a <strong>cyclic dependency</strong> (which could be solved using an association class).</p>
 </li>
 <li>
@@ -1175,7 +1180,7 @@ That is why we decided to stick to our current implementation.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/StudentClassDiagram.png" alt="StudentClassDiagram">
+<img src="images/StudentClassDiagram.png" alt="StudentClassDiagram" width="670">
 </div>
 <div class="title">Figure 21. Structure of the Student Component</div>
 </div>
@@ -1199,7 +1204,7 @@ reference. This would allow <code>TaTracker</code> to only require one <code>Tag
 <code>Tag</code>, instead of each <code>Student</code> needing their own <code>Tag</code> object. An example of what
 such a model may look like is given below.<br>
 <br>
-<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram"></span>
+<span class="image"><img src="images/BetterModelClassDiagram.png" alt="BetterModelClassDiagram" width="670"></span>
 </td>
 </tr>
 </table>
@@ -1207,6 +1212,9 @@ such a model may look like is given below.<br>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-the-module-add-delete-and-edit-commands"><a class="anchor" href="#implementation-of-the-module-add-delete-and-edit-commands"></a><a class="link" href="#implementation-of-the-module-add-delete-and-edit-commands">4.3.2. Implementation of the Module Add, Delete and Edit Commands</a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
 <div class="paragraph">
 <p>The following <em>Sequence Diagram</em> shows the interactions
 between the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
@@ -1310,6 +1318,9 @@ is removed from the TA-Tracker</p>
 </div>
 <div class="sect3">
 <h4 id="implementation-of-the-group-add-delete-and-edit-commands"><a class="anchor" href="#implementation-of-the-group-add-delete-and-edit-commands"></a><a class="link" href="#implementation-of-the-group-add-delete-and-edit-commands">4.3.3. Implementation of the Group Add, Delete and Edit Commands</a></h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
 <div class="paragraph">
 <p>A <strong>group</strong> is added to the TA-Tracker
 in a similar manner to  how a <strong>module</strong> is added to
@@ -1581,6 +1592,9 @@ the <strong>expected group</strong> inside the <strong>expected module</strong>.
 <div class="sect3">
 <h4 id="implementation-of-the-sort-group-module-and-all-command"><a class="anchor" href="#implementation-of-the-sort-group-module-and-all-command"></a><a class="link" href="#implementation-of-the-sort-group-module-and-all-command">4.3.5. Implementation of the Sort Group, Module and All Command</a></h4>
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p>The sort command allows the user to sort the students in the <strong>Student View</strong>.</p>
 </div>
 <div class="paragraph">
@@ -1597,7 +1611,7 @@ group in the given module</strong> by type <code>TYPE</code>.</p>
 given module</strong> by type <code>TYPE</code>.</p>
 </li>
 <li>
-<p><code>sort all t/TYPE</code> : This sorts all students of <strong>all groups of all the modules</strong> in the
+<p><code>sort all t/TYPE</code> : This sorts all students of <strong>all groups in all modules</strong> in the
 TA-Tracker
 by the type <code>TYPE</code></p>
 </li>
@@ -1638,13 +1652,13 @@ by the type <code>TYPE</code></p>
 </table>
 </div>
 <div class="paragraph">
-<p>Since these <code>Sort</code> commands function differently but use a single parser,
+<p>Since the <code>Sort</code> commands function differently but use a single parser,
 the structure shown in the following
 <em>Class Diagram</em> is used.</p>
 </div>
 <div class="imageblock">
 <div class="content">
-<img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram">
+<img src="images/SortCommandsClassDiagram.png" alt="SortCommandsClassDiagram" width="400">
 </div>
 <div class="title">Figure 25. Sort Commands - Class Diagram</div>
 </div>
@@ -1699,8 +1713,8 @@ its <em>parse</em> method is called (assuming that no exception is thrown).</p>
 <ul>
 <li>
 <p>The sub-command word here refers to <code>all</code>, <code>module</code> or <code>group</code>. If none of the above
-command words are used, a <strong>command exception</strong> will be thrown, explaining that it is an
-invalid comnmand.</p>
+sub-command words is used, a <strong>command exception</strong> will be thrown, explaining that it is an
+invalid command.</p>
 </li>
 <li>
 <p>If the user enters the <code>sort</code> command with a command word but <strong>doesn&#8217;t include the
@@ -3053,6 +3067,9 @@ in a single location</p>
 <h2 id="user-stories"><a class="anchor" href="#user-stories"></a><a class="link" href="#user-stories">Appendix B: User Stories</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p>Priorities: High (must have) - <code>* * *</code>, Medium (nice to have) - <code>* *</code>, Low (unlikely to have) - <code>*</code></p>
 </div>
 <table class="tableblock frame-all grid-all" style="width: 59%;">
@@ -3338,7 +3355,7 @@ much money I have earned and stay motivated</p></td>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Aakanksha)</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3408,7 +3425,7 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Aakanksha)</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3465,7 +3482,7 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Aakanksha)</p>
 </div>
 <div class="ulist none">
 <ul class="none">
@@ -3515,7 +3532,7 @@ the list of existing modules in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Aakanksha)</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3595,7 +3612,7 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Aakanksha)</p>
 </div>
 <div class="ulist">
 <ul>
@@ -3678,7 +3695,7 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Aakanksha)</p>
 </div>
 <div class="ulist none">
 <ul class="none">
@@ -3901,6 +3918,9 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </div>
 <h4 id="use-case-uc13-sorting-a-group" class="discrete">Use case: UC13 - Sorting a group</h4>
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -3971,6 +3991,9 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </div>
 <h4 id="use-case-uc14-sorting-a-module" class="discrete">Use case: UC14 - Sorting a module</h4>
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
 <div class="olist arabic">
@@ -4040,6 +4063,9 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </ul>
 </div>
 <h4 id="use-case-uc15-sorting-all-modules" class="discrete">Use case: UC15 - Sorting all modules</h4>
+<div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
 <div class="paragraph">
 <p><strong>MSS</strong></p>
 </div>
@@ -4654,6 +4680,9 @@ with the goal of ensuring the systems are running efficiently and effectively.</
 <h2 id="instructions-for-manual-testing"><a class="anchor" href="#instructions-for-manual-testing"></a><a class="link" href="#instructions-for-manual-testing">Appendix F: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
+<p>(Contributed by Aakanksha)</p>
+</div>
+<div class="paragraph">
 <p>Given below are instructions to test the app manually. These instructions will help you
 navigate through the app and get an idea of what to test. We suggest you use this in
 conjunction with our User Guide to test the product thoroughly.</p>
@@ -5034,9 +5063,6 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </ol>
 </div>
 <h3 id="adding-a-session" class="discrete">Adding a session</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5056,9 +5082,6 @@ with the module <code>CS1101S</code> and be a <code>consultation</code> with Ali
 </ol>
 </div>
 <h3 id="marking-a-session-as-done" class="discrete">Marking a session as done</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5077,9 +5100,6 @@ period. The session marked as done will be added to the claims list.</p>
 </ol>
 </div>
 <h3 id="deleting-a-session" class="discrete">Deleting a session</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5096,9 +5116,6 @@ Expected: Deletes the session at index <code>1</code> of the session list.</p>
 </ol>
 </div>
 <h3 id="editing-a-session" class="discrete">Editing a session</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5115,9 +5132,6 @@ Expected: Edits the session at index <code>1</code> of the session list to be of
 </ol>
 </div>
 <h3 id="filtering-sessions" class="discrete">Filtering sessions</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5147,9 +5161,6 @@ and <strong>module code</strong> <code>CS1101S</code>.</p>
 </ol>
 </div>
 <h3 id="filtering-claims" class="discrete">Filtering Claims</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5167,9 +5178,6 @@ Expected: Shows all sessions that have been marked as done
 </ol>
 </div>
 <h3 id="listing-sessions-and-claims" class="discrete">Listing sessions and claims</h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5267,7 +5275,7 @@ Expected: Exits the program.</p>
 <h2 id="effort"><a class="anchor" href="#effort"></a><a class="link" href="#effort">Appendix G: Effort</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(Contributed by Fatin)</p>
+<p>(Contributed by Fatin and Aakanksha)</p>
 </div>
 <div class="paragraph">
 <p>Creating this application was fairly difficult and required much blood, toil, tears and sweat. Cumulatively, the
@@ -5321,4 +5329,4 @@ every pull request that we make with thorough peer reviews from at least one oth
 paid off as we managed to maintain a <strong>Codacy rating of A</strong> throughout the project.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:03:57 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 05:49:22 UTC</div></div></div></body></html>

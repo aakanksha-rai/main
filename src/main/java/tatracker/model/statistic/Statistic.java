@@ -1,10 +1,10 @@
 package tatracker.model.statistic;
 
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.List;
+import javafx.collections.ObservableList;
 
 import tatracker.model.ReadOnlyTaTracker;
+import tatracker.model.group.Group;
+import tatracker.model.module.Module;
 import tatracker.model.session.SessionType;
 import tatracker.model.session.UniqueSessionList;
 import tatracker.model.student.Rating;
@@ -20,7 +20,7 @@ public class Statistic {
 
     public static final String ALL_MODULES_STRING = "ALL MODULES";
 
-    public final int[] numHoursPerCategory = new int [SessionType.NUM_SESSION_TYPES];
+    public final int[] numHoursPerCategory = new int[SessionType.NUM_SESSION_TYPES];
     public final int[] studentRatingBinValues = new int[Rating.RANGE];
     public final RatedStudent[] worstStudents = new RatedStudent[StatisticWindow.NUM_STUDENTS_TO_DISPLAY];
     public final String targetModuleCode;
@@ -35,14 +35,28 @@ public class Statistic {
         UniqueStudentList sList = new UniqueStudentList();
 
         fList.setSessions(taTracker.getDoneSessionList());
-        sList.setStudents(taTracker.getCompleteStudentList());
+
 
         // If targetModule is not null, filter by target module.
         if (targetModuleCode != null) {
             this.targetModuleCode = targetModuleCode;
             fList = fList.getSessionsOfModuleCode(targetModuleCode);
+
+            ObservableList<Module> modules = taTracker.getModuleList();
+            for (Module m : modules) {
+                if (!m.getIdentifier().toUpperCase().equals(targetModuleCode.toUpperCase())) {
+                    continue;
+                }
+
+                for (Group group : m.getGroupList()) {
+                    for (Student student : group.getStudentList()) {
+                        sList.add(student);
+                    }
+                }
+            }
         } else {
             this.targetModuleCode = ALL_MODULES_STRING;
+            sList.setStudents(taTracker.getCompleteStudentList());
         }
 
         for (int i = 0; i < numHoursPerCategory.length; ++i) {
@@ -55,12 +69,11 @@ public class Statistic {
         }
 
         // Setup worst students
-        List<Student> students = new ArrayList<>(taTracker.getCompleteStudentList());
-        students.sort(Comparator.comparingInt((Student a) -> a.getRating().value));
+        sList.sortByRatingAscending();
 
         for (int i = 0; i < worstStudents.length; ++i) {
-            if (i < students.size()) {
-                worstStudents[i] = new RatedStudent(students.get(i));
+            if (i < sList.size()) {
+                worstStudents[i] = new RatedStudent(sList.get(i));
             } else {
                 worstStudents[i] = new RatedStudent();
             }

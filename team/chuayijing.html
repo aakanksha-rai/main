@@ -1,0 +1,872 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]--><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="Asciidoctor 1.5.6.1"><title>Chua Yi Jing - Project Portfolio</title><link rel="stylesheet" href="../stylesheets/gh-pages.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="../stylesheets/coderay-asciidoctor.css"></head><body class="article"><div id="seedu-header"><nav class="navbar navbar-lg navbar-light bg-lighter"><div class="container"><a class="navbar-brand" href="https://se-edu.github.io/"><img src="../images/SeEduLogo.png" alt="SE-EDU"></a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level1">AB-1</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level2">AB-2</a></li><li class="nav-item"><a class="nav-link active" href="../index.html">AB-3</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/addressbook-level4">AB-4</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/collate">Collate</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/se-book">Book</a></li><li class="nav-item"><a class="nav-link" href="https://se-edu.github.io/learningresources">Resources</a></li></ul></div></nav></div><div id="site-header"><nav class="navbar navbar-light bg-light"><div class="container"><a class="navbar-brand" href="../index.html">TA-Tracker</a><ul class="navbar-nav"><li class="nav-item"><a class="nav-link" href="../UserGuide.html">User Guide</a></li><li class="nav-item"><a class="nav-link" href="../DeveloperGuide.html">Developer Guide</a></li><li class="nav-item"><a class="nav-link" href="../LearningOutcomes.html">LOs</a></li><li class="nav-item"><a class="nav-link active" href="../AboutUs.html">About Us</a></li><li class="nav-item"><a class="nav-link" href="../ContactUs.html">Contact Us</a></li><li class="navitem"><a class="nav-link" href="https://github.com/AY1920S2-CS2103T-W17-4/main"><span class="fa fa-github fa-lg" aria-hidden="true"></span>&nbsp;View on GitHub</a></li></ul></div></nav></div><div id="header"><h1>Chua Yi Jing - Project Portfolio</h1></div><div id="content"><div class="sect1">
+<h2 id="project-ta-tracker"><a class="link" href="#project-ta-tracker">PROJECT: TA-Tracker</a></h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="overview"><a class="link" href="#overview">OverView</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This portfolio seeks to document my contributions to our team&#8217;s project, TA-Tracker.
+Ta-Tracker is a productivity tool designed for NUS School of Computing
+Teaching Assistants (TAs).
+TAs can track and manage all their claimable hours and the students
+they are teaching in one place.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="about-this-portfolio"><a class="link" href="#about-this-portfolio">About this portfolio</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This project portfolio details my individual contributions to the TA-Tracker project.
+It includes a summary of the enhancements and other contributions I made throughout
+the duration of the project. Additionally, portions of my contribution to the User Guide
+and Developer Guide have also been included.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="summary-of-contributions"><a class="link" href="#summary-of-contributions">Summary of contributions</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The contributions I have made towards the team project are detailed in this section.</p>
+</div>
+<div class="sect2">
+<h3 id="major-enhancement-i-added-the-ability-to-filter-under-each-view"><a class="link" href="#major-enhancement-i-added-the-ability-to-filter-under-each-view">Major Enhancement: I added the ability to filter under each view.</a></h3>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>: The <code>filter</code> command allows the user to search for relevant information
+under the different views.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>Under the Student View, there is <code>FilterStudentCommand</code> to filter the students.</p>
+</li>
+<li>
+<p>Under the Session View, there is <code>FilterSessionCommand</code> to filter the sessions.</p>
+</li>
+<li>
+<p>Under the Claims View, there is <code>FilterClaimCommand</code> to filter the claims.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>Justification</strong>: This is a necessary feature for a system that manages
+a lot of data. Sometimes, users only need to view specific information.
+That is when the <code>filter</code> command is handy.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This enhancement affects existing commands and has to support future commands.
+Since the filtering works differently under the different views,
+the implementation of each filter command is different. The implementation was
+challenging as it required a lot of changes to the existing find command in AB3.
+Furthermore, there was a need to ensure that certain restrictions are met
+before doing the filtering to ensure that our codebase is consistent.</p>
+</li>
+</ul>
+</div>
+<div class="sect3">
+<h4 id="major-enhancement-recurring-sessions"><a class="link" href="#major-enhancement-recurring-sessions">Major Enhancement: Recurring Sessions.</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>What it does</strong>:
+Recurring sessions allows TAs to mark a session as recurring so they don&#8217;t have to enter
+it again and again.
+When the TA marks a recurring session as done, a new session with the updated date
+will be added to the list of sessions.</p>
+</li>
+<li>
+<p><strong>Justification</strong>: Certain tasks that TAs have are weekly, such as weekly tutorials.
+ This feature makes TA-Tracker more user-friendly as the
+user does not have to key in the same details for a session every week manually.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: This feature was difficult to implement as there were several considerations to be
+taken care of. Furthermore, it had been implemented in a different way. We initially
+assumed that recurring lessons would be on a weekly basis. However, we realised that we
+should not make that assumption. Significant changes were made in order to allow TAs to indicate
+the number of recurring weeks that they want.</p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect3">
+<h4 id="other-minor-enhancements-session-related-commands"><a class="link" href="#other-minor-enhancements-session-related-commands">Other Minor Enhancements : Session related commands.</a></h4>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Justifications</strong>: <code>AddSessionCommand</code>, <code>DeleteSessionCommand</code> and <code>list</code> commands
+are essential for TAs to manipulate data in Session View.</p>
+</li>
+<li>
+<p><strong>Highlights</strong>: While they are minor enhancements, implementation of these commands have
+to be thorough. This is because there are many small details to take note of.
+One example is the sorting of sessions when TA adds a new session.
+Sessions shown to TA have to be sorted based on date, start time and end time of sessions.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="code-contributed"><a class="link" href="#code-contributed">Code Contributed</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The code I contributed can be found <a href="https://nus-cs2103-ay1920s2.github.io/tp-dashboard/#=undefined&amp;search=chuayijing">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="other-contributions"><a class="link" href="#other-contributions">Other Contributions:</a></h2>
+<div class="sectionbody">
+<div class="ulist">
+<ul>
+<li>
+<p>Enhancements to existing features:</p>
+<div class="ulist">
+<ul>
+<li>
+<p>I wrote additional tests for existing features to increase
+coverage from 58% to 61%
+(Pull request: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/343">#343</a>)</p>
+</li>
+<li>
+<p>I fixed bugs reported by test users of the application.
+(Pull requests: <a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/339">#339</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/325">#325</a>,
+<a href="https://github.com/AY1920S2-CS2103T-W17-4/main/pull/328">#328</a>,)</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-user-guide"><a class="link" href="#contributions-to-the-user-guide">Contributions to the User Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>We wrote a User Guide targeted at the users of TA-Tracker.
+The User Guide contains instructions on how to use the various commands
+of the application. The following is an excerpt from our User Guide,
+showing additions that I have made for <code>filter</code> and <code>Session</code> features.</p>
+</div>
+<div class="sect2">
+<h3 id="session-view"><a class="link" href="#session-view">Session View</a></h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>Under the <code>session tab</code>, the <strong>Session View</strong> contains a list of the upcoming sessions
+that you haven&#8217;t done yet.</p>
+</div>
+<div class="paragraph">
+<p>The sessions are automatically sorted by date.</p>
+</div>
+<div class="paragraph">
+<p>The purpose of the <strong>Session View</strong> is to help you keep track a of your upcoming teaching.
+duties. It will show you information such as:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>SESSION_TYPE</code>: the type of session</p>
+</li>
+<li>
+<p><code>DATE</code>: the date that the session will occur on</p>
+</li>
+<li>
+<p><code>START</code> and <code>END</code>: the start time and end time of the session</p>
+</li>
+<li>
+<p><code>MODULE</code>: the module that the session is under</p>
+</li>
+<li>
+<p><code>NOTES</code>: any additional information</p>
+</li>
+<li>
+<p><code>WEEK</code>: the recurring period of the session</p>
+</li>
+</ul>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionView.png" alt="SessionView" width="1000">
+</div>
+</div>
+<div class="paragraph">
+<p>This is an example of what the Session View looks like.</p>
+</div>
+<div class="sect3">
+<h4 id="AddSession"><a class="link" href="#AddSession">Adding a Session : <code>session add</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to add a new session.</p>
+</div>
+<div class="paragraph">
+<p>The new session will be shown in the <strong>Session View</strong>, and will automatically
+be marked as <code>not done</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you were on a different <code>tab</code>, you will automatically be switched to the <code>session tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>session add m/MOD_CODE [s/START] [e/END] [d/DATE] [w/WEEKS] [t/SESSION_TYPE] [n/NOTES]</code></p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-tip" title="Tip"></i>
+</td>
+<td class="content">
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>If you want to create a session with the current date, start time and end time,
+you can omit <code>s/START</code> , <code>e/END</code> and <code>d/DATE</code>.</p>
+</li>
+<li>
+<p>You can edit the end time <code>e/END</code> and other details later by using the <code>session edit</code>
+command (details given below in 5.3.3.).</p>
+</li>
+<li>
+<p>If the session has a recurring period <code>[w/WEEKS]</code>, a new session with the updated date
+and timing will be added to <strong>Session View</strong> when it is marked as done.</p>
+</li>
+<li>
+<p>You will find the recurring period <code>[w/WEEKS]</code> field handy for tasks that happen once every few weeks
+such as your weekly lab sessions or fortnightly assignment grading.</p>
+</li>
+</ol>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>session add m/CS3243 s/14:00 e/16:00 d/2020-06-20 w/2 t/consultation n/with Alice and Bob</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionAdd.png" alt="SessionAdd" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>Adds a new session with:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>START_TIME</code> at 14:00 in <code>24hr</code> format</p>
+</li>
+<li>
+<p><code>END_TIME</code> at 16:00 in <code>24hr</code> format</p>
+</li>
+<li>
+<p><code>DATE</code> on 2020-06-20 in <code>yyyy-MM-dd</code> format</p>
+</li>
+<li>
+<p><code>WEEK</code> recurring period of 2 weeks: Once this session has been marked as done, a new session will
+be created with <code>DATE d/2020-07-04</code> (2 weeks later from the date of the original session)</p>
+</li>
+<li>
+<p><code>MOD_CODE</code> of CS3243</p>
+</li>
+<li>
+<p><code>TYPE</code> consultation</p>
+</li>
+<li>
+<p><code>NOTE</code> "with Alice and Bob"</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="deleting-a-session-code-session-delete-code"><a class="link" href="#deleting-a-session-code-session-delete-code">Deleting a Session : <code>session delete</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to delete a session at a specific <code>index</code>.</p>
+</div>
+<div class="paragraph">
+<p>If you were on a different <code>tab</code>, you will automatically be switched to the <code>session tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>session delete INDEX</code></p>
+</div>
+<div class="admonitionblock caution">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-caution" title="Caution"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Do not confuse the <code>session delete</code> and <code>session done</code> commands.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionDelete.png" alt="SessionDelete" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>session delete 1</code></p>
+<div class="paragraph">
+<p>This command deletes the first session in the <strong>Session View</strong>.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="marking-a-session-as-done-code-session-done-code"><a class="link" href="#marking-a-session-as-done-code-session-done-code">Marking a Session as Done : <code>session done</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Fatin and Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to mark a session as done.</p>
+</div>
+<div class="paragraph">
+<p>The session marked as done will be removed from the <strong>Session View</strong> and
+will automatically appear as a new claim in the <strong>Claims View</strong>.
+If the session marked done has a recurring period, a new session with the updated date
+and timing will be added to <strong>Session View</strong>.</p>
+</div>
+<div class="paragraph">
+<p>If you were on a different <code>tab</code>, you will automatically be switched to the <code>claims tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>session done INDEX</code></p>
+</div>
+<div class="paragraph">
+<p>Marks the session with the given unique index as done.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionDone.png" alt="SessionDone" width="790">
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>session done 2</code><br>
+This will mark the 2nd session in the <strong>Session View</strong> as done.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-code-session-filter-code"><a class="link" href="#filter-code-session-filter-code">Filter : <code>session filter</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to filter the sessions in the <strong>Session View</strong>.</p>
+</div>
+<div class="paragraph">
+<p>You can filter the sessions in the following ways:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>MOD_CODE</code> - filtering by module code will show you only the sessions affiliated
+with that module.</p>
+</li>
+<li>
+<p><code>SESSION_TYPE</code> - filtering by session type will show you only the sessions with the specified type</p>
+</li>
+<li>
+<p><code>DATE</code> - filtering by a date will show you only the sessions on that date.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The keyword is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p>When you execute a new filter command, any previous filters applied on the sessions will
+be removed and only the filters from the latest command will be applied on the sessions
+list. The filters that are currently being applied are shown at the top of the <strong>Session View</strong></p>
+</div>
+<div class="paragraph">
+<p>If you were on a different <code>tab</code>, you will automatically be switched to the <code>session tab</code>.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>session filter [m/MOD_CODE] [t/SESSION_TYPE] [d/DATE]</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>session filter m/CS3243</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionFilter.png" alt="SessionFilter" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>All sessions in the <strong>Session View</strong> with module code <code>CS3243</code> are displayed.</p>
+</div>
+</li>
+<li>
+<p><code>session filter m/CS3243 t/tutorial</code></p>
+<div class="paragraph">
+<p>All sessions in the <strong>Session View</strong> with module code <code>CS2103T</code>,
+<strong>or</strong> session type <code>Tutorial</code> will be shown.</p>
+</div>
+</li>
+<li>
+<p><code>session filter m/CS3243</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionFilterMultiple.png" alt="SessionFilterMultiple" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>All sessions in the <strong>Session View</strong> with module code  <code>CS2103T</code>
+will be shown.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>As long as a session contains one of the keyword given by the user, the session will be shown to the user.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect3">
+<h4 id="filter-code-claims-filter-code"><a class="link" href="#filter-code-claims-filter-code">Filter : <code>claims filter</code></a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>You can use this command to filters sessions in the <strong>Claims View</strong> by the module code.</p>
+</div>
+<div class="paragraph">
+<p>You will see the module with the specified <code>MOD_CODE</code> highlighted in orange in the list.</p>
+</div>
+<div class="paragraph">
+<p>All completed sessions with matching <code>MOD_CODE</code> are displayed. Keyword is case-insensitive.</p>
+</div>
+<div class="paragraph">
+<p>Format: <code>claims filter m/MOD_CODE</code></p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>claims filter m/CS3243</code></p>
+<div class="imageblock">
+<div class="content">
+<img src="../images/ClaimsFilter.png" alt="ClaimsFilter" width="790">
+</div>
+</div>
+<div class="paragraph">
+<p>All sessions in the <strong>Claims View</strong> with module code <code>CS3243</code> are displayed.</p>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="contributions-to-the-developer-guide"><a class="link" href="#contributions-to-the-developer-guide">Contributions to the Developer Guide</a></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>In addition to a User Guide, we wrote a Developer Guide
+targeted at developers who are interested in contributing to the project.
+The Developer Guide showcases my ability to write technical documentation
+and the technical depth of my contributions to the project.
+Given below is my contribution to the Developer Guide:</p>
+</div>
+<div class="sect2">
+<h3 id="SessionView"><a class="link" href="#SessionView">Session View</a></h3>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p><strong>Session View</strong> is the term used to refer to the view that contains a list of all sessions
+that haven&#8217;t been completed yet.</p>
+</div>
+<div class="sect3">
+<h4 id="model-framework"><a class="link" href="#model-framework">Model Framework</a></h4>
+<div class="paragraph">
+<p>(Contributed by Haoyi)</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning
+of the <strong>Session View</strong>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/SessionModelClassDiagram.png" alt="SessionModelClassDiagram">
+</div>
+<div class="title">Figure 1. <em>Class Diagram</em> of Session View</div>
+</div>
+<div class="paragraph">
+<p>The TA-Tracker model class contains a <code>UniqueSessionList</code> which helps keep track of
+all the <strong>sessions</strong> in TA-Tracker
+that have <strong>not</strong> been marked as done.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation-of-the-session-done-command"><a class="link" href="#implementation-of-the-session-done-command">Implementation of the Session Done Command</a></h4>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the TA-Tracker
+when the user enters the command
+<code>session done 1</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/DoneSessionSequenceDiagram.png" alt="DoneSessionSequenceDiagram">
+</div>
+<div class="title">Figure 2. <em>Sequence Diagram</em> for Done Session</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>The lifeline for <code>SessionCommandParser</code> and <code>DoneSessionCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.
+===</p>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The <code>LogicManager</code> uses the <code>TaTrackerParser</code> to first parse the user command.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a <code>Session</code> command and passes the command
+to the <code>SessionCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>SessionCommandParser</code> sees that the command is a <code>DoneSessionCommand</code> and passes the
+arguments to the <code>DoneSessionCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>DoneSessionCommandParser</code> creates a <code>DoneSessionCommand</code> with the given index.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>DoneSessionCommand#execute()</code> method.</p>
+</li>
+<li>
+<p>The <code>DoneSessionCommand</code>
+checks whether the current session called by the user has a recurring period.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it does, a new session with the updated date will be added to <code>Model#UniqueSessionList()</code>.</p>
+</li>
+<li>
+<p>If it does not have a recurring period, it will move on to <strong>Step 6</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>The current session is marked as done and will be removed from <code>Model#UniqueSessionList</code>.</p>
+</li>
+<li>
+<p>The updated session list will be displayed to the user.</p>
+</li>
+</ol>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>(Contributed by Fatin)</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Activity Diagram</em> describes how TaTracker is updated when a <code>SessionDone</code> command is entered.</p>
+</div>
+<div class="paragraph">
+<p>==== Implementation of Session Add, Edit and Delete</p>
+</div>
+<div class="paragraph">
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>The <code>session edit</code> and <code>session delete</code> commands have been implemented in a similar manner
+to <code>DoneSessionCommand</code>.</p>
+</div>
+<div class="paragraph">
+<p>The <code>session add</code> command has been implemented in a similar way. The main difference is that the
+<code>SessionAddCommand</code> checks whether an object with the given module code exists in the TA-Tracker.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If no such module code exists, the session is created successfully.</p>
+</li>
+<li>
+<p>If it doesn’t exist, an exception is thrown saying that the given module code doesn’t exist.</p>
+</li>
+</ul>
+</div>
+<div id="Implementation-Filter" class="paragraph">
+<p>=== Filter Command
+(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>==== Description</p>
+</div>
+<div class="paragraph">
+<p>Different view has its own designated filter command.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Student View</strong>, has the <code>student filter</code></p>
+</li>
+<li>
+<p><strong>Session View</strong>, has the <code>session filter</code></p>
+</li>
+<li>
+<p><strong>Claims View</strong>, has the <code>claims filter</code></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>==== Implementation
+This section describes the implementation of the <code>filter</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram" width="1100">
+</div>
+<div class="title">Figure 3. <em>Activity Diagram</em> of the Filter Command</div>
+</div>
+<div class="paragraph">
+<p>The filter feature consists of three main steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Validating and parsing</strong> user input</p>
+</li>
+<li>
+<p>Creating a <strong>filtering predicate</strong> from user&#8217;s input</p>
+</li>
+<li>
+<p><strong>Updating the filtered</strong> list with the <strong>filtering predicate</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>===== Filter under Student View</p>
+</div>
+<div class="paragraph">
+<p>Students are filtered based on the module code and/or
+group code given by the user.</p>
+</div>
+<div class="paragraph">
+<p>Module code is a compulsory parameter for the user.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
+<code>student filter m\CS2103T g\G06</code>. This command will return students from module code <code>CS2103T</code>, under group <code>G06</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
+</div>
+<div class="title">Figure 4. <em>Sequence Diagram</em> for Filter Student Command</div>
+</div>
+</div>
+</div>
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>The lifeline for <code>StudentCommandParser</code> and <code>FilterStudentCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.
+===</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario where the user enters a command to filter students.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
+<code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
+to the <code>StudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
+arguments to the <code>FilterStudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommandParser</code> creates a <code>FilterStudentCommand</code> object
+with the relevant keywords.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>FilterStudentCommand#execute()</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommand</code> object checks whether any of the keywords given by the user matches the existing
+module and/or group.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it doesn&#8217;t, a <code>CommandException</code> is thrown saying that no such students exists.</p>
+</li>
+<li>
+<p>If it does, the <code>FilterStudentCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="filter-under-session-view"><a class="link" href="#filter-under-session-view">Filter under Session View</a></h5>
+<div class="paragraph">
+<p>Sessions can be filtered with the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>d/DATE</code></p>
+</li>
+<li>
+<p><code>m/MODULE CODE</code></p>
+</li>
+<li>
+<p><code>t/SESSION_TYPE</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These parameters can be used alone or together.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter sessions has been implemented in a similar way. The main
+difference is that the <code>FilterSessionCommandParser</code> creates a <code>SessionPredicate</code> object.
+The <code>SessionPredicate</code> object updates the filtered session list by keywords in Model.
+The filtered list will then be displayed.</p>
+</div>
+<div class="paragraph">
+<p>When the user specifies a keyword, sessions that contain the keywords will be filtered and shown to the user.
+If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
+will be shown.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning of
+the <code>SessionFilter</code> Command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
+</div>
+<div class="title">Figure 5. Class Diagram for Filter Session Command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="filter-under-claims-view"><a class="link" href="#filter-under-claims-view">Filter under Claims View</a></h5>
+<div class="paragraph">
+<p>The user can only filter the <strong>Claims View</strong> by module code.
+When the user enters the command <code>claims filter m/MODULE_CODE</code>, claims that contain the module code
+will be filtered.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter claims is implemented the same way as <code>SessionFilterCommand</code>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:59:14 UTC</div></div></div></body></html>

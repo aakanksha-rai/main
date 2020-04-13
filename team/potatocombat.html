@@ -895,9 +895,196 @@ the <strong>expected group</strong> inside the <strong>expected module</strong>.
 </div>
 </div>
 <div class="sect2">
-<h3 id="Syntax"><a class="link" href="#Syntax">Syntax Highlighting</a></h3>
+<h3 id="Implementation-Filter"><a class="link" href="#Implementation-Filter">Filter Command</a></h3>
 <div class="paragraph">
-<p>(Contributed by Gabriel)</p>
+<p>(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="sect3">
+<h4 id="description"><a class="link" href="#description">Description</a></h4>
+<div class="paragraph">
+<p>Different view has its own designated filter command.</p>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Student View</strong>, has the <code>student filter</code></p>
+</li>
+<li>
+<p><strong>Session View</strong>, has the <code>session filter</code></p>
+</li>
+<li>
+<p><strong>Claims View</strong>, has the <code>claims filter</code></p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="implementation"><a class="link" href="#implementation">Implementation</a></h4>
+<div class="paragraph">
+<p>This section describes the implementation of the <code>filter</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram" width="1100">
+</div>
+<div class="title">Figure 5. <em>Activity Diagram</em> of the Filter Command</div>
+</div>
+<div class="paragraph">
+<p>The filter feature consists of three main steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Validating and parsing</strong> user input</p>
+</li>
+<li>
+<p>Creating a <strong>filtering predicate</strong> from user&#8217;s input</p>
+</li>
+<li>
+<p><strong>Updating the filtered</strong> list with the <strong>filtering predicate</strong></p>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="filter-under-student-view"><a class="link" href="#filter-under-student-view">Filter under Student View</a></h5>
+<div class="paragraph">
+<p>Students are filtered based on the module code and/or
+group code given by the user.</p>
+</div>
+<div class="paragraph">
+<p>Module code is a compulsory parameter for the user.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
+<code>student filter m\CS2103T g\G06</code>. This command will return students from module code <code>CS2103T</code>, under group <code>G06</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
+</div>
+<div class="title">Figure 6. <em>Sequence Diagram</em> for Filter Student Command</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title="Note"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>The lifeline for <code>StudentCommandParser</code> and <code>FilterStudentCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.
+===</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario where the user enters a command to filter students.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
+<code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
+to the <code>StudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
+arguments to the <code>FilterStudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommandParser</code> creates a <code>FilterStudentCommand</code> object
+with the relevant keywords.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>FilterStudentCommand#execute()</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommand</code> object checks whether any of the keywords given by the user matches the existing
+module and/or group.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it doesn&#8217;t, a <code>CommandException</code> is thrown saying that no such students exists.</p>
+</li>
+<li>
+<p>If it does, the <code>FilterStudentCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>===== Filter under Session View</p>
+</div>
+<div class="paragraph">
+<p>Sessions can be filtered with the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>d/DATE</code></p>
+</li>
+<li>
+<p><code>m/MODULE CODE</code></p>
+</li>
+<li>
+<p><code>t/SESSION_TYPE</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These parameters can be used alone or together.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter sessions has been implemented in a similar way. The main
+difference is that the <code>FilterSessionCommandParser</code> creates a <code>SessionPredicate</code> object.
+The <code>SessionPredicate</code> object updates the filtered session list by keywords in Model.
+The filtered list will then be displayed.</p>
+</div>
+<div class="paragraph">
+<p>When the user specifies a keyword, sessions that contain the keywords will be filtered and shown to the user.
+If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
+will be shown.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning of
+the <code>SessionFilter</code> Command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="../images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
+</div>
+<div class="title">Figure 7. Class Diagram for Filter Session Command</div>
+</div>
+<div class="paragraph">
+<p>===== Filter under Claims View</p>
+</div>
+<div class="paragraph">
+<p>The user can only filter the <strong>Claims View</strong> by module code.
+When the user enters the command <code>claims filter m/MODULE_CODE</code>, claims that contain the module code
+will be filtered.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter claims is implemented the same way as <code>SessionFilterCommand</code>.</p>
+</div>
+<div id="Syntax" class="paragraph">
+<p>=== Syntax Highlighting
+(Contributed by Gabriel)</p>
 </div>
 <div class="paragraph">
 <p>When a user types a command, their inputs will be highlighted in different colours
@@ -913,7 +1100,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/ui.png" alt="ui" width="600">
 </div>
-<div class="title">Figure 5. The CommandBox and the ResultDisplay in TA-Tracker</div>
+<div class="title">Figure 8. The CommandBox and the ResultDisplay in TA-Tracker</div>
 </div>
 <div class="paragraph">
 <p>In the <em>screenshot</em> above:</p>
@@ -934,16 +1121,15 @@ as a form of input validation.</p>
 </li>
 </ul>
 </div>
-<div class="sect3">
-<h4 id="overview-2"><a class="link" href="#overview-2">Overview</a></h4>
 <div class="paragraph">
-<p>The following <em>Class Diagram</em> shows how the <code>Logic</code> and <code>UI</code> components interact with each other to produce the highlighting.</p>
+<p>==== Overview
+The following <em>Class Diagram</em> shows how the <code>Logic</code> and <code>UI</code> components interact with each other to produce the highlighting.</p>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/SyntaxHighlightingClassDiagram.png" alt="SyntaxHighlightingClassDiagram">
 </div>
-<div class="title">Figure 6. Syntax Highlighting - Class Diagram</div>
+<div class="title">Figure 9. Syntax Highlighting - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>CommandBox</code>:</p>
@@ -973,9 +1159,9 @@ as a form of input validation.</p>
 <div class="paragraph">
 <p>The <code>ResultDisplay</code> displays the given feedback as a message in the TA-Tracker.</p>
 </div>
+<div class="paragraph">
+<p>==== Identifying the parts of a User Input</p>
 </div>
-<div class="sect3">
-<h4 id="identifying-the-parts-of-a-user-input"><a class="link" href="#identifying-the-parts-of-a-user-input">Identifying the parts of a User Input</a></h4>
 <div class="paragraph">
 <p>Here is an example of a user input in the <code>CommandBox</code>:</p>
 </div>
@@ -983,7 +1169,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/commandbox.png" alt="commandbox" width="500">
 </div>
-<div class="title">Figure 7. An example of a user input in the <code>CommandBox</code></div>
+<div class="title">Figure 10. An example of a user input in the <code>CommandBox</code></div>
 </div>
 <div class="paragraph">
 <p>User inputs can be divided into the following parts:</p>
@@ -1013,7 +1199,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/full-command-word.png" alt="full command word">
 </div>
-<div class="title">Figure 8. A <code>full command word</code> (coloured in blue in this screenshot)</div>
+<div class="title">Figure 11. A <code>full command word</code> (coloured in blue in this screenshot)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1043,7 +1229,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/argument-3.png" alt="argument 3">
 </div>
-<div class="title">Figure 9. The <code>arguments</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 12. The <code>arguments</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1070,7 +1256,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/prefix-3.png" alt="prefix 3">
 </div>
-<div class="title">Figure 10. The <code>prefixes</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 13. The <code>prefixes</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1097,7 +1283,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/value-3.png" alt="value 3">
 </div>
-<div class="title">Figure 11. The <code>values</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 14. The <code>values</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1115,7 +1301,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/preamble.png" alt="preamble">
 </div>
-<div class="title">Figure 12. The <code>preamble</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 15. The <code>preamble</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1123,20 +1309,15 @@ as a form of input validation.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect3">
-<h4 id="Impl-Syntax"><a class="link" href="#Impl-Syntax">Implementation of the Syntax Highlighting</a></h4>
-<div class="paragraph">
-<p>The following diagrams show the steps that take place when applying syntax highlighting
+<div id="Impl-Syntax" class="paragraph">
+<p>==== Implementation of the Syntax Highlighting
+The following diagrams show the steps that take place when applying syntax highlighting
 to the user&#8217;s input.</p>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title="Note"></i>
 </td>
-<td class="content">
+</tr>
+</table>
+</div>
 <div class="paragraph">
 <p>Due to the limitations of <strong>PlantUML</strong>, the following <em>Activity Diagrams</em>
 may not follow UML notation.</p>
@@ -1161,14 +1342,11 @@ may not follow UML notation.</p>
 <p>There is a way for the diagrams to be arranged vertically.
 However, this dilates the diagrams, making them difficult to fit in this guide.</p>
 </div>
-</td>
-</tr>
-</table>
-</div>
-<div class="sect4">
-<h5 id="SH-1"><a class="link" href="#SH-1">Step 1 - Highlighting a new input</a></h5>
-<div class="paragraph">
-<p>Syntax highlighting is applied when the user changes their input in the <code>CommandBox</code>.</p>
+<div class="exampleblock">
+<div class="content">
+<div id="SH-1" class="paragraph">
+<p>===== Step 1 - Highlighting a new input
+Syntax highlighting is applied when the user changes their input in the <code>CommandBox</code>.</p>
 </div>
 <div class="paragraph">
 <p>The following <em>Activity Diagram</em> shows how the <code>full command word</code> is highlighted,
@@ -1178,7 +1356,7 @@ up until the beginning of the <code>preamble</code>.</p>
 <div class="content">
 <img src="../images/SyntaxHighlightingActivityDiagram1.png" alt="SyntaxHighlightingActivityDiagram1" width="950">
 </div>
-<div class="title">Figure 13. Step 1 - Highlighting a new input</div>
+<div class="title">Figure 16. Step 1 - Highlighting a new input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1220,7 +1398,7 @@ There should be a <em>rake symbol</em> next to the <strong>bolded</strong> activ
 <div class="content">
 <img src="../images/syntax-highlighting/empty-input.png" alt="empty input">
 </div>
-<div class="title">Figure 14. An empty <code>CommandBox</code></div>
+<div class="title">Figure 17. An empty <code>CommandBox</code></div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1238,7 +1416,7 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 <div class="content">
 <img src="../images/syntax-highlighting/invalid-command-word.png" alt="invalid command word">
 </div>
-<div class="title">Figure 15. Invalid <code>full command word</code></div>
+<div class="title">Figure 18. Invalid <code>full command word</code></div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1256,7 +1434,7 @@ the <code>ResultDisplay</code> will show that a correct command has been entered
 <div class="content">
 <img src="../images/syntax-highlighting/no-arguments.png" alt="no arguments">
 </div>
-<div class="title">Figure 16. <code>CommandBox</code> has no <code>arguments</code></div>
+<div class="title">Figure 19. <code>CommandBox</code> has no <code>arguments</code></div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1273,7 +1451,7 @@ the <code>ResultDisplay</code> will show that a correct command has been entered
 <div class="content">
 <img src="../images/syntax-highlighting/has-arguments.png" alt="has arguments">
 </div>
-<div class="title">Figure 17. <code>CommandBox</code> has <code>arguments</code></div>
+<div class="title">Figure 20. <code>CommandBox</code> has <code>arguments</code></div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1281,11 +1459,9 @@ the <code>ResultDisplay</code> will show that a correct command has been entered
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect4">
-<h5 id="SH-2"><a class="link" href="#SH-2">Step 2 - Highlighting the preamble</a></h5>
-<div class="paragraph">
-<p>If the new input has a <code>full command word</code>,
+<div id="SH-2" class="paragraph">
+<p>===== Step 2 - Highlighting the preamble
+If the new input has a <code>full command word</code>,
 the next step is to apply syntax highlighting on the <code>preamble</code> and <code>arguments</code>.</p>
 </div>
 <div class="paragraph">
@@ -1296,7 +1472,7 @@ up until the beginning of the first <code>argument</code>.</p>
 <div class="content">
 <img src="../images/SyntaxHighlightingActivityDiagram2.png" alt="SyntaxHighlightingActivityDiagram2" width="820">
 </div>
-<div class="title">Figure 18. Step 2 - Highlighting the preamble</div>
+<div class="title">Figure 21. Step 2 - Highlighting the preamble</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -1339,7 +1515,7 @@ There should be a <em>rake symbol</em> next to the <strong>bolded</strong> activ
 <div class="content">
 <img src="../images/syntax-highlighting/trailing-whitespace.png" alt="trailing whitespace">
 </div>
-<div class="title">Figure 19. A trailing whitespace (coloured in blue in this screenshot)</div>
+<div class="title">Figure 22. A trailing whitespace (coloured in blue in this screenshot)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1357,7 +1533,7 @@ the <code>ResultDisplay</code> will show how to use the command.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/many-whitespaces.png" alt="many whitespaces">
 </div>
-<div class="title">Figure 20. Many trailing whitespaces (coloured in blue in this screenshot)</div>
+<div class="title">Figure 23. Many trailing whitespaces (coloured in blue in this screenshot)</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1375,7 +1551,7 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 <div class="content">
 <img src="../images/syntax-highlighting/invalid-preamble.png" alt="invalid preamble">
 </div>
-<div class="title">Figure 21. An invalid <code>preamble</code></div>
+<div class="title">Figure 24. An invalid <code>preamble</code></div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1393,13 +1569,13 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 <div class="content">
 <img src="../images/syntax-highlighting/blank-preamble.png" alt="blank preamble">
 </div>
-<div class="title">Figure 22. A command that requires a blank <code>preamble</code></div>
+<div class="title">Figure 25. A command that requires a blank <code>preamble</code></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="../images/syntax-highlighting/needs-preamble.png" alt="needs preamble">
 </div>
-<div class="title">Figure 23. A command that needs a valid <code>preamble</code></div>
+<div class="title">Figure 26. A command that needs a valid <code>preamble</code></div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1407,11 +1583,9 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 </tr>
 </tbody>
 </table>
-</div>
-<div class="sect4">
-<h5 id="SH-3"><a class="link" href="#SH-3">Step 3 - Highlighting the remaining arguments</a></h5>
-<div class="paragraph">
-<p>After the <code>preamble</code> has been verified,
+<div id="SH-3" class="paragraph">
+<p>===== Step 3 - Highlighting the remaining arguments
+After the <code>preamble</code> has been verified,
 the syntax highlighting is applied on each <code>argument</code> in the remaining user input.
 An <em>invalid</em> or <em>wrong</em> <code>argument</code> will <strong>stop</strong> the highlighting.</p>
 </div>
@@ -1423,7 +1597,7 @@ up until end of the user input.</p>
 <div class="content">
 <img src="../images/SyntaxHighlightingActivityDiagram3.png" alt="SyntaxHighlightingActivityDiagram3" width="800">
 </div>
-<div class="title">Figure 24. Step 3 - Highlighting the remaining arguments</div>
+<div class="title">Figure 27. Step 3 - Highlighting the remaining arguments</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each alternate path in the above diagram:</p>
@@ -1454,7 +1628,7 @@ the <code>ResultDisplay</code> will show how to use the command.</p>
 <div class="content">
 <img src="../images/syntax-highlighting/wrong.png" alt="wrong">
 </div>
-<div class="title">Figure 25. Wrong <code>argument</code> in input</div>
+<div class="title">Figure 28. Wrong <code>argument</code> in input</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1472,7 +1646,7 @@ the <code>ResultDisplay</code> will show how to use the <code>argument</code>.</
 <div class="content">
 <img src="../images/syntax-highlighting/invalid.png" alt="invalid">
 </div>
-<div class="title">Figure 26. Invalid <code>argument</code> in input</div>
+<div class="title">Figure 29. Invalid <code>argument</code> in input</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1490,7 +1664,7 @@ the <code>ResultDisplay</code> will still show how to use it in case the <code>a
 <div class="content">
 <img src="../images/syntax-highlighting/valid.png" alt="valid">
 </div>
-<div class="title">Figure 27. Valid <code>argument</code> in input</div>
+<div class="title">Figure 30. Valid <code>argument</code> in input</div>
 </div>
 <div class="paragraph">
 <p>{fbl}</p>
@@ -1498,12 +1672,12 @@ the <code>ResultDisplay</code> will still show how to use it in case the <code>a
 </tr>
 </tbody>
 </table>
+<div class="paragraph">
+<p>==== Design Considerations</p>
 </div>
+<div id="Syntax-Aspect1" class="paragraph">
+<p>===== Showing the command usage after every two white spaces</p>
 </div>
-<div class="sect3">
-<h4 id="design-considerations"><a class="link" href="#design-considerations">Design Considerations</a></h4>
-<div class="sect4">
-<h5 id="Syntax-Aspect1"><a class="link" href="#Syntax-Aspect1">Showing the command usage after every two white spaces</a></h5>
 <div class="paragraph">
 <p>When a user enters two white spaces, the usage for the current command wil reappear in
 the <code>ResultDisplay</code>. The purpose of this is to provide the user with a <strong>quick example</strong>
@@ -1526,8 +1700,8 @@ This should allow our <strong>target users</strong> (whom are fast typers) to <s
 </li>
 </ul>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p><strong>Alternative Implementation</strong></p>
 </div>
@@ -1549,17 +1723,17 @@ Therefore, TA-Tracker would need to allow the user to <strong>assign their own k
 does not seem like a suitable feature for our <strong>target users</strong>. However, implementing this
 is an option in future versions of TA-Tracker.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
+<div id="Syntax-Aspect2" class="paragraph">
+<p>===== Always showing the syntax highlighting</p>
 </div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="Syntax-Aspect2"><a class="link" href="#Syntax-Aspect2">Always showing the syntax highlighting</a></h5>
 <div class="paragraph">
 <p>Similar to <a href="#Syntax-Aspect1">the previous design consideration</a>, the syntax highlighting
 could instead be toggled <em>on</em> and <em>off</em> using a keyboard shortcut.</p>
 </div>
-<div class="exampleblock">
-<div class="content">
+</div>
+</div>
 <div class="paragraph">
 <p><strong>Alternative Implementation</strong></p>
 </div>
@@ -1589,10 +1763,13 @@ could instead be toggled <em>on</em> and <em>off</em> using a keyboard shortcut.
 <p>Then, the <code>CommandBox</code> will have <em>boolean flags</em> to toggle the syntax highlighting
 before the each of the three steps explained in the <a href="#Impl-Syntax">Implementation of the Syntax Highlighting</a>.</p>
 </div>
+<div class="exampleblock">
+<div class="content">
+
 </div>
 </div>
 </div>
 </div>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:49:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:59:14 UTC</div></div></div></body></html>

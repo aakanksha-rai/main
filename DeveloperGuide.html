@@ -68,37 +68,24 @@
 <ul class="sectlevel3">
 <li><a href="#model-framework">4.4.1. Model Framework</a></li>
 <li><a href="#implementation-of-the-session-done-command">4.4.2. Implementation of the Session Done Command</a></li>
-<li><a href="#implementation-of-session-add-edit-and-delete">4.4.3. Implementation of Session Add, Edit and Delete</a></li>
 </ul>
 </li>
-<li><a href="#claims-view">4.5. Claims View</a>
+<li><a href="#Syntax">4.5. Syntax Highlighting</a>
 <ul class="sectlevel3">
-<li><a href="#model-framework-2">4.5.1. Model Framework</a></li>
-<li><a href="#set-rate-command">4.5.2. Set Rate Command</a></li>
+<li><a href="#overview">4.5.1. Overview</a></li>
+<li><a href="#identifying-the-parts-of-a-user-input">4.5.2. Identifying the parts of a User Input</a></li>
+<li><a href="#Impl-Syntax">4.5.3. Implementation of the Syntax Highlighting</a></li>
+<li><a href="#design-considerations">4.5.4. Design Considerations</a></li>
 </ul>
 </li>
-<li><a href="#Syntax">4.6. Syntax Highlighting</a>
+<li><a href="#statistic-report-generation">4.6. Statistic Report Generation</a>
 <ul class="sectlevel3">
-<li><a href="#overview">4.6.1. Overview</a></li>
-<li><a href="#identifying-the-parts-of-a-user-input">4.6.2. Identifying the parts of a User Input</a></li>
-<li><a href="#Impl-Syntax">4.6.3. Implementation of the Syntax Highlighting</a></li>
-<li><a href="#design-considerations">4.6.4. Design Considerations</a></li>
+<li><a href="#description-2">4.6.1. Description</a></li>
+<li><a href="#implementation-3">4.6.2. Implementation</a></li>
 </ul>
 </li>
-<li><a href="#Implementation-Filter">4.7. Filter Command</a>
-<ul class="sectlevel3">
-<li><a href="#description-2">4.7.1. Description</a></li>
-<li><a href="#implementation-3">4.7.2. Implementation</a></li>
-</ul>
-</li>
-<li><a href="#statistic-report-generation">4.8. Statistic Report Generation</a>
-<ul class="sectlevel3">
-<li><a href="#description-3">4.8.1. Description</a></li>
-<li><a href="#implementation-4">4.8.2. Implementation</a></li>
-</ul>
-</li>
-<li><a href="#logging">4.9. Logging</a></li>
-<li><a href="#Implementation-Configuration">4.10. Configuration</a></li>
+<li><a href="#logging">4.7. Logging</a></li>
+<li><a href="#Implementation-Configuration">4.8. Configuration</a></li>
 </ul>
 </li>
 <li><a href="#documentation">5. Documentation</a></li>
@@ -111,7 +98,7 @@
 <li><a href="#navigation">Navigation</a></li>
 <li><a href="#student-view">Student View</a></li>
 <li><a href="#session-view">Session View</a></li>
-<li><a href="#claims-view-2">Claims View</a></li>
+<li><a href="#claims-view">Claims View</a></li>
 <li><a href="#statistic-report-window">Statistic Report Window</a></li>
 </ul>
 </li>
@@ -1851,6 +1838,19 @@ when the user enters the command
 </div>
 <div class="title">Figure 29. <em>Sequence Diagram</em> for Done Session</div>
 </div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<i class="fa icon-note" title=":information_source:"></i>
+</td>
+<td class="content">
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>The lifeline for <code>SessionCommandParser</code> and <code>DoneSessionCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.
+===</p>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -1885,12 +1885,15 @@ checks whether the current session called by the user has a recurring period.</p
 </div>
 </li>
 <li>
-<p>The current session will be removed from <code>Model#UniqueSessionList</code>.</p>
+<p>The current session is marked as done and will be removed from <code>Model#UniqueSessionList</code>.</p>
 </li>
 <li>
 <p>The updated session list will be displayed to the user.</p>
 </li>
 </ol>
+</div>
+</li>
+</ul>
 </div>
 <div class="paragraph">
 <p>(Contributed by Fatin)</p>
@@ -1904,24 +1907,19 @@ checks whether the current session called by the user has a recurring period.</p
 </div>
 <div class="title">Figure 30. Session Done <em>Activity Diagram</em></div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<i class="fa icon-note" title=":information_source:"></i>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>The above diagram assumes that a valid index has been input into the TA-Tracker
-during the done session command.</p>
-</div>
 </td>
 </tr>
 </table>
 </div>
+<div class="paragraph">
+<p>The above diagram assumes that a valid index has been input into the TA-Tracker
+during the done session command.</p>
 </div>
-<div class="sect3">
-<h4 id="implementation-of-session-add-edit-and-delete"><a class="anchor" href="#implementation-of-session-add-edit-and-delete"></a><a class="link" href="#implementation-of-session-add-edit-and-delete">4.4.3. Implementation of Session Add, Edit and Delete</a></h4>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>==== Implementation of Session Add, Edit and Delete</p>
+</div>
 <div class="paragraph">
 <p>(Contributed by Chua Yi Jing)</p>
 </div>
@@ -1943,10 +1941,9 @@ to <code>DoneSessionCommand</code>.</p>
 </li>
 </ul>
 </div>
+<div class="paragraph">
+<p>=== Claims View</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="claims-view"><a class="anchor" href="#claims-view"></a><a class="link" href="#claims-view">4.5. Claims View</a></h3>
 <div class="paragraph">
 <p>(Contributed by Fatin)</p>
 </div>
@@ -1954,10 +1951,9 @@ to <code>DoneSessionCommand</code>.</p>
 <p><strong>Claims View</strong> refers to the view that contains a list of all the sessions that have
 been done.</p>
 </div>
-<div class="sect3">
-<h4 id="model-framework-2"><a class="anchor" href="#model-framework-2"></a><a class="link" href="#model-framework-2">4.5.1. Model Framework</a></h4>
 <div class="paragraph">
-<p>The following <em>Class Diagram</em> shows how different classes are related in the
+<p>==== Model Framework
+The following <em>Class Diagram</em> shows how different classes are related in the
 functioning of the <strong>Claims View</strong>.</p>
 </div>
 <div class="imageblock">
@@ -1970,9 +1966,9 @@ functioning of the <strong>Claims View</strong>.</p>
 <p>The TaTracker model class contains a UniqueDoneSessionList which keeps track of
 all the <strong>sessions that have been marked as done</strong>. Each of the sessions must belong to a Module in the UniqueModuleList.</p>
 </div>
+<div class="paragraph">
+<p>==== Set Rate Command</p>
 </div>
-<div class="sect3">
-<h4 id="set-rate-command"><a class="anchor" href="#set-rate-command"></a><a class="link" href="#set-rate-command">4.5.2. Set Rate Command</a></h4>
 <div class="paragraph">
 <p>Given below is an example scenario where the user enters the command <code>setrate 50</code>.</p>
 </div>
@@ -2001,10 +1997,192 @@ by the user is a valid integer. If it is, the <code>SetRateCommandParser</code> 
 </li>
 </ol>
 </div>
+<div id="Implementation-Filter" class="paragraph">
+<p>=== Filter Command
+(Contributed by Chua Yi Jing)</p>
+</div>
+<div class="paragraph">
+<p>==== Description</p>
+</div>
+<div class="paragraph">
+<p>Different view has its own designated filter command.</p>
+</div>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>Student View</strong>, has the <code>student filter</code></p>
+</li>
+<li>
+<p><strong>Session View</strong>, has the <code>session filter</code></p>
+</li>
+<li>
+<p><strong>Claims View</strong>, has the <code>claims filter</code></p>
+</li>
+</ul>
+</div>
+<div class="exampleblock">
+<div class="content">
+<div class="paragraph">
+<p>==== Implementation
+This section describes the implementation of the <code>filter</code> command.</p>
+</div>
+<div class="paragraph">
+<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram" width="1100">
+</div>
+<div class="title">Figure 32. <em>Activity Diagram</em> of the Filter Command</div>
+</div>
+<div class="paragraph">
+<p>The filter feature consists of three main steps:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p><strong>Validating and parsing</strong> user input</p>
+</li>
+<li>
+<p>Creating a <strong>filtering predicate</strong> from user&#8217;s input</p>
+</li>
+<li>
+<p><strong>Updating the filtered</strong> list with the <strong>filtering predicate</strong></p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>===== Filter under Student View</p>
+</div>
+<div class="paragraph">
+<p>Students are filtered based on the module code and/or
+group code given by the user.</p>
+</div>
+<div class="paragraph">
+<p>Module code is a compulsory parameter for the user.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
+the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
+<code>student filter m\CS2103T g\G06</code>. This command will return students from module code <code>CS2103T</code>, under group <code>G06</code>.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
+</div>
+<div class="title">Figure 33. <em>Sequence Diagram</em> for Filter Student Command</div>
+</div>
+</div>
+</div>
+<div class="ulist horizontal">
+<ul class="horizontal">
+<li>
+<p>The lifeline for <code>StudentCommandParser</code> and <code>FilterStudentCommandParser</code> should end at the
+destroy marker (X), but due to a limitation of <strong>PlantUML</strong>, the lifeline reaches the end of diagram.
+===</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Given below is an example scenario where the user enters a command to filter students.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
+<code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
+</li>
+<li>
+<p>The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
+to the <code>StudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
+arguments to the <code>FilterStudentCommandParser</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommandParser</code> creates a <code>FilterStudentCommand</code> object
+with the relevant keywords.</p>
+</li>
+<li>
+<p><code>LogicManager</code> calls <code>FilterStudentCommand#execute()</code>.</p>
+</li>
+<li>
+<p>The <code>FilterStudentCommand</code> object checks whether any of the keywords given by the user matches the existing
+module and/or group.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>If it doesn&#8217;t, a <code>CommandException</code> is thrown saying that no such students exists.</p>
+</li>
+<li>
+<p>If it does, the <code>FilterStudentCommand</code> returns a <code>CommandResult</code> with a success message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<div class="sect4">
+<h5 id="filter-under-session-view"><a class="anchor" href="#filter-under-session-view"></a><a class="link" href="#filter-under-session-view">4.4.2.1. Filter under Session View</a></h5>
+<div class="paragraph">
+<p>Sessions can be filtered with the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>d/DATE</code></p>
+</li>
+<li>
+<p><code>m/MODULE CODE</code></p>
+</li>
+<li>
+<p><code>t/SESSION_TYPE</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>These parameters can be used alone or together.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter sessions has been implemented in a similar way. The main
+difference is that the <code>FilterSessionCommandParser</code> creates a <code>SessionPredicate</code> object.
+The <code>SessionPredicate</code> object updates the filtered session list by keywords in Model.
+The filtered list will then be displayed.</p>
+</div>
+<div class="paragraph">
+<p>When the user specifies a keyword, sessions that contain the keywords will be filtered and shown to the user.
+If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
+will be shown.</p>
+</div>
+<div class="paragraph">
+<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning of
+the <code>SessionFilter</code> Command.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
+</div>
+<div class="title">Figure 34. Class Diagram for Filter Session Command</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="filter-under-claims-view"><a class="anchor" href="#filter-under-claims-view"></a><a class="link" href="#filter-under-claims-view">4.4.2.2. Filter under Claims View</a></h5>
+<div class="paragraph">
+<p>The user can only filter the <strong>Claims View</strong> by module code.
+When the user enters the command <code>claims filter m/MODULE_CODE</code>, claims that contain the module code
+will be filtered.</p>
+</div>
+<div class="paragraph">
+<p>The command used to filter claims is implemented the same way as <code>SessionFilterCommand</code>.</p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="Syntax"><a class="anchor" href="#Syntax"></a><a class="link" href="#Syntax">4.6. Syntax Highlighting</a></h3>
+<h3 id="Syntax"><a class="anchor" href="#Syntax"></a><a class="link" href="#Syntax">4.5. Syntax Highlighting</a></h3>
 <div class="paragraph">
 <p>(Contributed by Gabriel)</p>
 </div>
@@ -2022,7 +2200,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/ui.png" alt="ui" width="600">
 </div>
-<div class="title">Figure 32. The CommandBox and the ResultDisplay in TA-Tracker</div>
+<div class="title">Figure 35. The CommandBox and the ResultDisplay in TA-Tracker</div>
 </div>
 <div class="paragraph">
 <p>In the <em>screenshot</em> above:</p>
@@ -2044,7 +2222,7 @@ as a form of input validation.</p>
 </ul>
 </div>
 <div class="sect3">
-<h4 id="overview"><a class="anchor" href="#overview"></a><a class="link" href="#overview">4.6.1. Overview</a></h4>
+<h4 id="overview"><a class="anchor" href="#overview"></a><a class="link" href="#overview">4.5.1. Overview</a></h4>
 <div class="paragraph">
 <p>The following <em>Class Diagram</em> shows how the <code>Logic</code> and <code>UI</code> components interact with each other to produce the highlighting.</p>
 </div>
@@ -2052,7 +2230,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingClassDiagram.png" alt="SyntaxHighlightingClassDiagram">
 </div>
-<div class="title">Figure 33. Syntax Highlighting - Class Diagram</div>
+<div class="title">Figure 36. Syntax Highlighting - Class Diagram</div>
 </div>
 <div class="paragraph">
 <p>The <code>CommandBox</code>:</p>
@@ -2084,7 +2262,7 @@ as a form of input validation.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="identifying-the-parts-of-a-user-input"><a class="anchor" href="#identifying-the-parts-of-a-user-input"></a><a class="link" href="#identifying-the-parts-of-a-user-input">4.6.2. Identifying the parts of a User Input</a></h4>
+<h4 id="identifying-the-parts-of-a-user-input"><a class="anchor" href="#identifying-the-parts-of-a-user-input"></a><a class="link" href="#identifying-the-parts-of-a-user-input">4.5.2. Identifying the parts of a User Input</a></h4>
 <div class="paragraph">
 <p>Here is an example of a user input in the <code>CommandBox</code>:</p>
 </div>
@@ -2092,7 +2270,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/commandbox.png" alt="commandbox" width="500">
 </div>
-<div class="title">Figure 34. An example of a user input in the <code>CommandBox</code></div>
+<div class="title">Figure 37. An example of a user input in the <code>CommandBox</code></div>
 </div>
 <div class="paragraph">
 <p>User inputs can be divided into the following parts:</p>
@@ -2122,7 +2300,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/full-command-word.png" alt="full command word">
 </div>
-<div class="title">Figure 35. A <code>full command word</code> (coloured in blue in this screenshot)</div>
+<div class="title">Figure 38. A <code>full command word</code> (coloured in blue in this screenshot)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2152,7 +2330,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/argument-3.png" alt="argument 3">
 </div>
-<div class="title">Figure 36. The <code>arguments</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 39. The <code>arguments</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2179,7 +2357,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/prefix-3.png" alt="prefix 3">
 </div>
-<div class="title">Figure 37. The <code>prefixes</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 40. The <code>prefixes</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2206,7 +2384,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/value-3.png" alt="value 3">
 </div>
-<div class="title">Figure 38. The <code>values</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 41. The <code>values</code> of each <code>argument</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2224,7 +2402,7 @@ as a form of input validation.</p>
 <div class="content">
 <img src="images/syntax-highlighting/preamble.png" alt="preamble">
 </div>
-<div class="title">Figure 39. The <code>preamble</code> in the user input (coloured in blue in these screenshots)</div>
+<div class="title">Figure 42. The <code>preamble</code> in the user input (coloured in blue in these screenshots)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2234,7 +2412,7 @@ as a form of input validation.</p>
 </table>
 </div>
 <div class="sect3">
-<h4 id="Impl-Syntax"><a class="anchor" href="#Impl-Syntax"></a><a class="link" href="#Impl-Syntax">4.6.3. Implementation of the Syntax Highlighting</a></h4>
+<h4 id="Impl-Syntax"><a class="anchor" href="#Impl-Syntax"></a><a class="link" href="#Impl-Syntax">4.5.3. Implementation of the Syntax Highlighting</a></h4>
 <div class="paragraph">
 <p>The following diagrams show the steps that take place when applying syntax highlighting
 to the user&#8217;s input.</p>
@@ -2275,7 +2453,7 @@ However, this dilates the diagrams, making them difficult to fit in this guide.<
 </table>
 </div>
 <div class="sect4">
-<h5 id="SH-1"><a class="anchor" href="#SH-1"></a><a class="link" href="#SH-1">4.6.3.1. Step 1 - Highlighting a new input</a></h5>
+<h5 id="SH-1"><a class="anchor" href="#SH-1"></a><a class="link" href="#SH-1">4.5.3.1. Step 1 - Highlighting a new input</a></h5>
 <div class="paragraph">
 <p>Syntax highlighting is applied when the user changes their input in the <code>CommandBox</code>.</p>
 </div>
@@ -2287,7 +2465,7 @@ up until the beginning of the <code>preamble</code>.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram1.png" alt="SyntaxHighlightingActivityDiagram1" width="950">
 </div>
-<div class="title">Figure 40. Step 1 - Highlighting a new input</div>
+<div class="title">Figure 43. Step 1 - Highlighting a new input</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2329,7 +2507,7 @@ There should be a <em>rake symbol</em> next to the <strong>bolded</strong> activ
 <div class="content">
 <img src="images/syntax-highlighting/empty-input.png" alt="empty input">
 </div>
-<div class="title">Figure 41. An empty <code>CommandBox</code></div>
+<div class="title">Figure 44. An empty <code>CommandBox</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2347,7 +2525,7 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 <div class="content">
 <img src="images/syntax-highlighting/invalid-command-word.png" alt="invalid command word">
 </div>
-<div class="title">Figure 42. Invalid <code>full command word</code></div>
+<div class="title">Figure 45. Invalid <code>full command word</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2365,7 +2543,7 @@ the <code>ResultDisplay</code> will show that a correct command has been entered
 <div class="content">
 <img src="images/syntax-highlighting/no-arguments.png" alt="no arguments">
 </div>
-<div class="title">Figure 43. <code>CommandBox</code> has no <code>arguments</code></div>
+<div class="title">Figure 46. <code>CommandBox</code> has no <code>arguments</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2382,7 +2560,7 @@ the <code>ResultDisplay</code> will show that a correct command has been entered
 <div class="content">
 <img src="images/syntax-highlighting/has-arguments.png" alt="has arguments">
 </div>
-<div class="title">Figure 44. <code>CommandBox</code> has <code>arguments</code></div>
+<div class="title">Figure 47. <code>CommandBox</code> has <code>arguments</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2392,7 +2570,7 @@ the <code>ResultDisplay</code> will show that a correct command has been entered
 </table>
 </div>
 <div class="sect4">
-<h5 id="SH-2"><a class="anchor" href="#SH-2"></a><a class="link" href="#SH-2">4.6.3.2. Step 2 - Highlighting the preamble</a></h5>
+<h5 id="SH-2"><a class="anchor" href="#SH-2"></a><a class="link" href="#SH-2">4.5.3.2. Step 2 - Highlighting the preamble</a></h5>
 <div class="paragraph">
 <p>If the new input has a <code>full command word</code>,
 the next step is to apply syntax highlighting on the <code>preamble</code> and <code>arguments</code>.</p>
@@ -2405,7 +2583,7 @@ up until the beginning of the first <code>argument</code>.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram2.png" alt="SyntaxHighlightingActivityDiagram2" width="820">
 </div>
-<div class="title">Figure 45. Step 2 - Highlighting the preamble</div>
+<div class="title">Figure 48. Step 2 - Highlighting the preamble</div>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -2448,7 +2626,7 @@ There should be a <em>rake symbol</em> next to the <strong>bolded</strong> activ
 <div class="content">
 <img src="images/syntax-highlighting/trailing-whitespace.png" alt="trailing whitespace">
 </div>
-<div class="title">Figure 46. A trailing whitespace (coloured in blue in this screenshot)</div>
+<div class="title">Figure 49. A trailing whitespace (coloured in blue in this screenshot)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2466,7 +2644,7 @@ the <code>ResultDisplay</code> will show how to use the command.</p>
 <div class="content">
 <img src="images/syntax-highlighting/many-whitespaces.png" alt="many whitespaces">
 </div>
-<div class="title">Figure 47. Many trailing whitespaces (coloured in blue in this screenshot)</div>
+<div class="title">Figure 50. Many trailing whitespaces (coloured in blue in this screenshot)</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2484,7 +2662,7 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 <div class="content">
 <img src="images/syntax-highlighting/invalid-preamble.png" alt="invalid preamble">
 </div>
-<div class="title">Figure 48. An invalid <code>preamble</code></div>
+<div class="title">Figure 51. An invalid <code>preamble</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2502,13 +2680,13 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 <div class="content">
 <img src="images/syntax-highlighting/blank-preamble.png" alt="blank preamble">
 </div>
-<div class="title">Figure 49. A command that requires a blank <code>preamble</code></div>
+<div class="title">Figure 52. A command that requires a blank <code>preamble</code></div>
 </div>
 <div class="imageblock">
 <div class="content">
 <img src="images/syntax-highlighting/needs-preamble.png" alt="needs preamble">
 </div>
-<div class="title">Figure 50. A command that needs a valid <code>preamble</code></div>
+<div class="title">Figure 53. A command that needs a valid <code>preamble</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2518,7 +2696,7 @@ the <code>ResultDisplay</code> will indicate that a wrong command is entered.</p
 </table>
 </div>
 <div class="sect4">
-<h5 id="SH-3"><a class="anchor" href="#SH-3"></a><a class="link" href="#SH-3">4.6.3.3. Step 3 - Highlighting the remaining arguments</a></h5>
+<h5 id="SH-3"><a class="anchor" href="#SH-3"></a><a class="link" href="#SH-3">4.5.3.3. Step 3 - Highlighting the remaining arguments</a></h5>
 <div class="paragraph">
 <p>After the <code>preamble</code> has been verified,
 the syntax highlighting is applied on each <code>argument</code> in the remaining user input.
@@ -2532,7 +2710,7 @@ up until end of the user input.</p>
 <div class="content">
 <img src="images/SyntaxHighlightingActivityDiagram3.png" alt="SyntaxHighlightingActivityDiagram3" width="800">
 </div>
-<div class="title">Figure 51. Step 3 - Highlighting the remaining arguments</div>
+<div class="title">Figure 54. Step 3 - Highlighting the remaining arguments</div>
 </div>
 <div class="paragraph">
 <p>Here is the purpose of each alternate path in the above diagram:</p>
@@ -2563,7 +2741,7 @@ the <code>ResultDisplay</code> will show how to use the command.</p>
 <div class="content">
 <img src="images/syntax-highlighting/wrong.png" alt="wrong">
 </div>
-<div class="title">Figure 52. Wrong <code>argument</code> in input</div>
+<div class="title">Figure 55. Wrong <code>argument</code> in input</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2581,7 +2759,7 @@ the <code>ResultDisplay</code> will show how to use the <code>argument</code>.</
 <div class="content">
 <img src="images/syntax-highlighting/invalid.png" alt="invalid">
 </div>
-<div class="title">Figure 53. Invalid <code>argument</code> in input</div>
+<div class="title">Figure 56. Invalid <code>argument</code> in input</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2599,7 +2777,7 @@ the <code>ResultDisplay</code> will still show how to use it in case the <code>a
 <div class="content">
 <img src="images/syntax-highlighting/valid.png" alt="valid">
 </div>
-<div class="title">Figure 54. Valid <code>argument</code> in input</div>
+<div class="title">Figure 57. Valid <code>argument</code> in input</div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -2610,9 +2788,9 @@ the <code>ResultDisplay</code> will still show how to use it in case the <code>a
 </div>
 </div>
 <div class="sect3">
-<h4 id="design-considerations"><a class="anchor" href="#design-considerations"></a><a class="link" href="#design-considerations">4.6.4. Design Considerations</a></h4>
+<h4 id="design-considerations"><a class="anchor" href="#design-considerations"></a><a class="link" href="#design-considerations">4.5.4. Design Considerations</a></h4>
 <div class="sect4">
-<h5 id="Syntax-Aspect1"><a class="anchor" href="#Syntax-Aspect1"></a><a class="link" href="#Syntax-Aspect1">4.6.4.1. Showing the command usage after every two white spaces</a></h5>
+<h5 id="Syntax-Aspect1"><a class="anchor" href="#Syntax-Aspect1"></a><a class="link" href="#Syntax-Aspect1">4.5.4.1. Showing the command usage after every two white spaces</a></h5>
 <div class="paragraph">
 <p>When a user enters two white spaces, the usage for the current command wil reappear in
 the <code>ResultDisplay</code>. The purpose of this is to provide the user with a <strong>quick example</strong>
@@ -2662,7 +2840,7 @@ is an option in future versions of TA-Tracker.</p>
 </div>
 </div>
 <div class="sect4">
-<h5 id="Syntax-Aspect2"><a class="anchor" href="#Syntax-Aspect2"></a><a class="link" href="#Syntax-Aspect2">4.6.4.2. Always showing the syntax highlighting</a></h5>
+<h5 id="Syntax-Aspect2"><a class="anchor" href="#Syntax-Aspect2"></a><a class="link" href="#Syntax-Aspect2">4.5.4.2. Always showing the syntax highlighting</a></h5>
 <div class="paragraph">
 <p>Similar to <a href="#Syntax-Aspect1">the previous design consideration</a>, the syntax highlighting
 could instead be toggled <em>on</em> and <em>off</em> using a keyboard shortcut.</p>
@@ -2704,187 +2882,12 @@ before the each of the three steps explained in the <a href="#Impl-Syntax">Imple
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Filter"><a class="anchor" href="#Implementation-Filter"></a><a class="link" href="#Implementation-Filter">4.7. Filter Command</a></h3>
-<div class="paragraph">
-<p>(Contributed by Chua Yi Jing)</p>
-</div>
-<div class="sect3">
-<h4 id="description-2"><a class="anchor" href="#description-2"></a><a class="link" href="#description-2">4.7.1. Description</a></h4>
-<div class="paragraph">
-<p>Different view has its own designated filter command.</p>
-</div>
-<div class="exampleblock">
-<div class="content">
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Student View</strong>, has the <code>student filter</code></p>
-</li>
-<li>
-<p><strong>Session View</strong>, has the <code>session filter</code></p>
-</li>
-<li>
-<p><strong>Claims View</strong>, has the <code>claims filter</code></p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="implementation-3"><a class="anchor" href="#implementation-3"></a><a class="link" href="#implementation-3">4.7.2. Implementation</a></h4>
-<div class="paragraph">
-<p>This section describes the implementation of the <code>filter</code> command.</p>
-</div>
-<div class="paragraph">
-<p>The <em>Activity Diagram</em> below summarises what happens when the user executes a <code>filter</code> command:</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/FilterCommandActivityDiagram.png" alt="FilterCommandActivityDiagram" width="1100">
-</div>
-<div class="title">Figure 55. <em>Activity Diagram</em> of the Filter Command</div>
-</div>
-<div class="paragraph">
-<p>The filter feature consists of three main steps:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><strong>Validating and parsing</strong> user input</p>
-</li>
-<li>
-<p>Creating a <strong>filtering predicate</strong> from user&#8217;s input</p>
-</li>
-<li>
-<p><strong>Updating the filtered</strong> list with the <strong>filtering predicate</strong></p>
-</li>
-</ol>
-</div>
-<div class="sect4">
-<h5 id="filter-under-student-view"><a class="anchor" href="#filter-under-student-view"></a><a class="link" href="#filter-under-student-view">4.7.2.1. Filter under Student View</a></h5>
-<div class="paragraph">
-<p>Students are filtered based on the module code and/or
-group code given by the user.</p>
-</div>
-<div class="paragraph">
-<p>Module code is a compulsory parameter for the user.</p>
-</div>
-<div class="paragraph">
-<p>The following <em>Sequence Diagram</em> shows the sequence of commands that take place between
-the <code>Logic</code> and <code>Model</code> components of the Ta-Tracker when the user enters the command
-<code>student filter m\CS2103T g\G06</code>. This command will return students from module code <code>CS2103T</code>, under group <code>G06</code>.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/FilterStudentSequenceDiagram.png" alt="FilterStudentSequenceDiagram">
-</div>
-<div class="title">Figure 56. <em>Sequence Diagram</em> for Filter Student Command</div>
-</div>
-<div class="paragraph">
-<p>Given below is an example scenario where the user enters a command to filter students.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>The user command is passed through the <code>LogicManager</code> to <code>TaTrackerParser</code>.
-<code>TaTrackerParser</code> checks the input arguments and identify the String keywords.</p>
-</li>
-<li>
-<p>The <code>TaTrackerParser</code> sees that the command is a type of Student and passes the command
-to the <code>StudentCommandParser</code>.</p>
-</li>
-<li>
-<p>The <code>StudentCommandParser</code> sees that the command is a type of filter and passes the
-arguments to the <code>FilterStudentCommandParser</code>.</p>
-</li>
-<li>
-<p>The <code>FilterStudentCommandParser</code> creates a <code>FilterStudentCommand</code> object
-with the relevant keywords.</p>
-</li>
-<li>
-<p><code>LogicManager</code> calls <code>FilterStudentCommand</code> 's execute method.</p>
-</li>
-<li>
-<p>The <code>FilterStudentCommand</code> object checks whether any of the keywords given by the user matches the existing
-module and/or group.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>If it doesn&#8217;t, a <code>CommandException</code> is thrown saying that no such students exists.</p>
-</li>
-<li>
-<p>If it does, the <code>FilterStudentCommand</code> returns a <code>CommandResult</code> with a success message.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect4">
-<h5 id="filter-under-session-view"><a class="anchor" href="#filter-under-session-view"></a><a class="link" href="#filter-under-session-view">4.7.2.2. Filter under Session View</a></h5>
-<div class="paragraph">
-<p>Sessions can be filtered with the following parameters:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>d/DATE</code></p>
-</li>
-<li>
-<p><code>m/MODULE CODE</code></p>
-</li>
-<li>
-<p><code>t/SESSION_TYPE</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>These parameters can be used alone or together.</p>
-</div>
-<div class="paragraph">
-<p>The command used to filter sessions has been implemented in a similar way. The main
-difference is that the <code>FilterSessionCommandParser</code> creates a <code>SessionPredicate</code> object.
-The <code>SessionPredicate</code> object updates the filtered session list by keywords in Model.
-The filtered list will then be displayed.</p>
-</div>
-<div class="paragraph">
-<p>When the user specifies a keyword, sessions that contain the keywords will be filtered and shown to the user.
-If none of the keywords supplied by the user appears in any sessions, a <code>CommandException</code>
-will be shown.</p>
-</div>
-<div class="paragraph">
-<p>The following <em>Class Diagram</em> shows how different classes are related in the functioning of
-the <code>SessionFilter</code> Command.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="images/FindCommandClassDiagram.png" alt="FindCommandClassDiagram">
-</div>
-<div class="title">Figure 57. Class Diagram for Filter Session Command</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="filter-under-claims-view"><a class="anchor" href="#filter-under-claims-view"></a><a class="link" href="#filter-under-claims-view">4.7.2.3. Filter under Claims View</a></h5>
-<div class="paragraph">
-<p>The user can only filter the <strong>Claims View</strong> by module code.
-When the user enters the command <code>claims filter m/MODULE_CODE</code>, claims that contain the module code
-will be filtered.</p>
-</div>
-<div class="paragraph">
-<p>The command used to filter claims is implemented the same way as <code>SessionFilterCommand</code>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="statistic-report-generation"><a class="anchor" href="#statistic-report-generation"></a><a class="link" href="#statistic-report-generation">4.8. Statistic Report Generation</a></h3>
+<h3 id="statistic-report-generation"><a class="anchor" href="#statistic-report-generation"></a><a class="link" href="#statistic-report-generation">4.6. Statistic Report Generation</a></h3>
 <div class="paragraph">
 <p>(Contributed by Haoyi)</p>
 </div>
 <div class="sect3">
-<h4 id="description-3"><a class="anchor" href="#description-3"></a><a class="link" href="#description-3">4.8.1. Description</a></h4>
+<h4 id="description-2"><a class="anchor" href="#description-2"></a><a class="link" href="#description-2">4.6.1. Description</a></h4>
 <div class="paragraph">
 <p>The <strong>Statistics Window</strong> can be generated and displayed using the <code>report</code> command.
 The command is used to generate a report to display information such as:</p>
@@ -2907,7 +2910,7 @@ The command is used to generate a report to display information such as:</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-4"><a class="anchor" href="#implementation-4"></a><a class="link" href="#implementation-4">4.8.2. Implementation</a></h4>
+<h4 id="implementation-3"><a class="anchor" href="#implementation-3"></a><a class="link" href="#implementation-3">4.6.2. Implementation</a></h4>
 <div class="paragraph">
 <p>This section describes the implementation of the <code>report</code> command.</p>
 </div>
@@ -2967,14 +2970,14 @@ by creating a <code>Statistic</code> object that retrieves data necessary for ge
 </div>
 </div>
 <div class="sect2">
-<h3 id="logging"><a class="anchor" href="#logging"></a><a class="link" href="#logging">4.9. Logging</a></h3>
+<h3 id="logging"><a class="anchor" href="#logging"></a><a class="link" href="#logging">4.7. Logging</a></h3>
 <div class="paragraph">
 <p>We are using <code>java.util.logging</code> package for logging. The <code>LogsCenter</code> class is used to manage the logging levels and logging destinations.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.10, &#8220;Configuration&#8221;</a>)</p>
+<p>The logging level can be controlled using the <code>logLevel</code> setting in the configuration file (See <a href="#Implementation-Configuration">Section 4.8, &#8220;Configuration&#8221;</a>)</p>
 </li>
 <li>
 <p>The <code>Logger</code> for a class can be obtained using <code>LogsCenter.getLogger(Class)</code> which will log messages according to the specified logging level</p>
@@ -3005,7 +3008,7 @@ by creating a <code>Statistic</code> object that retrieves data necessary for ge
 </div>
 </div>
 <div class="sect2">
-<h3 id="Implementation-Configuration"><a class="anchor" href="#Implementation-Configuration"></a><a class="link" href="#Implementation-Configuration">4.10. Configuration</a></h3>
+<h3 id="Implementation-Configuration"><a class="anchor" href="#Implementation-Configuration"></a><a class="link" href="#Implementation-Configuration">4.8. Configuration</a></h3>
 <div class="paragraph">
 <p>Certain properties of the application can be controlled (e.. user prefs file location, logging level) through the configuration file (default: <code>config.json</code>).</p>
 </div>
@@ -4501,7 +4504,7 @@ the list of existing sessions in the <strong>Session View</strong>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="claims-view-2"><a class="anchor" href="#claims-view-2"></a><a class="link" href="#claims-view-2">Claims View</a></h3>
+<h3 id="claims-view"><a class="anchor" href="#claims-view"></a><a class="link" href="#claims-view">Claims View</a></h3>
 <h4 id="use-case-uc22-changing-the-hourly-pay-rate" class="discrete">Use case: UC22 - Changing the hourly pay rate</h4>
 <div class="paragraph">
 <p><strong>MSS</strong> (Contributed by Fatin)</p>
@@ -4818,8 +4821,8 @@ These instructions only provide a starting point for testers to work on; testers
 <p>Download the jar file and copy into an empty folder</p>
 </li>
 <li>
-<p>Double-click the jar file<br>
-Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.</p>
+<p>Move to the folder and enter the command <code>java -jar TaTracker.jar</code> in the terminal<br>
+Expected: TA-Tracker should start in a few seconds.</p>
 </li>
 </ol>
 </div>
@@ -4832,7 +4835,7 @@ Expected: Shows the GUI with a set of sample contacts. The window size may not b
 <p>Resize the window to an optimum size. Move the window to a different location. Close the window.</p>
 </li>
 <li>
-<p>Re-launch the app by double-clicking the jar file.<br>
+<p>Re-launch the app by following the steps you did in the previous test<br>
 Expected: The most recent window size and location is retained.</p>
 </li>
 </ol>
@@ -5507,4 +5510,4 @@ every pull request that we make with thorough peer reviews from at least one oth
 paid off as we managed to maintain a <strong>Codacy rating of A</strong> throughout the project.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:49:40 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 11:59:14 UTC</div></div></div></body></html>

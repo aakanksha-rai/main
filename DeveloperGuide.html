@@ -45,8 +45,8 @@
 <ul class="sectlevel2">
 <li><a href="#Logic">4.1. Logic</a>
 <ul class="sectlevel3">
-<li><a href="#implementation-of-the-code-commanddictionary-code">4.1.1. Implementation of the <code>CommandDictionary</code></a></li>
-<li><a href="#implementation-of-the-code-prefixdictionary-code">4.1.2. Implementation of the <code>PrefixDictionary</code></a></li>
+<li><a href="#implementation-of-the-commanddictionary">4.1.1. Implementation of the CommandDictionary</a></li>
+<li><a href="#implementation-of-the-prefixdictionary">4.1.2. Implementation of the PrefixDictionary</a></li>
 </ul>
 </li>
 <li><a href="#Implementation-Goto">4.2. Goto Command</a>
@@ -913,7 +913,7 @@ The <code>PrefixDetails</code> of every <code>Prefix</code> are stored in a <cod
 <p>The following sections will describe the implementation of these two dictionaries.</p>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-code-commanddictionary-code"><a class="anchor" href="#implementation-of-the-code-commanddictionary-code"></a><a class="link" href="#implementation-of-the-code-commanddictionary-code">4.1.1. Implementation of the <code>CommandDictionary</code></a></h4>
+<h4 id="implementation-of-the-commanddictionary"><a class="anchor" href="#implementation-of-the-commanddictionary"></a><a class="link" href="#implementation-of-the-commanddictionary">4.1.1. Implementation of the CommandDictionary</a></h4>
 <div class="paragraph">
 <p>The following <em>Class Diagram</em> shows how a <code>CommandDictionary</code> stores all the
 details of every <code>Command</code> in TA-Tracker.</p>
@@ -944,7 +944,7 @@ details of every <code>Command</code> in TA-Tracker.</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="implementation-of-the-code-prefixdictionary-code"><a class="anchor" href="#implementation-of-the-code-prefixdictionary-code"></a><a class="link" href="#implementation-of-the-code-prefixdictionary-code">4.1.2. Implementation of the <code>PrefixDictionary</code></a></h4>
+<h4 id="implementation-of-the-prefixdictionary"><a class="anchor" href="#implementation-of-the-prefixdictionary"></a><a class="link" href="#implementation-of-the-prefixdictionary">4.1.2. Implementation of the PrefixDictionary</a></h4>
 <div class="paragraph">
 <p>The following <em>Class Diagram</em> shows how a <code>PrefixDictionary</code> stores all the
 details of every <code>Prefix</code> in TA-Tracker.</p>
@@ -2305,14 +2305,13 @@ There should be a <em>rake symbol</em> next to the <strong>bolded</strong> activ
 <p><code>[empty input]</code></p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="paragraph">
-<p>When there is no input,
-the <code>ResultDisplay</code> will not show anything.</p>
+<p>When there is no input, no action occurs.</p>
 </div></div></td>
 <td class="tableblock halign-left valign-top"><div><div class="imageblock">
 <div class="content">
 <img src="images/syntax-highlighting/empty-input.png" alt="empty input">
 </div>
-<div class="title">Figure 41. An empty <code>ResultDisplay</code></div>
+<div class="title">Figure 41. An empty <code>CommandBox</code></div>
 </div>
 <div class="paragraph">
 <p><br></p>
@@ -3758,18 +3757,18 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Fatin and Gabriel)</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>3a. The input required (for example, Matric Number) to add a student is invalid.</p>
+<p>3a. User provides invalid student details (for example, an invalid matric number).</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
-<p>Use case resumes at step 1.</p>
+<p>Use case resumes at step 3.</p>
 </div>
 </li>
 </ul>
@@ -3794,6 +3793,19 @@ the list of existing groups in the <strong>Student View</strong>.</p>
 <ul class="none">
 <li>
 <p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d. A student with the same matric number already exists inside the group.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -3828,7 +3840,7 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Fatin and Gabriel)</p>
 </div>
 <div class="ulist none">
 <ul class="none">
@@ -3839,7 +3851,7 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </div>
 </li>
 <li>
-<p>3a. The given matric number is invalid.</p>
+<p>3a. User provides an invalid matric number.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
@@ -3852,11 +3864,50 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </div>
 </li>
 <li>
-<p>3a. The given new input for the parameter(s) are invalid.</p>
+<p>3b. User edits the student with invalid details (for example, an invalid phone number).</p>
 <div class="ulist none">
 <ul class="none">
 <li>
-<p>3a1. TA-Tracker shows an error message.</p>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The given module doesn&#8217;t exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3e. The given student doesn&#8217;t exist in the group.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3e1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -3891,7 +3942,7 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </ol>
 </div>
 <div class="paragraph">
-<p><strong>Extensions</strong></p>
+<p><strong>Extensions</strong> (Contributed by Fatin and Gabriel)</p>
 </div>
 <div class="ulist none">
 <ul class="none">
@@ -3902,11 +3953,50 @@ the list of existing students in the <strong>Student View</strong>.</p>
 </div>
 </li>
 <li>
-<p>3a. The given matric number is invalid.</p>
+<p>3a. User provides an invalid matric number.</p>
 <div class="ulist none">
 <ul class="none">
 <li>
 <p>3a1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3b. The given module doesn&#8217;t exist.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3b1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3c. The given group doesn&#8217;t exist in the module.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3c1. TA-Tracker shows an error message.</p>
+<div class="paragraph">
+<p>Use case resumes at step 3.</p>
+</div>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>3d. The given student doesn&#8217;t exist in the group.</p>
+<div class="ulist none">
+<ul class="none">
+<li>
+<p>3d1. TA-Tracker shows an error message.</p>
 <div class="paragraph">
 <p>Use case resumes at step 3.</p>
 </div>
@@ -4879,28 +4969,29 @@ A group with group code <code>G06</code> of type <code>lab</code> will be added 
 <li>
 <p>Test Case: <code>student add id/A0123456X g/G06 m/CS1101S n/Jane Doe</code><br>
 Expected: A student named <code>Jane Doe</code> with matriculation number <code>A0123456X</code> is added
-to the group <code>G06</code> of the module <code>CS1101S</code> with a default rating of 3.</p>
+to the group <code>G06</code> of the module <code>CS1101S</code> with a default rating of <code>3</code>.</p>
 </li>
 <li>
 <p>Test Case: <code>student add id/A0123457X g/G06 m/CS1101S n/John Doe r/5</code><br>
 Expected: A student named <code>John Doe</code> with matriculation number <code>A0123457X</code> is added
-to the group <code>G06</code> of the module <code>CS1101S</code> with a rating of 5.</p>
+to the group <code>G06</code> of the module <code>CS1101S</code> with a rating of <code>5</code>.</p>
 </li>
 </ol>
 </div>
 </li>
 </ol>
 </div>
-<h3 id="editing-a-student" class="discrete">Editing a student</h3>
+<h3 id="editing-a-module-s-name" class="discrete">Editing a module&#8217;s name</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Editing a student in a group.</p>
+<p>Edits the name of a module.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>student edit g/G06 m/CS1101S id/A0123456X r/4</code><br>
-Expected: Changes the rating of the student with matric number <code>A123456X</code> to 4.</p>
+<p>Test Case: <code>module edit m/CS1101S n/New Name</code>
+Expected: The name of the module with module code <code>CS1101S</code> will change to <code>New Name</code>
+but the groups and students inside it will remain intact.</p>
 </li>
 </ol>
 </div>
@@ -4925,17 +5016,74 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </li>
 </ol>
 </div>
-<h3 id="editing-a-module-s-name" class="discrete">Editing a module&#8217;s name</h3>
+<h3 id="editing-a-student" class="discrete">Editing a student</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Edits the name of a module.</p>
+<p>Editing a student in a group.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>module edit m/CS1101S n/New Name</code>
-Expected: The name of the module with module code <code>CS1101S</code> will change to <code>New Name</code>
-but the groups and students inside it will remain intact.</p>
+<p>Test Case: <code>student edit g/G06 m/CS1101S id/A0123456X r/4</code><br>
+Expected: Changes the rating of the student with matric number <code>A123456X</code> to <code>4</code>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="deleting-a-module" class="discrete">Deleting a module</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a module.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>module delete m/CS1101S</code><br>
+Expected: Assuming you already had a module with module code m/CS1101S in your TA-Tracker,
+this would delete the module with module code m/CS1101S. This would also delete all
+groups, students and sessions related to this module.</p>
+</li>
+<li>
+<p>Test Case: <code>module delete m/CS1101S</code><br>
+Expected: Assuming you already deleted the module with module code m/CS1101S from your TA-Tracker,
+this would show you an error message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="deleting-a-group" class="discrete">Deleting a group</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a group from a module.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>group delete g/G06 m/CS1101S</code><br>
+Expected: The group with group code <code>G06`</code> will be deleted from the module
+<code>CS1101S</code>. The students inside the group will be deleted. If you were on a different
+tab, you are automatically switched to <strong>Student View</strong>.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="deleting-a-student" class="discrete">Deleting a student</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a student from a group</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>student delete g/G06 m/CS1101S id/A0123456X</code><br>
+Expected: Deletes the student with matric number <code>A123456X</code> from the group <code>G06</code>
+of the module <code>m/CS1101S</code>.</p>
 </li>
 </ol>
 </div>
@@ -5021,41 +5169,6 @@ You will see the students in the group at index 1 of the group list of  the modu
 Expected: Sorts all the students in all the groups of all modules alphabetically.
 You will see the students in the group at index 1 of the group list of the module
 at index 1 of the module list.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<h3 id="deleting-a-student" class="discrete">Deleting a student</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a student from a group</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test Case: <code>student delete g/G06 m/CS1101S id/A0123456X</code><br>
-Expected: Deletes the student with matric number <code>A123456X</code> from the group <code>G06</code>
-of the module <code>m/CS1101S</code>.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
-<h3 id="deleting-a-group" class="discrete">Deleting a group</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a group from a module.</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test Case: <code>group delete g/G06 m/CS1101S</code><br>
-Expected: The group with group code <code>G06`</code> will be deleted from the module
-<code>CS1101S</code>. The students inside the group will be deleted. If you were on a different
-tab, you are automatically switched to <strong>Student View</strong>.</p>
 </li>
 </ol>
 </div>
@@ -5160,7 +5273,7 @@ and <strong>module code</strong> <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
-<h3 id="filtering-claims" class="discrete">Filtering Claims</h3>
+<h3 id="filtering-claims" class="discrete">Filtering claims</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5210,7 +5323,7 @@ changed accordingly.</p>
 </li>
 </ol>
 </div>
-<h3 id="viewing-statistics" class="discrete">Viewing Statistics</h3>
+<h3 id="viewing-statistics" class="discrete">Viewing statistics</h3>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
@@ -5230,23 +5343,70 @@ Expected: Displays the statistics report of the module <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
-<h3 id="deleting-a-module" class="discrete">Deleting a module</h3>
+<h3 id="applying-syntax-highlighting-on-the-user-input" class="discrete">Applying syntax highlighting on the user input</h3>
+<div class="paragraph">
+<p>(Contributed by Gabriel)</p>
+</div>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>Deleting a module.</p>
+<p>Highlighting the <code>full command word</code>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>module delete m/CS1101S</code><br>
-Expected: Assuming you already had a module with module code m/CS1101S in your TA-Tracker,
-this would delete the module with module code m/CS1101S. This would also delete all
-groups, students and sessions related to this module.</p>
+<p>Test Case: <code>module delete</code><br>
+Expected: The input is highlighted in green, and the <em>command usage</em> is displayed.</p>
 </li>
 <li>
-<p>Test Case: <code>module delete m/CS1101S</code><br>
-Expected: Assuming you already deleted the module with module code m/CS1101S from your TA-Tracker,
-this would show you an error message.</p>
+<p>Test Case: <code>module d</code><br>
+Expected: The input is highlighted in red, and an <em>unknown command message</em> is displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Showing the command usage after every two whitespaces.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: `module delete m/CS3243  `<br>
+Expected: The input is not highlighted, and the <em>command usage</em> is displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Showing the usage of each <code>argument</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>student add id/A1234J</code><br>
+Expected: The input is highlighted in red, and the <em>constraint for matric numbers</em> is displayed.</p>
+</li>
+<li>
+<p>Test Case: <code>student add id/A1234567J</code><br>
+Expected: The input is highlighted in green, and the <em>constraint for matric numbers</em> is displayed.</p>
+</li>
+<li>
+<p>Test Case: <code>student add id/A123J m/CS3243 id/A1234567J</code><br>
+Expected: The input is highlighted in red, and the <em>constraint for matric numbers</em> is displayed.
+This is because the syntax highlighting detects invalid parameters in the user input, even though
+the command can be executed.</p>
+</li>
+<li>
+<p>Test Case: <code>student add w/5</code><br>
+Expected: The input is highlighted in red, and the <em>command usage</em> is displayed.</p>
+</li>
+</ol>
+</div>
+</li>
+<li>
+<p>Showing the usage of <code>preambles</code>.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>session edit m/CS3243</code><br>
+Expected: The input is highlighted in red, and the <em>constraint for index numbers</em> is displayed.</p>
 </li>
 </ol>
 </div>
@@ -5329,4 +5489,4 @@ every pull request that we make with thorough peer reviews from at least one oth
 paid off as we managed to maintain a <strong>Codacy rating of A</strong> throughout the project.</p>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 07:16:33 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:39:27 UTC</div></div></div></body></html>

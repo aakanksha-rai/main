@@ -2444,7 +2444,7 @@ the list of existing claims in the <strong>Claims View</strong>.</p>
 <h2 id="instructions-for-manual-testing"><a class="link" href="#instructions-for-manual-testing">Appendix C: Instructions for Manual Testing</a></h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>(Contributed by Aakanksha)</p>
+<p>(Contributed by Aakanksha and Fatin)</p>
 </div>
 <div class="paragraph">
 <p>Given below are instructions to test the app manually. These instructions will help you
@@ -2602,7 +2602,7 @@ Expected: A group with group code <code>G06</code> of type <code>lab</code> will
 automatically switched to <strong>Student View</strong>.</p>
 </li>
 <li>
-<p>Test Case: <code>group add g/G06 m/CS1101S t/lab`</code><br>
+<p>Test Case: <code>group add g/G06 m/CS1101S t/lab</code><br>
 Expected: You will see an error message that this group already exists in the module. (Assuming you
 added a group with group code G06 to the module CS1101S)</p>
 </li>
@@ -2714,15 +2714,32 @@ Expected: Changes the rating of the student with matric number <code>A123456X</c
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>module delete m/CS1101S</code><br>
-Expected: Assuming you already had a module with module code m/CS1101S in your TA-Tracker,
-this would delete the module with module code m/CS1101S. This would also delete all
+<p>Test Case: <code>module delete m/CS3243</code><br>
+Expected: Assuming you already had a module with module code m/CS3243 in your TA-Tracker,
+this would delete the module with module code m/CS3243. This would also delete all
 groups, students and sessions related to this module.</p>
 </li>
 <li>
-<p>Test Case: <code>module delete m/CS1101S</code><br>
-Expected: Assuming you already deleted the module with module code m/CS1101S from your TA-Tracker,
+<p>Test Case: <code>module delete m/CS3243</code><br>
+Expected: Assuming you already deleted the module with module code m/CS3243 from your TA-Tracker,
 this would show you an error message.</p>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+<h3 id="deleting-a-student" class="discrete">Deleting a student</h3>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Deleting a student from a group</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Test Case: <code>student delete g/G06 m/CS1101S id/A0123456X</code><br>
+Expected: Deletes the student with matric number <code>A123456X</code> from the group <code>G06</code>
+of the module <code>m/CS1101S</code>.</p>
 </li>
 </ol>
 </div>
@@ -2747,23 +2764,6 @@ tab, you are automatically switched to <strong>Student View</strong>.</p>
 </li>
 </ol>
 </div>
-<h3 id="deleting-a-student" class="discrete">Deleting a student</h3>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Deleting a student from a group</p>
-<div class="olist loweralpha">
-<ol class="loweralpha" type="a">
-<li>
-<p>Test Case: <code>student delete g/G06 m/CS1101S id/A0123456X</code><br>
-Expected: Deletes the student with matric number <code>A123456X</code> from the group <code>G06</code>
-of the module <code>m/CS1101S</code>.</p>
-</li>
-</ol>
-</div>
-</li>
-</ol>
-</div>
 <h3 id="viewing-a-specific-module" class="discrete">Viewing a specific module</h3>
 <div class="olist arabic">
 <ol class="arabic">
@@ -2772,7 +2772,7 @@ of the module <code>m/CS1101S</code>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>student filter m/CS1101S</code>
+<p>Test Case: <code>student filter m/CS2103T</code>
 Expected: You can now view the groups of the module <code>CS1101S</code>. You will see the students
 of the group at index 1 of the module&#8217;s group list.</p>
 </li>
@@ -2789,7 +2789,7 @@ of the group at index 1 of the module&#8217;s group list.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>student filter g/G06 m/CS1101S</code>
+<p>Test Case: <code>student filter g/G03 m/CS2103T</code>
 Expected: You can now view the groups of the module <code>CS1101S</code>. You will see the students
 of the group <code>G06</code>.</p>
 </li>
@@ -2806,7 +2806,7 @@ of the group <code>G06</code>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>sort group g/G06 m/CS1101S t/alpha</code><br>
+<p>Test Case: <code>sort group g/G03 m/CS2103T t/alpha</code><br>
 Expected: Sorts all the students in the group <code>G06</code> of the module <code>CS1101S</code> alphabetically.</p>
 </li>
 </ol>
@@ -2822,7 +2822,7 @@ Expected: Sorts all the students in the group <code>G06</code> of the module <co
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>sort module g/G06 m/CS1101S t/alpha</code><br>
+<p>Test Case: <code>sort module m/CS2103T t/alpha</code><br>
 Expected: Sorts all the students in all the groups of the module <code>CS1101S</code> alphabetically.
 You will see the students in the group at index 1 of the group list of  the module <code>CS1101S</code>.</p>
 </li>
@@ -2858,7 +2858,7 @@ at index 1 of the module list.</p>
 <ol class="loweralpha" type="a">
 <li>
 <p>Test Case: <code>session add m/CS2103T s/14:00 e/16:00 d/2020-06-20 w/2
-t/consultation n/with Alice and Bob</code><br>
+ t/consultation n/with Alice and Bob</code><br>
 Expected: A session starting at <code>14:00</code> and ending at <code>16:00</code> on <code>2020-06-20</code>
 recurring every two weeks will be added to the sessions list. It will be associated
 with the module <code>CS1101S</code> and be a <code>consultation</code> with Alice and Bob.</p>
@@ -2934,13 +2934,13 @@ Expected: Shows all sessions associated with the <strong>module</strong> <code>C
 Expected: Shows all sessions that are of <strong>type</strong> <code>tutorial</code>.</p>
 </li>
 <li>
-<p>Test Case: <code>session filter d/2020-03-20</code><br>
+<p>Test Case: <code>session filter d/2020-06-26</code><br>
 Expected: Shows all sessions on the <strong>date</strong> <code>2020-03-20</code>.</p>
 </li>
 <li>
 <p>Test Case: <code>session filter d/2020-03-20 t/tutorial m/CS1101S</code><br>
 Expected: Shows all sessions that contains <strong>date</strong> <code>2020-03-20</code>, <strong>session type</strong> <code>tutorial</code>
-and <strong>module code</strong> <code>CS1101S</code>.</p>
+<em>or</em> <strong>module code</strong> <code>CS1101S</code>.</p>
 </li>
 </ol>
 </div>
@@ -2955,7 +2955,7 @@ and <strong>module code</strong> <code>CS1101S</code>.</p>
 <div class="olist loweralpha">
 <ol class="loweralpha" type="a">
 <li>
-<p>Test Case: <code>claims filter m/CS1101S</code><br>
+<p>Test Case: <code>claims filter m/CS3243</code><br>
 Expected: Shows all sessions that have been marked as done
 (aka claims) associated with the module <code>CS1101S</code>.</p>
 </li>
@@ -3104,4 +3104,4 @@ Expected: Exits the program.</p>
 </ol>
 </div>
 </div>
-</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 09:44:19 UTC</div></div></div></body></html>
+</div></div><div id="footer"><div class="container"><div id="footer-text">Last updated 2020-04-13 10:49:40 UTC</div></div></div></body></html>

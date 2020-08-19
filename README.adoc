@@ -18,7 +18,8 @@ endif::[]
 TA-Tracker
 is a productivity tool made for *NUS School of Computing (SoC) Teaching Assistants (TAs)*
 who want to be able to track and manage their *students* and *claimable
-hours* in one place.
+hours* in one place. It was made as a part of the module CS2103T at NUS that exposes students
+to the SDLC for the first time.
 
 Teaching Assistants at SoC have to keep a track of:
 
